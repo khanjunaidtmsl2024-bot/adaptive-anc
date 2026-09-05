@@ -1,0 +1,561 @@
+clip_id,speaker_id,gender,pitch_hz,speech_type,noise_id,noise_family,noise_description,snr_db,sample_rate,duration_s,n_samples,provenance
+BM_0001,SPK_M01,male,100.0,continuous,stat_white,stationary,Broadband white Gaussian noise,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0002,SPK_M01,male,100.0,continuous,stat_white,stationary,Broadband white Gaussian noise,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0003,SPK_M01,male,100.0,continuous,stat_white,stationary,Broadband white Gaussian noise,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0004,SPK_M01,male,100.0,continuous,stat_white,stationary,Broadband white Gaussian noise,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0005,SPK_M01,male,100.0,continuous,stat_white,stationary,Broadband white Gaussian noise,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0006,SPK_M01,male,100.0,continuous,stat_white,stationary,Broadband white Gaussian noise,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0007,SPK_M01,male,100.0,continuous,stat_white,stationary,Broadband white Gaussian noise,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0008,SPK_M01,male,100.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0009,SPK_M01,male,100.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0010,SPK_M01,male,100.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0011,SPK_M01,male,100.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0012,SPK_M01,male,100.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0013,SPK_M01,male,100.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0014,SPK_M01,male,100.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0015,SPK_M01,male,100.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0016,SPK_M01,male,100.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0017,SPK_M01,male,100.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0018,SPK_M01,male,100.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0019,SPK_M01,male,100.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0020,SPK_M01,male,100.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0021,SPK_M01,male,100.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0022,SPK_M01,male,100.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0023,SPK_M01,male,100.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0024,SPK_M01,male,100.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0025,SPK_M01,male,100.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0026,SPK_M01,male,100.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0027,SPK_M01,male,100.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0028,SPK_M01,male,100.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0029,SPK_M01,male,100.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0030,SPK_M01,male,100.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0031,SPK_M01,male,100.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0032,SPK_M01,male,100.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0033,SPK_M01,male,100.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0034,SPK_M01,male,100.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0035,SPK_M01,male,100.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0036,SPK_M01,male,100.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0037,SPK_M01,male,100.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0038,SPK_M01,male,100.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0039,SPK_M01,male,100.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0040,SPK_M01,male,100.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0041,SPK_M01,male,100.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0042,SPK_M01,male,100.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0043,SPK_M01,male,100.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0044,SPK_M01,male,100.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0045,SPK_M01,male,100.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0046,SPK_M01,male,100.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0047,SPK_M01,male,100.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0048,SPK_M01,male,100.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0049,SPK_M01,male,100.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0050,SPK_M01,male,100.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0051,SPK_M01,male,100.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0052,SPK_M01,male,100.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0053,SPK_M01,male,100.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0054,SPK_M01,male,100.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0055,SPK_M01,male,100.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0056,SPK_M01,male,100.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0057,SPK_M02,male,120.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0058,SPK_M02,male,120.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0059,SPK_M02,male,120.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0060,SPK_M02,male,120.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0061,SPK_M02,male,120.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0062,SPK_M02,male,120.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0063,SPK_M02,male,120.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0064,SPK_M02,male,120.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0065,SPK_M02,male,120.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0066,SPK_M02,male,120.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0067,SPK_M02,male,120.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0068,SPK_M02,male,120.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0069,SPK_M02,male,120.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0070,SPK_M02,male,120.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0071,SPK_M02,male,120.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0072,SPK_M02,male,120.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0073,SPK_M02,male,120.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0074,SPK_M02,male,120.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0075,SPK_M02,male,120.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0076,SPK_M02,male,120.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0077,SPK_M02,male,120.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0078,SPK_M02,male,120.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0079,SPK_M02,male,120.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0080,SPK_M02,male,120.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0081,SPK_M02,male,120.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0082,SPK_M02,male,120.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0083,SPK_M02,male,120.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0084,SPK_M02,male,120.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0085,SPK_M02,male,120.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0086,SPK_M02,male,120.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0087,SPK_M02,male,120.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0088,SPK_M02,male,120.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0089,SPK_M02,male,120.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0090,SPK_M02,male,120.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0091,SPK_M02,male,120.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0092,SPK_M02,male,120.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0093,SPK_M02,male,120.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0094,SPK_M02,male,120.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0095,SPK_M02,male,120.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0096,SPK_M02,male,120.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0097,SPK_M02,male,120.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0098,SPK_M02,male,120.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0099,SPK_M02,male,120.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0100,SPK_M02,male,120.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0101,SPK_M02,male,120.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0102,SPK_M02,male,120.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0103,SPK_M02,male,120.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0104,SPK_M02,male,120.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0105,SPK_M02,male,120.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0106,SPK_M02,male,120.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0107,SPK_M02,male,120.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0108,SPK_M02,male,120.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0109,SPK_M02,male,120.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0110,SPK_M02,male,120.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0111,SPK_M02,male,120.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0112,SPK_M02,male,120.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0113,SPK_M03,male,90.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0114,SPK_M03,male,90.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0115,SPK_M03,male,90.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0116,SPK_M03,male,90.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0117,SPK_M03,male,90.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0118,SPK_M03,male,90.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0119,SPK_M03,male,90.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0120,SPK_M03,male,90.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0121,SPK_M03,male,90.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0122,SPK_M03,male,90.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0123,SPK_M03,male,90.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0124,SPK_M03,male,90.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0125,SPK_M03,male,90.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0126,SPK_M03,male,90.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0127,SPK_M03,male,90.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0128,SPK_M03,male,90.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0129,SPK_M03,male,90.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0130,SPK_M03,male,90.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0131,SPK_M03,male,90.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0132,SPK_M03,male,90.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0133,SPK_M03,male,90.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0134,SPK_M03,male,90.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0135,SPK_M03,male,90.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0136,SPK_M03,male,90.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0137,SPK_M03,male,90.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0138,SPK_M03,male,90.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0139,SPK_M03,male,90.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0140,SPK_M03,male,90.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0141,SPK_M03,male,90.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0142,SPK_M03,male,90.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0143,SPK_M03,male,90.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0144,SPK_M03,male,90.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0145,SPK_M03,male,90.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0146,SPK_M03,male,90.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0147,SPK_M03,male,90.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0148,SPK_M03,male,90.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0149,SPK_M03,male,90.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0150,SPK_M03,male,90.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0151,SPK_M03,male,90.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0152,SPK_M03,male,90.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0153,SPK_M03,male,90.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0154,SPK_M03,male,90.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0155,SPK_M03,male,90.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0156,SPK_M03,male,90.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0157,SPK_M03,male,90.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0158,SPK_M03,male,90.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0159,SPK_M03,male,90.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0160,SPK_M03,male,90.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0161,SPK_M03,male,90.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0162,SPK_M03,male,90.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0163,SPK_M03,male,90.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0164,SPK_M03,male,90.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0165,SPK_M03,male,90.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0166,SPK_M03,male,90.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0167,SPK_M03,male,90.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0168,SPK_M03,male,90.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0169,SPK_M04,male,135.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0170,SPK_M04,male,135.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0171,SPK_M04,male,135.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0172,SPK_M04,male,135.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0173,SPK_M04,male,135.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0174,SPK_M04,male,135.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0175,SPK_M04,male,135.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0176,SPK_M04,male,135.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0177,SPK_M04,male,135.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0178,SPK_M04,male,135.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0179,SPK_M04,male,135.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0180,SPK_M04,male,135.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0181,SPK_M04,male,135.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0182,SPK_M04,male,135.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0183,SPK_M04,male,135.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0184,SPK_M04,male,135.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0185,SPK_M04,male,135.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0186,SPK_M04,male,135.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0187,SPK_M04,male,135.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0188,SPK_M04,male,135.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0189,SPK_M04,male,135.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0190,SPK_M04,male,135.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0191,SPK_M04,male,135.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0192,SPK_M04,male,135.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0193,SPK_M04,male,135.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0194,SPK_M04,male,135.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0195,SPK_M04,male,135.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0196,SPK_M04,male,135.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0197,SPK_M04,male,135.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0198,SPK_M04,male,135.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0199,SPK_M04,male,135.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0200,SPK_M04,male,135.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0201,SPK_M04,male,135.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0202,SPK_M04,male,135.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0203,SPK_M04,male,135.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0204,SPK_M04,male,135.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0205,SPK_M04,male,135.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0206,SPK_M04,male,135.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0207,SPK_M04,male,135.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0208,SPK_M04,male,135.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0209,SPK_M04,male,135.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0210,SPK_M04,male,135.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0211,SPK_M04,male,135.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0212,SPK_M04,male,135.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0213,SPK_M04,male,135.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0214,SPK_M04,male,135.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0215,SPK_M04,male,135.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0216,SPK_M04,male,135.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0217,SPK_M04,male,135.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0218,SPK_M04,male,135.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0219,SPK_M04,male,135.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0220,SPK_M04,male,135.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0221,SPK_M04,male,135.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0222,SPK_M04,male,135.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0223,SPK_M04,male,135.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0224,SPK_M04,male,135.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0225,SPK_M05,male,110.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0226,SPK_M05,male,110.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0227,SPK_M05,male,110.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0228,SPK_M05,male,110.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0229,SPK_M05,male,110.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0230,SPK_M05,male,110.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0231,SPK_M05,male,110.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0232,SPK_M05,male,110.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0233,SPK_M05,male,110.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0234,SPK_M05,male,110.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0235,SPK_M05,male,110.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0236,SPK_M05,male,110.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0237,SPK_M05,male,110.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0238,SPK_M05,male,110.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0239,SPK_M05,male,110.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0240,SPK_M05,male,110.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0241,SPK_M05,male,110.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0242,SPK_M05,male,110.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0243,SPK_M05,male,110.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0244,SPK_M05,male,110.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0245,SPK_M05,male,110.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0246,SPK_M05,male,110.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0247,SPK_M05,male,110.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0248,SPK_M05,male,110.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0249,SPK_M05,male,110.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0250,SPK_M05,male,110.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0251,SPK_M05,male,110.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0252,SPK_M05,male,110.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0253,SPK_M05,male,110.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0254,SPK_M05,male,110.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0255,SPK_M05,male,110.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0256,SPK_M05,male,110.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0257,SPK_M05,male,110.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0258,SPK_M05,male,110.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0259,SPK_M05,male,110.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0260,SPK_M05,male,110.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0261,SPK_M05,male,110.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0262,SPK_M05,male,110.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0263,SPK_M05,male,110.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0264,SPK_M05,male,110.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0265,SPK_M05,male,110.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0266,SPK_M05,male,110.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0267,SPK_M05,male,110.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0268,SPK_M05,male,110.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0269,SPK_M05,male,110.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0270,SPK_M05,male,110.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0271,SPK_M05,male,110.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0272,SPK_M05,male,110.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0273,SPK_M05,male,110.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0274,SPK_M05,male,110.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0275,SPK_M05,male,110.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0276,SPK_M05,male,110.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0277,SPK_M05,male,110.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0278,SPK_M05,male,110.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0279,SPK_M05,male,110.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0280,SPK_M05,male,110.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0281,SPK_F01,female,210.0,continuous,stat_white,stationary,Broadband white Gaussian noise,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0282,SPK_F01,female,210.0,continuous,stat_white,stationary,Broadband white Gaussian noise,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0283,SPK_F01,female,210.0,continuous,stat_white,stationary,Broadband white Gaussian noise,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0284,SPK_F01,female,210.0,continuous,stat_white,stationary,Broadband white Gaussian noise,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0285,SPK_F01,female,210.0,continuous,stat_white,stationary,Broadband white Gaussian noise,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0286,SPK_F01,female,210.0,continuous,stat_white,stationary,Broadband white Gaussian noise,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0287,SPK_F01,female,210.0,continuous,stat_white,stationary,Broadband white Gaussian noise,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0288,SPK_F01,female,210.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0289,SPK_F01,female,210.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0290,SPK_F01,female,210.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0291,SPK_F01,female,210.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0292,SPK_F01,female,210.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0293,SPK_F01,female,210.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0294,SPK_F01,female,210.0,continuous,stat_pink,stationary,1/f Pink noise (cockpit background),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0295,SPK_F01,female,210.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0296,SPK_F01,female,210.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0297,SPK_F01,female,210.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0298,SPK_F01,female,210.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0299,SPK_F01,female,210.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0300,SPK_F01,female,210.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0301,SPK_F01,female,210.0,continuous,stat_brown,stationary,1/f^2 Brownian low-frequency drone,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0302,SPK_F01,female,210.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0303,SPK_F01,female,210.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0304,SPK_F01,female,210.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0305,SPK_F01,female,210.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0306,SPK_F01,female,210.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0307,SPK_F01,female,210.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0308,SPK_F01,female,210.0,continuous,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0309,SPK_F01,female,210.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0310,SPK_F01,female,210.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0311,SPK_F01,female,210.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0312,SPK_F01,female,210.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0313,SPK_F01,female,210.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0314,SPK_F01,female,210.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0315,SPK_F01,female,210.0,continuous,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0316,SPK_F01,female,210.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0317,SPK_F01,female,210.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0318,SPK_F01,female,210.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0319,SPK_F01,female,210.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0320,SPK_F01,female,210.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0321,SPK_F01,female,210.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0322,SPK_F01,female,210.0,continuous,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0323,SPK_F01,female,210.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0324,SPK_F01,female,210.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0325,SPK_F01,female,210.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0326,SPK_F01,female,210.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0327,SPK_F01,female,210.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0328,SPK_F01,female,210.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0329,SPK_F01,female,210.0,continuous,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0330,SPK_F01,female,210.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0331,SPK_F01,female,210.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0332,SPK_F01,female,210.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0333,SPK_F01,female,210.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0334,SPK_F01,female,210.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0335,SPK_F01,female,210.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0336,SPK_F01,female,210.0,continuous,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0337,SPK_F02,female,185.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0338,SPK_F02,female,185.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0339,SPK_F02,female,185.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0340,SPK_F02,female,185.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0341,SPK_F02,female,185.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0342,SPK_F02,female,185.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0343,SPK_F02,female,185.0,plosive_rich,stat_white,stationary,Broadband white Gaussian noise,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0344,SPK_F02,female,185.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0345,SPK_F02,female,185.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0346,SPK_F02,female,185.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0347,SPK_F02,female,185.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0348,SPK_F02,female,185.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0349,SPK_F02,female,185.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0350,SPK_F02,female,185.0,plosive_rich,stat_pink,stationary,1/f Pink noise (cockpit background),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0351,SPK_F02,female,185.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0352,SPK_F02,female,185.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0353,SPK_F02,female,185.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0354,SPK_F02,female,185.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0355,SPK_F02,female,185.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0356,SPK_F02,female,185.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0357,SPK_F02,female,185.0,plosive_rich,stat_brown,stationary,1/f^2 Brownian low-frequency drone,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0358,SPK_F02,female,185.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0359,SPK_F02,female,185.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0360,SPK_F02,female,185.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0361,SPK_F02,female,185.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0362,SPK_F02,female,185.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0363,SPK_F02,female,185.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0364,SPK_F02,female,185.0,plosive_rich,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0365,SPK_F02,female,185.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0366,SPK_F02,female,185.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0367,SPK_F02,female,185.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0368,SPK_F02,female,185.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0369,SPK_F02,female,185.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0370,SPK_F02,female,185.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0371,SPK_F02,female,185.0,plosive_rich,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0372,SPK_F02,female,185.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0373,SPK_F02,female,185.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0374,SPK_F02,female,185.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0375,SPK_F02,female,185.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0376,SPK_F02,female,185.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0377,SPK_F02,female,185.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0378,SPK_F02,female,185.0,plosive_rich,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0379,SPK_F02,female,185.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0380,SPK_F02,female,185.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0381,SPK_F02,female,185.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0382,SPK_F02,female,185.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0383,SPK_F02,female,185.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0384,SPK_F02,female,185.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0385,SPK_F02,female,185.0,plosive_rich,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0386,SPK_F02,female,185.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0387,SPK_F02,female,185.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0388,SPK_F02,female,185.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0389,SPK_F02,female,185.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0390,SPK_F02,female,185.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0391,SPK_F02,female,185.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0392,SPK_F02,female,185.0,plosive_rich,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0393,SPK_F03,female,240.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0394,SPK_F03,female,240.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0395,SPK_F03,female,240.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0396,SPK_F03,female,240.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0397,SPK_F03,female,240.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0398,SPK_F03,female,240.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0399,SPK_F03,female,240.0,fast_fricatives,stat_white,stationary,Broadband white Gaussian noise,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0400,SPK_F03,female,240.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0401,SPK_F03,female,240.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0402,SPK_F03,female,240.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0403,SPK_F03,female,240.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0404,SPK_F03,female,240.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0405,SPK_F03,female,240.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0406,SPK_F03,female,240.0,fast_fricatives,stat_pink,stationary,1/f Pink noise (cockpit background),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0407,SPK_F03,female,240.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0408,SPK_F03,female,240.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0409,SPK_F03,female,240.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0410,SPK_F03,female,240.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0411,SPK_F03,female,240.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0412,SPK_F03,female,240.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0413,SPK_F03,female,240.0,fast_fricatives,stat_brown,stationary,1/f^2 Brownian low-frequency drone,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0414,SPK_F03,female,240.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0415,SPK_F03,female,240.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0416,SPK_F03,female,240.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0417,SPK_F03,female,240.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0418,SPK_F03,female,240.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0419,SPK_F03,female,240.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0420,SPK_F03,female,240.0,fast_fricatives,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0421,SPK_F03,female,240.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0422,SPK_F03,female,240.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0423,SPK_F03,female,240.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0424,SPK_F03,female,240.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0425,SPK_F03,female,240.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0426,SPK_F03,female,240.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0427,SPK_F03,female,240.0,fast_fricatives,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0428,SPK_F03,female,240.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0429,SPK_F03,female,240.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0430,SPK_F03,female,240.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0431,SPK_F03,female,240.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0432,SPK_F03,female,240.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0433,SPK_F03,female,240.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0434,SPK_F03,female,240.0,fast_fricatives,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0435,SPK_F03,female,240.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0436,SPK_F03,female,240.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0437,SPK_F03,female,240.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0438,SPK_F03,female,240.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0439,SPK_F03,female,240.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0440,SPK_F03,female,240.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0441,SPK_F03,female,240.0,fast_fricatives,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0442,SPK_F03,female,240.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0443,SPK_F03,female,240.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0444,SPK_F03,female,240.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0445,SPK_F03,female,240.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0446,SPK_F03,female,240.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0447,SPK_F03,female,240.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0448,SPK_F03,female,240.0,fast_fricatives,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0449,SPK_F04,female,195.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0450,SPK_F04,female,195.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0451,SPK_F04,female,195.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0452,SPK_F04,female,195.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0453,SPK_F04,female,195.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0454,SPK_F04,female,195.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0455,SPK_F04,female,195.0,quiet_speech,stat_white,stationary,Broadband white Gaussian noise,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0456,SPK_F04,female,195.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0457,SPK_F04,female,195.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0458,SPK_F04,female,195.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0459,SPK_F04,female,195.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0460,SPK_F04,female,195.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0461,SPK_F04,female,195.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0462,SPK_F04,female,195.0,quiet_speech,stat_pink,stationary,1/f Pink noise (cockpit background),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0463,SPK_F04,female,195.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0464,SPK_F04,female,195.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0465,SPK_F04,female,195.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0466,SPK_F04,female,195.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0467,SPK_F04,female,195.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0468,SPK_F04,female,195.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0469,SPK_F04,female,195.0,quiet_speech,stat_brown,stationary,1/f^2 Brownian low-frequency drone,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0470,SPK_F04,female,195.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0471,SPK_F04,female,195.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0472,SPK_F04,female,195.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0473,SPK_F04,female,195.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0474,SPK_F04,female,195.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0475,SPK_F04,female,195.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0476,SPK_F04,female,195.0,quiet_speech,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0477,SPK_F04,female,195.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0478,SPK_F04,female,195.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0479,SPK_F04,female,195.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0480,SPK_F04,female,195.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0481,SPK_F04,female,195.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0482,SPK_F04,female,195.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0483,SPK_F04,female,195.0,quiet_speech,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0484,SPK_F04,female,195.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0485,SPK_F04,female,195.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0486,SPK_F04,female,195.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0487,SPK_F04,female,195.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0488,SPK_F04,female,195.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0489,SPK_F04,female,195.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0490,SPK_F04,female,195.0,quiet_speech,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0491,SPK_F04,female,195.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0492,SPK_F04,female,195.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0493,SPK_F04,female,195.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0494,SPK_F04,female,195.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0495,SPK_F04,female,195.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0496,SPK_F04,female,195.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0497,SPK_F04,female,195.0,quiet_speech,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0498,SPK_F04,female,195.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0499,SPK_F04,female,195.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0500,SPK_F04,female,195.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0501,SPK_F04,female,195.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0502,SPK_F04,female,195.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0503,SPK_F04,female,195.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0504,SPK_F04,female,195.0,quiet_speech,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0505,SPK_F05,female,225.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0506,SPK_F05,female,225.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0507,SPK_F05,female,225.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0508,SPK_F05,female,225.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0509,SPK_F05,female,225.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0510,SPK_F05,female,225.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0511,SPK_F05,female,225.0,loud_cadence,stat_white,stationary,Broadband white Gaussian noise,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0512,SPK_F05,female,225.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0513,SPK_F05,female,225.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0514,SPK_F05,female,225.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0515,SPK_F05,female,225.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0516,SPK_F05,female,225.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0517,SPK_F05,female,225.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0518,SPK_F05,female,225.0,loud_cadence,stat_pink,stationary,1/f Pink noise (cockpit background),20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0519,SPK_F05,female,225.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0520,SPK_F05,female,225.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0521,SPK_F05,female,225.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0522,SPK_F05,female,225.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0523,SPK_F05,female,225.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0524,SPK_F05,female,225.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0525,SPK_F05,female,225.0,loud_cadence,stat_brown,stationary,1/f^2 Brownian low-frequency drone,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0526,SPK_F05,female,225.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0527,SPK_F05,female,225.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0528,SPK_F05,female,225.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0529,SPK_F05,female,225.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0530,SPK_F05,female,225.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0531,SPK_F05,female,225.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0532,SPK_F05,female,225.0,loud_cadence,stat_tonal_hum,stationary,50+120+240 Hz turbine / alternator hum,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0533,SPK_F05,female,225.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0534,SPK_F05,female,225.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0535,SPK_F05,female,225.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0536,SPK_F05,female,225.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0537,SPK_F05,female,225.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0538,SPK_F05,female,225.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0539,SPK_F05,female,225.0,loud_cadence,nonstat_engine_mod,non_stationary,Armored vehicle engine RPM modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0540,SPK_F05,female,225.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0541,SPK_F05,female,225.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0542,SPK_F05,female,225.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0543,SPK_F05,female,225.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0544,SPK_F05,female,225.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0545,SPK_F05,female,225.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0546,SPK_F05,female,225.0,loud_cadence,nonstat_rotor_mod,non_stationary,Helicopter blade-pass amplitude modulation,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0547,SPK_F05,female,225.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0548,SPK_F05,female,225.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0549,SPK_F05,female,225.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0550,SPK_F05,female,225.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0551,SPK_F05,female,225.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0552,SPK_F05,female,225.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0553,SPK_F05,female,225.0,loud_cadence,nonstat_siren_sweep,non_stationary,Emergency / tactical siren Doppler sweep,20,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0554,SPK_F05,female,225.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0555,SPK_F05,female,225.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),-5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0556,SPK_F05,female,225.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),0,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0557,SPK_F05,female,225.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),5,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0558,SPK_F05,female,225.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),10,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0559,SPK_F05,female,225.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),15,16000,1.0,16000,synthetic_procedural_mathematical
+BM_0560,SPK_F05,female,225.0,loud_cadence,impulse_gunfire_burst,impulsive,Artillery / small arms gunfire bursts (+40 dB),20,16000,1.0,16000,synthetic_procedural_mathematical

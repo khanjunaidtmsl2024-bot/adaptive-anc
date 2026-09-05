@@ -1,0 +1,3 @@
+comparison,metric,mean_difference,ci_95_low,ci_95_high,t_statistic,p_value_ttest,wilcoxon_stat,p_value_wilcoxon,cohens_d,statistically_significant,effect_magnitude
+Hybrid (NLMS->AI) vs AI_Only,SI-SDR (dB),1.263,0.354,2.43,2.376,2.4321e-02,134.0,4.2652e-02,0.434,True,Small
+Hybrid (NLMS->AI) vs NLMS_Only,SI-SDR (dB),-1.124,-2.545,0.105,-1.584,1.2404e-01,219.0,7.9216e-01,-0.289,False,Small

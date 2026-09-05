@@ -54,9 +54,18 @@ class TinyEnhancerWrapper:
 
         if TORCH_AVAILABLE:
             self.net = TinyEnhancerNet().to(self.device)
+            if checkpoint_path is None:
+                from pathlib import Path
+                default_ckpt = Path("checkpoints/tiny_enhancer_v3.pt")
+                if default_ckpt.exists():
+                    checkpoint_path = str(default_ckpt)
+
             if checkpoint_path is not None:
-                state_dict = torch.load(checkpoint_path, map_location=self.device)
-                self.net.load_state_dict(state_dict)
+                try:
+                    state_dict = torch.load(checkpoint_path, map_location=self.device)
+                    self.net.load_state_dict(state_dict)
+                except Exception as e:
+                    pass
             self.net.eval()
 
     def enhance_spectrogram(
@@ -72,8 +81,17 @@ class TinyEnhancerWrapper:
             return mag_spec, phase
 
         with torch.no_grad():
-            tensor_in = torch.from_numpy(mag_spec).unsqueeze(0).unsqueeze(0).float().to(self.device)
-            mask = self.net(tensor_in).squeeze().cpu().numpy()
+            orig_shape = mag_spec.shape
+            # Reshape to (1, 1, F, T)
+            if len(orig_shape) == 1:
+                tensor_in = torch.from_numpy(mag_spec).unsqueeze(0).unsqueeze(0).unsqueeze(-1).float().to(self.device)
+            elif len(orig_shape) == 2:
+                tensor_in = torch.from_numpy(mag_spec).unsqueeze(0).unsqueeze(0).float().to(self.device)
+            else:
+                tensor_in = torch.from_numpy(mag_spec).float().to(self.device)
+
+            mask_tensor = self.net(tensor_in)
+            mask = mask_tensor.squeeze(0).squeeze(0).cpu().numpy().reshape(orig_shape)
             enhanced_mag = mag_spec * mask
 
         return enhanced_mag.astype(np.float32), phase

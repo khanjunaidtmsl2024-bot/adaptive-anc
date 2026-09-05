@@ -106,6 +106,10 @@ class CausalStreamingEngine:
         t_total_start = time.perf_counter()
         self.frame_count += 1
 
+        # Sanitize inputs: protect against NaNs, Infs, and extreme type drifts
+        primary_hop = np.nan_to_num(primary_hop, nan=0.0, posinf=1.0, neginf=-1.0).astype(np.float32)
+        reference_hop = np.nan_to_num(reference_hop, nan=0.0, posinf=1.0, neginf=-1.0).astype(np.float32)
+
         # Shift input buffers (FIFO)
         self.input_buf_primary[:-self.hop_size] = self.input_buf_primary[self.hop_size:]
         self.input_buf_primary[-self.hop_size:] = primary_hop
