@@ -26,20 +26,23 @@ class NLMSFilter:
         eps: float = 1e-6,
         leakage: float = 0.9999,
         max_weight: float = 5.0,
+        normalized: bool = True,
     ):
         """
         Args:
             filter_length: Number of FIR filter taps (M).
-            step_size: Normalized learning rate (mu in (0, 2)).
+            step_size: Learning rate (mu).
             eps: Regularization constant preventing division by zero.
             leakage: Leaky LMS factor (1.0 = standard, <1.0 = leaky).
             max_weight: Maximum allowable absolute value per filter weight.
+            normalized: If True, normalize by input power (NLMS); if False, standard LMS.
         """
         self.M = int(filter_length)
         self.mu = float(step_size)
         self.eps = float(eps)
         self.leakage = float(leakage)
         self.max_weight = float(max_weight)
+        self.normalized = bool(normalized)
 
         # Internal state
         self.weights = np.zeros(self.M, dtype=np.float32)
@@ -74,15 +77,31 @@ class NLMSFilter:
         # Power of reference buffer: ||X(n)||^2
         norm = float(np.dot(self.buffer, self.buffer)) + self.eps
 
-        # Normalized weight update with leakage:
-        # W(n+1) = leakage * W(n) + (mu / norm) * e(n) * X(n)
-        factor = (self.mu / norm) * e_n
+        # Weight update with leakage:
+        # If normalized (NLMS): W(n+1) = leakage * W(n) + (mu / norm) * e(n) * X(n)
+        # If unnormalized (LMS): W(n+1) = leakage * W(n) + mu * e(n) * X(n)
+        if self.normalized:
+            factor = (self.mu / norm) * e_n
+        else:
+            factor = self.mu * e_n
         self.weights = self.leakage * self.weights + factor * self.buffer
 
         # Prevent weight divergence / clamp weights
         np.clip(self.weights, -self.max_weight, self.max_weight, out=self.weights)
 
         return e_n, y_n
+
+    def update(self, x_n: float, d_n: float) -> float:
+        """
+        Convenience single-sample update method.
+        Args:
+            x_n: Reference noise sample.
+            d_n: Primary desired signal sample.
+        Returns:
+            e_n: Filter error / enhanced speech sample.
+        """
+        e_n, _ = self.adapt_sample(d_n=d_n, x_n=x_n)
+        return e_n
 
     def filter_block(
         self,
@@ -119,7 +138,10 @@ class NLMSFilter:
 
             if adapt:
                 norm = float(np.dot(self.buffer, self.buffer)) + self.eps
-                factor = (self.mu / norm) * e_i
+                if self.normalized:
+                    factor = (self.mu / norm) * e_i
+                else:
+                    factor = self.mu * e_i
                 self.weights = self.leakage * self.weights + factor * self.buffer
                 np.clip(self.weights, -self.max_weight, self.max_weight, out=self.weights)
 

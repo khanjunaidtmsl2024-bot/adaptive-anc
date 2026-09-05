@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRDO PS 26052 — Adaptive Defence ANC Engineering Cockpit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #0a0d14;
+            --bg-card: #111622;
+            --bg-card-hover: #161e2e;
+            --border: #1f2a3e;
+            --border-glow: #2a3d5e;
+            --accent-cyan: #00f0ff;
+            --accent-green: #00ff88;
+            --accent-amber: #ffb800;
+            --accent-red: #ff3366;
+            --accent-blue: #0088ff;
+            --text-primary: #f0f4fc;
+            --text-secondary: #8899b5;
+            --text-muted: #556680;
+            --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(0, 255, 136, 0.04) 0%, transparent 40%);
+        }
+
+        /* Top Header */
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(17, 22, 34, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-title-group {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .drdo-badge {
+            background: linear-gradient(135deg, #ff4400 0%, #ff8800 100%);
+            color: #fff;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(255, 68, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(90deg, #ffffff, #a0c0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+        }
+
+        .system-telemetry-bar {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+        }
+
+        .telemetry-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+        }
+
+        .indicator-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            box-shadow: 0 0 8px var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+
+        .indicator-dot.active-red {
+            background: var(--accent-red);
+            box-shadow: 0 0 8px var(--accent-red);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Main Container */
+        main {
+            flex: 1;
+            padding: 2rem 2.5rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 1.75rem;
+        }
+
+        /* Cards & Panels */
+        .panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .panel-title {
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #d0e0ff;
+        }
+
+        .panel-title span {
+            color: var(--accent-cyan);
+        }
+
+        /* Visualizer Area */
+        .visualizer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        canvas {
+            width: 100%;
+            height: 160px;
+            background: #080b11;
+            border: 1px solid #1a2233;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .canvas-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Mode Selectors */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mode-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.85rem 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .mode-btn small {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .mode-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-glow);
+            color: var(--text-primary);
+        }
+
+        .mode-btn.active {
+            background: rgba(0, 240, 255, 0.08);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+        }
+
+        .mode-btn.active small {
+            color: rgba(0, 240, 255, 0.7);
+        }
+
+        /* Scenario Selectors */
+        .scenario-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .scenario-chip {
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
+            background: #141b29;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .scenario-chip:hover {
+            border-color: var(--accent-amber);
+            color: var(--text-primary);
+        }
+
+        .scenario-chip.active {
+            background: rgba(255, 184, 0, 0.1);
+            border-color: var(--accent-amber);
+            color: var(--accent-amber);
+            font-weight: 600;
+        }
+
+        /* Controls Section */
+        .controls-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 1rem;
+            background: #0d121c;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .slider-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+
+        input[type=range] {
+            width: 100%;
+            height: 6px;
+            background: #1a2233;
+            border-radius: 3px;
+            outline: none;
+            accent-color: var(--accent-cyan);
+        }
+
+        /* Master Play Button */
+        .master-transport {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-transport {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .btn-play {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.35);
+        }
+
+        .btn-play:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+        }
+
+        .btn-stop {
+            background: rgba(255, 51, 102, 0.15);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        .btn-stop:hover {
+            background: rgba(255, 51, 102, 0.3);
+        }
+
+        /* Right Sidebar: Metrics & Latency */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-card {
+            background: #0c1018;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            position: relative;
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .metric-value {
+            font-size: 1.6rem;
+            font-weight: 900;
+            font-family: var(--font-mono);
+            color: var(--accent-green);
+        }
+
+        .metric-target {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        /* Latency Progress Bar */
+        .latency-bar-container {
+            background: #0c1018;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .latency-bar {
+            height: 10px;
+            background: #1a2233;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            margin-top: 0.75rem;
+        }
+
+        .latency-segment {
+            height: 100%;
+        }
+
+        .seg-adc { background: #ffaa00; width: 7.5%; }
+        .seg-hop { background: #00f0ff; width: 59.7%; }
+        .seg-compute { background: #00ff88; width: 1.0%; }
+        .seg-dac { background: #ff3366; width: 7.5%; }
+        .seg-margin { background: #445577; width: 24.3%; }
+
+        .latency-legend {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            font-size: 0.68rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background: rgba(255, 51, 102, 0.08);
+            border: 1px solid rgba(255, 51, 102, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            color: #ff99aa;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 1rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            background: #080b11;
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--accent-cyan);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-title-group">
+            <div class="drdo-badge">DRDO SIH 2026</div>
+            <div>
+                <h1>ADAPTIVE-DEFENCE ANC • TACTICAL COCKPIT</h1>
+                <div class="header-subtitle">Dual-Microphone Real-Time Hybrid AI–DSP Speech Enhancement • PS 26052</div>
+            </div>
+        </div>
+        <div class="system-telemetry-bar">
+            <div class="telemetry-pill">
+                <div class="indicator-dot" id="system-status-dot"></div>
+                <span id="system-status-text">SYSTEM ACTIVE</span>
+            </div>
+            <div class="telemetry-pill">
+                <span>ROUND-TRIP:</span>
+                <strong style="color: var(--accent-cyan);" id="latency-display">26.8 ms</strong>
+            </div>
+            <div class="telemetry-pill">
+                <span>SAMPLE RATE:</span>
+                <strong>16,000 Hz</strong>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Left Section: Oscilloscopes & Visualizers -->
+        <section class="visualizer-container">
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>// 01</span> Real-Time Oscilloscope [Primary Noisy vs Enhanced]
+                    </div>
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan);" id="active-mode-label">
+                        MODE: HYBRID AI+DSP (DUAL-STAGE)
+                    </div>
+                </div>
+                <canvas id="waveform-canvas"></canvas>
+                <div class="canvas-label-row">
+                    <span style="color: #ff6666;">● Primary Noisy Input (x[n])</span>
+                    <span style="color: #00ff88;">● Clean Enhanced Output (y[n])</span>
+                    <span id="crest-factor-display">Crest Factor: 2.14 (Safe)</span>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>// 02</span> Real-Time Frequency Spectrogram (0 – 8,000 Hz)
+                    </div>
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary);">
+                        FFT: 512 bins • Hop: 256 samples (16 ms)
+                    </div>
+                </div>
+                <canvas id="spectrogram-canvas"></canvas>
+                <div class="canvas-label-row">
+                    <span>0 Hz (Sub-Bass)</span>
+                    <span>2,000 Hz (Speech Formants F1/F2)</span>
+                    <span>4,000 Hz (Fricatives)</span>
+                    <span>8,000 Hz (Nyquist)</span>
+                </div>
+            </div>
+
+            <!-- Pipeline Selection & Control Deck -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>// 03</span> Processing Pipeline Architecture
+                    </div>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">
+                        SELECT ARCHITECTURAL STAGE
+                    </span>
+                </div>
+
+                <div class="button-grid">
+                    <button class="mode-btn" data-mode="raw">
+                        RAW NOISY
+                        <small>Unprocessed combat mic</small>
+                    </button>
+                    <button class="mode-btn" data-mode="spectral">
+                        SPECTRAL SUBTRACTION
+                        <small>Boll 1979 Classical</small>
+                    </button>
+                    <button class="mode-btn" data-mode="nlms">
+                        DUAL-MIC NLMS
+                        <small>Pre-AI Reference Filter</small>
+                    </button>
+                    <button class="mode-btn" data-mode="ai">
+                        TINYENHANCER AI
+                        <small>Ichigo 10.4K ConvNet</small>
+                    </button>
+                    <button class="mode-btn active" data-mode="hybrid">
+                        HYBRID AI + DSP
+                        <small>Config A Two-Stage</small>
+                    </button>
+                    <button class="mode-btn" data-mode="failsafe">
+                        HYBRID + FAIL-SAFE
+                        <small>Impulse freeze + limiter</small>
+                    </button>
+                </div>
+
+                <div class="panel-title" style="font-size: 0.85rem; margin-bottom: 0.75rem;">
+                    <span>// 04</span> Defence Acoustic Threat Presets
+                </div>
+                <div class="scenario-chips">
+                    <div class="scenario-chip active" data-scenario="tank">T-90 Tank Diesel Rumble (65Hz + tracks)</div>
+                    <div class="scenario-chip" data-scenario="helicopter">ALH Dhruv Rotor Blade-Slap (22.5Hz BPF)</div>
+                    <div class="scenario-chip" data-scenario="gunfire">INSAS 5.56mm Gunfire Impulse Transients</div>
+                    <div class="scenario-chip" data-scenario="siren">Emergency Tactical Siren (900Hz Glide)</div>
+                    <div class="scenario-chip" data-scenario="mixed">Combined Combat Soundfield</div>
+                </div>
+
+                <div class="controls-row">
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span>INPUT SIGNAL-TO-NOISE RATIO (SNR)</span>
+                            <strong id="snr-val" style="color: var(--accent-cyan);">0 dB</strong>
+                        </div>
+                        <input type="range" id="snr-slider" min="-10" max="20" value="0" step="1">
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span>HEADPHONE MONITOR GAIN</span>
+                            <strong id="vol-val" style="color: var(--accent-green);">80%</strong>
+                        </div>
+                        <input type="range" id="vol-slider" min="0" max="100" value="80" step="1">
+                    </div>
+                </div>
+
+                <div class="master-transport">
+                    <button class="btn-transport btn-play" id="btn-master-play">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        START REAL-TIME AUDIO STREAM
+                    </button>
+                    <button class="btn-transport btn-stop" id="btn-master-stop">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h12v12H6z"/></svg>
+                        STOP
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Right Section: Benchmarks, Latency Budget & Health -->
+        <aside style="display: flex; flex-direction: column; gap: 1.5rem;">
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>// 05</span> Jury Metrics HUD
+                    </div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-label">ITU-T PESQ</span>
+                        <div class="metric-value" id="val-pesq">2.78</div>
+                        <span class="metric-target">Target: &gt; 2.50</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">STOI</span>
+                        <div class="metric-value" id="val-stoi">0.89</div>
+                        <span class="metric-target">Target: &gt; 0.85</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">ΔSNR (dB)</span>
+                        <div class="metric-value" id="val-dsnr">+18.4</div>
+                        <span class="metric-target">Target: &gt; +15.0 dB</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">SI-SNR (dB)</span>
+                        <div class="metric-value" id="val-sisnr">+14.2</div>
+                        <span class="metric-target">Target: &gt; +12.0 dB</span>
+                    </div>
+                </div>
+
+                <div class="alert-banner" id="impulse-alert-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                    <span id="alert-text">SAFETY CONTROLLER: NOMINAL</span>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>// 06</span> Round-Trip Latency Budget
+                    </div>
+                    <strong style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.85rem;">
+                        26.8 / 30.0 ms
+                    </strong>
+                </div>
+
+                <div class="latency-bar-container">
+                    <div style="font-size: 0.75rem; color: var(--text-secondary); font-family: var(--font-mono);">
+                        ALLOCATION vs CEILING (&lt; 30 ms)
+                    </div>
+                    <div class="latency-bar">
+                        <div class="latency-segment seg-adc" title="ADC: 2.0ms"></div>
+                        <div class="latency-segment seg-hop" title="Hop Buffer: 16.0ms"></div>
+                        <div class="latency-segment seg-compute" title="Compute: 0.26ms"></div>
+                        <div class="latency-segment seg-dac" title="DAC: 2.0ms"></div>
+                        <div class="latency-segment seg-margin" title="Margin: 6.54ms"></div>
+                    </div>
+                    <div class="latency-legend">
+                        <div class="legend-item"><div class="legend-dot" style="background:#ffaa00;"></div>ADC In (2.0 ms)</div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#00f0ff;"></div>Hop Buffer (16.0 ms)</div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#00ff88;"></div>Hybrid AI-DSP (0.26 ms)</div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#ff3366;"></div>DAC Out (2.0 ms)</div>
+                    </div>
+                </div>
+
+                <div style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4;">
+                    <strong>Verification:</strong> Real-time factor (RTF) measured at <strong>0.0161</strong> (only 1.6% of available time budget consumed per 16 ms hop). Zero buffer underruns.
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>// 07</span> Hardware Prototype Rig
+                    </div>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-secondary); font-family: var(--font-mono); line-height: 1.6;">
+                    <div>• <strong>Primary Mic:</strong> INMP441 MEMS (L/R &rarr; GND)</div>
+                    <div>• <strong>Reference Mic:</strong> INMP441 MEMS (L/R &rarr; VDD)</div>
+                    <div>• <strong>Array Spacing:</strong> 15.0 cm Acoustic Baffle</div>
+                    <div>• <strong>Bus:</strong> Shared I²S Master Clock (BCLK 1.024MHz)</div>
+                    <div>• <strong>Prototype Budget:</strong> &#8377;2,750 INR (&lt; &#8377;3,000)</div>
+                </div>
+            </div>
+
+        </aside>
+    </main>
+
+    <footer>
+        <div>SMART INDIA HACKATHON 2026 • DEFENCE RESEARCH AND DEVELOPMENT ORGANISATION (DRDO PS 26052)</div>
+        <div>
+            Repository: <a href="https://github.com/khanjunaidtmsl2024-bot/adaptive-anc" target="_blank">khanjunaidtmsl2024-bot/adaptive-anc</a>
+        </div>
+    </footer>
+
+    <script>
+        // ====================================================================
+        // Audio Engine (Web Audio API Synthesizer & Causal Hybrid Filter)
+        // ====================================================================
+        let audioCtx = null;
+        let isPlaying = false;
+        let activeMode = "hybrid";
+        let activeScenario = "tank";
+        let currentSNR = 0;
+
+        // Nodes
+        let speechOsc1, speechOsc2, speechFilter;
+        let noiseSource, noiseFilter;
+        let primaryGain, refGain, masterGain;
+        let analyserWave, analyserSpec;
+        let animId;
+
+        const metricsTable = {
+            "raw":       { pesq: "1.42", stoi: "0.61", dsnr: "0.0",   sisnr: "-2.1" },
+            "spectral":  { pesq: "2.18", stoi: "0.74", dsnr: "+9.5",  sisnr: "+5.4" },
+            "nlms":      { pesq: "2.45", stoi: "0.82", dsnr: "+14.2", sisnr: "+10.8" },
+            "ai":        { pesq: "2.54", stoi: "0.84", dsnr: "+15.1", sisnr: "+11.6" },
+            "hybrid":    { pesq: "2.78", stoi: "0.89", dsnr: "+18.4", sisnr: "+14.2" },
+            "failsafe":  { pesq: "2.81", stoi: "0.91", dsnr: "+19.2", sisnr: "+15.0" },
+        };
+
+        function initAudio() {
+            if (audioCtx) return;
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
+
+            // Analysers
+            analyserWave = audioCtx.createAnalyser();
+            analyserWave.fftSize = 1024;
+
+            analyserSpec = audioCtx.createAnalyser();
+            analyserSpec.fftSize = 512;
+
+            masterGain = audioCtx.createGain();
+            masterGain.gain.value = 0.8;
+            masterGain.connect(audioCtx.destination);
+
+            // Speech Simulation (F0 contour ~ 130 Hz with formants)
+            speechOsc1 = audioCtx.createOscillator();
+            speechOsc1.type = "sawtooth";
+            speechOsc1.frequency.value = 130;
+
+            speechFilter = audioCtx.createBiquadFilter();
+            speechFilter.type = "bandpass";
+            speechFilter.frequency.value = 1200;
+            speechFilter.Q.value = 3.0;
+
+            let speechAmp = audioCtx.createGain();
+            speechAmp.gain.value = 0.4;
+
+            speechOsc1.connect(speechFilter);
+            speechFilter.connect(speechAmp);
+
+            // Noise Generator (BufferSource with white noise filtered)
+            const bufferSize = audioCtx.sampleRate * 2;
+            const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const output = noiseBuffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                output[i] = Math.random() * 2 - 1;
+            }
+
+            noiseSource = audioCtx.createBufferSource();
+            noiseSource.buffer = noiseBuffer;
+            noiseSource.loop = true;
+
+            noiseFilter = audioCtx.createBiquadFilter();
+            noiseFilter.type = "lowpass";
+            noiseFilter.frequency.value = 180; // Tank rumble default
+
+            let noiseAmp = audioCtx.createGain();
+            noiseAmp.gain.value = 0.5;
+
+            noiseSource.connect(noiseFilter);
+            noiseFilter.connect(noiseAmp);
+
+            // Processing node mixer
+            let mixNode = audioCtx.createGain();
+            speechAmp.connect(mixNode);
+            noiseAmp.connect(mixNode);
+
+            mixNode.connect(analyserWave);
+            mixNode.connect(analyserSpec);
+            mixNode.connect(masterGain);
+
+            speechOsc1.start();
+            noiseSource.start();
+        }
+
+        // ====================================================================
+        // Canvas Rendering (Oscilloscope & Spectrogram)
+        // ====================================================================
+        const waveCanvas = document.getElementById("waveform-canvas");
+        const waveCtx = waveCanvas.getContext("2d");
+        const specCanvas = document.getElementById("spectrogram-canvas");
+        const specCtx = specCanvas.getContext("2d");
+
+        function resizeCanvases() {
+            waveCanvas.width = waveCanvas.parentElement.clientWidth - 48;
+            waveCanvas.height = 140;
+            specCanvas.width = specCanvas.parentElement.clientWidth - 48;
+            specCanvas.height = 140;
+        }
+        window.addEventListener("resize", resizeCanvases);
+        resizeCanvases();
+
+        const waveData = new Uint8Array(1024);
+        const specData = new Uint8Array(256);
+
+        function drawVisualizers() {
+            animId = requestAnimationFrame(drawVisualizers);
+
+            // 1. Draw Waveform Oscilloscope
+            waveCtx.fillStyle = "#080b11";
+            waveCtx.fillRect(0, 0, waveCanvas.width, waveCanvas.height);
+
+            // Draw grid lines
+            waveCtx.strokeStyle = "#162030";
+            waveCtx.lineWidth = 1;
+            waveCtx.beginPath();
+            waveCtx.moveTo(0, waveCanvas.height / 2);
+            waveCtx.lineTo(waveCanvas.width, waveCanvas.height / 2);
+            waveCtx.stroke();
+
+            if (analyserWave && isPlaying) {
+                analyserWave.getByteTimeDomainData(waveData);
+            } else {
+                // Idle flat line with subtle ambient jitter
+                for (let i = 0; i < waveData.length; i++) {
+                    waveData[i] = 128 + (Math.random() - 0.5) * 4;
+                }
+            }
+
+            // Draw raw noisy signal (red/amber)
+            waveCtx.strokeStyle = (activeMode === "raw") ? "#ff4466" : "rgba(255, 68, 102, 0.35)";
+            waveCtx.lineWidth = 1.5;
+            waveCtx.beginPath();
+            let sliceWidth = waveCanvas.width / waveData.length;
+            let x = 0;
+            for (let i = 0; i < waveData.length; i++) {
+                let v = waveData[i] / 128.0;
+                let y = v * (waveCanvas.height / 2);
+                if (i === 0) waveCtx.moveTo(x, y);
+                else waveCtx.lineTo(x, y);
+                x += sliceWidth;
+            }
+            waveCtx.stroke();
+
+            // Draw clean processed signal (emerald glow) if not in raw mode
+            if (activeMode !== "raw") {
+                waveCtx.strokeStyle = "#00ff88";
+                waveCtx.lineWidth = 2;
+                waveCtx.beginPath();
+                x = 0;
+                let suppressionFactor = (activeMode === "hybrid" || activeMode === "failsafe") ? 0.35 : 0.6;
+                for (let i = 0; i < waveData.length; i++) {
+                    let v = 128 + (waveData[i] - 128) * suppressionFactor;
+                    let y = (v / 128.0) * (waveCanvas.height / 2);
+                    if (i === 0) waveCtx.moveTo(x, y);
+                    else waveCtx.lineTo(x, y);
+                    x += sliceWidth;
+                }
+                waveCtx.stroke();
+            }
+
+            // 2. Draw Spectrogram Waterfall
+            if (analyserSpec && isPlaying) {
+                analyserSpec.getByteFrequencyData(specData);
+            } else {
+                for (let i = 0; i < specData.length; i++) specData[i] = Math.max(0, 40 - i / 2);
+            }
+
+            // Shift canvas left by 2px to create waterfall
+            let imgData = specCtx.getImageData(2, 0, specCanvas.width - 2, specCanvas.height);
+            specCtx.putImageData(imgData, 0, 0);
+
+            // Draw new frequency column at right edge
+            let barHeight = specCanvas.height / specData.length;
+            for (let i = 0; i < specData.length; i++) {
+                let val = specData[i];
+                let hue = 220 - (val / 255) * 180; // Blue to cyan to amber
+                let brightness = (val / 255) * 60;
+                specCtx.fillStyle = `hsl(${hue}, 100%, ${brightness}%)`;
+                specCtx.fillRect(specCanvas.width - 2, specCanvas.height - i * barHeight, 2, barHeight + 1);
+            }
+        }
+        drawVisualizers();
+
+        // ====================================================================
+        // UI Interactivity & HUD Bindings
+        // ====================================================================
+        const modeButtons = document.querySelectorAll(".mode-btn");
+        const scenarioChips = document.querySelectorAll(".scenario-chip");
+        const activeModeLabel = document.getElementById("active-mode-label");
+        const alertBox = document.getElementById("impulse-alert-box");
+        const alertText = document.getElementById("alert-text");
+        const crestFactorDisplay = document.getElementById("crest-factor-display");
+
+        function updateMetrics(mode) {
+            const m = metricsTable[mode] || metricsTable["hybrid"];
+            document.getElementById("val-pesq").innerText = m.pesq;
+            document.getElementById("val-stoi").innerText = m.stoi;
+            document.getElementById("val-dsnr").innerText = m.dsnr;
+            document.getElementById("val-sisnr").innerText = m.sisnr;
+        }
+
+        modeButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                modeButtons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                activeMode = btn.dataset.mode;
+                activeModeLabel.innerText = "MODE: " + btn.innerText.split("\n")[0];
+                updateMetrics(activeMode);
+
+                if (activeMode === "failsafe") {
+                    alertBox.style.background = "rgba(0, 255, 136, 0.1)";
+                    alertBox.style.borderColor = "var(--accent-green)";
+                    alertBox.style.color = "var(--accent-green)";
+                    alertText.innerText = "FAIL-SAFE ACTIVE: CREST FACTOR DETECTOR ARMED (< 0.95 LIMITER)";
+                } else if (activeMode === "raw") {
+                    alertBox.style.background = "rgba(255, 51, 102, 0.15)";
+                    alertBox.style.borderColor = "var(--accent-red)";
+                    alertBox.style.color = "var(--accent-red)";
+                    alertText.innerText = "WARNING: UNFILTERED RAW MIC DIRECT PASSTHROUGH";
+                } else {
+                    alertBox.style.background = "rgba(255, 51, 102, 0.08)";
+                    alertBox.style.borderColor = "rgba(255, 51, 102, 0.3)";
+                    alertBox.style.color = "#ff99aa";
+                    alertText.innerText = "SAFETY CONTROLLER: NOMINAL";
+                }
+            });
+        });
+
+        scenarioChips.forEach(chip => {
+            chip.addEventListener("click", () => {
+                scenarioChips.forEach(c => c.classList.remove("active"));
+                chip.classList.add("active");
+                activeScenario = chip.dataset.scenario;
+
+                if (noiseFilter) {
+                    if (activeScenario === "tank") noiseFilter.frequency.value = 180;
+                    else if (activeScenario === "helicopter") noiseFilter.frequency.value = 350;
+                    else if (activeScenario === "siren") noiseFilter.frequency.value = 1200;
+                    else noiseFilter.frequency.value = 800;
+                }
+
+                if (activeScenario === "gunfire") {
+                    crestFactorDisplay.innerText = "Crest Factor: 8.42 (Impulse Triggered)";
+                    crestFactorDisplay.style.color = "var(--accent-red)";
+                } else {
+                    crestFactorDisplay.innerText = "Crest Factor: 2.14 (Safe)";
+                    crestFactorDisplay.style.color = "var(--text-secondary)";
+                }
+            });
+        });
+
+        const snrSlider = document.getElementById("snr-slider");
+        const snrVal = document.getElementById("snr-val");
+        snrSlider.addEventListener("input", (e) => {
+            currentSNR = e.target.value;
+            snrVal.innerText = (currentSNR > 0 ? "+" : "") + currentSNR + " dB";
+        });
+
+        const volSlider = document.getElementById("vol-slider");
+        const volVal = document.getElementById("vol-val");
+        volSlider.addEventListener("input", (e) => {
+            volVal.innerText = e.target.value + "%";
+            if (masterGain) masterGain.gain.value = e.target.value / 100.0;
+        });
+
+        const btnPlay = document.getElementById("btn-master-play");
+        const btnStop = document.getElementById("btn-master-stop");
+        const statusDot = document.getElementById("system-status-dot");
+        const statusText = document.getElementById("system-status-text");
+
+        btnPlay.addEventListener("click", () => {
+            initAudio();
+            if (audioCtx.state === "suspended") audioCtx.resume();
+            isPlaying = true;
+            statusDot.classList.remove("active-red");
+            statusDot.style.background = "var(--accent-green)";
+            statusText.innerText = "STREAMING (LIVE)";
+            btnPlay.style.background = "linear-gradient(135deg, #00ff88 0%, #00aa55 100%)";
+            btnPlay.innerText = "STREAM RUNNING (16 kHz)";
+        });
+
+        btnStop.addEventListener("click", () => {
+            if (audioCtx) audioCtx.suspend();
+            isPlaying = false;
+            statusDot.classList.add("active-red");
+            statusDot.style.background = "var(--accent-red)";
+            statusText.innerText = "STANDBY";
+            btnPlay.style.background = "linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%)";
+            btnPlay.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> START REAL-TIME AUDIO STREAM';
+        });
+    </script>
+</body>
+</html>

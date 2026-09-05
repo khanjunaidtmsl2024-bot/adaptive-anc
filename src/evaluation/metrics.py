@@ -112,3 +112,12 @@ def evaluate_all_metrics(
             "all_targets_passed": meets_snr and meets_stoi and meets_pesq
         }
     }
+
+
+class AudioMetrics:
+    """Class wrapper providing static access to all objective evaluation metrics."""
+    calculate_snr = staticmethod(compute_snr)
+    calculate_si_snr = staticmethod(compute_si_snr)
+    calculate_stoi = staticmethod(compute_stoi)
+    calculate_pesq = staticmethod(compute_pesq)
+    evaluate_all = staticmethod(evaluate_all_metrics)

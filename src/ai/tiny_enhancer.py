@@ -42,6 +42,8 @@ else:
         def __init__(self):
             raise ImportError("PyTorch is required to instantiate TinyEnhancerNet.")
 
+TinyEnhancer = TinyEnhancerNet
+
 
 class TinyEnhancerWrapper:
     """Wrapper that handles spectrogram conversion and inference."""

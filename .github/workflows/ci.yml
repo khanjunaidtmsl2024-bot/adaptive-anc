@@ -1,4 +1,4 @@
-name: PS 26052 Hybrid ANC Test Suite
+name: DRDO Adaptive ANC Master CI
 
 on:
   push:
@@ -7,26 +7,46 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  test-and-verify:
+    name: Build, Test & 20-Experiment Verification
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10", "3.11"]
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout Code
+      uses: actions/checkout@v4
 
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.10
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: "3.10"
+        cache: "pip"
 
-    - name: Install dependencies
+    - name: Install System Audio Libraries
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libsndfile1 libasound2 libportaudio2
+
+    - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pytest
+        pip install -r requirements.txt pytest
 
-    - name: Run Test Suite
+    - name: Run Unit Test Suite
       run: |
-        pytest -v
+        pytest -v tests/
+
+    - name: Run 20 Mandatory Experiments Suite
+      run: |
+        python experiments/scripts/run_all_experiments.py
+
+    - name: Run 14-Step Hardware Bring-Up Verification
+      run: |
+        python hardware/verify_hardware_bringup.py
+
+    - name: Run Edge Model Export & Optimization
+      run: |
+        python main.py export-edge
+
+    - name: Run ichigo137/anc Bridge Audit
+      run: |
+        python main.py ichigo-bridge

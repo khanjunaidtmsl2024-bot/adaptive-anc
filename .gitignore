@@ -51,9 +51,10 @@ Adaptive ANC.zip
 *.ogg
 *.raw
 *.pcm
-Adaptive ANC/data/clean/*.wav
-Adaptive ANC/data/noise/*.wav
-Adaptive ANC/data/mixed/*.wav
+
+# Whitelist lightweight, curated demonstration samples (<100KB each)
+!data/samples/*.wav
+!data/samples/.gitkeep
 
 # --- Checkpoints & Model Weights (>50MB) ---
 *.pth
@@ -63,6 +64,10 @@ Adaptive ANC/data/mixed/*.wav
 *.ckpt
 *.h5
 *.pb
+
+# --- Scratch & Temporary Analysis ---
+scratch/
+transfer_sections.txt
 
 # --- Editor & OS Artefacts ---
 .freebuff/

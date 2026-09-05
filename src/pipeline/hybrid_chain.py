@@ -110,3 +110,13 @@ class HybridEnhancementPipeline:
 
         diagnostics["final_output"] = final_output
         return final_output, diagnostics
+
+    def process_frame(
+        self,
+        primary_frame: np.ndarray,
+        reference_frame: np.ndarray,
+    ) -> np.ndarray:
+        """Processes a single real-time hop/frame through the pipeline."""
+        out, _ = self.process_signals(primary_frame, reference_frame)
+        return out
+
