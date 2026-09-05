@@ -1,0 +1,76 @@
+# ==============================================================================
+# PS 26052 — Adaptive ANC (.gitignore)
+# ==============================================================================
+
+# --- Python Bytecode & Environments ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Archives & Large Compressed Backups ---
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+Adaptive ANC (2).zip
+Adaptive ANC.zip
+
+# --- Large PDF Files (>50MB / GitHub 100MB Limit) ---
+# Filter-combined.pdf is ~102.5 MB (strictly blocked by GitHub push limit)
+# All research papers 0-42_merged.pdf is ~78.8 MB (individual papers preserved)
+**/Filter-combined.pdf
+**/All research papers 0-42_merged.pdf
+
+# --- Audio Waveforms & Heavy Binary Datasets ---
+# Keep directory structure via .gitkeep, but ignore generated audio
+*.wav
+*.flac
+*.mp3
+*.ogg
+*.raw
+*.pcm
+Adaptive ANC/data/clean/*.wav
+Adaptive ANC/data/noise/*.wav
+Adaptive ANC/data/mixed/*.wav
+
+# --- Checkpoints & Model Weights (>50MB) ---
+*.pth
+*.pt
+*.onnx
+*.bin
+*.ckpt
+*.h5
+*.pb
+
+# --- Editor & OS Artefacts ---
+.freebuff/
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini

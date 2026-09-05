@@ -1,0 +1,2695 @@
+import pypandoc
+from pathlib import Path
+
+md = r"""# ADAPTIVE ANC — COMPLETE PROJECT HANDOFF / CONVERSATION TRANSFER
+## SIH 2026 • Problem Statement 26052 • DRDO • Hardware • Smart Vehicles
+
+**Purpose:** This file is a transfer document for moving the full working context of the ADAPTIVE ANC project into another ChatGPT/project/thread.  
+**Prepared:** 2026-09-04  
+**Status:** Research/documentation is extensive; the critical next step is execution and measurement.
+
+---
+
+# 1. HOW TO USE THIS FILE
+
+This is not intended to replace the detailed reference books. It is a **handoff snapshot of the project state, decisions, arguments, unresolved issues, experiments, hardware direction, AI/ML direction, team context, and working philosophy** developed so far.
+
+The most important rule for the next assistant/team member is:
+
+> **Do not restart the research loop. Build, measure, diagnose, and decide.**
+
+The project has already accumulated a large amount of planning material. The major risk is now **documentation replacing execution**.
+
+Evidence labels used throughout the project:
+
+- **VERIFIED RESEARCH** — supported by a paper, official documentation, datasheet, standard, or repository under stated conditions.
+- **ENGINEERING TARGET** — a target selected for our system.
+- **HYPOTHESIS** — plausible but not yet demonstrated by our system.
+- **MEASURED RESULT** — actually measured by the team.
+- **FROZEN DECISION** — currently authoritative unless new evidence forces revision.
+
+A paper's result is not our result. A proposed architecture is not a proven architecture. A target is not an achievement.
+
+---
+
+# 2. PROJECT IDENTITY
+
+| Field | Current value |
+|---|---|
+| SIH Problem Statement | **26052** |
+| Organization | DRDO |
+| Department | Department of Defence Production / iDEX |
+| Category | Hardware |
+| Theme | Smart Vehicles |
+| Working identity | **ADAPTIVE-DEFENCE ANC** |
+| Technical identity | Hybrid AI–DSP edge speech enhancement / adaptive noise cancellation |
+| Target environment | Defence / mission-critical communication |
+| Team size | 6 |
+| Team members | Junaid, Bitan, Pabi, Payel, Shristy, Shruti |
+
+## Official problem statement
+
+> To develop an AI/ML-enabled adaptive noise cancellation (ANC) system that effectively suppresses stationary, non-stationary, and impulsive defence noises while maintaining high speech intelligibility and real-time performance on embedded hardware.
+
+Noise examples named by the problem include:
+
+- gunshots;
+- artillery fire;
+- helicopter rotor noise;
+- armoured vehicle sound;
+- emergency sirens;
+- stationary noise;
+- non-stationary noise;
+- impulsive/high-energy noise.
+
+The expected solution is not merely an AI model. It is a complete pipeline covering dataset generation, AI/ML training, evaluation, real-time inference, embedded deployment, microphones, headset integration, and measurable performance.
+
+---
+
+# 3. WHAT THE PROJECT MUST EVENTUALLY DEMONSTRATE
+
+The SIH requirements have been translated into these deliverables:
+
+1. **Scalable noisy/clean speech dataset pipeline**
+2. **AI/ML noise-suppression model**
+3. **Reproducible training/evaluation framework**
+4. **Real-time inference engine**
+5. **Primary + reference microphone integration**
+6. **Adaptive filtering where it actually helps**
+7. **Headset / communication output**
+8. **SNR/STOI/PESQ evaluation**
+9. **Low-latency operation**
+10. **Physical prototype and convincing evidence**
+
+## SIH-stated target numbers
+
+- **SNR > 15 dB**
+- **STOI > 0.85**
+- **PESQ > 2.5**
+- real-time latency suitable for communication
+
+These are **targets**, not current results.
+
+The team must never present them as achieved until measured under clearly defined test conditions.
+
+---
+
+# 4. AUTHORITATIVE ARCHITECTURE
+
+## 4.1 Overall architecture
+
+```text
+                 ACOUSTIC ENVIRONMENT
+                         |
+             +-----------+-----------+
+             |                       |
+       PRIMARY MIC             REFERENCE MIC
+             |                       |
+             +-----------+-----------+
+                         |
+              SYNCHRONIZED 2-CH
+                 AUDIO FRONT END
+                         |
+                  MAIN PROCESSOR
+                         |
+                STFT / FEATURES
+                         |
+                  AI ENHANCEMENT
+                         |
+                    iSTFT /
+                  RECONSTRUCTION
+                         |
+                RESIDUAL ASSESSMENT
+                         |
+             CONDITIONAL NLMS / DSP
+                         |
+                 CONTROLLER /
+                  FAIL-SAFE
+                         |
+                    DAC / CODEC
+                         |
+                 WIRED HEADSET
+
+Offline pipeline:
+
+Clean speech + defence noise
+          ↓
+SNR-controlled mixer
+          ↓
+Augmentation / RIR / impulse injection
+          ↓
+Train / validation / test split
+          ↓
+AI model training
+          ↓
+Evaluation
+          ↓
+Quantization / optimization
+          ↓
+Deployment package
+
+The laptop is intended for:
+
+training;
+dataset generation;
+offline evaluation;
+visualization;
+debugging;
+model profiling;
+early streaming experiments.
+
+The final SIH embedded demonstration must not secretly perform the final real-time suppression on the laptop while claiming the embedded hardware is doing it.
+
+5. IMPORTANT ARCHITECTURE DISTINCTION: SPEECH ENHANCEMENT VS PHYSICAL ANC
+
+A major conceptual issue discussed throughout the project:
+
+Speech enhancement
+
+The system estimates or reconstructs a cleaner speech signal from noisy microphone audio.
+
+noisy speech → AI/DSP → cleaner speech
+Physical ANC
+
+The system creates anti-noise through a secondary acoustic path and relies on destructive interference.
+
+reference noise → controller → loudspeaker anti-noise
+                         ↓
+                  acoustic cancellation
+
+These are related but not identical problems.
+
+The current project is best understood as a hybrid speech-enhancement + adaptive-noise-cancellation architecture, not as a claim that a neural network alone performs classical physical ANC.
+
+This distinction must be explained clearly to judges.
+
+6. FROZEN LATENCY SPECIFICATION
+
+There were conflicting latency claims in earlier project documents.
+
+Older claims that must NOT be used as authoritative requirements
+<8 ms end-to-end
+<4 ms with INT8/TensorRT
+
+Those numbers were not backed by a complete mic-to-speaker measurement.
+
+Current authoritative project target
+Preferred end-to-end latency: <20 ms
+Engineering hard ceiling: ≤30 ms
+Actual result: must be measured
+
+The V3 architecture reference explicitly supersedes the earlier unsupported latency claims.
+
+What counts as end-to-end latency?
+capture
++ input buffering
++ algorithmic / look-ahead delay
++ STFT / feature extraction
++ AI inference
++ adaptive filtering
++ controller
++ reconstruction
++ output buffering
++ DAC / codec
++ relevant system overhead
+
+AI inference time alone is not end-to-end latency.
+
+Initial engineering budget
+Stage	Initial envelope
+ADC/input buffering	2–5 ms
+STFT/features	1–3 ms
+AI inference	3–10 ms
+NLMS/controller	<1 ms
+DAC/output	2–5 ms
+Safety margin	remaining budget
+Total	<30 ms target
+
+These are engineering placeholders, not measured results.
+
+Required latency measurements
+
+Record:
+
+P50;
+P95;
+P99;
+maximum latency;
+jitter;
+dropped frames;
+underruns;
+overruns;
+CPU;
+RAM;
+thermal state;
+power mode.
+
+Potential optimizations, only after profiling:
+
+ALSA/direct low-latency audio;
+minimal callback;
+ring buffers;
+DMA;
+causal/tightly bounded look-ahead;
+state caching;
+efficient memory layout;
+SIMD/NEON;
+thread affinity;
+core isolation;
+real-time scheduling if actually necessary;
+zero-copy/I/O binding;
+optimized C++ runtime;
+ONNX Runtime / TensorRT where compatible.
+
+PREEMPT_RT is an escalation option, not a starting requirement.
+
+7. SAMPLE-RATE DECISION
+
+An earlier simplified idea was to use 16 kHz by default.
+
+That is not authoritative.
+
+The final sample rate must follow:
+
+chosen model;
+audio hardware;
+acoustic bandwidth;
+evaluation pipeline;
+streaming latency;
+deployment constraints.
+
+Required procedure:
+
+Inspect exact model version
+        ↓
+Inspect supported sample rates
+        ↓
+Inspect audio interface
+        ↓
+Test compatibility
+        ↓
+Freeze rate in configuration
+
+Do not add unnecessary resampling.
+
+8. AI / ML STRATEGY
+8.1 Current model direction
+
+The leading candidate is the DeepFilterNet / DeepFilterNet2-family approach, especially because the project needs a good quality/compute/latency balance.
+
+It is a candidate, not an unquestionable requirement.
+
+Other candidates discussed:
+
+RNNoise-style models;
+compact CRNs;
+DCCRN;
+DTLN;
+Conv-TasNet;
+FullSubNet / Inter-SubNet;
+other compact causal models;
+classical spectral subtraction/Wiener filtering;
+LMS/NLMS/FxLMS/FxNLMS.
+8.2 Why DeepFilterNet is attractive
+
+Research reviewed in the project indicates:
+
+STFT-domain processing;
+ERB-domain compression;
+complex/deep filtering;
+reduced computational complexity;
+causal/low-latency orientation;
+real-time feasibility on constrained systems.
+
+The important point is not "DeepFilterNet is automatically the winner."
+
+The correct decision process is:
+
+Candidate
+→ profile
+→ benchmark
+→ compare quality
+→ compare latency
+→ compare memory
+→ compare deployment compatibility
+→ adopt or reject
+8.3 Model size discussion
+
+The project previously discussed a practical AI/ML parameter range around:
+
+~2 million to ~10 million parameters
+
+This is an engineering planning range, not a requirement.
+
+The project does not need a 1-billion-parameter model.
+
+For this application, a huge model is likely to be a liability because:
+
+real-time inference matters;
+memory matters;
+power matters;
+deployment matters;
+latency matters;
+the system must run on edge hardware.
+
+The correct goal is the smallest model that produces sufficient robust speech enhancement.
+
+9. TRAINING PLAN
+9.1 Dataset structure
+
+Base concept:
+
+clean speech + scaled noise → noisy speech
+
+For additive mixing:
+
+x[n] = s[n] + α n[n]
+
+with α selected to achieve the requested SNR.
+
+The dataset should contain:
+
+clean speech;
+general environmental noise;
+defence-like noise;
+stationary noise;
+non-stationary noise;
+impulsive/transient noise;
+reverberation;
+gain variation;
+clipping simulation where appropriate;
+microphone response variation where possible.
+9.2 Suggested source families discussed
+Clean speech
+DNS clean speech;
+LibriSpeech;
+VCTK.
+General noise
+DNS noise;
+DEMAND;
+MUSAN-like resources.
+Defence-like
+
+The project research specifically investigated:
+
+MAD dataset classes;
+helicopter;
+vehicle;
+fighter;
+shelling;
+gunshot-related material;
+legally usable vehicle/rotor/siren/wind recordings.
+Impulsive
+clean gunshot/impulse recordings;
+C3GD or similar legally usable sources;
+synthetic transients.
+
+Important: impulse events should not simply be treated like a long stationary noise recording.
+
+Use:
+
+randomized onset;
+event amplitude;
+event duration;
+multiple positions in an utterance;
+recovery testing.
+Held-out generalization
+
+NOISEX-92 was discussed as a useful unseen test set.
+
+Do not train on the held-out test set.
+
+9.3 Data leakage prevention
+
+Splits must prevent:
+
+speaker leakage;
+utterance leakage;
+noise-file leakage where appropriate;
+room/reverberation leakage;
+duplicate or near-duplicate recordings across train/test.
+
+The final report should explicitly explain the split design.
+
+10. LOSS FUNCTIONS
+
+The SIH statement names:
+
+SI-SNR;
+L1;
+L2;
+perceptual loss.
+
+A possible combined objective is:
+
+L = λ1 L_SI-SNR + λ2 L_spectral + λ3 L_perceptual
+
+The λ weights must be experimentally justified.
+
+Do not copy arbitrary weights because they appear in a paper.
+
+Important metric/loss distinction
+
+PESQ and STOI are primarily evaluation metrics.
+
+They should not automatically be treated as naïve direct training losses.
+
+Differentiable proxies such as PMSQE or differentiable intelligibility-oriented losses can be investigated.
+
+Subjective listening is still important because metric optimization can disagree with human perception.
+
+11. AI TRAINING / COMPUTE EXPECTATIONS
+
+The project discussed training on a laptop / cloud AI environment such as Google AI Studio.
+
+Important correction:
+
+Do not assume a cloud AI interface is automatically a suitable environment for arbitrary PyTorch audio-model training.
+
+Before committing to a training environment, verify:
+
+GPU availability;
+CUDA/PyTorch support;
+filesystem/data access;
+package installation;
+training runtime;
+checkpoint persistence;
+dataset size limits;
+ability to run custom Python training code;
+ability to export ONNX.
+
+If the environment cannot support these requirements, use another GPU environment.
+
+Training time for a 2M–10M parameter model cannot honestly be predicted from parameter count alone.
+
+It depends on:
+
+dataset duration;
+number of training examples;
+sample rate;
+STFT settings;
+batch size;
+GPU;
+epochs;
+augmentation;
+model architecture;
+data-loader speed.
+
+Therefore:
+
+Do not promise "X days" until a small pilot training run establishes samples/sec and epoch duration.
+
+12. ADAPTIVE FILTERING STRATEGY
+12.1 LMS
+
+Basic LMS:
+
+y[n] = wᵀ[n] x[n]
+
+e[n] = d[n] - y[n]
+
+w[n+1] = w[n] + μ e[n] x[n]
+
+The team should deliberately test:
+
+too-large μ → divergence;
+too-small μ → slow convergence;
+filter-length changes;
+varying input power;
+reference correlation.
+12.2 NLMS
+
+Normalized update:
+
+w[n+1] =
+w[n] + μ e[n] x[n] /
+(ε + ||x[n]||²)
+
+NLMS is the preferred educational/reference adaptive algorithm because normalization makes it less sensitive to input-power variation than plain LMS.
+
+12.3 Experiments that are mandatory
+Make LMS diverge.
+Make LMS converge slowly.
+Compare LMS and NLMS under changing signal power.
+Vary number of taps.
+Use a good correlated reference.
+Use a bad/uncorrelated reference.
+Add speech leakage to the reference.
+Measure speech damage.
+Simulate a secondary path.
+Implement/test FxLMS or FxNLMS separately.
+13. CRITICAL REFERENCE-MICROPHONE ISSUE
+
+A reference microphone is not automatically useful.
+
+It should capture noise that is:
+
+correlated with the noise at the primary/error location;
+sufficiently ahead in time to allow cancellation;
+not dominated by the user's speech.
+
+Bad reference placement can make the adaptive filter:
+
+fail to converge;
+converge to the wrong solution;
+cancel speech;
+destabilize the output;
+provide little improvement.
+
+Therefore reference-mic placement is an experimental variable.
+
+Required test
+
+For each candidate reference position:
+
+noise only
+↓
+speech only
+↓
+speech + noise
+↓
+measure correlation/coherence
+↓
+measure speech leakage
+↓
+run NLMS
+↓
+measure SNR / distortion
+↓
+select or reject position
+
+Selection must balance:
+
+noise correlation
++
+speech preservation
++
+stability
++
+physical practicality
+
+High correlation alone is not enough.
+
+14. IMPORTANT NLMS TOPOLOGY ISSUE
+
+Earlier architecture discussion considered:
+
+Configuration A
+
+Reference-mic NLMS before the AI model.
+
+This is the first configuration to test in the current execution contract.
+
+Alternative
+
+AI enhancement first, then residual adaptive filtering.
+
+This may be tested later.
+
+But there is a serious mathematical requirement:
+
+Before integrating any adaptive stage, define exactly:
+
+x[n] — reference signal;
+d[n] — desired/primary signal available at runtime;
+y[n] — adaptive estimate;
+e[n] — actual runtime residual.
+
+Clean speech cannot be used as d[n] during live operation.
+
+If a proposed post-AI residual arrangement cannot produce a mathematically defensible runtime error signal, reject or reformulate it.
+
+Do not force NLMS into the architecture just because "hybrid" sounds more sophisticated.
+
+15. RECENT RESEARCH: GFANC–FxNLMS
+
+A new paper reviewed in the project is:
+
+GFANC–FxNLMS with online clustering (arXiv:2601.15889, 2026).
+
+Its core idea:
+
+CNN predicts control-filter weights
+        ↓
+sub-control filters combined
+        ↓
+generated control filter
+        ↓
+FxNLMS continuously adapts
+        ↓
+online clustering prevents unnecessary reinitialization
+
+The paper reports a CNN with approximately:
+
+0.21 million parameters
+237.56 million MACs
+480.41 million FLOPs
+
+in its reported configuration.
+
+The paper also reports faster response and lower steady-state error than individual methods in its simulations.
+
+Why this matters to our project
+
+It is directly relevant to the idea of:
+
+AI-assisted adaptive filtering;
+fast initial adaptation;
+continuous adaptive refinement;
+online stability control.
+
+But it does not automatically become our architecture.
+
+Its simulation conditions, acoustic paths, filter design, sampling rate, and ANC physical setup differ from our speech-enhancement problem.
+
+Use it as:
+
+research evidence;
+a potential future architecture;
+inspiration for learned adaptive control.
+
+Do not claim we implemented it unless we actually do.
+
+16. IMPULSE-NOISE HANDLING
+
+The project needs a separate strategy for impulses.
+
+A basic experimental impulse detector discussed in the research uses:
+
+crest factor;
+spectral flux.
+
+Example starting logic:
+
+impulse =
+    crest_factor(frame) > threshold
+    AND
+    spectral_flux(frame) > threshold
+
+Example starting thresholds discussed:
+
+crest factor ≈ 6;
+spectral flux ≈ 0.3.
+
+These are engineering starting values only.
+
+They must be tuned using controlled test data.
+
+Impulse response strategy
+
+Possible controller behaviour:
+
+Normal condition
+    ↓
+AI enhancement + conservative adaptive processing
+
+Impulse detected
+    ↓
+protect speech / protect hardware
+    ↓
+freeze or reduce adaptive update
+    ↓
+conservative enhancement / limiter
+    ↓
+recovery
+
+The goal is not simply "remove the gunshot."
+
+The system must also:
+
+avoid clipping;
+avoid destroying speech;
+recover quickly;
+avoid unstable adaptation;
+preserve communication intelligibility.
+17. MICROPHONE / AUDIO FRONT-END DIRECTION
+
+The project investigated digital MEMS microphones.
+
+Two specific candidates discussed:
+
+InvenSense ICS-43434
+
+Reported research reference values:
+
+I²S digital output;
+approximately 65 dBA SNR;
+approximately 120 dB SPL acoustic overload point.
+InvenSense INMP441
+
+Reported research reference values:
+
+I²S digital output;
+approximately 61 dBA SNR;
+approximately 120 dB SPL acoustic overload point.
+
+These values must still be verified against the exact module being purchased.
+
+The important design advantage is:
+
+digital MEMS mic
+→ I²S PCM
+→ processor
+
+which avoids requiring a separate analog microphone preamp + ADC for the basic prototype.
+
+18. STAGE-1 HARDWARE DECISION FROM THE TEAM DISCUSSION
+
+This is important because earlier documents contained broader hardware suggestions.
+
+Stage 1 is NOT supposed to use Raspberry Pi as the "brain."
+
+The current plan discussed in the project is:
+
+Use the existing laptop as the compute brain for Stage 1 while still building a real two-microphone hardware/audio prototype.
+
+That means Stage 1 should prove:
+
+real microphones
++
+real two-channel audio acquisition
++
+real headset/audio output
++
+real streaming pipeline
++
+DSP/AI experiments
+
+while the laptop performs the computation.
+
+This avoids buying an expensive edge processor before the workload is known.
+
+Important correction regarding WM8960
+
+The WM8960 was discussed because it is an audio codec commonly used with Raspberry Pi-class hardware.
+
+However:
+
+it should not be treated as mandatory for Stage 1;
+Raspberry Pi-specific compatibility is not a reason to introduce Raspberry Pi into Stage 1;
+if the Stage-1 architecture is laptop-centered, the audio interface must be selected for actual laptop compatibility and synchronized two-channel capture.
+
+The exact Stage-1 audio interface should therefore be chosen by:
+
+two-channel capability;
+synchronized sampling;
+raw PCM access;
+sample-rate compatibility;
+low latency;
+Linux/Windows driver support as applicable;
+cost;
+ability to expose both channels without hidden DSP.
+
+Do not buy WM8960 merely because it appears in a reference design.
+
+19. STAGE-1 PHYSICAL PROTOTYPE
+
+Minimum physical experiment:
+
+Primary mic ─┐
+             ├→ 2-channel audio interface → laptop
+Reference mic┘                              ↓
+                                       DSP / AI
+                                            ↓
+                                     audio output
+                                            ↓
+                                       headphones
+
+Minimum success criterion:
+
+60+ seconds stable dual-channel recording;
+no unexplained dropouts;
+known channel identity;
+known sample rate;
+known bit depth;
+measured channel delay;
+measured channel correlation/coherence;
+working headphone output.
+
+No AI is required for the first hardware gate.
+
+20. AUDIO HARDWARE BRING-UP ORDER
+
+Do not connect everything at once.
+
+H1
+
+Power-only test.
+
+H2
+
+Processor/laptop interface detected.
+
+H3
+
+Audio device enumerates.
+
+H4
+
+One microphone records.
+
+H5
+
+Second microphone records.
+
+H6
+
+Verify channel identity.
+
+H7
+
+Verify synchronization.
+
+H8
+
+Headphone output.
+
+H9
+
+Mic → headphone passthrough.
+
+H10
+
+Simple DSP in loop.
+
+H11
+
+AI in loop.
+
+H12
+
+Hybrid path.
+
+H13
+
+Fail-safe/controller.
+
+H14
+
+Controlled acoustic test.
+
+21. I²S / AUDIO FUNDAMENTALS THE TEAM MUST UNDERSTAND
+
+Required concepts:
+
+BCLK;
+LRCLK / WS;
+DIN / DOUT;
+master/slave clocking;
+channel synchronization;
+sample rate;
+bit depth;
+PCM;
+DMA;
+ALSA;
+buffer size;
+frame size;
+underrun;
+overrun;
+jitter.
+
+For a two-mic system, synchronization matters.
+
+A useful physical test:
+
+inject a sharp impulse
+↓
+record both channels
+↓
+cross-correlate
+↓
+estimate inter-channel delay
+↓
+repeat
+↓
+measure mean + variance
+22. ANTI-ALIASING / CLIPPING DISCUSSION
+
+A microphone or ADC chain must respect sampling theory.
+
+Important distinction:
+
+Digital MEMS microphone
+
+The microphone module can contain its own analog-to-digital conversion and internal filtering.
+
+External analog ADC
+
+If an analog signal is sampled externally, anti-alias filtering must be handled in the analog front-end before the ADC.
+
+Do not say:
+
+"AI will fix aliasing."
+
+It will not.
+
+Similarly:
+
+If a loud impulse clips the microphone/ADC, the missing waveform information cannot be reconstructed by AI.
+
+Therefore measure:
+
+microphone headroom;
+ADC range;
+gain;
+clipping;
+overload recovery;
+limiter behaviour.
+23. AUDIO PIPELINE SOFTWARE
+
+The eventual real-time stack discussed is approximately:
+
+Audio device
+    ↓
+ALSA / equivalent
+    ↓
+DMA / driver buffers
+    ↓
+ring buffer
+    ↓
+frame extraction
+    ↓
+STFT
+    ↓
+AI inference
+    ↓
+reconstruction
+    ↓
+optional adaptive filter
+    ↓
+controller / fail-safe
+    ↓
+output buffer
+    ↓
+DAC / audio device
+    ↓
+headset
+
+The audio callback must be:
+
+short;
+deterministic;
+non-blocking;
+free of file I/O;
+free of expensive model operations where possible.
+
+Heavy work belongs in the processing pipeline.
+
+24. STFT LEARNING AND IMPLEMENTATION
+
+The team must understand:
+
+framing;
+windowing;
+FFT;
+frequency bins;
+hop size;
+overlap;
+magnitude;
+phase;
+complex spectrum;
+iSTFT;
+overlap-add;
+NOLA/COLA;
+algorithmic latency.
+Mandatory experiment
+
+Implement:
+
+waveform
+→ frame
+→ window
+→ FFT
+→ iFFT
+→ overlap-add
+→ waveform
+
+Then verify reconstruction error.
+
+Test with:
+
+sine;
+speech;
+mixed speech + noise.
+
+The system should reconstruct within a documented numerical tolerance.
+
+Do not blindly use a library function without understanding what it is doing.
+
+25. CLASSICAL BASELINES
+
+Before AI, implement:
+
+noisy input baseline;
+spectral subtraction;
+Wiener filtering;
+LMS;
+NLMS.
+
+These establish:
+
+what classical methods can do;
+failure modes;
+baseline metrics;
+whether AI actually adds value.
+
+The project should never present "AI result" without a baseline.
+
+26. REQUIRED ABLATION
+
+At minimum compare:
+
+System	Purpose
+Noisy input	Baseline
+Classical DSP	Traditional reference
+NLMS-only	Adaptive reference
+AI-only	Neural reference
+AI + NLMS	Proposed hybrid
+AI + controller/fail-safe	Final candidate
+
+If AI + NLMS is not consistently better than simpler alternatives, the adaptive stage should be removed from V1.
+
+Complexity must be earned by evidence.
+
+27. HARDWARE SELECTION STRATEGY
+
+The project has discussed:
+
+existing laptop;
+Raspberry Pi-class boards;
+Jetson Nano;
+Jetson Xavier NX;
+Jetson Orin / Orin Nano;
+Raspberry Pi 5;
+Coral USB;
+MCU/DSP options.
+Current philosophy
+
+Do not choose hardware by prestige.
+
+Choose based on:
+
+model compatibility;
+end-to-end latency;
+synchronized two-channel audio;
+ADC/DAC quality;
+compute headroom;
+useful AI acceleration;
+RAM;
+driver/DMA maturity;
+thermal stability;
+headset integration;
+telemetry;
+cost/availability;
+physical demonstrability;
+development risk.
+
+The laptop-first approach is deliberate:
+
+Laptop model profile
+        ↓
+measure actual workload
+        ↓
+decide if edge acceleration is necessary
+        ↓
+select edge board
+28. EARLIER HARDWARE OPTIONS DISCUSSED
+
+An older cost study considered:
+
+Raspberry Pi 5
+low-cost SBC;
+CPU-only in the basic configuration;
+optional accelerator route.
+Coral USB
+INT8-oriented accelerator;
+useful only if the actual model is compatible.
+Jetson Nano
+CUDA-capable;
+attractive for some neural workloads;
+older platform.
+Jetson Xavier NX
+much more powerful;
+significantly more expensive.
+Jetson Orin / Orin Nano
+modern edge AI direction;
+higher compute;
+power/thermal/cost must be justified.
+Important
+
+These are candidate platforms, not frozen purchases.
+
+29. LOW-COST PROTOTYPE PHILOSOPHY
+
+A student proof-of-concept does not need to imitate the final military product.
+
+Minimum prototype categories:
+
+2 synchronized microphones;
+suitable 2-channel audio interface;
+existing laptop;
+wired headphones;
+small powered speaker(s);
+cables;
+breadboard/prototype wiring where appropriate;
+mounting material;
+basic measurement tools.
+
+The expensive edge board should not be purchased before the model/audio workload is known.
+
+30. TEST RIG
+
+A controlled lab rig discussed in the project:
+
+Speaker A → prerecorded speech
+Speaker B → engine/rotor/siren/etc. noise
+
+                    ↓
+              headset/mics
+                    ↓
+                 system
+                    ↓
+                headset
+
+Use fixed geometry.
+
+For example:
+
+fixed speaker distance;
+fixed mic placement;
+repeatable headset orientation;
+controlled playback levels.
+
+For impulses, use safe prerecorded signals and controlled playback rather than unsafe real weapon/firecracker exposure.
+
+The rig should support:
+
+stationary noise;
+non-stationary noise;
+impulse;
+mixed conditions;
+transition conditions.
+31. DEFENCE-NOISE TEST MATRIX
+Scenario	Example	Key measurements
+Stationary	engine/machinery	SNR, STOI, PESQ
+Non-stationary	rotor/siren/vehicle	STOI, PESQ, latency
+Impulsive	gunshot-like transient	recovery, SI-SDR, speech preservation
+Transition	noise changes while speaking	adaptation time
+Mixed	vehicle + wind + impulse	complete metrics
+Unseen	held-out noise	generalization
+Resource stress	maximum workload	latency/CPU/RAM/power
+32. EVALUATION METRICS
+
+Required/important:
+
+input SNR;
+output SNR;
+ΔSNR;
+SI-SNR / SI-SDR;
+STOI;
+PESQ;
+optional POLQA;
+WER/word accuracy;
+latency;
+P50/P95/P99;
+CPU;
+GPU;
+RAM;
+model size;
+power;
+failure rate;
+subjective listening.
+
+Required report structure:
+
+Scenario
+Input SNR
+Output SNR
+ΔSNR
+STOI
+PESQ
+SI-SNR/SI-SDR
+Latency
+CPU/GPU
+RAM
+Power
+Failure notes
+
+Never publish only a single average score.
+
+33. SUBJECTIVE LISTENING
+
+Metrics are not enough.
+
+A model can improve an objective score while producing:
+
+musical noise;
+robotic speech;
+missing consonants;
+pumping;
+phase artifacts;
+excessive attenuation.
+
+Perform informal listening tests and, where feasible, a small blind A/B test.
+
+The question is:
+
+Can a human understand the communication better?
+
+not merely:
+
+Did the metric increase?
+
+34. FAIL-SAFE CONTROLLER
+
+The proposed system should not be "AI always on."
+
+Possible controller states:
+
+AI healthy
+→ AI enhancement active
+
+AI confidence low
+→ conservative enhancement
+
+Impulse detected
+→ protected processing / adaptation freeze
+
+Reference unreliable
+→ freeze/reduce adaptive stage
+
+AI inference failure
+→ DSP fallback
+
+Audio hardware failure
+→ safe bypass / communication mode
+
+The controller should monitor:
+
+AI health;
+reference quality;
+speech confidence;
+impulse state;
+clipping;
+buffer health;
+inference timing.
+
+The dashboard supports the hardware.
+
+The dashboard is not the product.
+
+35. SPEECH-PROTECTION PRINCIPLE
+
+A core danger is over-suppression.
+
+If the model aggressively removes noise and also removes speech:
+
+noise ↓
+speech ↓↓↓
+
+then the system fails its actual mission.
+
+Speech preservation therefore needs:
+
+conservative masks;
+speech-aware loss;
+STOI monitoring;
+optional VAD;
+reference leakage checks;
+safe blending/bypass;
+human listening.
+36. COMMERCIAL / COMTAC NOVELTY ARGUMENT
+
+The project explicitly investigated commercial tactical communication hardware such as 3M PELTOR ComTac.
+
+The key conclusion was:
+
+"AI noise cancellation" by itself is not a defensible novelty claim.
+
+Commercial tactical systems already provide:
+
+hearing protection;
+impulse protection;
+boom-mic noise reduction;
+gain/frequency profiles;
+situational-awareness audio.
+
+The stronger novelty argument is:
+
+Commercial tactical systems:
+    protection + classical/DSP processing
+    + predefined/operator-selected profiles
+
+Our proposed system:
+    learned noise-aware adaptation
+    + speech enhancement
+    + adaptive filtering
+    + impulse-aware controller
+    + reference-mic information
+    + runtime health/fail-safe logic
+    + low-latency edge deployment
+
+The claim must remain carefully worded.
+
+Do not claim:
+
+"ComTac cannot handle impulse noise."
+
+It can.
+
+Do not claim:
+
+"Nobody has AI adaptive ANC."
+
+That is too broad and likely false.
+
+The defensible positioning is:
+
+A low-latency hybrid AI–DSP architecture designed to automatically adapt speech enhancement and adaptive cancellation behaviour to changing and impulsive defence acoustic conditions, rather than relying only on fixed/operator-selected profiles.
+
+37. IMPORTANT RESEARCH PAPER FINDINGS
+DeepFilterNet / DeepFilterNet2
+
+Relevance:
+
+low-latency speech enhancement;
+STFT-domain processing;
+complex filtering;
+efficient architecture;
+edge feasibility.
+
+Use as a benchmark/reference.
+
+RNNoise
+
+Relevance:
+
+lightweight neural noise suppression;
+hybrid DSP/RNN thinking;
+low compute.
+
+Use as a lightweight baseline/reference.
+
+DTLN
+
+Relevance:
+
+compact;
+real-time;
+useful alternative architecture.
+DCCRN
+
+Relevance:
+
+complex-domain processing;
+phase-aware enhancement;
+strong real-time benchmark.
+Conv-TasNet
+
+Relevance:
+
+very low latency;
+time-domain;
+useful speed-oriented comparison.
+FullSubNet / Inter-SubNet
+
+Relevance:
+
+stronger quality ceiling;
+sub-band/full-band modelling;
+potentially heavier.
+GFANC–FxNLMS
+
+Relevance:
+
+learned initialization of adaptive control filters;
+fast response;
+continuous FxNLMS adaptation;
+online clustering for stability.
+
+But it is a physical ANC algorithm and should not be blindly equated with speech enhancement.
+
+Robust Sub-filter / APA / Welsch research
+
+Relevance:
+
+robust adaptive filtering under difficult/noisy conditions;
+possible future alternatives if standard NLMS is insufficient.
+
+These should remain research options until the baseline proves a need.
+
+38. DATASET STRATEGY SUMMARY
+
+Recommended high-level construction:
+
+DNS/large clean speech backbone
++
+general noise
++
+defence-like noise
++
+impulsive/transient injection
++
+reverberation
++
+gain variation
++
+clipping/mic-response augmentation
+
+Testing:
+
+matched validation
++
+speaker-disjoint test
++
+noise-disjoint test
++
+room/distribution-disjoint test
++
+held-out noise such as NOISEX-92 where appropriate
+
+The model must not simply memorize the training noise.
+
+39. CURRENT LEARNING CURRICULUM
+
+The project built a beginner-friendly curriculum.
+
+Level 0
+
+Math and physical language.
+
+Level 1
+
+Waves and sound physics.
+
+Level 2
+
+Speech and hearing.
+
+Level 3
+
+Basic electrical engineering.
+
+Level 4
+
+Microphones/transducers/audio hardware.
+
+Level 5
+
+Signals.
+
+Level 6
+
+Decibels and noise.
+
+Level 7
+
+Analog audio chain.
+
+Level 8
+
+Digital audio.
+
+Level 9
+
+ADC/DAC, I²S, PDM, USB audio, DMA.
+
+Level 10
+
+Mathematical signal representation.
+
+Level 11
+
+LTI systems and convolution.
+
+Level 12
+
+Digital filters.
+
+Level 13
+
+DFT/FFT.
+
+Level 14
+
+STFT/iSTFT.
+
+Level 15
+
+Classical speech enhancement.
+
+Level 16
+
+Adaptive filtering.
+
+Level 17
+
+Practical ANC.
+
+Level 18
+
+Defence-noise engineering.
+
+Level 19
+
+Speech enhancement.
+
+Level 20
+
+AI/ML foundations.
+
+Level 21
+
+Neural-network training.
+
+Level 22
+
+Deep-learning architectures.
+
+Level 23
+
+Audio AI.
+
+Level 24
+
+Dataset engineering.
+
+Level 25
+
+Losses and metrics.
+
+Level 26
+
+DeepFilterNet/chosen architecture.
+
+Level 27
+
+Hybrid AI + adaptive filtering.
+
+Level 28
+
+Real-time engineering.
+
+Level 29
+
+Embedded AI deployment.
+
+Level 30
+
+Hardware architecture.
+
+Level 31
+
+Hardware selection.
+
+Level 32
+
+Complete software pipeline.
+
+Level 33
+
+Evaluation.
+
+Level 34
+
+Physical prototype.
+
+Level 35
+
+SIH demonstration engineering.
+
+40. REQUIRED HANDS-ON LEARNING
+
+The team should not merely read about the algorithms.
+
+STFT
+
+Make it fail.
+
+wrong hop;
+wrong window;
+reconstruction error.
+LMS/NLMS
+
+Make it fail.
+
+μ too high;
+μ too low;
+wrong reference;
+wrong sign;
+wrong alignment;
+speech leakage.
+Hardware
+
+Make acquisition fail safely.
+
+wrong channel;
+wrong sample rate;
+unplugged mic;
+buffer underrun;
+clipping.
+AI
+
+Test:
+
+wrong tensor shape;
+NaN loss;
+bad checkpoint;
+ONNX mismatch.
+
+The purpose is to develop diagnostic skill.
+
+41. 30-DAY EXECUTION PLAN
+Days	Main objective	Gate/output
+1–2	environment + audio fundamentals	working environment
+3–5	FFT/STFT/iSTFT + classical baseline	reconstruction + DSP
+6–8	LMS/NLMS	convergence/divergence
+9–11	two-channel microphone capture	stable 60 s recording
+12–13	real-time passthrough	measured baseline latency
+14–16	dataset generator/evaluation	versioned dataset + metrics
+17–19	tiny PyTorch model	training pipeline
+20–22	DeepFilterNet benchmark/fine-tune	AI benchmark
+23–24	controller + adaptive stage	hybrid candidate
+25–26	ONNX/edge deployment	embedded runtime
+27–28	physical integration	live system
+29	failure injection + acceptance tests	fault report
+30	demo rehearsal	stable SIH demonstrator
+
+This is a plan, not a guarantee.
+
+If a gate fails, fix that layer.
+
+Do not compress everything into a chaotic final week.
+
+42. 60-DAY EXTENSION
+
+Days 31–60:
+
+stabilize AI baseline;
+benchmark alternatives;
+improve defence-noise augmentation;
+add impulse training;
+unseen-noise evaluation;
+complete AI-only vs hybrid ablation;
+streaming stability;
+ONNX export.
+43. 90-DAY EXTENSION
+
+Days 61–90:
+
+edge deployment;
+quantization;
+TensorRT/ONNX optimization;
+synchronized I²S integration;
+headset integration;
+power measurement;
+enclosure;
+robustness testing;
+final acoustic rig;
+final evidence package.
+44. KILL / PIVOT CRITERIA
+DSP gate
+
+If STFT/iSTFT or baseline processing is unreliable:
+
+Stop AI work and fix DSP.
+
+Acquisition gate
+
+If two channels cannot be captured reliably:
+
+Change audio hardware/interface.
+
+AI gate
+
+If the AI model does not improve held-out performance over the noisy baseline:
+
+Revisit data/model before hardware expansion.
+
+Latency gate
+
+If real-time factor or complete latency violates the requirement:
+
+Choose a smaller/causal model or simplify the pipeline.
+
+Adaptive gate
+
+If NLMS:
+
+has no defensible runtime error signal;
+causes speech damage;
+provides no consistent measurable benefit;
+
+then:
+
+Remove adaptive filtering from V1.
+
+Demo gate
+
+If the physical system is unstable:
+
+Use a stable recorded test mode as supporting evidence while continuing physical stabilization. Do not claim live performance that was not demonstrated.
+
+45. TEAM STRUCTURE
+
+Six-member conceptual ownership from the master documents:
+
+Member	Primary area
+Member 1	DSP / signal processing
+Member 2	Adaptive filtering
+Member 3	AI/ML
+Member 4	Data/evaluation
+Member 5	Hardware/integration
+Member 6	Embedded/deployment
+
+The exact mapping to the named team members should be finalized based on the capability survey.
+
+Every subsystem needs:
+
+one owner;
+one backup.
+
+No critical knowledge should live in only one person's head.
+
+46. TEAM CAPABILITY SURVEY
+
+A Jotform capability survey was created to collect:
+
+skills;
+equipment;
+budget;
+commitment;
+preferences;
+project fit.
+
+Form ID discussed in the project:
+
+262334755965064
+
+The first response was from Bitan.
+
+Observed issue:
+
+hourly breakdown vs stated weekly total mismatch;
+blank name field.
+
+The survey is intended to feed PS/team selection and role allocation.
+
+Commitment is treated as an engineering resource, not a soft variable.
+
+47. PS-SELECTION FRAMEWORK
+
+A five-gate framework was established:
+
+Fatal Blocker Gate
+Proxy Defensibility Check
+Weighted Team × PS Matrix
+Qualitative Attack
+Rapid Proof-of-Concept
+
+Critical rule:
+
+"We could probably get access" does not pass Gate 1.
+
+The purpose is to avoid selecting a problem statement based on optimistic assumptions about equipment, data, expertise, or access.
+
+48. CURRENT PROJECT STRATEGIC RISK
+
+The largest current risk is not lack of research.
+
+It is:
+
+Research/documentation becoming a substitute for execution.
+
+The project already has:
+
+multiple master reports;
+architecture documents;
+learning plans;
+research papers;
+hardware studies;
+deployment plans;
+test matrices;
+judge questions.
+
+The missing asset is measured experimental evidence.
+
+Therefore, every new task should be challenged:
+
+"Does this produce a measurement, implementation, bug fix, or decision?"
+
+If not, it is probably lower priority.
+
+49. REPOSITORY / CODE DISCUSSION
+
+A GitHub repository was provided in the project discussion:
+
+https://github.com/ichigo137/ancn
+
+The intended task was to perform a file-by-file and branch-by-branch forensic explanation covering:
+
+Python files;
+C/C++ files;
+configuration files;
+Markdown/TXT documentation;
+model files;
+scripts;
+dependencies;
+libraries;
+architecture;
+data flow;
+training code;
+inference code;
+audio I/O;
+build system;
+branches;
+what each file actually does;
+how to rebuild it independently.
+
+Important status note:
+
+Do not pretend this repository has been completely reverse-engineered merely because the URL was provided.
+
+The next assistant should perform a proper repository inspection if this remains a requirement.
+
+The analysis should distinguish:
+
+repository code
+vs
+our architecture
+vs
+research code
+vs
+production-ready code
+
+Do not assume a repository's implementation is correct just because it runs.
+
+50. SOFTWARE STACK DISCUSSED
+
+Potential stack:
+
+Python
+
+Used for:
+
+dataset generation;
+preprocessing;
+training;
+evaluation;
+experiments;
+visualization;
+prototyping.
+
+Likely libraries/concepts:
+
+NumPy;
+SciPy;
+PyTorch;
+librosa;
+soundfile;
+matplotlib;
+metrics packages;
+ONNX tooling.
+C/C++
+
+Potential final runtime for:
+
+low-latency audio;
+ALSA;
+ring buffers;
+inference;
+embedded deployment.
+ONNX
+
+Used as a deployment interchange format where model operators are compatible.
+
+ONNX Runtime
+
+Potential inference runtime.
+
+TensorRT
+
+Potential NVIDIA deployment optimization.
+
+Quantization
+
+Potential:
+
+FP32 baseline;
+FP16;
+INT8.
+
+Quantization must be measured for:
+
+latency;
+memory;
+accuracy/quality degradation;
+operator compatibility.
+51. REAL-TIME SOFTWARE DESIGN
+
+Basic producer/consumer architecture:
+
+Audio callback / DMA
+       ↓
+small deterministic buffer
+       ↓
+ring buffer
+       ↓
+processing thread
+       ↓
+AI/DSP
+       ↓
+output ring buffer
+       ↓
+audio callback / DMA
+
+Monitor:
+
+queue depth;
+deadline misses;
+underruns;
+overruns;
+inference time;
+end-to-end delay.
+
+Do not put expensive blocking work into the callback.
+
+52. POWER / THERMAL THINKING
+
+The final platform may be used in:
+
+vehicle;
+helmet/headset;
+portable system.
+
+Therefore:
+
+30–60 W edge systems may be undesirable for a portable design;
+thermal stability matters;
+battery runtime matters;
+compute must be justified.
+
+But the student prototype can use a higher-power platform if the goal is proof-of-concept and the report explicitly separates:
+
+PoC compute
+vs
+future field hardware
+53. PHYSICAL PROTOTYPE VS FIELD PRODUCT
+
+Do not claim the SIH prototype is military-qualified hardware.
+
+A real defence system would require much more:
+
+EMI/EMC;
+vibration;
+shock;
+temperature;
+ruggedization;
+waterproofing;
+certification;
+secure communications;
+reliability qualification;
+human factors;
+acoustic safety;
+long-duration testing.
+
+The SIH prototype should instead prove:
+
+architecture;
+measurable enhancement;
+latency;
+hardware integration;
+repeatability;
+credible scaling path.
+54. SAFETY
+
+Never use unsafe real gunfire/explosives/firecrackers as a casual test source.
+
+Use:
+
+prerecorded impulse signals;
+controlled speakers;
+safe playback levels;
+calibrated/controlled test conditions.
+
+A high SPL test that damages hearing or clips the microphone proves nothing useful.
+
+55. DOCUMENTATION DISCIPLINE
+
+Every meaningful experiment should create a journal record.
+
+Suggested structure:
+
+Experiment ID
+Objective
+Owner
+Hypothesis
+Hardware
+Software
+Git commit
+Dataset version
+Configuration
+Procedure
+Raw measurements
+Plots/audio
+Result
+Failure cause
+Decision
+Reviewer
+
+Suggested experiment IDs:
+
+EXP-20260904-001
+EXP-20260904-002
+...
+56. REPRODUCIBILITY
+
+Every model result should record:
+
+model version;
+commit;
+dataset version;
+random seed;
+sample rate;
+STFT configuration;
+batch size;
+learning rate;
+optimizer;
+epochs;
+loss weights;
+checkpoint;
+hardware;
+runtime;
+evaluation script version.
+
+Otherwise the result is difficult to defend.
+
+57. PROJECT EVIDENCE HIERARCHY
+
+Strongest evidence:
+
+measured end-to-end hardware result;
+reproducible local experiment;
+controlled simulation;
+published paper under comparable conditions;
+vendor specification;
+engineering estimate;
+speculation.
+
+Do not use level 4–7 evidence as if it were level 1.
+
+58. CURRENT "DO NOT DO" LIST
+
+Do not:
+
+keep writing another master document instead of coding;
+buy expensive edge hardware before profiling;
+claim <4 ms or <8 ms without full-path measurement;
+claim SIH metrics as achieved before testing;
+call speech enhancement identical to physical ANC;
+force NLMS into the system because hybrid sounds impressive;
+train on the held-out test set;
+use clean speech as live adaptive desired signal;
+assume reference-mic correlation is automatically good;
+assume WM8960 is mandatory;
+assume Raspberry Pi is required for Stage 1;
+assume Google AI Studio automatically supports the entire training workflow;
+build a giant 1B-parameter model;
+use only matched-noise evaluation;
+ignore speech leakage;
+ignore clipping;
+hide failure cases;
+use dashboard visuals as proof of hardware operation.
+59. WHAT SHOULD BE BUILT FIRST
+
+The recommended immediate sequence is:
+
+Step 1
+
+Create/clean the repository.
+
+Step 2
+
+Create reproducible Python environment.
+
+Step 3
+
+Implement WAV inspection.
+
+Step 4
+
+Implement SNR calculation and controlled mixer.
+
+Step 5
+
+Implement STFT/iSTFT.
+
+Step 6
+
+Implement spectral subtraction and Wiener baseline.
+
+Step 7
+
+Implement LMS.
+
+Step 8
+
+Implement NLMS.
+
+Step 9
+
+Create synthetic reference/primary signals.
+
+Step 10
+
+Test reference correlation and speech leakage.
+
+Step 11
+
+Build the real two-microphone Stage-1 hardware path.
+
+Step 12
+
+Capture 60+ seconds of synchronized dual-channel audio.
+
+Step 13
+
+Build mic → headphones passthrough.
+
+Step 14
+
+Measure real latency.
+
+Step 15
+
+Build evaluation harness.
+
+Step 16
+
+Run a tiny AI model.
+
+Step 17
+
+Benchmark DeepFilterNet candidate.
+
+Step 18
+
+Only then decide whether edge hardware is needed.
+
+Step 19
+
+Test AI-only vs NLMS-only vs AI+NLMS.
+
+Step 20
+
+Deploy the winning architecture.
+
+60. FIRST EXPERIMENTS THAT SHOULD EXIST
+
+Before discussing final architecture, the project should have actual files/results for:
+
+EXP-001
+
+WAV/sample-rate inspection.
+
+EXP-002
+
+SNR mixer validation.
+
+EXP-003
+
+STFT/iSTFT reconstruction.
+
+EXP-004
+
+Spectral subtraction baseline.
+
+EXP-005
+
+Wiener baseline.
+
+EXP-006
+
+LMS convergence.
+
+EXP-007
+
+LMS divergence.
+
+EXP-008
+
+NLMS convergence.
+
+EXP-009
+
+NLMS changing-power robustness.
+
+EXP-010
+
+Bad reference failure.
+
+EXP-011
+
+Speech leakage failure.
+
+EXP-012
+
+Two-mic hardware capture.
+
+EXP-013
+
+Channel synchronization.
+
+EXP-014
+
+Audio passthrough latency.
+
+EXP-015
+
+Tiny AI model.
+
+EXP-016
+
+AI vs noisy baseline.
+
+EXP-017
+
+AI vs NLMS.
+
+EXP-018
+
+AI + NLMS.
+
+EXP-019
+
+Impulse handling.
+
+EXP-020
+
+End-to-end latency.
+
+61. FINAL SYSTEM DEMONSTRATION CONCEPT
+
+A strong SIH demonstration should show:
+
+LIVE / CONTROLLED ACOUSTIC SCENARIO
+            ↓
+PRIMARY + REFERENCE MICS
+            ↓
+REAL PROCESSING HARDWARE
+            ↓
+AI + DSP / ADAPTIVE SYSTEM
+            ↓
+HEADSET
+            ↓
+CLEARER SPEECH
+
+And simultaneously show evidence:
+
+input waveform;
+output waveform;
+spectrogram;
+input SNR;
+output SNR;
+ΔSNR;
+STOI;
+PESQ;
+latency;
+CPU/GPU;
+system state;
+impulse detection;
+controller state.
+
+The dashboard should support the physical demonstration, not replace it.
+
+62. EXPECTED JUDGE QUESTIONS
+
+The team should be able to answer:
+
+Why is this not just ordinary ANC?
+Why is AI needed?
+Why not use only LMS/NLMS?
+Why do you need a reference microphone?
+What happens if the reference microphone contains speech?
+What exactly is your novelty?
+Why is DeepFilterNet appropriate?
+Why not use a larger model?
+Why not use 1B parameters?
+Why not use Raspberry Pi?
+Why is the laptop used?
+How is latency measured?
+Is 4 ms actually measured?
+What happens during a gunshot-like impulse?
+How do you prevent speech destruction?
+How do you prove unseen-noise generalization?
+How do you prevent data leakage?
+What is your adaptive-filter error signal?
+What is the secondary path?
+Why is physical ANC different from speech enhancement?
+What happens if AI inference fails?
+What happens if the reference mic fails?
+What happens if the mic clips?
+What happens if the model is too slow?
+Why is your hardware only a prototype?
+How would this scale to a real defence headset?
+What evidence is yours versus copied from papers?
+What result would make you remove NLMS?
+What result would make you change the AI model?
+What is your worst-case measured latency?
+63. CURRENT PROJECT STATUS — HONEST VERSION
+Research
+
+Extensive / substantially organized.
+
+Architecture
+
+V1 architecture largely frozen.
+
+Latency target
+
+Frozen at preferred <20 ms, hard ceiling ≤30 ms.
+
+AI model
+
+DeepFilterNet-family is leading candidate; not yet permanently proven.
+
+Adaptive filter
+
+NLMS is the reference adaptive stage to test; final inclusion depends on measured benefit and valid runtime signal definitions.
+
+Dataset
+
+Strategy established; actual versioned dataset must be built and measured.
+
+Hardware
+
+Stage 1 direction: real two-mic hardware + laptop as compute brain.
+
+Embedded board
+
+Not yet justified until workload is profiled.
+
+Metrics
+
+Evaluation plan exists; actual project measurements remain the important missing evidence.
+
+Physical prototype
+
+Still an execution milestone, not something to claim as complete unless actually built and tested.
+
+Repository
+
+URL known; complete forensic repo analysis remains a separate execution task unless already performed in a later thread.
+
+64. MOST IMPORTANT BLIND SPOTS
+Blind spot 1 — "We researched enough"
+
+Yes. The research layer is already huge.
+
+The bottleneck is now implementation.
+
+Blind spot 2 — "Hybrid automatically means better"
+
+No.
+
+AI + NLMS can be worse than AI alone.
+
+It must earn its place through ablation.
+
+Blind spot 3 — "Reference mic = ANC"
+
+No.
+
+A bad reference can make the adaptive filter useless or harmful.
+
+Blind spot 4 — "Inference latency = system latency"
+
+No.
+
+Buffers, STFT, I/O and DAC matter.
+
+Blind spot 5 — "Good PESQ = good communication"
+
+No.
+
+Speech intelligibility and human listening matter.
+
+Blind spot 6 — "More parameters = better AI"
+
+No.
+
+For edge audio, excessive model size can directly undermine the mission.
+
+Blind spot 7 — "Commercial hardware has no AI"
+
+That is too broad to state without current evidence.
+
+The novelty should be framed around the specific adaptive architecture and demonstrated behaviour, not a sweeping claim about every commercial product.
+
+Blind spot 8 — "Hardware is later"
+
+Wrong.
+
+Hardware audio acquisition must be tested early because the final system depends on:
+
+synchronization;
+latency;
+clipping;
+reference quality;
+I/O stability.
+65. MASTER DECISION LOG
+Decision	Status
+Use hybrid AI + adaptive concept	Frozen for experimentation, not guaranteed final
+Laptop as early compute	Frozen for Stage 1
+Raspberry Pi as Stage-1 brain	Rejected/not required
+WM8960 as mandatory Stage-1 codec	Rejected/not required
+Two synchronized microphones	Required
+Reference microphone	Required for adaptive experiments
+DeepFilterNet family	Leading candidate
+1B-parameter model	Rejected as unnecessary
+2M–10M model range	Engineering planning range
+Preferred end-to-end latency	<20 ms
+Hard ceiling	≤30 ms
+<8 ms requirement	Rejected as unsupported
+<4 ms requirement	Rejected as unsupported
+16 kHz mandatory	Rejected
+NLMS final inclusion	Conditional on evidence
+AI-only baseline	Required
+NLMS-only baseline	Required
+AI+NLMS ablation	Required
+Held-out unseen noise	Required
+Impulse testing	Required
+Dashboard as product	Rejected
+Physical prototype as main demo	Required
+66. PROJECT SOURCE FILES CURRENTLY AVAILABLE
+
+The project has accumulated multiple versions and duplicates. The major available files include:
+
+PS_26052_MASTER_REFERENCE_BOOK_V3.docx
+PS_26052_MASTER_REFERENCE_BOOK_V3.md
+PS_26052_MASTER_ARCHITECTURE_REFERENCE.docx
+PS_26052_MASTER_ARCHITECTURE_REFERENCE.md
+PS_26052_ADAPTIVE_DEFENCE_ANC_MASTER_V7_10_OF_10.md
+PS_26052_ADAPTIVE_DEFENCE_ANC_MASTER_V6_COMPLETE.md
+PS_26052_ADAPTIVE_ANC_ULTIMATE_COMPLETE_MASTER_REPORT.docx
+PS26052_Complete_Reference_Book_BEGINNER_FRIENDLY_V2.docx
+PS26052_Complete_Reference_Book_BEGINNER_FRIENDLY_V2.pdf
+PS26052_Complete_Reference_Book_BEGINNER_FRIENDLY_V2-1.docx
+PS26052_Complete_Reference_Book_BEGINNER_FRIENDLY_V2(1).pdf
+PS26052_Complete_Reference_Book.docx
+PS26052_Complete_Reference_Book-1.docx
+PS26052_Build_Learning_Master_Plan.md
+PS26052_Master_Journey_Checklist.md
+MASTER_ADAPTIVE_ANC_TEAM_LEARNING_ENGINEERING_MENTOR.md
+DRDO_ANC_Deep_Research-1.md
+DRDO_ANC_Deep_Research-2.md
+DRDO_ANC_Deep_Research-3.md
+DRDO_SI... / architecture PDFs and supporting research documents
+DRDO_SI... ANC_System_Architecture.pdf
+Filter-combined.pdf
+Robust_Sub-Filter_Based_APA_With_Parametric_Welsch.pdf
+IJMIC250201NA.pdf
+SIH2026-IDEA-Presentation-Format.pptx
+
+There are duplicate versions of several documents. Treat the latest authoritative V3 architecture/master documents as the main contract and use older versions for historical context only.
+
+67. MOST IMPORTANT SOURCE DOCUMENTS
+Master Reference Book V3
+
+Primary source for:
+
+authoritative architecture;
+latency;
+learning roadmap;
+evidence labels;
+hardware selection;
+evaluation.
+Master Architecture Reference
+
+Primary source for:
+
+functional architecture;
+hardware requirements;
+deployment;
+latency;
+selection criteria.
+Ultimate Complete Master Report
+
+Primary source for:
+
+detailed build sequence;
+experiments;
+team roles;
+failure drills;
+hardware strategy;
+acceptance criteria.
+Beginner-Friendly Reference Book
+
+Primary source for:
+
+learning curriculum;
+detailed explanations;
+practical experiments;
+commercial comparison;
+runnable conceptual controller examples.
+Filter-combined.pdf
+
+Important new research source for:
+
+GFANC–FxNLMS;
+CNN-assisted adaptive filtering;
+online clustering;
+low-complexity learned control-filter generation.
+68. REFERENCE LINKS DISCUSSED
+
+These were used/referenced in project research:
+
+RNNoise: https://github.com/xiph/rnnoise
+DeepFilterNet: https://arxiv.org/abs/2305.08227
+DeepFilterNet2: https://arxiv.org/abs/2205.05474
+Microsoft DNS Challenge: https://github.com/microsoft/DNS-Challenge
+MetricGAN+: https://arxiv.org/abs/2104.03538
+STOI: https://doi.org/10.1109/TASL.2011.2114881
+ITU-T P.862: https://www.itu.int/rec/t-rec-p.862
+ITU-T P.863: https://www.itu.int/rec/t-rec-p.863
+Project repository discussed: https://github.com/ichigo137/ancn
+
+The repository and external links should be rechecked before final submission because software versions and external availability can change.
+
+69. FINAL PROJECT IDENTITY
+
+The strongest working identity developed so far is:
+
+ADAPTIVE-DEFENCE ANC — Hybrid AI–DSP Edge Speech Enhancement for Dynamic and Impulsive Defence Noise
+
+The project is not fundamentally trying to invent a new neural-network architecture.
+
+It is trying to engineer a complete, measurable, low-latency system that combines:
+
+synchronized two-microphone acquisition;
+AI speech enhancement;
+adaptive filtering;
+impulse-aware control;
+speech protection;
+fail-safe logic;
+embedded deployment;
+measurable real-time performance.
+
+The system wins if it is:
+
+robust
++
+intelligible
++
+low latency
++
+resource aware
++
+physically demonstrable
++
+honestly measured
+
+—not if it merely has the most impressive model name.
+
+70. THE NEXT ASSISTANT'S FIRST QUESTION SHOULD BE
+
+Do not ask:
+
+"Would you like me to research the architecture more?"
+
+Instead ask:
+
+"Which execution layer are we on right now: STFT/NLMS experiments, Stage-1 two-mic hardware acquisition, dataset generation, AI baseline, or repository reverse-engineering?"
+
+Then execute that layer.
+
+71. IMMEDIATE ACTION LIST
+Highest priority
+ Create clean repository structure.
+ Implement STFT/iSTFT.
+ Implement SNR mixer.
+ Implement spectral baseline.
+ Implement LMS.
+ Implement NLMS.
+ Build synthetic reference experiment.
+ Test speech leakage.
+ Acquire real two-channel microphones.
+ Capture synchronized dual-channel audio.
+ Build laptop streaming passthrough.
+ Measure real baseline latency.
+ Build metric evaluation script.
+ Train/run tiny AI baseline.
+ Benchmark DeepFilterNet candidate.
+ Compare AI-only / NLMS-only / hybrid.
+ Only then select embedded hardware.
+Lower priority until the above exists
+fancy dashboard;
+enclosure aesthetics;
+custom PCB;
+advanced beamforming;
+huge model;
+online neural adaptation;
+GAN/diffusion;
+custom accelerator;
+additional papers;
+another master document.
+72. ONE-SENTENCE HANDOFF
+
+We are building a defence-focused, low-latency hybrid AI + adaptive-DSP speech-enhancement system with synchronized primary/reference microphones; Stage 1 uses the laptop as the compute brain while real hardware audio acquisition is built, the preferred end-to-end latency target is <20 ms with ≤30 ms hard ceiling, DeepFilterNet-family models are the leading AI candidates, NLMS must prove measurable value before inclusion, and the project is now at the point where execution and measured evidence matter more than additional documentation.
+
+73. HONEST STATUS WARNING
+
+This handoff is a consolidated project-context summary, not a literal transcript of every previous chat message.
+
+It combines:
+
+the project conversation context available in this workspace;
+decisions recorded in the uploaded master documents;
+technical conclusions from the research documents;
+the hardware discussions;
+the AI/ML planning discussion;
+the repository-analysis request;
+the current execution priorities.
+
+Where something has not been experimentally demonstrated, it is intentionally marked as a target, hypothesis, candidate, or pending task.
+
+Do not turn any unmeasured target into a claimed result.
+
+74. END OF HANDOFF
+
+"""
+
+out_path = Path("/mnt/data/ADAPTIVE_ANC_COMPLETE_PROJECT_HANDOFF.md")
+
+Use pypandoc as required for Markdown generation.
+
+pypandoc.convert_text(md, "md", format="md", outputfile=str(out_path), extra_args=["--standalone"])
+print(f"Created: {out_path}")
+print(f"Size: {out_path.stat().st_size:,} bytes")
+
+STDOUT/STDERR
+Created: /mnt/data/ADAPTIVE_ANC_COMPLETE_PROJECT_HANDOFF.md
+Size: 68,244 bytes
+
+
+Done. I consolidated the project context into a single Markdown handoff file, including the architecture, decisions, latency conflict resolution, Stage-1 laptop + hardware approach, AI/ML strategy, NLMS, microphone strategy, datasets, evaluation, hardware, research findings, team structure, repo status, risks, kill criteria, and immediate execution plan.

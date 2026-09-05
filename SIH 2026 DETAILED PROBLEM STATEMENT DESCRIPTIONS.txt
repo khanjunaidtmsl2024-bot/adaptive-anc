@@ -1,0 +1,1128 @@
+1.
+Problem Statement Details
+Problem Statement ID	
+26004
+Problem Statement Title	
+Al-Assisted Early Detection System for Osteoarthritis (OA) Risk Markers in North Eastern Region (NER)
+Description	
+Background:
+
+Osteoarthritis (OA) is one of the most common musculoskeletal disorders affecting elderly individuals and physically active populations, leading to chronic pain, joint stiffness, mobility issues, and reduced quality of life.
+
+In the North Eastern Region (NER), difficult terrain, physically demanding livelihoods, aging population, and limited access to specialized orthopaedic care further increase the burden of undiagnosed and untreated osteoarthritis cases. Early identification of OA risk markers is critical for timely intervention and preventive healthcare management.
+
+However, healthcare facilities in many remote and rural areas of NER lack affordable screening tools, specialist support, and diagnostic infrastructure for early-stage detection of osteoarthritis. There is a need for a technology-driven solution that can assist healthcare workers in identifying early OA indicators and supporting preventive screening in low-resource settings across the North Eastern Region.
+
+Description:
+
+This problem statement seeks to develop an AI-assisted screening and detection system for identifying early risk markers and symptoms associated with Osteoarthritis (OA) in the North Eastern Region. The solution should:
+
+a. Assist in early detection of OA-related risk markers through
+
+• Joint movement analysis
+• Gait and posture assessment
+• Pain and mobility screening inputs
+• Medical imaging or sensor-based assessment (if applicable)
+
+b. Use AI/ML techniques to analyse patient data and identify high-risk cases for early intervention c. Support screening in primary healthcare centres, rural health camps, and community outreach programs d. Provide preliminary OA risk assessment and severity indication e. Enable healthcare workers to digitally record patient symptoms and screening reports f. Include multilingual and easy-to-use interfaces suitable for rural healthcare settings in NER g. Work in low-connectivity environments with offline data collection capability h. Provide awareness and preventive guidance related to joint care, physical activity, nutrition, and lifestyle management The solution should be portable, affordable, and suitable for deployment in remote and underserved areas.
+
+Expected Solution:
+
+A scalable Al-enabled healthcare screening solution with:
+
+• Al-based OA risk analysis and screening module
+• Portable assessment interface or sensor-assisted screening mechanism
+• Digital patient record and report generation system
+• Mobile/web-based healthcare worker interface
+• Offline synchronization capability for remote areas
+• Multilingual support and simplified workflow for field deployment
+• Secure patient data management and analytics dashboard The solution should support early diagnosis, preventive healthcare intervention, and improved accessibility to musculoskeletal healthcare services in the North Eastern Region.
+Organization	Ministry of Development of North Eastern Region (MDoNER)
+Department	Ministry of Development of North Eastern Region (MDoNER)
+Category	Hardware
+Theme	Space Technology
+2.
+Problem Statement Details
+Problem Statement ID	
+26005
+Problem Statement Title	
+Solar-Powered Smart Mini Cold Storage System for Fresh Vegetables in North Eastern Region (NER)
+Description	
+Background:
+
+The North Eastern Region (NER) produces a substantial quantity of fresh vegetables and horticultural crops. However, due to inadequate cold storage infrastructure, unreliable electricity supply, difficult terrain, and transportation delays, farmers often face heavy post-harvest losses. Most remote farming areas lack access to affordable small-scale cold storage facilities near production clusters and local markets. As a result, fresh vegetables deteriorate rapidly before reaching consumers, reducing farmer income and affecting supply chain efficiency. There is a need for a low-cost, energy-efficient, and decentralized cold storage solution suitable for rural and remote regions of NER.
+
+Description:
+
+This problem statement seeks the development of a Solar-Powered Smart Mini Cold Storage System for farmers and vegetable producers in the North Eastern Region (NER) to reduce postharvest losses of perishable vegetables. Due to poor cold-chain infrastructure, difficult transportation routes, frequent power cuts, and long travel durations from remote villages to markets, fresh vegetables often spoil within a short time after harvest. Farmers are forced to sell produce at low prices or suffer financial losses due to lack of nearby storage facilities. The proposed system should function as a decentralized mini cold storage unit that can be installed at village-level collection centres, local markets, farmer cooperatives, and farm-gate aggregation points.
+
+The system should:
+
+a. Preserve fresh vegetables such as tomatoes, cabbage, beans, leafy vegetables, chilli, and other horticultural produce under suitable storage conditions b. Operate using solar energy with battery backup support for off-grid and low-electricity areas c. Maintain controlled temperature and humidity levels for extending shelf life of vegetables d. Include smart monitoring features for:
+
+• Temperature fluctuation
+• Humidity variation
+• Power failure alerts
+• Storage condition status e. Be compact, modular, and suitable for deployment in remote hilly terrain and rural agricultural clusters f. Be energy-efficient, weather-resistant, and capable of operating under varying climatic conditions of NER g. Support easy operation and low maintenance for farmer groups, cooperatives, and local vendors h. Help reduce spoilage during temporary storage before transportation to larger markets The solution should strengthen local agricultural supply chains, reduce vegetable wastage, improve market accessibility, and enhance income opportunities for farmers in the North Eastern Region.
+
+Expected Solution:
+
+A functional hardware-based smart mini cold storage system suitable for rural and remote agricultural areas of the North Eastern Region. The proposed solution should include:
+
+a. Solar-powered cooling system with energy-efficient operation b. Insulated cold storage chamber for preserving fresh vegetables and horticultural produce c. Battery backup support for uninterrupted operation during power outages or low sunlight conditions d. Temperature and humidity monitoring mechanism for maintaining suitable storage conditions e. Smart alert/indicator system for:
+
+• Temperature fluctuations
+• Power failure
+• Unsafe storage conditions f. Compact and modular design suitable for village-level deployment and difficult terrain g. Weather-resistant and durable structure for varying climatic conditions in NER h. Low-maintenance and cost-effective system suitable for farmer cooperatives, local markets, and collection centres i. Basic digital monitoring/display interface for storage status and system performance The solution should help reduce post-harvest vegetable spoilage, improve shelf life of produce, strengthen local cold-chain infrastructure, and enhance income opportunities for farmers in the North Eastern Region.
+Organization	Ministry of Development of North Eastern Region (MDoNER)
+Department	Ministry of Development of North Eastern Region (MDoNER)
+Category	Hardware
+Theme	Smart Vehicles
+3.
+Problem Statement Details
+Problem Statement ID	
+26007
+Problem Statement Title	
+Safe and Efficient Operation of Mine Vehicles in Fog and Low-Visibility Conditions in Open Cast Iron Ore Mines.
+Description	
+Background:
+
+NMDC Limited is Indiaâ€™s largest Iron Ore producer, currently producing approximately 53 Million Tonnes Per Annum (MTPA) from its three fully mechanized mining complexes, namely BIOM-Kirandul Complex, BIOM-Bacheli Complex in Chhattisgarh, and Donimalai Complex in Karnataka. The Bailadila Region alone contributes nearly 37 MTPA of Iron Ore production. In line with the National Steel Policy, NMDC has set a target of achieving 100 MT production capacity by 2030, with approximately 80 MT expected from the Bailadila Sector.
+
+The Bailadila mining region experiences severe monsoon conditions from June to October, including heavy rainfall, strong winds, high humidity, dense clouds, and thick fog. During this period, visibility on mine haul roads, particularly in hilltop mining areas, often reduces to as low as 3â€“5 meters. These conditions significantly affect the safe and efficient movement of Heavy Earth Moving Machinery (HEMM), especially dumpers engaged in ore transportation.
+
+Problem Description:
+
+Dense fog and extremely low visibility during the monsoon season create major operational and safety challenges in the Bailadila iron ore mines. Poor visibility restricts dumper movement, forcing operators to reduce speed or temporarily halt operations to avoid accidents and unsafe conditions.This results in increased haul cycle times, reduced fleet productivity, lower ore evacuation, and production losses. The risk of vehicle collision, road accidents, and operational disruptions also increases substantially during such conditions. Existing visibility aids and operational controls have limited effectiveness in dense fog environments.There is a need for an intelligent, reliable, and technology-driven solution that can enable safe and efficient movement of mine vehicles under low-visibility conditions while ensuring continuity of operations and maintaining production levels. Expected Solution:
+
+The proposed solution should improve operator situational awareness, assist in vehicle guidance and collision avoidance, and support real-time monitoring and decision-making for safe haul road operations during adverse weather conditions.
+
+The solution may leverage technologies such as:
+
+• AI/ML-based analytics
+• Computer vision and thermal imaging
+• LiDAR and radar-based sensing
+• GPS/DGPS-based vehicle tracking
+• Vehicle-to-Vehicle (V2V) and Vehicle-to-Infrastructure (V2I) communication
+• Autonomous or driver-assistance systems
+• IoT-enabled monitoring systems
+• Centralized command and control platforms
+• Digital Twin-based operational monitoring Expected Outcomes
+• Improved safety of dumper operations during foggy conditions
+• Reduction in collision risks and operational accidents
+• Improved haulage efficiency and reduced cycle times
+• Enhanced fleet utilization and continuity of mining operations during monsoon
+• Reduction in production losses caused by low visibility
+• Real-time monitoring and decision support for operators and control rooms
+• Scalable and deployable solution for large-scale mechanized open cast mines
+Organization	Ministry of Steel
+Department	NMDC
+Category	Hardware
+Theme	Smart Automation
+4.
+Problem Statement Details
+Problem Statement ID	
+26008
+Problem Statement Title	
+Belt Joint Rupture and Conveyor Belt Damages in Iron Ore Mining Industry: Intelligent Monitoring and Prediction of Conveyor Belt Joint Rupture and Damages in Iron Ore Mining Industry.
+Description	
+Background:
+
+In the iron ore mining industry, conveyor belt systems are the backbone of material transportation, enabling continuous movement of iron ore from mining faces to crushing, screening, stockyard, and dispatch areas. One of the major operational challenges is conveyor belt joint rupture and belt damage, as belt joints are highly vulnerable to failure due to excessive tension,misalignment, wear, overloading, and maintenance deficiencies. Unexpected belt failures can cause production downtime, safety risks, high maintenance costs, delays in ore transportation, and damage to associated equipment.Traditional maintenance practices are mostly reactive or schedule based, which often fail to detect early-stage degradation of conveyor belts and joints. As mining operations increasingly move toward Industry 4.0 and smart mining, there is a growing need for intelligent, real-time, predictive systems that can proactively identify belt health deterioration and prevent catastrophic failures. Detailed Description:
+
+Conveyor belt joints in iron ore mines are continuously exposed to heavy loads, high tension, dust, moisture, and frequent start-stop operations. These harsh working conditions gradually damage the belt joints and conveyor belt through cracks, wear, edge damage, rubber weakening, and splice failure. If these issues are not detected early, they can lead to sudden belt rupture and major operational breakdowns.
+
+Mostly inspections are done manually and only at fixed intervals, making it difficult to identify early signs of failure. In normal practices, maintenance is mostly reactive, meaning repairs are performed only after visible damage or breakdown occurs. This results in unexpected shutdowns, emergency repairs, and increased maintenance costs. The major impacts on mining operations are as below:
+
+• Production- Loss of ore transportation capacity
+• Maintenance- Increased repair and spare cost
+• Safety- Risk of accidents during belt rupture
+• Energy- Higher power consumption due to misalignment & friction
+• Asset Life- Reduced conveyor and pulley lifespan
+• Sustainability- Material spillage and wastage Therefore, belt joint rupture and conveyor belt damage remain major operational and financial challenges in iron ore mining industries. Conventional maintenance approaches are insufficient for ensuring high conveyor reliability in modern mining operations.
+
+Expected Solution: To develop an Intelligent Conveyor Belt Health Monitoring and Predictive Maintenance System using digitalization, IoT, AI, and machine learning technologies to detect early signs of belt joint deterioration and damages.
+
+The proposed digitalized system architecture may include the following:
+
+1. IoT-Based Sensor Integration for real-time monitoring using vibration, temperature, belt tracking, acoustic, load, speed, and tension sensors.
+
+2. AI-Based Vision Monitoring using smart cameras and thermal imaging systems to detect cracks, tears, overheating, misalignment, and abnormal belt conditions.
+
+3. Drone and Camera-Based Inspection Systems.
+
+4. Digital Twin of Conveyor System to simulate conveyor operations, monitor equipment health, and analyse behaviour in real time.
+
+5. Integration with Existing SCADA, PLC, and other pre-existed Conveyor Monitoring Systems.
+
+6. AI/ML-Based Predictive Analytics 7. Others The proposed solution aims to reduce unplanned downtime, improve safety, minimize maintenance costs, and enhance conveyor reliability and operational efficiency in iron ore mining industries.
+Organization	Ministry of Steel
+Department	NMDC
+Category	Hardware
+Theme	Smart Automation
+
+5.Problem Statement Details
+Problem Statement ID	
+26025
+Problem Statement Title	
+Development of an AI-enabled Low Cost Real Time Mine Subsidence Monitoring, Prediction and Early Warning System for Underground Coal Mines in India
+Description	
+Background:
+
+Surface subsidence caused by underground coal mining poses significant risks to nearby communities, public infrastructure, agricultural land, forest areas, and the surrounding environment. In India, subsidence monitoring is still largely dependent on conventional field observations, periodic surveys, and post facto damage assessments, which often fail to provide timely warning before critical ground failure occurs.
+
+There is a strong need for an indigenous, low cost, intelligent, and real time monitoring solution capable of detecting early signs of ground movement and enabling proactive risk mitigation. Such a system should be affordable, scalable, and deployable across Indian underground coal mines using widely accessible technologies, thereby supporting the national vision of smart and sustainable mining.
+
+Description:
+
+The problem envisages development of an AI-enabled smart mine subsidence monitoring and early warning platform based on a localized wireless surface mesh sensor network deployed above underground mine panels.
+
+The proposed solution involves installing a distributed network of low cost smart sensor nodes across the surface over the underground mining area. Each node may be equipped with sensors such as:
+
+• tilt/inclination sensors,
+• vibration sensors,
+• displacement/stretch sensors,
+• crack detection sensors,
+• optional low cost positioning modules.
+
+These nodes will communicate through a wireless mesh communication network (such as LoRa/Zigbee/Wi-Fi mesh), enabling continuous real time monitoring of micro ground movements over the mine panel.
+
+The system should continuously detect:
+
+• abnormal ground tilt,
+• change in relative distance between nodes,
+• early crack initiation,
+• unusual vibration signatures, which may indicate the onset of subsidence.
+
+Using Artificial Intelligence / Machine Learning, the platform should:
+
+• identify abnormal deformation patterns,
+• predict possible subsidence zones,
+• estimate severity and progression,
+• generate automated early warning alerts,
+• support timely operational decisions.
+
+The solution should be robust, low power, scalable, and suitable for Indian geo-mining conditions.
+
+Expected Solution:
+
+A web/mobile enabled intelligent mine subsidence monitoring platform integrating IoT, wireless mesh networking, AI, and GIS technologies for:
+
+• development of low cost smart sensor nodes using readily available hardware platforms (e.g., Arduino/ESP32/Raspberry Pi);
+• deployment of a localized wireless mesh network over underground mine panels for continuous surface deformation sensing;
+• real time monitoring of tilt, displacement, vibration, and crack initiation;
+• AI/ML-based anomaly detection and subsidence prediction using live and historical data;
+• GIS based visualization of live deformation maps and risk zones;
+• automated early warning alerts through SMS/email/mobile app notifications;
+• interactive dashboards for mine operators, planners, and regulators;
+• offline capability with periodic cloud synchronization;
+• scalable deployment across multiple underground coalfields.
+
+The proposed solution must be low cost, easy to deploy, energy efficient, scalable, and student prototype friendly, while enabling a Made in India smart mining safety solution for sustainable underground coal mining.
+
+Now your problem statement has a clear unique innovation hook:
+
+'Wireless Surface Mesh Network for Real Time Subsidence Detection' that is what will differentiate it from generic AI proposals.
+Organization	Ministry of Coal
+Department	Coal India Limited
+Category	Hardware
+Theme	Disaster Management
+
+6.
+Problem Statement Details
+Problem Statement ID	
+26026
+Problem Statement Title	
+Development of Mobile (Quadruped)/Handheld Device/System for Real-Time Detection of Narcotics and Explosives across Indian Railways.
+Description	
+Background:
+
+Indian Railways is one of the largest rail networks in the world, serving millions of passengers daily across thousands of stations, platforms, and train coaches. Ensuring the safety and security of passengers and railway assets is a critical responsibility of the Railway Protection Force (RPF).Drug trafficking through railway networks and threats arising from explosives and Improvised Explosive Devices (IEDs) have emerged as major security concerns. During the year 2025, RPF recovered narcotic substances worth approximately Rs. 300 Crores in more than 2100 instances.However, as per data of Narcotic Control Bureau (NCB), nearly 15-20% of drug trafficking is routed through the railway network. Similarly, recent incidents involving use of high explosives such as RDX on railway tracks highlight the vulnerability of railway infrastructure to hostile activities.At present, Indian Railways does not possess any dedicated mobile quadruped or handheld system for real-time field detection of narcotics and explosives. This severely limits the capability of RPF personnel to conduct rapid, non-intrusive screening at station entry points, platforms, inside train coaches, and during luggage or parcel screening operations. Therefore, there is an urgent requirement for a modern, technology-driven, ruggedised, and easy-to-operate detection system suitable for Indian Railways operational conditions.
+
+Description:
+
+The proposed problem statement envisages development of an AI-enabled Mobile (Quadruped) Device/System and Handheld Device/System for real-time detection of narcotics and explosives across Indian Railways.The Mobile (Quadruped) Device/System should function as an intelligent robotic surveillance platform capable of operating in hazardous, complex, and GPS-denied environments. The system should support autonomous or semi-autonomous navigation using LiDAR-based mapping, sensor fusion, thermal and optical imaging systems, and real-time video surveillance. It should be capable of operating in dusty, humid, high-temperature, low-light, and uneven railway environments including ballast areas, yards, tunnels, platforms, and coaches.The quadruped system should support underframe inspection of coaches/wagons, yard surveillance, night patrolling, bomb detection assistance, narcotics detection, facial recognition and matching, and inspection of luggage and concealed areas inside train coaches. The system should also support secure wireless communication, onboard data logging, real-time transmission to control centres, obstacle detection and avoidance, fail-safe mechanisms, and long-duration deployment capability.The Handheld Device/System should be lightweight, ruggedised, easy to operate, and deployable by RPF personnel with minimal training. It should support offline and online operation, encrypted data storage, real-time alerts, GPS tagging, automatic event logging, multilingual interface, and integration with centralized monitoring systems. The device should enable non-intrusive screening crowded railway environments and support wireless transmission of alerts and threat information to control rooms or designated supervisors. Both systems should be capable of detecting a broad spectrum of narcotics including heroin, cocaine, methamphetamine, cannabis derivatives, opium derivatives, semi-synthetic and synthetic narcotics, as well as explosives including RDX, TNT, PETN, TATP, C4, dynamite, ammonium nitrate compounds, gunpowder, and pyrotechnics.
+
+Expected Solution:
+
+A cost-effective, ruggedised, Al-enabled Mobile (Quadruped) Device/System and Handheld Device/System should be developed for real-time detection of narcotics and explosives across Indian Railways.The proposed solution should support rapid, non-intrusive, and real-time detection capability at railway stations, platforms, train coaches, luggage screening points, yards, and other vulnerable railway locations. The system should provide automated alerts through sound, visual indicators, vibration, and centralized monitoring dashboards along with timestamp and GPS-based event logging.The quadruped system should support autonomous patrolling, under-carriage inspection, thermal imaging, facial recognition, bomb detection support, and surveillance operations in hazardous or inaccessible areas. The handheld system should support quick deployment, easy usability, offline data storage, synchronization after network restoration, multilingual operation, and integration with Railway security infrastructure. The overall solution should be operationally sustainable, low-maintenance, scalable for largescale deployment, and suitable for continuous deployment under diverse Indian Railways operational and climatic conditions.
+Organization	Ministry of Railways
+Department	Ministry of Railways
+Category	Hardware
+Theme	Robotics and Drones
+
+7. 
+Problem Statement Details
+Problem Statement ID	
+26029
+Problem Statement Title	
+Automated High-Current Short-Circuit Test System for IEC 60898-1:2015 MCB Compliance.
+Description	
+Background: The safety of electrical installations hinges on reliable Miniature Circuit Breakers (MCBs). IEC 60898-1:2015 mandates rigorous short-circuit breaking capacity tests, crucial for ensuring MCBs perform correctly under severe fault conditions.
+
+Existing Problem: Current manual or semi-automated testing methods for MCBs introduce significant challenges. These include imprecise R (resistive) and XL (inductive) circuit configurations, increased test times, and elevated safety risks for personnel during high-energy fault current generation (up to 10,000A). This impacts test accuracy, repeatability, and overall safety in the MCB certification process.
+
+Detailed Description: This proposal outlines an automated machine to precisely control test currents, voltages, and circuit impedance, executing high-current short-circuit tests on single pole, SPN, DP, TP, and FP MCBs (0.5A-63A) per IEC 60898-1:2015. It features an Automated R and XL Circuit Combination Module with high-power, automatically switched banks for precise power factor control. A High-Current Power Source (transformer-based) delivers up to 10,000A. The Test Station includes universal MCB mounting and a critical arc chute for safety A sophisticated Control and Data Acquisition System (PLC/Industrial PC) manages tests captures high-speed waveforms, and analyzes data (Ip, I2t). A user-friendly HMI allows parameter input and automatic report generation. Comprehensive safety systems are integrated.
+
+Expected Solution: The automated machine will perform MCB breaking capacity tests with unprecedented accuracy and repeatability, fully adhering to IEC 60898-1:2015. This automation will ensure precise parameter control, significantly reduce test times, and enhance safety by minimizing human intervention during high-energy fault conditions. This state-of- he-art facility will provide a reliable platform for MCB certification, contributing directly to electrical safety and quality assurance.
+Organization	Ministry of Consumer Affairs, Food & Public Distribution
+Department	Department of Consumer Affairs (DoCA)
+Category	Hardware
+Theme	Disaster Management
+8.
+Problem Statement Details
+Problem Statement ID	
+26030
+Problem Statement Title	
+Automated Cable Specimen Preparation System for IS 10810 and IS 7098 Compliance.
+Description	
+Background: Accurate and consistent preparation of cable specimens is vital for reliable testing according to Indian Standards like IS 10810 (Parts 2, 7, 33) and IS 7098 (Parts 1 & 2). These tests, including conductor resistance, insulation/sheath thickness, and flame retardance, are crucial for ensuring cable safety and quality. Existing Problem: Currently, cable sample preparation involves significant manual intervention. The cable sample is manually cut by the operator and then straightened manually.Subsequently, these straightened PVC/XLPE/HDPE cable samples are cut into slices using electrically/pneumatically operated machines. Further, the samples are shaped as dumbbells by a dumbbell cutting machine. These manual and semi-automated steps are time-consuming,prone to human error, and introduce inconsistencies that compromise the accuracy and repeatability of critical test results.
+
+Detailed Description: This project develops an automated machine designed to precisely cut insulation and outer sheaths from cables, preparing specimens that strictly adhere to the aforementioned IS standards. Key features include an Automated Cable Feeding and Clamping System utilizing motor-driven rollers and adjustable clamps for secure, straightened cable handling. The Cutting and Stripping Module employs precision blades with programmable depths for clean, circumferential cuts and linear stripping, fulfilling specific length requirements for various tests. An integrated diameter sensor will auto-adjust settings. A Control System (PLC/HMI) manages operations, allows test method selection, monitors status, and provides closed-loop feedback. Automated specimen ejection and waste management further streamline workflow. Robust safety features like enclosed areas and interlocks will protect operators.
+
+Expected Solution: The automated machine will eliminate human error, guaranteeing consistent and repeatable specimen quality while significantly reducing preparation time and costs. By ensuring strict adherence to IS standards, the solution will yield more reliable test results and simplify product certification. This advancement will markedly improve accuracy,efficiency, and safety in cable testing, supporting high-quality control in the cable manufacturing industry.
+Organization	Ministry of Consumer Affairs, Food & Public Distribution
+Department	Department of Consumer Affairs (DoCA)
+Category	Hardware
+Theme	Smart Automation
+
+9.Problem Statement Details
+Problem Statement ID	
+26039
+Problem Statement Title	
+Al-Powered Underground Mine Safety, Monitoring and Rescue System.
+Description	
+Background:
+
+Jharkhand's underground coal mines face significant safety challenges, including toxic gas leaks,tunnel collapses, flooding, and poor visibility. During emergencies, rescue teams often lack real-time information about underground conditions, increasing risks and delaying response efforts.An intelligent robotic system capable of monitoring mine conditions, detecting hazards, and locating trapped workers can significantly improve mine safety and rescue operations while reducing risks to human rescuers.
+
+Description:
+
+The Al-Powered Mine Safety and Rescue Rover is an inteltigent robotic system designed to operate in hazardous underground mining environments. The rover is equipped with gas sensors, thermal and night-vision cameras, environmental monitoring sensors, and wireless communication modules to provide real-time information about mine conditions.The system can detect toxic gases, monitor temperature and humidity, identify potential hazards, and assist in locating trapped workers during emergencies. Using Al-based analysis and remote monitoring capabilities, the rover enables rescue teams to assess underground conditions without exposing personnel to dangerous environments. The solution aims to enhance mine safety, improve emergency response efficiency, and reduce the risk of casualties in underground mining operations.
+
+Expected Solution:
+
+Develop an Al-powered mine rescue system consisting of a rugged ground rover or a compact aerial drone capable of operating in hazardous underground mining environments. The system should provide real-time monitoring of toxic gases, temperature, humidity, and structural conditions while transmitting live video and thermal imaging data to a surface control station.
+
+The rover and drone will assist rescue teams by exploring inaccessible areas, detecting hazards, locating trapped workers, and providing situational awareness during emergencies. The solution should improve mine safety, reduce risks to rescue personnel, and enable faster, more informed emergency response in underground mines.
+Organization	Governmcnt of Jharkhand
+Department	Department of Higher & Technical Education
+Category	Hardware
+Theme	Travel & Tourism
+10.
+Problem Statement Details
+Problem Statement ID	
+26049
+Problem Statement Title	
+Modifications to improve the reliability, efficiency,and lifespan of electrical and electronic equipment and systems in the ambient condition of subzero temperature and low pressure of High Altitude Areas(HAA) and Super High Altitude Areas (SHAA) of Ladakh region.
+Description	
+• Background:
+
+High Altitude Areas (HAA) and Super High Altitude Areas (SHAA) of Ladakh region presents one of the harshest operating environments for electronic equipment and systems because of its extreme cold, low atmospheric pressure, intense solar/UV radiation and large temperature variations between day and night. These environmental conditions strongly affect the reliability, efficiency, and lifespan of electrical and electronic systems.
+
+• Description:
+
+Ladakh is a cold desert located at elevations of approximately 3000 to 6000m above sea level. There are several environmental challenges viz. very low temperatures (-35Â°C to 40Â°C in winters), low atmospheric pressure, lower partial pressure of oxygen, low humidity, snow, ice and occasional moisture condensation. These conditions pose serious operational and storage issues of electrical and electronic equipment and systems and following effects on same is observed:
+
+1. Reduced Cooling Efficiency: At high altitude, air density decreases significantly. Thin air removes heat less effectively (degradation of convective cooling), so electronic components run hotter even when ambient temperature is cold. This means overheating of processors, reduced efficiency of cooling fans and heat sinks, thermal stress on semiconductors and premature component failure. Systems being affected are computers and servers, telecom base stations, radar system, power electronics, military communication systems.
+
+2. Insulation Breakdown and Electrical Arcing: Low atmospheric pressure reduces the dielectric strength of air. Air becomes a weaker insulator, increasing the risk of sparking and arcing between conductors.
+
+3. Battery Performance Degradation: Cold temperatures severely affect battery chemistry. Lithium-ion and lead-acid batteries lose capacity and discharge faster in freezing conditions. Owing to this there is reduced backup time, slow charging and voltage instability.
+
+4. Thermal Cycling Damage: Ladakh experiences large temperature variation between day and night. Repeated expansion and contraction develop mechanical stresses in the components. This result in cracking of solder joints, PCB warping etc.
+
+5. Increased Radiation Exposure: Higher altitude means thinner atmospheric shielding, so electrical and electronic components receive more UV radiation and cosmic rays. This means semiconductor degradation, memory bit error and failure of sensitive sensors.
+
+6. Effects on Communication Systems: High Mountains and severe weather affect signal propagation. There are problems like signal attenuation and reflection, antenna icing. Because of these cellular networks, satellite communication and military radio system get affected.
+
+7. Real-World Impact: The Drone Challenge: The Indian Armyâ€™s extensive use of drones along the LAC highlights these exact issues. In the thin air of Ladakh, drone rotors generate less lift, forcing the electronic motors to work much harder and draw more current. Combined with cold-induced battery drain, drones that fly for an hour at sea level might only manage 20-25 minutes of flight time in Ladakh
+
+• Expected Solution:
+
+The environment of Ladakh significantly affects electrical and electronic equipment due to low atmospheric pressure, extreme cold, high UV/cosmic radiation, dust and dryness, and large thermal variations. These conditions can cause overheating, insulation failure, battery degradation, display malfunction, communication instability, and reduced reliability. Therefore, electrical and electronic equipment and systems used in Ladakh require specialized design modifications to improve the reliability, efficiency, and lifespan.
+Organization	DRDO
+Department	Department of Defence Production /IDEX
+Category	Hardware
+Theme	Heritage & Culture
+
+11.
+Problem Statement Details
+Problem Statement ID	
+26050
+Problem Statement Title	
+High Altitude Performance Optimization and Robust Design of Anti-Drone System.
+Description	
+• Background:
+
+Anti-drone systems are deployed for detection, tracking, identification and neutralization of unauthorized drones threatening strategic, defence and critical infrastructure assets. The operational performance of anti-drone systems is generally optimized for standard environmental conditions;
+
+however, their behavior changes significantly in high altitude regions.
+
+High altitude environments are characterized by extreme cold temperatures, low atmospheric pressure, reduced air density, dust, snow, and high wind conditions. These factors influence the performance of mechanical, electrical, electronic, RF, electro-optical and stabilization subsystems. Components such as cables, motors, connectors, bearings, batteries, sensors and precision positioning mechanisms may experience altered material properties, increased rigidity, thermal stresses and degraded operational characteristics.
+
+For precision systems requiring micro-radian level pointing, tracking and stabilization accuracy, even minor changes in cable flexibility, structural dynamics, lubrication properties and component response can lead to significant degradation in system performance. Therefore, there is a requirement to develop an anti-drone system with suitable design methodologies and component selection approaches to ensure reliable performance in harsh high-altitude operational conditions.
+
+• Description:
+
+The above statement envisages the development of a high-altitude capable antidrone system with robust environmental tolerance and sustained operational effectiveness under extreme climatic and atmospheric conditions.
+
+The system shall assess the impact of low temperature, low pressure, dust ingress, high wind loads, thermal cycling and reduced atmospheric density on overall system performance and develop suitable mitigation methodologies.
+
+• A portable or deployable anti-drone system architecture with optimized mechanical, electrical, RF and electro-optical subsystems shall be developed. The system shall incorporate:
+• Robust design methodologies for maintaining detection, tracking and engagement accuracy at high altitude.
+• Suitable component selection and qualification for reliable operation in harsh environments.
+• Compensation mechanisms for environmental effects impacting system dynamics, stabilization, pointing accuracy and sensor performance.
+• Thermal management and environmental protection methodologies for critical components and subsystems.
+• Adaptive control algorithms, health monitoring techniques and predictive performance assessment methods to minimize environmental impact on operational capability.
+
+Special emphasis shall be given to understanding and compensating the influence of temperature-induced cable rigidity, component derating, structural deformation, wind disturbances and sensor drift, particularly in systems demanding high precision pointing and tracking performance.
+
+• Expected Solution:
+
+Development of a robust anti-drone system optimized for high-altitude operation, incorporating:
+
+• Environmental hardening and ruggedized system design suitable for extreme cold, low pressure, dust and high wind conditions.
+• Appropriate component selection, qualification and validation methodologies for high-altitude deployment.
+• Compensation techniques to minimize environmental effects on system stabilization, pointing accuracy, tracking performance and sensing capability.
+• Thermal control, protective packaging and subsystem reliability enhancement measures.
+• Modelling, simulation and field evaluation methodologies for assessing antidrone system performance under representative high-altitude operational scenarios.
+
+The final system should demonstrate reliable detection, identification, tracking and neutralization capability with minimal performance degradation under high-altitude environmental conditions, while maintaining the desired operational intent and precision requirements.
+Organization	DRDO
+Department	Department of Defence Production /IDEX
+Category	Hardware
+Theme	MedTech / BioTech / HealthTech
+
+12.
+Problem Statement Details
+Problem Statement ID	
+26052
+Problem Statement Title	
+To develop an AI/ML-enabled adaptive noise cancellation (ANC) system that effectively suppresses stationary, non-stationary, and impulsive defence noises while maintaining high speech intelligibility and real-time performance on embedded hardware.
+Description	
+• Background:
+
+In defence and mission-critical communication systems, reliable speech transmission is severely affected by diverse acoustic disturbances such as gunshots, artillery fire, helicopter rotor noise, armored vehicle sound and emergency sirens. Traditional signal processing techniquesâ€”like spectral subtraction, Wiener filtering, and classical LMS-based ANCâ€”are limited in handling highly dynamic and non-linear noise environments. These methods assume stationary noise characteristics and often introduce artifacts or speech distortion under rapidly changing conditions.
+
+Recent advancements in Artificial Intelligence and Machine Learning (AI/ML)
+
+have transformed the field of speech enhancement and ANC. Deep learning models and time-domain architectures are capable of learning complex spectral-temporal patterns directly from data. These models significantly outperform conventional approaches in terms of perceptual quality (PESQ), intelligibility (STOI), and noise suppression (SNR). Additionally, the rise of edge AI platforms enables deployment of such models on embedded systems for real-time applications.
+
+• Description:
+
+The proposed system integrates AI/ML-driven noise suppression with adaptive filtering to create a robust ANC pipeline. The development begins with dataset generation, where clean speech data is combined with curated defence noise datasets (gunshots, drones, artillery, vehicle engines, wind, etc.)
+
+at varying SNR levels. This synthetic data generation ensures coverage of both stationary and impulsive noise scenarios.
+
+The training pipeline involves transforming audio into time-frequency representations (e.g., STFT spectrograms) or directly using raw waveform inputs. Models process both full-band and sub-band features to capture global and local dependencies. while its also operates in the complex domain to preserve phase information. Training is performed using loss functions such as SI-SNR, L1/L2 loss, and perceptual loss, with evaluation metrics including SNR, STOI, and PESQ. Data augmentation techniques (random noise mixing, reverberation, clipping) are applied to improve generalization.
+
+During inference, the trained model processes incoming noisy audio in real time, estimating a mask or directly reconstructing enhanced speech. The system can optionally include a lightweight adaptive filter (e.g., LMS) for residual noise suppression.
+
+For prototype demonstration, the trained model is deployed on embedded/edge hardware such as DSPs or AI-enabled SoCs (e.g., NVIDIA Jetson AGX Orin 64GB Developer Kit or similar platforms). Optimization techniques like quantization, pruning, and ONNX / TensorRT conversion are applied to meet latency and power constraints. The system is integrated with microphones (primary + reference) and headphones/communication units to validate real-time ANC performance in practical environments
+
+• Expected Solution:
+
+The final solution is a hybrid AI-driven ANC system capable of operating in real-time and handling diverse noise environments, including impulsive and highly dynamic defence scenarios. It should include:
+
+• A scalable dataset pipeline for generating realistic noisy-clean speech pairs
+• A state-of-the-art AI/ML model trained for robust noise suppression
+• A training framework with optimized hyper-parameters and perceptual loss functions
+• A real-time inference engine deployable on edge hardware
+• A prototype system demonstrating live noise cancellation using microphones / headset integration The system is expected to achieve significant performance improvements, targeting SNR > 15 dB, STOI > 0.85, and PESQ > 2.5, while maintaining low latency suitable for real-time communication. This solution will enable reliable and intelligible communication in defence, aerospace, and high-noise industrial environments.
+Organization	DRDO
+Department	Department of Defence Production /IDEX
+Category	Hardware
+Theme	Smart Vehicles
+13.
+Problem Statement Details
+Problem Statement ID	
+26058
+Problem Statement Title	
+Development of a Low-Power, Real-Time Adaptive Software-Defined Sonar Transmitter Payload for Autonomous Underwater Vehicles (AUVs)
+Description	
+• Background In underwater exploration and marine mapping, Autonomous Underwater Vehicles (AUVs) rely heavily on side-scan sonar systems. The performance of these systems is entirely dependent on the physical characteristics of the transmitted acoustic wave, known as the â€˜pingâ€™. Traditional sonars transmit short, fixed-frequency pulses. However, modern advanced military and research systems utilize Linear Frequency Modulated (LFM) Chirpsâ€”waveforms that sweep across a spectrum of frequencies over a precise timeframe.The primary bottleneck is that the underwater environment is highly dynamic. Sound waves behave differently depending on water depth, turbidity (suspended mud/sediment particles),temperature, and salinity. A high-frequency chirp (500 kHz) offers ultra-high image resolution but scatters instantly in muddy or deep waters. Conversely, a low-frequency chirp (100 kHz) can penetrate murky water and travel long distances but yields a blurry, low-resolution image. For an AUV to map effectively without draining its limited battery payload, its transmitter hardware must behave like a Software-Defined Radio (SDR)â€”dynamically adapting its physical analog pulse waveform in real-time based on the actual environmental conditions it encounters.
+• Description Participants must design, prototype, and demonstrate a physical, self-contained Software-Defined Sonar Transmitter Payload Module.Instead of a software simulation, the solution must be a physical hardware unit built using an embedded platform (e.g., STM32, ESP32, Texas Instruments DSP, or an FPGA) integrated with custom analog electronics. The hardware must ingest real-time environmental data (via physical sensors, or analog voltage dials acting as sensor inputs) and mathematically synthesize and output an optimized, real-time physical analog waveform via a Digital-to-Analog Converter (DAC) and amplifier circuit.The entire hardware architecture must focus heavily on low-power consumption and hardwarelevel optimization. Teams must utilize low-level configurations (such as Direct Memory Access (DMA) and hardware timers) to ensure the processing unit does not drain a marine drone's battery pack while trying to compute complex trigonometric wave values under strict real-time constraints.
+• Expected Solution Teams are expected to deliver a functional physical hardware prototype consisting of the following modules:
+• Embedded Firmware Engine: A robust program deployed on a physical microcontroller or FPGA (written in C/C++, Verilog, or VHDL). The firmware must utilize hardware timers and DMA to stream wave-generation arrays directly to an internal or external DAC without stalling the CPU. The system must support multiple modulation types on the fly: LFM chirps, geometric sweeps, and phase-coded pulses.
+• Environmental Sensor Interface & Adaptation Logic: A physical control interface where real-time environmental changes are introduced to the hardware (via physical sensors, or potentiometers simulating sensors for parameters like 'Entering Muddy Estuary' or 'Entering Clear Shallow Reef'). The microcontroller must read these inputs via an ADC and modify three critical wave parameters instantly:
+
+1. Bandwidth/Center Frequency (Tuning for range vs. resolution)
+
+2. Pulse Duration (Controlling total energy output)
+
+3. Amplitude/Signal Power
+
+• Analog Signal Conditioning & Hardware Filters: A physical analog frontend circuit (built on a breadboard or custom PCB) featuring active/passive low-pass filters and an operational amplifier. Combined with digital windowing filters (such as Hamming, Hann, or Blackman windows) applied in the firmware, this hardware must smooth out sudden voltage jumps at the start and end of a pulse, protecting the transmitter hardware from electrical stress and eliminating sidelobe artifacts.
+• Physical Form Factor & Output Validation: The physical analog output of the transmitter payload must be connected to an oscilloscope or spectrum analyzer at the judging table.The generated raw waves must demonstrate clean, low-distortion, mathematically sound spectrograms when validated via a Fast Fourier Transform (FFT). Additionally, the module should be housed in a robust, 3D-printed or fabricated structural enclosure representing a field-deployable payload pod designed for an AUV hull slot.
+Organization	Ministry of Earth Sciences (MoES)
+Department	National Institute of Ocean Technology (NIOT)
+Category	Hardware
+Theme	Blockchain & Cybersecurity
+
+14.
+
+Problem Statement Details
+Problem Statement ID	
+26098
+Problem Statement Title	
+Development of a Low-Cost Precision Guidance and Smart Electronic Fuze System for a 155 mm Artillery Shell
+Description	
+• Problem Title Design and Development of a Precision Guidance Kit with Canard Actuation and Multi-Mode Electronic Fuze for a 155 mm Artillery Shell
+• Background Conventional 155 mm artillery shells rely on unguided ballistic trajectories, resulting in relatively high Circular Error Probable (CEP), particularly at long ranges. Improving strike accuracy while utilizing existing shell hardware can significantly enhance operational effectiveness, reduce ammunition consumption, and minimize collateral damage.
+
+The YIL (Yantra India Limited) possesses extensive expertise in manufacturing the mechanical hardware of 155 mm artillery shells and seeks innovative solutions to transform conventional shells into precision-guided munitions through the integration of an advanced guidance and fuze system.
+
+• Problem Statement Develop a compact, robust, and cost-effective precision guidance solution for a standard 155 mm artillery shell by integrating:
+• A Canard Actuation Assembly (CAA) for in-flight trajectory correction.
+• A Guidance,Navigation and Control (GNC) system capable of improving terminal accuracy.
+• A Multi-mode Electronic Fuze supporting:
+• Proximity Mode
+• Time Mode
+• Impact Mode
+• Embedded electronics and software for real-time flight control.
+• Power management suitable for high-g launch and flight conditions.
+• Communication and programming interface for fuze configuration prior to firing.
+
+The integrated system should achieve a Circular Error Probable (CEP) of 30 meters or better, while maintaining compatibility with the existing 155 mm shell design and surviving the extreme mechanical and environmental conditions experienced during artillery launch and flight.
+
+• Expected Outcome Participants should propose a complete system architecture including:
+• Guidance and navigation methodology.
+• Canard deployment and actuation mechanism.
+• Flight control algorithms.
+• Multi-mode electronic fuze design.
+• Sensor selection (e.g., IMU, GNSS, barometric sensor, proximity sensor, etc.).
+• Embedded hardware architecture.
+• Power supply and environmental protection strategy.
+• Simulation and validation methodology.
+• Manufacturability and cost optimization.
+• Desired Deliverables
+• System architecture document.
+• CAD model of the canard actuation assembly.
+• Electronics block diagram.
+• Guidance and control algorithm.
+• Simulation demonstrating trajectory correction.
+• Prototype or proof-of-concept (preferred).
+• Performance estimation showing the capability to achieve a CEP of ?30 m.
+• Constraints
+• Compatible with a standard 155 mm artillery shell casing.
+• Must withstand high launch acceleration, vibration, spin, and harsh environmental conditions.
+• Low Size, Weight, Power, and Cost (SWaP-C).
+• High reliability and safety.
+• Modular design suitable for future upgrades.
+• Skills Expected from Participants
+• Mechanical Design
+• Mechatronics
+• Embedded Systems
+• Control Systems
+• Guidance, Navigation & Control (GNC)
+• Aerospace Engineering
+• Electronics
+Organization	Ministry of Defence (MoD)
+Department	Yantra India Limited, Ambajhari,Nagpur
+Category	Hardware
+Theme	Miscellaneous
+
+15.
+
+Problem Statement Details
+Problem Statement ID	
+26109
+Problem Statement Title	
+Al-Based Predictive Modelling for Early Forecasting of Bovine Mastitis in lndian Dairy Farms
+Description	
+• Background Bovine mastitis is one of the most prevalent and economically significant diseases affecting dairy cattle and buffaloes in lndia. The disease adversely impacts milk production, milk quality,animal health, and farm profitability, while also increasing treatment costs and antimicrobial usage. Despite its substantial economic and public health implications, mastitis is often detected only after clinical signs become apparent, limiting opportunities for timely intervention and prevention.The increasing adoption of digital dairy technologies, including automated milking systems,livestock monitoring devices, milk quality sensors, farm management softlvare, and environmental monitoring Systems, presents an opportunity to leverage Artificial lntelligence(Al), Machine Learning (ML), and Internet of Things (loT) technologies for early disease prediction and risk-based herd management.
+• Problem Statement Develop an integrated Al-enabled predictive forecasting system capable of identifying and predicting the risk of bovine mastitis at both individual animal and herd levels before the onset of clinical disease.The proposed solution should utilize real-time and historical farm data from multiple sources to generate early warning alerts, risk scores, and actionable recommendations for dairy farmers, veterinarians, dairy cooperatives, and animal health authorities. The system should support continuous monitoring, disease forecasting, and evidence-based decision-making to reduce disease incidence and associated economic losses.
+• Expected Solution The solution should be capable of:
+
+1. Predicting mastitis risk at least 7-14 days before the appearance of clinical signs.
+
+2. Generating animal-wise and herd-level risk assessments.
+
+3. lntegrating data from sensors, farm management systems, laboratory records, and manual inputs.
+
+4. Providing real-time alerts and notifications to farmers and veterinarians.
+
+5. Continuously improving prediction accuracy through Al/ML-based learning models.
+
+6. Supporting data-driven decision-making through user-friendly dashboards and visualization tools.
+
+7. Recommending preventive and corrective interventions based on identified risk factors.
+
+8. Supporting multilingual and mobile-enabled deployment for field-level adoption.
+
+• Data Parameters for Analysis The system should be capable of analysing and conelating multiple risk factors associated with mastitis occurrence, including:
+• Animal health and treatment records and herd strength
+• For individual level breed, age lactation number, disease history and vaccination status
+• Milk yield and milk quality parameters
+• Somatic Cell Count (SCC) and related indicators
+• Body temperature, aclivity levels, and rumination behaviour
+• Environmental, hygiene of the farm and climatic conditions
+• Feeding and nutritional practices
+• Housing conditions and farm management practices
+• Milking procedures and operational schedules
+• Previous disease history and co-morbidities
+• Worker hygiene and health-related risk factors Based on the analysis, the system may classify animals into risk categories such as:
+• No Risk
+• Low Risk
+• Moderate Risk
+• High Risk
+• Solution Components
+• Hardware Component- The hardware component may include:
+• loT-enabled sensors for monitoring milk conductivity, milk temperature, pH, milk yield,and other relevant indicators.
+• Wearable or collar-based devices for monitoring body temperature, udder surface temperature, activity, rumination, feeding behaviour, and physiological parameters.
+• Wireless communication through Bluetooth, W-Fi, GSM, NB-loT, LoRa, or equivalent technologies.
+• Battery-operated or solar-powered deployment suitable for field conditions.
+• GPS-enabled geo-tagging of animal and farm data.
+• Rugged, low-cost, and farmer-friendly designs suitable for lndian dairy production systems.
+• Software Component The software platform should include:
+• Al and machine learning models for mastitis risk prediction and forecasting.
+• Mobile applications for farmers, veterinarians, and field personnel.
+• Cloud-based data storage, integration, and analytics
+• Algorithms to predict subclinical mastitis with SCC.
+• Real-time herd health monitoring dashboards.
+• Early warning and notification systems through mobile alerts, SMS, or other communication channels.
+• Decision-support tools providing recommendations on animal health management, milking hygiene, nutrition, biosecurity, and veterinary interventions.
+• GIS-based visualization of disease trends, hotspots, and risk clusters.
+• Expected Deliverables
+• Functional prototype of the integrated mastitis forecasting system.
+• Al-based predictive analytics engine with demonstrated forecasting capability.
+• Mobile application and user interface for field deployment.
+• Cloud-based dashboard and data management platform.
+• Early warning and notification module.
+• Hardware prototype incorporating sensor-based data acquisition.
+• Demonstration and validation of predictive performance under field conditions.
+• Expected Outcomes and lmpact The successful solution is expected to:
+• Enable early detection and prevention of bovine mastitis both at individual level and herd level.
+• Reduce milk production losses and treatment costs.
+• lmprove milk quality, safety, and marketability.
+• Reduce indiscriminate antimicrobial usage and support antimicrobial resistance (AMR) mitigation efforts.
+• lmprove animal welfare, productivity, and longevity.
+• Promote precision livestock farming and digital dairy management.
+• Enhance the profitability and resilience of dairy farmers.
+• Contribute to the development of a data-driven livestock health surveillance ecosystem in lndia.
+• lnnovation Challenge The solution should be affordable, scalable, interoperable, and easy to deploy across diverse dairy production systems, including smallholder farms, dairy cooperatives, organized farms,and commercial dairy enterprises. Particular emphasis should be placed on low-cost implementation, ease of use, multilingual accessibility, data security, and predictive accuracy under lndian field conditions.
+Organization	Ministry of Fisheries, Animal Husbandry & Dairying
+Department	Department of Animal Husbandry & Dairying
+Category	Hardware
+Theme	Agriculture, FoodTech & Rural Development
+
+16.
+Problem Statement Details
+Problem Statement ID	
+26110
+Problem Statement Title	
+Development of a Low-Cost Light-weight Milk Chilling Can for Small-Scale Dairy Farmers
+Description	
+• Background Milk is a highly perishable agricultural product that begins to deteriorate rapidly after milking due to bacterial growth and enzymatic activity. ln many rural and remote dairy-producing regions, particularly Hilly and North Eastern Regions, farmers lack access to bulk milk cooling facilities and reliable electricity. As a result, milk often remains at ambient temperatures for several hours before reaching collection centers, leading to quality degradation, reduced shelf life and economic losses. Available solutions are expensive, relatively heavy and low volume storage cans, making them uneconomical for use or during transportation.
+• Description The proposed problem aims to develop a low-cost, lightweight milk chilling can capable of maintaining milk at safe storage temperatures during collection and transportation. The can should be manufactured using food-grade lightweight materials such as High-Density Polyethylene (HDPE), aluminum alloys or composite materials while ensuring structural strength and hygiene standards.The design should incorporate an insulated double-wall structure with materials such as polyurethane foam (PUF) or other cost-effective insulating materials to minimize heat transfer.
+
+The chilling mechanism may utilize reusable ice packs, phase change materials (PCM), or passive cooling technologies that do not require continuous electrical power. The system should be capable of maintaining milk temperatures between 4Â°C and 8Â°C for several hours under typical rural environmental conditions.The solution should also consider ease of handling, cleaning, transportation and durability.Optional features such as a temperature monitoring indicator, leak-proof lid and ergonomic handles may be included to improve usability. The product should be affordable enough for adoption by small and marginal dairy farmers and suitable for village-level milk collection systems/centres.
+
+• Expected Solution A lightweight, insulated milk chilling can with a capacity of 30-40 litres that can maintain milk at safe temperatures for at least 6-12 hours without external power supply. The developed solution should reduce milk spoilage, improve milk quality during transportation, lower handling effort due lo reduced weight and cost significantly less than conventional insulated stainless-steel chilling containers. The final prototype should be durable, food-safe, easy to manufacture and suitable for widespread deployment in rural dairy supply chains.
+Organization	Ministry of Fisheries, Animal Husbandry & Dairying
+Department	Department of Animal Husbandry & Dairying
+Category	Hardware
+Theme	Agriculture, FoodTech & Rural Development
+Youtube Link	
+Dataset Link	Dairy temperature monitoring and milk quality datasets collected from local dairy cooperatives or experimental field trials.
+
+17.
+Problem Statement Details
+Problem Statement ID	
+26112
+Problem Statement Title	
+Design and Develop a Modular Autonomous Mobile Robot (AMR) Platform for Smart Warehouse Automation
+Description	
+• Description Research and develop a concept design of a warehouse automation robot platform and a modular attachment for it, using Autodesk Fusion. Re-imagine their design and optimize for additive manufacturing.
+
+The idea submission consists of two mandatory concept development challenges:
+
+Part A â€“ Universal Mobile Robot Platform (AGV/AMR Base)
+
+Develop a concept design of a universal Autonomous Mobile Robot (AMR) / Automated Guided Vehicle (AGV) chassis that serves as a common mobile platform for warehouse automation. The platform should support multiple interchangeable attachments while considering structural integrity, payload capacity, weight reduction, modularity, manufacturability, and ease of maintenance.
+
+Part B â€“ Modular Functional Attachments Develop a concept design for any one modular attachment that integrates with the universal platform to perform specific warehouse automation tasks. Example attachments include bin handling, pallet handling, conveyor transfer, robotic picking, inventory scanning, inspection, or any other innovative warehouse automation module.
+
+Students should use Fusion features such as Generative Design, Topology Optimization, Additive Build, and Simulation. The redesigned components should demonstrate innovation, enhanced functionality, improved efficiency, and optimized material usage while being suitable for additive manufacturing.
+
+• Participation Guidelines For Idea Submission
+• Each student team should submit Fusion public link of the Conceptual Design as described in Part-A and Part-B of the above problem statement and a PowerPoint presentation (5-7 Slides).
+• Designs should be created using ONLY Autodesk Fusion and not copied or taken from any other source.
+• AI Generated content is NOT ALLOWED.
+
+For Grand Finale*: Students must use Autodesk Fusion to design, and 3D print final design of specific components (scaled down to machine size) within the given time period and present the following to the jury members:
+
+• PPT explaining the final project
+• Final 3D prints
+• Public link of the design
+• Rendered images NOTE: *Grand Finale details to be revealed on competition day.
+• Attach Marking Criteria Table here*
+• Faculty (SIH SPOC) Form Teams choosing to submit idea for Autodeskâ€™s problem statement are required to request their faculty (SIH SPOC) to fill this 'Mandatory Form'.
+• Autodesk Fusion
+• Autodesk Fusion combines Additive Manufacturing (3D printing) capabilities with Generative Design features. It allows users to optimize designs for 3D printing, generate support structures, and explore numerous design options using algorithms. This integration enables the creation of complex and optimized parts using 3D printing technologies.
+• Students and educators can click Here to get FREE access to Fusion.
+Organization	Autodesk
+Department	Autodesk Education Experience
+Category	Hardware
+Theme	Robotics and Drones
+
+18.Problem Statement Details
+Problem Statement ID	
+26113
+Problem Statement Title	
+Human augmentation technologies are transforming healthcare,rehabilitation, industrial ergonomics, assistive living, sports, and personal mobility by improving human capabilities and enhancing quality of life.
+Description	
+• Description Students are required to conceptualize a Human Augmentation device or assembly of their choice using Autodesk Fusion. The design should reflect original thinking and real-world engineering intent. The proposed solution may address applications in healthcare, rehabilitation, industrial ergonomics,assistive living, sports, or personal mobility, and may include (but is not limited to):
+• Exoskeleton Mechanisms
+• Prosthetic Components
+• Rehabilitation Devices
+• Assistive Support Systems
+• Ergonomic Enhancement Products
+• Wearable Assistive Devices
+• Adaptive Mechanical Aids From the complete assembly, participants shall identify one critical machinable mechanical component that is strictly manufacturable using either Subtractive 3-Axis CNC Milling or Subtractive 2-Axis CNC Turning.The selected component shall be clearly identified within the complete assembly, indicating its location and function in the Human Augmentation product. Participants shall also justify why the selected component is suitable for the chosen CNC manufacturing process.Using Autodesk Fusion, participants shall develop the complete digital manufacturing workflow for the selected component, including:
+• CAD Modelling
+• Manufacturing Setup
+• Tool Selection
+• Toolpath Generation
+• Machining Simulation
+• Toolpath Optimization
+• G-code Generation The final solution should demonstrate good engineering design practices, manufacturability, machining efficiency, and effective use of Autodesk Fusion CAD/CAM capabilities.
+• Expected Outcomes The proposed solution should include:
+• CAD model of the identified critical mechanical component within the assembly.
+• Justification for selecting the component for either Subtractive 3-Axis CNC Milling or Subtractive 2-Axis CNC Turning.
+• Manufacturing setup and machining strategy.
+• Toolpath generation and machining simulation.
+• Optimized manufacturing process.
+• Product renders (assembled and exploded views).
+• Participation Guidelines For Idea Submission
+• Each student team shall submit a PowerPoint Presentation (6â€“8 Slides) describing their proposed Human Augmentation solution.
+
+The presentation should include:
+
+• Problem statement and proposed solution.
+• Concept sketches.
+• CAD model of the identified critical mechanical component within the assembly.
+• Assembly view highlighting the selected CNC-manufactured component.
+• Justification for selecting the component for either Subtractive 3-Axis CNC Milling or Subtractive 2-Axis CNC Turning.
+• CAM workflow developed in Autodesk Fusion, including:
+• Manufacturing Setup
+• Tool Selection
+• Toolpath Generation
+• Machining Simulation
+• Toolpath Optimization
+• Product renders (assembled and exploded views).
+
+NOTE: Physical machining or prototype fabrication is not required during the Idea Submission stage. Teams will be evaluated based on the proposed design,CAD model of the identified critical mechanical component, component selection, and digital manufacturing workflow demonstrated in Autodesk Fusion.
+
+• Designs should be created using ONLY Autodesk Fusion and not copied or taken from any other source.
+• AI Generated content is NOT ALLOWED.
+
+For Grand Finale*: Students must use Autodesk Fusion to design and manufacture specific components to machine size within the given time period and present the following to the jury members:
+
+• PPT explaining the final project
+• Final Manufactured components
+• Public link of the design
+• Rendered images NOTE: *Grand Finale details to be revealed on competition day.
+• The required 3-Axis CNC Milling Machine and 2-Axis CNC Turning Machine will be provided by the organizers during the Grand Finale.
+• Attach Marking Criteria Table and Reference Workflow here*
+• Faculty (SIH SPOC) Form Teams choosing to submit idea for Autodeskâ€™s problem statement are required to request their faculty (SIH SPOC) to fill this 'Mandatory Form'
+• Autodesk Fusion
+• Autodesk Fusion is a cloud-based 3D modeling, CAD, CAM, CAE, and PCB software platform for professional product design and manufacturing.
+• Students and educators can click here to get FREE access to Fusion.
+Organization	Autodesk
+Department	Autodesk Education Experience
+Category	Hardware
+Theme	MedTech / BioTech / HealthTech
+
+19.
+Problem Statement Details
+Problem Statement ID	
+26118
+Problem Statement Title	
+Passive Colorimetric H2S Exposure-Dosimeter Wristband with AI-Based Quantitative Reading
+Description	
+• Background Workers in oil and gas operations face chronic low-level H2S exposure. Standard electronic gas detectors miss this risk because they only report instantaneous ppm, and they need batteries, calibration and upkeep. Passive colorimetric badges already exist, usually lead-acetate based, but they only give a rough visual read, exposed past threshold or not, judged by eye. There's no way to know the actual cumulative dose, concentration multiplied by time, and no way to confirm the badge itself hasn't already expired or degraded before it's worn. India has no low-cost, indigenous, digitally-read passive dosimeter for this. Peak-exposure alarms are not what protects long-term health. Cumulative dose is.
+• Description The idea is a disposable wristband with an indigenously formulated chemical strip that darkens progressively and permanently with cumulative H2S exposure, not just past one threshold. The strip sits next to a printed reference color scale, and separately, a second patch that shows the badge's own shelf life. Something a worker or safety officer can glance at before a shift to confirm the badge itself is still valid.
+
+A phone app does the reading. Photograph the strip next to the reference scale, and the app corrects for whatever lighting the photo was taken in by calibrating against that reference. It converts the color into an estimated cumulative exposure figure and logs it against worker ID and shift, for occupational health records and DGMS or OISD style reporting. The dose figure should be presented as an estimate, since colorimetric reactions don't scale perfectly linearly at very low concentrations or over long durations. Temperature and humidity affect reaction speed too, so the strip design needs to account for that, either through a sealed reference cell or a compensation method in the app.
+
+• Expected Solution A working wristband prototype, chemical strip plus a separate expiry indicator, along with a phone app that reads and quantifies exposure from a photograph. Tested against a controlled, lab-simulated H2S exposure at known concentration and duration, with a stated and validated shelf life, 30 or 90 days for example, and a dose estimate that tracks reasonably close to the known simulated exposure.
+Organization	Mangalore Refinery and Petrochemicals Limited (MRPL)
+Department	Mangalore Refinery and Petrochemicals Limited (MRPL)
+Category	Hardware
+Theme	Miscellaneous
+20.
+Problem Statement Details
+Problem Statement ID	
+26144
+Problem Statement Title	
+Design & Development of a High-Sensitivity Micro barometer Infrasound sensor
+Description	
+• Background The Infrasound sensors are precision instruments designed to detect and measure low frequency atmospheric pressure waves, known as infrasound, that fall below the range of human hearing, typically under 20 Hz. These waves can travel long distances through the atmosphere and are produced by a variety of natural and human-made sources including distant Industrial explosions, volcanic eruptions, severe weather systems, meteors, rocket launches, and other energetic phenomena. Detection and analysis of these signals are important for atmospheric monitoring, geophysical research, disaster warning systems and security applications.
+• Description It is required to design and develop a high-sensitivity atmospheric microbarometer Infrasound sensor capable of measuring infrasonic pressure fluctuations in the frequency range of approximately 0.01 Hz to 20 Hz.
+
+The sensor should address the complete hardware architecture, including:
+
+(a).Pressure sensing mechanism.
+
+(b).Mechanical transducer design.
+
+(c).Differential pressure measurement technique.
+
+(d).Low-noise analog front-end electronics.
+
+(e).Temperature compensation.
+
+(f).Long-period pressure equalization system.
+
+(g).Environmental enclosure.
+
+(h).Wind-noise reduction interface.
+
+(i).Calibration methodology.
+
+The design should aim to detect very small pressure variations while maintaining long-term stability, low drift, and high signal fidelity. The data acquisition (digitizer) and real time waveform display & analysis software available in open market to be included to demonstrate complete functional sensor system.
+
+• Expected Solution The prototype infrasound sensor should have high sensitivity, long-term stability and low-noise signal condition to measure infrasound signals accurately. Sensor should demonstrate:
+
+(a).Detection of low-frequency pressure signals.
+
+(b).Laboratory characterization of frequency response.
+
+(c).Noise floor measurements.
+
+(d).Sensitivity estimation.
+
+(e).Stability testing.
+
+The evaluation will be conducted based on the achievement of the following parameters Attach Table Here The digitizer and data acquisition software (available in open market) for real time waveform display & analysis will be arranged by candidates themselves to demonstrate the complete functional sensor system.
+Organization	National Technical Research Organisation (NTRO)
+Department	National Technical Research Organisation (NTRO)
+Category	Hardware
+Theme	Miscellaneous
+
+21.Problem Statement Details
+Problem Statement ID	
+26172
+Problem Statement Title	
+Low Latency and Efficient Voice Activator for Edge Devices
+Description	
+Background As voice-controlled IoT proliferate, processing everything in the cloud is too costly, privacy-invasive, and slow. The future belongs to hybrid architectures where the edge handles the initial 'wake-up' and the cloud handles the heavy lifting.
+
+Description Build an ultra-lightweight, highly accurate keyword spotting (KWS) model that runs locally on a low-power device. Upon detecting the keyword, the system must instantly and efficiently stream the subsequent audio to a remote Automated Speech Recognition (ASR) server with minimal data overhead and latency.
+
+Key Metrics for Evaluation
+
+• Efficiency: Model size (RAM/Flash footprint) and CPU usage during idle listening.
+• Accuracy: High true-positive rate for the keyword with near-zero false activations.
+• Latency: The time delta between the keyword ending and the cloud ASR receiving the audio stream.
+
+Software & Framework Restrictions
+
+• Open-Source Only: The use of proprietary, closed-source, or commercial voice-activation SDKs is strictly prohibited.
+• Allowed Frameworks: Teams must build their keyword spotting (KWS) pipelines using open-source machine learning and TinyML frameworks. Recommended tools include TensorFlow Lite for Microcontrollers, PyTorch Mobile or similar.
+• No Pre-Trained Global Keywords: Teams cannot use models pre-trained on generic smart-assistant keywords like 'Hey Google' or 'Alexa'. They need to train on a custom key word.
+
+Expected Solution Teams are expected to deliver a robust, deployable system architecture. A successful submission must strictly satisfy the following technical boundaries:
+
+• Hardware & Runtime Environment: The edge software application must run smoothly within an environment restricted to less than 256KB of RAM and consume under 10% CPU utilization while idling in continuous listening mode. Heavy or uncompressed pre-trained transformers are disqualified. Solutions will be formally evaluated on physical low-power microcontrollers (e.g., Raspberry Pi or ESP32).
+• Model should work for the given custom key word.
+Organization	Indian Space Research Organisation(ISRO)
+Department	Department of Space / Indian Space Research Organisation
+Category	Hardware
+Theme	Miscellaneous
+Youtube Link	
+
+22.
+Problem Statement Details
+Problem Statement ID	
+26178
+Problem Statement Title	
+A resilient, AI-powered environmental monitoring network that provides early detection, localized intelligence, and actionable alerts for floods, forest fires, pollution events, and other environmental hazards common in India, enabling authorities and communities to shift from reactive disaster response to proactive risk prevention.
+Description	
+Background India faces a growing range of environmental and climate-related risks including urban flooding, river floods, cyclones, forest fires, air pollution, droughts, landslides, and extreme weather events. Floods remain among the most frequent disasters across states such as Assam, Bihar, Kerala, and Maharashtra, while forest fires increasingly affect Uttarakhand, Himachal Pradesh, and central Indian forests. Air pollution continues to impact major urban centers, and climate change is increasing the frequency and intensity of these hazards. Government agencies such as NDMA, IMD, and ISRO already rely on environmental monitoring and early warning systems to support disaster management.
+
+Traditional monitoring systems often depend on centralized infrastructure and may not provide sufficiently localized, real-time intelligence. A distributed network of smart sensors powered by edge AI can improve early detection, reduce response times, and enable communities to act before environmental risks escalate into disasters.
+
+Description Design an Environmental Intelligence Network, a distributed system of interconnected AI-powered sensor nodes deployable across cities, rivers, forests, industrial zones, and vulnerable communities. Each node should use local (on device) AI inference to continuously monitor environmental conditions and identify emerging risks such as:
+
+• Rising water levels and flash flooding
+• Forest fires and smoke events
+• Hazardous air pollution
+• Extreme heat conditions
+• Landslide precursors
+• Industrial emissions or chemical leaks
+• Water quality degradation The sensor network should process data locally to reduce latency, minimize bandwidth requirements, and continue operating even during network outages.
+
+Only critical alerts, summarized insights, and risk assessments should be transmitted to regional control centers or disaster management authorities. Edge AI approaches enable devices to operate effectively in low-connectivity environments while providing rapid detection and decision support.
+
+Expected Solution The proposed solution should include:
+
+1. Distributed Smart Sensor Nodes
+
+• Environmental sensors for water level, rainfall, temperature, humidity,smoke, air quality (PM2.5/PM10), gas leakage, soil moisture, and vibration.
+• Solar-powered, low-maintenance deployments suitable for remote locations.
+
+2. On-Device AI Analytics
+
+• Real-time anomaly detection at the edge.
+• AI models capable of identifying flood risk, wildfire indicators, air-quality deterioration, and landslide warning signs.
+• Operation without continuous cloud connectivity.
+
+3. Multi-Hazard Early Warning System
+
+• Automated alerts for:
+
+o Flooding and flash floods o Forest fires o Hazardous pollution episodes o Extreme weather conditions o Industrial safety incidents 4. Regional Environmental Risk Mapping
+
+• Geospatial visualization of sensor data.
+• Dynamic risk maps showing hotspots, risk trends, and affected zones.
+• Integration with emergency management dashboards.
+
+5. Community and Authority Notification
+
+• Mobile and web alerts for local authorities and citizens.
+• Prioritized warning levels based on severity and confidence scores.
+
+6. Cloud and Edge Hybrid Architecture
+
+• Edge processing for immediate decisions.
+• Centralized analytics for long-term trend analysis, forecasting, and policy support.
+
+7. Scalable and Cost-Effective Deployment
+
+• Modular architecture that can scale from a single village to a smart city or state-wide deployment.
+• Support for IoT protocols such as LoRaWAN, NB-IoT, Wi-Fi, or 5G.
+Organization	Qualcomm Inc
+Department	Qualcomm Inc
+Category	Hardware
+Theme	Disaster Management
+
+23.Problem Statement Details
+Problem Statement ID	
+26179
+Problem Statement Title	
+To build an AI-powered retail intelligence platform that delivers real-time shopper analytics, automated inventory visibility, and proactive queue management through on-device AI,enabling retailers to reduce stock-outs, improve customer experience, optimize staffing, and increase operational efficiency while maintaining privacy and minimizing cloud dependency.
+Description	
+Background India's retail sector includes millions of neighborhood stores, supermarkets,pharmacies, and large-format retail outlets that serve high customer volumes every day. Retailers face challenges such as inventory shrinkage, stock-outs, long billing queues, inefficient shelf replenishment, and limited visibility into shopper behavior. Many stores, especially in Tier-2 and Tier-3 cities, also operate with constrained internet connectivity and require solutions that can function reliably without continuous cloud access.
+
+Recent advances in edge AI allow cameras and sensors to perform real-time analytics directly on local devices, enabling faster decisions, improved privacy,reduced bandwidth consumption, and uninterrupted operation even during connectivity outages. Hybrid and edge AI approaches are increasingly being adopted for real-time monitoring and decision support across multiple industries.
+
+Description Design an Intelligent Retail Analytics System that uses smart cameras and on-device AI to monitor retail operations in real time. The system should analyze shopper movement, inventory levels, and checkout queues without requiring constant cloud processing.The solution should automatically identify customer traffic patterns, measure dwell time in different store sections, detect out-of-stock products, monitor shelf compliance, and predict queue congestion before it impacts customer experience.AI inference should happen locally on the edge devices to enable low-latency decisions while preserving customer privacy and minimizing network dependency.The system should convert video streams into actionable business insights that help retailers improve operational efficiency, optimize staffing, increase product availability, and enhance customer satisfaction. Edge-based analytics can provide real-time intelligence while reducing dependence on cloud connectivity.
+
+Expected Solution The proposed solution should implement some or all of the following:
+
+1. Shopper Analytics
+
+• Detect and count customers entering and exiting the store.
+• Analyze footfall trends by time, day, and store zone.
+• Measure shopper dwell time near products and promotional displays.
+• Generate heatmaps showing customer movement patterns.
+
+2. Inventory Monitoring
+
+• Detect low-stock and out-of-stock situations using shelf-facing cameras.
+• Monitor planogram compliance and product placement.
+• Alert store staff when replenishment is required.
+• Track merchandise availability in real time.
+
+3. Queue Intelligence
+
+• Monitor checkout counters and queue lengths.
+• Predict congestion before queues become excessive.
+• Recommend opening additional billing counters.
+• Measure average waiting and service times.
+
+4. Edge AI Processing
+
+• Run all computer vision models locally on edge hardware.
+• Operate even during internet disruptions.
+• Reduce cloud bandwidth and operational costs.
+• Support rapid, low-latency decision-making.
+
+5. Privacy-Aware Analytics
+
+• Use anonymous people detection and tracking.
+• Avoid storing personally identifiable information.
+• Process sensitive data locally where possible.
+
+6. Store Operations Dashboard
+
+• Real-time alerts for stock shortages and queue build-up.
+• Daily and weekly analytics reports.
+• KPI visualization including footfall, conversion indicators, inventory status, and staff efficiency.
+
+7. Scalable Deployment
+
+• Support deployment across small stores, supermarkets, and retail chains.
+• Integrate with POS, inventory management, and ERP systems.
+• Allow centralized monitoring of multiple locations.
+Organization	Qualcomm Inc
+Department	Qualcomm Inc
+Category	Hardware
+Theme	Smart Automation
+
+24.Problem Statement Details
+Problem Statement ID	
+26180
+Problem Statement Title	
+A field-deployable AI-powered Smart Farming Assistant that helps farmers detect crop diseases, pests, nutrient deficiencies, and irrigation needs at an early stage, while improving resilience against droughts, floods, heat waves, and other agricultural risks common in India. The solution should enable higher yields, lower input costs, more efficient water usage, and faster response to emerging threats through real-time on-device intelligence.
+Description	
+Background Agriculture remains a primary livelihood for millions of people in India, but farmers face recurring challenges from droughts, erratic rainfall, floods, pest infestations, crop diseases, heat stress, and soil degradation. Climate variability is increasing the frequency of these risks, affecting crop productivity and farm incomes. Many small and marginal farmers lack access to timely diagnostics and expert advice, particularly in regions with limited internet connectivity.
+
+Environmental monitoring, edge AI, and local sensing technologies can help deliver real-time insights directly at the farm level without relying on continuous cloud access.Early detection of crop stress, pest outbreaks, irrigation issues, and adverse environmental conditions can significantly reduce crop losses and improve resilience against agricultural disasters such as droughts, floods, and disease outbreaks.
+
+Description Develop a Smart Farming Assistant, an edge AI-powered solution that continuously monitors crop health and environmental conditions directly in the field. Using a combination of cameras, environmental sensors, and on-device AI,the system should identify crop diseases, pest infestations, nutrient deficiencies,water stress, and irrigation requirements in real time.The solution should operate locally on edge devices deployed in farms, enabling rapid analysis and recommendations even in areas with poor connectivity. The system should help farmers make informed decisions about irrigation, pesticide application, fertilizer usage, and crop protection while minimizing water consumption and input costs.The platform should provide actionable alerts and recommendations through a simple mobile or field display interface, enabling farmers to respond quickly to emerging risks before they become large-scale crop failures. Edge AI enables realtime decision-making while reducing dependence on cloud infrastructure.
+
+Expected Solution The proposed solution should implement some or all of the following:
+
+1. Crop Health Monitoring
+
+• Detect visible signs of crop diseases from leaf and plant images.
+• Identify nutrient deficiencies through color, texture, and growth analysis.
+• Monitor crop growth stages and overall field health.
+
+2. Pest Detection and Early Warning
+
+• Detect common insect pests and infestation patterns using camera-based AI.
+• Generate early alerts before infestations spread across fields.
+• Support targeted intervention rather than blanket pesticide application.
+
+3. Smart Irrigation Management
+
+• Monitor soil moisture, temperature, humidity, and weather conditions.
+• Detect water stress and over-irrigation scenarios.
+• Recommend optimal irrigation schedules to conserve water.
+
+4. Environmental Risk Monitoring
+
+• Track conditions associated with drought, excessive rainfall, flooding, heat stress, and disease outbreaks.
+• Identify abnormal environmental patterns affecting crop productivity.
+• Provide localized field-level alerts.
+
+5. Edge AI Processing
+
+• Perform image analysis and sensor data processing directly on the device.
+• Operate in remote areas with limited or intermittent connectivity.
+• Deliver low-latency recommendations and alerts.
+
+6. Farmer Advisory System
+
+• Provide simple recommendations such as:
+
+o Irrigate now / delay irrigation o Possible disease detected o Pest activity increasing o Heat-stress warning o Flood-risk alert
+
+• Deliver advice through a mobile app, local display, or SMS notifications.
+
+7. Farm Analytics Dashboard
+
+• Historical trends in crop health and environmental conditions.
+• Field-level performance monitoring.
+• Yield-risk forecasting and decision-support insights.
+
+8. Scalable Deployment
+
+• Suitable for smallholder farms, cooperatives, and large agricultural enterprises.
+• Support integration with weather data, farm equipment, and irrigation systems.
+Organization	Qualcomm Inc
+Department	Qualcomm Inc
+Category	Hardware
+Theme	Disaster Management
+
+25.
+Problem Statement Details
+Problem Statement ID	
+26181
+Problem Statement Title	
+A secure, AI-powered Personal Health Companion that delivers real-time, privacy-preserving health monitoring and early warning capabilities, helping individuals recognize health risks before they become emergencies. The solution should improve resilience during heat waves, floods, pollution events, and other disasters common in India while enabling continuous health support through on-device intelligence.
+Description	
+Background India faces recurring public health challenges during and after disasters such as heat waves, floods, cyclones, air pollution events, disease outbreaks, and extreme weather conditions. Heat stress, dehydration, respiratory illnesses, cardiovascular complications, and delayed access to healthcare are common during such events.
+
+Rural populations, elderly citizens, outdoor workers, and people with chronic medical conditions are particularly vulnerable. Climate-related hazards are increasing in frequency and intensity, creating a need for continuous, personalized health monitoring that can function even when connectivity and healthcare access are disrupted.
+
+Advances in edge AI now enable wearable devices and mobile phones to analyze health data locally, providing real-time insights while preserving user privacy and operating without constant cloud connectivity. Local AI processing can support health monitoring in remote and underserved areas where internet access may be limited.
+
+Description Develop a Personal Health Companion, a privacy-preserving wearable or mobile application that continuously monitors an individual's physiological and environmental data and uses on-device AI to detect potential health anomalies in real time.The solution should analyze data from sensors such as heart rate, blood oxygen (SpO?), body temperature, activity levels, sleep patterns, and environmental conditions. The system should identify early indicators of heat stress, dehydration, respiratory distress, abnormal vital signs, fatigue, falls, and other health risks that may be exacerbated during disasters and environmental emergencies.All sensitive health data should be processed locally on the device to maximize privacy, minimize latency, and ensure continuous operation even during network outages. The application should provide actionable alerts, wellness recommendations, and emergency notifications while allowing users to maintain control over their personal health information. Edge AI approaches provide faster responses, improved privacy, and offline functionality.
+
+Expected Solution The proposed solution should implement some or all of the following:
+
+1. Continuous Health Monitoring
+
+• Monitor heart rate, SpO?, body temperature, activity levels, and sleep quality.
+• Track changes in baseline health patterns.
+• Generate personalized wellness indicators.
+
+2. AI-Based Health Anomaly Detection
+
+• Detect abnormal heart rate patterns.
+• Identify indicators of heat stress, dehydration, fatigue, and respiratory issues.
+• Recognize sudden changes that may require medical attention.
+• Provide risk assessments using on-device AI inference.
+
+3. Disaster-Specific Health Alerts
+
+• Heat-wave exposure warnings.
+• Air-quality and respiratory-risk alerts.
+• Flood and cyclone-related health advisories.
+• High-risk notifications for vulnerable individuals during extreme weather events.
+
+4. Environmental Awareness
+
+• Integrate data from local temperature, humidity, and air-quality sensors.
+• Assess environmental conditions that may affect health.
+• Generate personalized recommendations based on local risks.
+
+5. Privacy-Preserving Edge AI
+
+• Perform all health analysis locally on the device.
+• Minimize transmission of sensitive personal information.
+• Operate effectively with intermittent or no internet connectivity.
+• Maintain user control over data sharing.
+
+6. Emergency Assistance Features
+
+• Automatic detection of falls or medical distress.
+• SOS alerts to caregivers or emergency contacts.
+• Location-enabled emergency assistance when permitted by the user.
+
+7. Personal Wellness Dashboard
+
+• Daily health summaries and trend analysis.
+• Risk scores for heat, respiratory, and cardiovascular stress.
+• Personalized recommendations for hydration, rest, activity, and medical consultation.
+
+8. Scalable Deployment
+
+• Support smartphones, smartwatches, fitness bands, and specialized healthcare wearables.
+• Suitable for individual consumers, healthcare providers, disaster-response agencies, and public health programs.
+Organization	Qualcomm Inc
+Department	Qualcomm Inc
+Category	Hardware
+Theme	MedTech / BioTech / HealthTech
+
+26.
+
+Problem Statement Details
+Problem Statement ID	
+26185
+Problem Statement Title	
+Helmet mounted conformal antenna for tactical communications in urban CQB environments.
+Description	
+• Background During high-intensity urban counter-terrorism (CT) and Close-Quarter Battle (CQB) operations, the National Security Guard (NSG) operates in highly restrictive indoor spaces like closed rooms, basement areas, narrow corridors and stairwells. For seamless communication, commandos rely on vest-mounted handheld tactical radios. These systems traditionally use rigid, protruding omnidirectional whip antennas mounted on top of the radio itself. In fast-paced operations in confined spaces, these external whip antennas not only restricts ranges but also present an obstruction or cause frequent snagging on obstacles like door frames, windows or loose and hanging objects which can damage the the radio interface or obstruct his tactical movement.
+• Description Traditional whip antennas pose significant operational limitations.
+
+When an assault team enters a reinforced concrete or steel/glass-framed building, the RF signals radiated from a vest-mounted antenna suffers from severe attenuation and fading as the signals are tend to be blocked by virtue of its low positioning. Additionally, omnidirectional radiation patterns make the team vulnerable to electronic eavesdropping or directional tracking by sophisticated adversaries. To address these challenges, the antenna system needs to be elevated to the highest physical point of the commando - the helmet - without adding bulk or altering ballistic integrity. There is an immediate requirement to develop a low-profile, flexible conformal antenna array that integrates seamlessly into or onto tactical ballistic helmets while maintaining high gain and minimal protruding hardware.
+
+• Expected Solution A ruggedized, zero-profile wearable antenna system should be developed with the following parameters:- (a) Lightweight, ultra-thin and flexible microstrip patch antenna elements designed for integration with NSG ballistic helmets without degrading impact or ballistic protection ratings.
+
+(b) The conformal array must support UHF and L band frequencies to be able to operate with handheld radios and with the svl equipment like helmet mounted/ body worn cameras to transmit live video streams.
+
+(c) Advanced RF shielding layers built into the underside of the array to isolate the commandoâ€™s head from radiation while directing an optimized radiation pattern upward and outward.
+
+(d) A ruggedized coaxial interface cable routed cleanly along the helmet to connect directly into the NSG existing handheld radios and body-worn camera systems being procured.
+Organization	Ministry of Home Affairs
+Department	National Security Guard (NSG), Police II Division
+Category	Hardware
+Theme	Miscellaneous
+

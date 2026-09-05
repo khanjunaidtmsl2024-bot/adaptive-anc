@@ -1,0 +1,20 @@
+# PS 26052 — Adaptive ANC Project Dependencies
+# Install: pip install -r requirements.txt
+
+# --- Core Audio ---
+numpy>=1.24.0
+scipy>=1.10.0
+soundfile>=0.12.0
+
+# --- Evaluation Metrics ---
+pystoi>=0.3.0
+pesq>=0.0.4
+
+# --- Optional: Live Audio ---
+# sounddevice>=0.4.6     # Uncomment for live microphone streaming
+
+# --- Optional: Resampling ---
+# librosa>=0.10.0        # Uncomment for high-quality resampling
+
+# --- Optional: Plotting ---
+# matplotlib>=3.7.0      # Uncomment for evaluation plots
