@@ -24,7 +24,7 @@ jobs:
     - name: Install System Audio Libraries
       run: |
         sudo apt-get update
-        sudo apt-get install -y libsndfile1 libasound2 libportaudio2
+        sudo apt-get install -y libsndfile1 libsndfile1-dev libasound2-dev libportaudio2
 
     - name: Install Dependencies
       run: |

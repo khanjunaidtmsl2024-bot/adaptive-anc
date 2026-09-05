@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libsndfile1 \
     libportaudio2 \
-    libasound2 \
+    libasound2-dev \
     libasound2-plugins \
     git \
     curl \
