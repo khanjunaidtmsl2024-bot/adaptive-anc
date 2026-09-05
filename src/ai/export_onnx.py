@@ -125,7 +125,7 @@ def export_edge_models(
 **DRDO Smart India Hackathon 2026 — Problem Statement 26052**
 
 ## 1. Edge Acceleration Architecture
-- **Model:** TinyEnhancer 4-layer 2D ConvNet (10,417 parameters)
+- **Model:** TinyEnhancer 4-layer 2D ConvNet (9,569 parameters)
 - **Memory Footprint:** ~41.3 KB
 - **Input Spec:** `[1, 1, 257, T]` (Single-channel STFT Magnitude Spectrogram)
 - **Output Spec:** `[1, 1, 257, T]` (Suppression Mask $M(f, t) \\in [0, 1]$)
