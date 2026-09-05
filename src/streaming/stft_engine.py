@@ -41,6 +41,11 @@ class StreamingSTFTEngine:
         # Output accumulation buffer for overlap-add
         self.overlap_buf = np.zeros(self.frame_size, dtype=np.float32)
 
+    def reset(self) -> None:
+        """Reset all internal buffers to zero state."""
+        self.input_buf[:] = 0.0
+        self.overlap_buf[:] = 0.0
+
     def process_hop(
         self,
         new_samples: np.ndarray,

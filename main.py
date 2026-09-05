@@ -223,12 +223,44 @@ def cmd_audit(args):
         print(f"[!] Audit dossier {audit_file} not found.")
 
 
+def cmd_phase4_benchmark(args):
+    """Executes the Phase 4 AI Model Benchmark & Pareto Analysis."""
+    from src.evaluation.phase4_benchmark import run_phase4_benchmark
+    run_phase4_benchmark(samples_per_split=args.samples)
+
+
+def cmd_phase5_robustness(args):
+    """Executes the Phase 5 NLMS Robustness & Kill-Criterion Validation."""
+    from src.evaluation.phase5_robustness import run_phase5_robustness
+    run_phase5_robustness()
+
+
+def cmd_train_models(args):
+    """Trains AI Models (TinyEnhancer V3 and CRN-Micro)."""
+    import subprocess
+    subprocess.run([sys.executable, "-m", "src.ai.train_all"], check=True)
+
+
+def cmd_dataset_v4(args):
+    """Generates the V4 Tactical Defence Noise Dataset."""
+    import subprocess
+    subprocess.run([sys.executable, "-m", "src.dataset.generate"], check=True)
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="ADAPTIVE-DEFENCE ANC: Hybrid AI-DSP Edge Speech Enhancement (DRDO SIH 2026)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     subparsers = parser.add_subparsers(dest="command", help="Operational Mode")
+
+    # Phase 4 & 5 commands
+    p_p4 = subparsers.add_parser("phase4-benchmark", help="Run Phase 4 AI Model Benchmark & Pareto Analysis")
+    p_p4.add_argument("--samples", type=int, default=3, help="Samples per split to benchmark")
+
+    subparsers.add_parser("phase5-robustness", help="Run Phase 5 NLMS Robustness & Kill-Criterion Validation")
+    subparsers.add_parser("train-models", help="Train TinyEnhancer V3 and CRN-Micro models")
+    subparsers.add_parser("dataset-v4", help="Generate V4 tactical defence noise dataset")
 
     # 1. experiments
     subparsers.add_parser("experiments", help="Run the complete 20 Mandatory Experiments Suite (EXP-001 to EXP-020)")
@@ -270,7 +302,15 @@ def main():
 
     args = parser.parse_args()
 
-    if args.command == "experiments":
+    if args.command == "phase4-benchmark":
+        cmd_phase4_benchmark(args)
+    elif args.command == "phase5-robustness":
+        cmd_phase5_robustness(args)
+    elif args.command == "train-models":
+        cmd_train_models(args)
+    elif args.command == "dataset-v4":
+        cmd_dataset_v4(args)
+    elif args.command == "experiments":
         cmd_experiments(args)
     elif args.command == "hardware-check":
         cmd_hardware_check(args)
