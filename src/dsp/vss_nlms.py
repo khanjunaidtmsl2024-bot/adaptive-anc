@@ -140,3 +140,12 @@ class VSSNLMSFilter:
             mu_hist[i] = self.mu
 
         return error, estimated, mu_hist
+
+    def freeze_adaptation(self, freeze_duration_samples: int = 128) -> None:
+        """Records adaptation freeze duration in samples."""
+        self._freeze_counter = getattr(self, "_freeze_counter", 0) + freeze_duration_samples
+
+
+# Convenience alias
+VSSNLMS = VSSNLMSFilter
+

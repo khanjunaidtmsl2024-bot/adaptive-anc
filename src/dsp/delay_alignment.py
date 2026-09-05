@@ -86,3 +86,8 @@ class DelayAligner:
             r_aligned = r
 
         return p, r_aligned, delay
+
+
+# Convenience alias
+DelayAlignment = DelayAligner
+

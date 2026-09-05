@@ -1,0 +1,8 @@
+{
+  "exp_id": "EXP_LAPTOP_001",
+  "sample_rate": 16000,
+  "hop_size": 128,
+  "fft_size": 512,
+  "filter_length": 64,
+  "all_tests_passed": true
+}

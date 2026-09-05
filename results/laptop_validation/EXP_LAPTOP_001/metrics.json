@@ -1,0 +1,58 @@
+{
+  "Noisy": {
+    "snr_db": 5.0,
+    "si_snr_db": 5.0,
+    "stoi": 0.831,
+    "pesq": 1.04,
+    "sample_rate": 16000,
+    "compliance": {
+      "snr_passed": false,
+      "stoi_passed": false,
+      "pesq_passed": false,
+      "all_targets_passed": false
+    },
+    "delta_snr": 0.0
+  },
+  "NLMS": {
+    "snr_db": 7.64,
+    "si_snr_db": 7.65,
+    "stoi": 0.844,
+    "pesq": 1.04,
+    "sample_rate": 16000,
+    "compliance": {
+      "snr_passed": false,
+      "stoi_passed": false,
+      "pesq_passed": false,
+      "all_targets_passed": false
+    },
+    "delta_snr": 2.6399999999999997
+  },
+  "AI_Only": {
+    "snr_db": 6.26,
+    "si_snr_db": 5.89,
+    "stoi": 0.717,
+    "pesq": 1.05,
+    "sample_rate": 16000,
+    "compliance": {
+      "snr_passed": false,
+      "stoi_passed": false,
+      "pesq_passed": false,
+      "all_targets_passed": false
+    },
+    "delta_snr": 1.2599999999999998
+  },
+  "Hybrid": {
+    "snr_db": 11.48,
+    "si_snr_db": 11.26,
+    "stoi": 0.793,
+    "pesq": 1.11,
+    "sample_rate": 16000,
+    "compliance": {
+      "snr_passed": false,
+      "stoi_passed": false,
+      "pesq_passed": false,
+      "all_targets_passed": false
+    },
+    "delta_snr": 6.48
+  }
+}

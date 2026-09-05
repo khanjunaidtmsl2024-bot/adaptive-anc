@@ -122,3 +122,8 @@ class ImpulseProtectionController:
         }
 
         return protected, scales, stats
+
+
+# Convenience alias
+ImpulseProtection = ImpulseProtectionController
+

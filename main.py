@@ -263,12 +263,45 @@ def cmd_ph0_readiness(args):
     print("\n[+] SUMMARY VERDICT: PH0 ALL 7 GATES PASSED (100% PRE-HARDWARE READY)")
 
 
+def cmd_laptop_tests(args):
+    """Executes the 8-Test Laptop Validation Suite."""
+    from src.evaluation.laptop_test_suite import run_full_laptop_validation_suite
+    run_full_laptop_validation_suite(
+        output_dir=args.out_dir,
+        exp_id=args.exp_id,
+    )
+
+
+def cmd_anc_xray(args):
+    """Generates the ANC X-Ray diagnostic dashboard and opens HTML viewer."""
+    from src.evaluation.laptop_test_suite import run_full_laptop_validation_suite
+    print("\n=======================================================")
+    print("  PS 26052: ANC X-RAY DIAGNOSTIC DASHBOARD LAUNCHER    ")
+    print("=======================================================")
+    res = run_full_laptop_validation_suite(output_dir=args.out_dir, exp_id=args.exp_id)
+    html_path = Path("demo/anc_xray.html")
+    if html_path.exists() and getattr(args, "open_browser", False):
+        url = f"file://{html_path.resolve()}"
+        print(f"[*] Opening ANC X-Ray Interactive Dashboard: {url}")
+        webbrowser.open(url)
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="ADAPTIVE-DEFENCE ANC: Hybrid AI-DSP Edge Speech Enhancement (DRDO SIH 2026)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     subparsers = parser.add_subparsers(dest="command", help="Operational Mode")
+
+    # Laptop Validation & ANC X-Ray
+    p_lap = subparsers.add_parser("laptop-tests", help="Run the 8-Test Laptop Validation Suite (PH0-A to PH0-H)")
+    p_lap.add_argument("--out-dir", type=str, default="results/laptop_validation", help="Output directory")
+    p_lap.add_argument("--exp-id", type=str, default="EXP_LAPTOP_001", help="Experiment ID")
+
+    p_xray = subparsers.add_parser("anc-xray", help="Generate ANC X-Ray diagnostic dashboard & visual bundle")
+    p_xray.add_argument("--out-dir", type=str, default="results/laptop_validation", help="Output directory")
+    p_xray.add_argument("--exp-id", type=str, default="EXP_LAPTOP_001", help="Experiment ID")
+    p_xray.add_argument("--open-browser", action="store_true", help="Open HTML cockpit in default browser")
 
     # Phase 4 & 5 & PH0 commands
     subparsers.add_parser("ph0-readiness", help="Display Pre-Hardware Readiness Review (PH0) 7-Gate status")
@@ -319,7 +352,11 @@ def main():
 
     args = parser.parse_args()
 
-    if args.command == "ph0-readiness":
+    if args.command == "laptop-tests":
+        cmd_laptop_tests(args)
+    elif args.command == "anc-xray":
+        cmd_anc_xray(args)
+    elif args.command == "ph0-readiness":
         cmd_ph0_readiness(args)
     elif args.command == "phase4-benchmark":
         cmd_phase4_benchmark(args)

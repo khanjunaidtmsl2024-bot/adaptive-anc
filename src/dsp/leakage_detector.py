@@ -89,3 +89,8 @@ class SpeechLeakageDetector:
         }
 
         return float(self.smooth_gate), info
+
+
+# Convenience alias
+LeakageDetector = SpeechLeakageDetector
+
