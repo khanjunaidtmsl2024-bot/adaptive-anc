@@ -1,0 +1,28 @@
+# ==============================================================================
+# PS 26052 — Official DRDO Acceptance Targets & Metric Thresholds
+# ==============================================================================
+
+targets:
+  snr_output_db:
+    target: 15.0
+    minimum_acceptable: 12.0
+    weight: 0.25
+
+  stoi_intelligibility:
+    target: 0.85
+    minimum_acceptable: 0.75
+    weight: 0.35
+
+  pesq_quality:
+    target: 2.50
+    minimum_acceptable: 2.20
+    weight: 0.25
+
+  algorithmic_latency_ms:
+    target: 30.0
+    hard_limit: 35.0
+    weight: 0.15
+
+  real_time_factor_rtf:
+    target: 1.0  # Real-time boundary (must be < 1.0)
+    ideal_edge: 0.05

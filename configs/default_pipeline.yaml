@@ -1,0 +1,33 @@
+# ==============================================================================
+# PS 26052 — Default Hybrid AI-DSP Pipeline Configuration
+# ==============================================================================
+
+audio:
+  sample_rate: 16000
+  bit_depth: 16
+  channels: 2  # Channel 0 = Primary Mic, Channel 1 = Reference Mic
+
+stft:
+  frame_size: 512       # 32.0 ms algorithmic window
+  hop_size: 256         # 16.0 ms hop size (50% overlap)
+  window_type: "hann"
+
+stage1_dsp:
+  enabled: true
+  topology: "Config_A"  # Pre-AI Dual-Mic Reference Canceller
+  filter_length: 64     # 4.0 ms FIR tap memory
+  step_size: 0.05       # Normalized LMS adaptation rate (mu)
+  leakage: 0.9999       # Prevents weight drift
+  eps: 0.000001
+  max_weight: 5.0
+
+stage2_ai:
+  enabled: true
+  model_type: "tiny_enhancer"
+  device: "cpu"
+  checkpoint_path: "models/tiny_enhancer.pt"
+
+safety_controller:
+  clip_threshold: 0.99
+  max_energy_ratio: 10.0
+  fallback_mode: "crossfade_primary"

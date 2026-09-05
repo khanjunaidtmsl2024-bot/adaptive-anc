@@ -1,0 +1,30 @@
+# ==============================================================================
+# PS 26052 — Tactical Defence Acoustic Presets (DRDO Target Profiles)
+# ==============================================================================
+
+presets:
+  tank_armoured_vehicle:
+    description: "T-90 Bhishma / BMP-2 Diesel engine rumble and metal track squeal"
+    fundamentals_hz: [65.0, 130.0, 195.0, 260.0]
+    broadband_floor: 0.3
+    spl_db: 105.0
+
+  helicopter_rotor:
+    description: "HAL Dhruv / ALH Main Rotor Blade Passage Frequency + Tail Rotor"
+    bpf_fundamental_hz: 22.5
+    tail_rotor_hz: 110.0
+    num_harmonics: 12
+    spl_db: 110.0
+
+  gunfire_artillery:
+    description: "INSAS 5.56mm / 155mm Dhanush Howitzer ballistic shockwave"
+    rise_time_ms: 1.5
+    decay_time_ms: 80.0
+    blast_pressure_factor: 2.5
+    spl_db: 130.0
+
+  tactical_siren:
+    description: "Forward air-raid / combat vehicle alert siren"
+    freq_min_hz: 400.0
+    freq_max_hz: 1200.0
+    modulation_rate_hz: 0.2
