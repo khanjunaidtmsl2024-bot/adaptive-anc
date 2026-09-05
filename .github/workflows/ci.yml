@@ -9,7 +9,7 @@ on:
 jobs:
   test-and-verify:
     name: Build, Test & 20-Experiment Verification
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout Code
@@ -24,12 +24,14 @@ jobs:
     - name: Install System Audio Libraries
       run: |
         sudo apt-get update
-        sudo apt-get install -y libsndfile1 libsndfile1-dev libasound2-dev libportaudio2
+        sudo apt-get install -y libsndfile1 libsndfile1-dev libportaudio2 || true
+        sudo apt-get install -y libasound2-dev || sudo apt-get install -y libasound2t64 || sudo apt-get install -y libasound2 || true
 
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt pytest
+        pip install torch --index-url https://download.pytorch.org/whl/cpu
 
     - name: Run Unit Test Suite
       run: |

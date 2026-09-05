@@ -53,7 +53,16 @@ def test_live_stream_simulation():
     assert "p50_latency_ms" in res
 
 
+try:
+    import torch
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
+
+
 def test_edge_export():
+    if not TORCH_AVAILABLE:
+        pytest.skip("PyTorch not installed in this environment")
     res = export_edge_models(output_dir="models")
     assert res["status"] == "success"
     assert "torchscript_jit" in res["artifacts"]

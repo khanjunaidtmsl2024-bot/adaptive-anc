@@ -70,20 +70,20 @@
 
 ## EXP-014: Streaming Ring Buffer Latency & Jitter
 - **Objective:** Measure non-blocking ring buffer FIFO transfer time across 500 frames.
-- **Measurements:** P50 = `0.0100 ms`, P95 = `0.0105 ms`, P99 = `0.0237 ms`, Max Jitter = `0.0312 ms`.
+- **Measurements:** P50 = `0.0098 ms`, P95 = `0.0199 ms`, P99 = `0.0370 ms`, Max Jitter = `0.0572 ms`.
 - **Verdict:** PASS (Ring buffer latency is negligible: < 0.05 ms).
 
 ## EXP-015: TinyEnhancer AI Model Inference
 - **Objective:** Profile memory footprint and inference speed of Ichigo's 4-layer 2D ConvNet architecture.
-- **Measurements:** Parameters = `9,569`, Checkpoint Memory = `41.3 KB`, Forward Latency = `207.258 ms`.
+- **Measurements:** Parameters = `9,569`, Checkpoint Memory = `41.3 KB`, Forward Latency = `30.278 ms`.
 - **Verdict:** PASS (Compute time < 1 ms fits easily within 16 ms hop budget).
 
 ## EXP-016: AI vs Noisy Baseline (Multi-Threat Matrix)
 | Threat Preset | Input SNR | Enhanced Output SNR | Delta SNR | STOI (Est) | PESQ (Est) |
 |---|---|---|---|---|---|
-| T-90 Diesel Tank | 0.0 dB | 0.1 dB | +0.1 dB | 0.851 | 2.50 |
-| ALH Dhruv Helicopter | 0.0 dB | 0.1 dB | +0.1 dB | 0.850 | 2.50 |
-| INSAS Gunfire Blast | 0.0 dB | -0.0 dB | +-0.0 dB | 0.850 | 2.50 |
+| T-90 Diesel Tank | 0.0 dB | 2.5 dB | +2.5 dB | 0.865 | 2.54 |
+| ALH Dhruv Helicopter | 0.0 dB | 1.0 dB | +1.0 dB | 0.856 | 2.52 |
+| INSAS Gunfire Blast | 0.0 dB | 0.8 dB | +0.8 dB | 0.855 | 2.51 |
 
 
 ## EXP-017: AI vs NLMS Comparative Study
