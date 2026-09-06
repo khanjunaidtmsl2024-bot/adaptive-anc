@@ -268,6 +268,43 @@ Every claim in the project is strictly assigned one of eight evidentiary tiers:
 
 ---
 
+### Claim 18: PH0.6 Evaluation Integrity & SI-SDR Discrepancy Resolution
+- **CLAIM:** Previous hybrid pipeline achieved SI-SDR ~ +11 dB (PH0); PESQ ablation reports SI-SDR ~ -38 dB (PH0.5).
+- **FILE:** `src/evaluation/ph06_integrity_check.py`, `results/csv/ph06_integrity_check.csv`, `docs/PH06_RESULTS.md`
+- **INVESTIGATION:** Controlled 4-path experiment on one canonical clip (seed=42, 3s, 0 dB SNR):
+  - Path A (`HybridEnhancementPipeline`, frame=512): SI-SDR = **+15.13 dB**
+  - Path B (`CausalStreamingEngine`, frame=256): SI-SDR = **-36.98 dB**
+  - Path C (Ablation reproduction, frame=256): SI-SDR = **-40.31 dB**
+  - Path D (NLMS-only, no AI): SI-SDR = **+4.67 dB**
+- **ROOT CAUSE:** The untrained TinyEnhancer (random weights, no checkpoint loaded) applies an average spectral mask of **0.194**, suppressing **~81% of all spectral energy** including speech. Path A's `HybridEnhancementPipeline` **masked this** with OLA window-squared normalization (`norm_window[start:end] += window ** 2; final_output[valid] /= norm_window[valid]`), which compensates for the mask suppression and creates an artificial +15 dB result. Path B/C use simple OLA without this normalization, correctly exposing the suppression.
+- **CORRECTED ASSESSMENT:**
+  - The +15 dB from PH0 was **an artifact of window normalization**, not evidence of AI enhancement.
+  - The -40 dB from PH0.5 correctly exposed the untrained mask's destructive behavior.
+  - **Neither number describes trained model quality.** Both measure an untrained random-weight network.
+  - The NLMS-only path (+4.67 dB) proves the classical DSP stage works correctly.
+- **STATUS:** `OFFLINE EXPERIMENTALLY MEASURED (DIAGNOSTIC)` -- RESOLVED.
+- **AUDIT VERDICT:** The ~50 dB discrepancy is explained by (1) untrained AI mask suppression and (2) differing OLA normalization between evaluation paths. The architecture is NOT proven defective; the model simply has no trained weights. Independent peak-normalization in `_evaluate_quality()` contributes ~4 dB error on Delta-SNR but does NOT affect SI-SDR (which is scale-invariant by construction).
+
+---
+
+### Claim 19: Extended Headroom Benchmark (1000 Hops)
+- **CLAIM:** 8 ms computational budget satisfied with adequate headroom.
+- **FILE:** `src/evaluation/ph06_headroom_benchmark.py`, `results/csv/ph06_headroom_profile.csv`, `results/csv/ph06_per_hop_timing.csv`
+- **VALUE:**
+  - P50 = **5.228 ms**, P95 = **6.611 ms**, P99 = 7.452 ms, P99.9 = 8.799 ms, Max = 10.103 ms
+  - Headroom at P95: **+1.389 ms** (ADEQUATE)
+  - Budget violations (>8 ms): **4 / 1000 hops** (0.4%)
+  - Worst contiguous streak (>7 ms): **10 consecutive hops** (80.0 ms audio)
+- **MEASUREMENT METHOD:** 1000 steady-state hops after 100 warm-up hops fully discarded. Microsecond-accurate `time.perf_counter()` timing. Numba JIT backends for DSP.
+- **ACTUAL EXECUTION?** **YES**, executed on host development machine.
+- **HARDWARE USED:** Host PC CPU (x86_64, Windows).
+- **CONFIGURATION:** `CausalStreamingEngine(use_fast_dsp=True)`, frame=256, hop=128.
+- **EVIDENCE:** `results/csv/ph06_headroom_profile.csv`, `results/csv/ph06_per_hop_timing.csv`.
+- **STATUS:** `OFFLINE EXPERIMENTALLY MEASURED (host PC)`
+- **AUDIT VERDICT:** PASS with ADEQUATE headroom. This is a more confident result than PH0.5 (P95=7.41ms, headroom=0.59ms) due to larger sample size (1000 vs 350 hops) and longer warm-up (100 vs 50 hops). **Physical embedded real-time performance on Raspberry Pi 4 remains UNVERIFIED.**
+
+---
+
 ## 3. Model Architecture Forensic Audit: The "V3" Inconsistency
 
 A critical audit of model definitions in the repository reveals **incompatible model definitions and confusing parameter labeling**:
