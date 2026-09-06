@@ -23,19 +23,54 @@ Evidence tier: **VERIFIED MEASUREMENT** (read from source + exercised by tests).
 
 | Item | Value |
 |---|---|
-| Git commit | `cb5f4c4` — feat(ph0.6): evaluation integrity investigation and 1000-hop headroom benchmark |
+| Git commit | `5d821a7` (HEAD) — PH0.7/PH1 freeze work committed on `main` (see §2a) |
 | Frame / hop | 256 / 128 samples (16 kHz) — deployment; training now also 256/128 (Gate 2 fix applied) |
 | center | `False` everywhere (train.py torch.stft/istft + deployment np.fft) |
 | Runtime | Python 3.11, torch 2.14.0+cpu (CUDA: **not available**), numpy 2.4.6, numba 0.67.0 |
 | Host | Windows 10, 8 CPU threads, 17.1 GB RAM (no GPU, no Raspberry Pi/Jetson attached) |
 
+## 2a. Post-freeze audit (go-condition re-verification)
+
+Audit items 1–4 of the PH1 go-condition were re-run against the committed state:
+
+1. **Backend provenance (item 1) — FIXED & RECORDED.** `ph06_headroom_benchmark.py`
+   now writes backend metadata into `ph06_headroom_profile.csv`
+   (`numba_version=0.67.0, numpy_version=2.4.6, nlms_backend=numba,
+   impulse_backend=numba`, engine classes `VSSNLMSFilterFast` /
+   `ImpulseProtectionControllerFast`). The timings in that CSV are therefore
+   proven to be genuinely Numba-backed, not Python-fallback timings.
+2. **Latency reproducibility (item 2) — NOT REPRODUCED as a stable PASS.** Seven
+   isolated 1000-hop runs gave P95 ∈ [4.90, 14.52] ms (median ≈ 6.9 ms;
+   representative series: 8.33, 8.18, 4.90, 6.77, 6.90, 14.52, 7.87). The
+   previously committed single run (P95 = 5.54 ms, +2.47 headroom) was one
+   quiet-moment draw on a shared, load-varying host. Verdict: the 8 ms gate is
+   **marginal on this host** (some runs FAIL), and a stable pass must be shown on
+   a quiet/isolated machine (or the edge target host) before it is called proven.
+   The gate itself is NOT relaxed. AI-stage P95 (2.8–10.9 ms across runs) is the
+   dominant contributor; DSP P95 stayed 0.64–1.05 ms.
+3. **Impulse-test wording (item 3) — RESOLVED.** Measured: a unit impulse exits
+   the engine at peak **0.9500** because the impulse-protection controller's hard
+   output limiter caps at 0.95 (hearing/DAC fail-safe, by design) BEFORE the
+   STFT/AI/WOLA chain. WOLA itself is unity-gain: a sub-limiter impulse (amp 0.5)
+   reconstructs at 0.5000 (<1e-3 error, no dispersion) and sine/constant signals
+   reconstruct at <1e-4. The test now asserts the limiter ceiling (0.95 ± 1e-3)
+   and a separate unity-gain impulse below it, instead of the old ±0.06
+   "near-unity" tolerance that papered over the mechanism.
+4. **Parameter counts (item 4) — RECONCILED (geometry-dependent).** CRN-Micro =
+   723,801 and DTLN = 775,939 parameters under the FROZEN contract geometry
+   (frame 256 → freq_bins 129); they are 986,457 / 989,315 only under the legacy
+   512-frame geometry (freq_bins 257). The earlier ~724K/~776K figures match the
+   contract geometry; the 986K/989K figures come from `phase4_benchmark`/wrapper
+   defaults (freq_bins=257, frame=512). See §4. Neither architecture is "at the
+   1M edge" under the deployed contract — a point worth stating plainly.
+
 ## 3. Gates run and results (all VERIFIED MEASUREMENT)
 
 | Gate | Result | Evidence |
 |---|---|---|
-| Deterministic reconstruction (WOLA) | **PASS** — boundary zero, exact 1-hop (128 smp / 8.0 ms) lag, unity impulse peak, sine/constant max err < 1e-4 | `tests/test_streaming.py::test_causal_streaming_engine_deterministic_reconstruction` |
+| Deterministic reconstruction (WOLA) | **PASS** — boundary zero, exact 1-hop (128 smp / 8.0 ms) lag, sub-limiter impulse unity gain (0.5→0.5, <1e-3, no dispersion), sine/constant max err < 1e-4. Unit impulse is capped at 0.95 by the impulse-protection output limiter (fail-safe by design, NOT a reconstruction error) | `tests/test_streaming.py::test_causal_streaming_engine_deterministic_reconstruction` |
 | Full test suite | **79/79 PASS** | `python -m pytest -q` |
-| Isolated streaming latency (1000 steady-state hops) | **PASS, +2.47 ms headroom** — P95 within 8 ms gate; P99 7.52 ms; 1.0% of hops > 8 ms | `results/csv/ph06_headroom_profile.csv` |
+| Isolated streaming latency (1000 steady-state hops) | **MARGINAL on this host — NOT reproducible as stable PASS.** 7 runs: P95 4.90–14.52 ms (median ≈ 6.9). Backend recorded as Numba in CSV. See §2a.2 | `results/csv/ph06_headroom_profile.csv` |
 | PH0.5 DSP backends | Numba engaged (0.67.0); NLMS 87.9×, impulse 29.2× vs Python (isolated) | `results/csv/ph05_speedup_summary.csv` |
 
 Latency note (Phase 17 discipline): the 8 ms gate is **per-hop processing time**, NOT
@@ -44,17 +79,25 @@ plus buffering; the two are reported separately in all PH1 outputs.
 
 ## 4. Model inventory (parameter counts computed dynamically, never hard-coded)
 
-| Model | Params (dynamic) | fp32 size | Status in repo |
-|---|---:|---:|---|
-| TinyEnhancer | **9,569** | 37.4 KB | Implemented (`src/ai/tiny_enhancer.py`) — deployed Stage 2 |
-| CRN-Micro | **986,457** | 3.85 MB | Implemented (`src/ai/crn.py`) — untrained, random init |
-| DTLN | **989,315** | 3.86 MB | Implemented (`src/ai/dtln.py`) — untrained, random init |
-| DeepFilterNet2 | — | — | **NOT PRESENT.** No code, no adapter, no checkpoint. Papers only (`research/papers/`). Requires external integration (`deepfilternet` package) before any DFN2 job can run. |
+Parameter counts are GEOMETRY-DEPENDENT and must be stated with their geometry:
 
-Note: 9,569 (not the stale 10,417) is confirmed as TinyEnhancer's true count.
-CRN/DTLN are near the 1M budget edge — Phase 5 says "prefer significantly below 1M
-if quality is retained"; their channel configuration may need a documented reduction
-before the campaign, as a controlled design decision (not silently).
+| Model | Params @ contract (frame 256 / bins 129) | Params @ legacy (frame 512 / bins 257) | fp32 @ contract | Status in repo |
+|---|---:|---:|---:|---|
+| TinyEnhancer | **9,569** | 9,569 (geometry-independent) | 37.4 KiB | Implemented (`src/ai/tiny_enhancer.py`) — deployed Stage 2 |
+| CRN-Micro | **723,801** | 986,457 | 2.76 MiB | Implemented (`src/ai/crn.py`) — untrained, random init |
+| DTLN | **775,939** | 989,315 | 2.96 MiB | Implemented (`src/ai/dtln.py`) — untrained, random init |
+| DeepFilterNet2 | — | — | — | **NOT PRESENT.** No code, no adapter, no checkpoint. Papers only (`research/papers/`). Requires external integration (`deepfilternet` package) before any DFN2 job can run. |
+
+Notes:
+- 9,569 (not the stale 10,417) is confirmed as TinyEnhancer's true count.
+- **Geometry mismatch to fix in the adapter layer (Phase 19 / Step 8):** the
+  CRN/DTLN wrappers and `src/evaluation/phase4_benchmark.py` default to the
+  legacy geometry (`freq_bins=257`, `frame_size=512`). Every PH1 instantiation
+  must override to `freq_bins=129` / `frame_size=256` so parameter counts and
+  behaviour match the frozen deployment contract. Until that override exists,
+  wrapper-default counts (986K/989K) do not describe the deployed system.
+- Under the contract geometry CRN/DTLN sit ~0.72M/~0.78M — comfortably under the
+  1M budget (Phase 5), though still ~75× TinyEnhancer.
 
 ## 5. Dataset / manifests (Phase 3 resolution)
 
@@ -104,10 +147,13 @@ before the campaign, as a controlled design decision (not silently).
    slow; expect the RESIDUAL_AI leg (which must run NLMS per sample) to dominate.
 2. **DeepFilterNet2 integration** is an open work item (package + 16 kHz resampling
    contract + streaming adapter). No DFN2 numbers can exist before that lands.
-3. **PyTorch AI stage latency** p95 ≈ 5–11 ms on this host — the 8 ms *processing*
-   gate holds for DSP but integrated per-hop processing sits at the edge; Phase 17
-   must report DSP/AI/combined latency separately (it does).
-4. **CRN/DTLN parameter budget** sits at ~0.99M — at, not below, the 1M target.
+3. **PyTorch AI stage latency** P95 ≈ 2.8–10.9 ms across runs on this host —
+   DSP (P95 ≈ 0.6–1.0 ms) is safely inside the budget but the AI stage puts the
+   integrated 8 ms gate at the margin; it is NOT reproducible as a stable pass on
+   this shared host (§2a.2). Phase 17 reports DSP/AI/combined separately (it does).
+4. **CRN/DTLN parameter budget** under the contract geometry is ~0.72M/~0.78M
+   (not ~0.99M, which is the legacy-geometry figure) — under budget but still
+   ~75× TinyEnhancer; keep the documented channel reduction as an option.
 5. Impulsive SNR drift (up to ~6 dB under clipping-avoidance scaling) is recorded
    honestly but narrows the low-SNR impulsive test points.
 
@@ -141,7 +187,7 @@ before the campaign, as a controlled design decision (not silently).
 | 2 Fix WOLA/reconstruction | Already fixed (PH0.7); verified by tests |
 | 3 Reconstruction tests | PASS |
 | 4 Full test suite | 79/79 PASS |
-| 5 Latency benchmark | PASS (+2.47 ms headroom) |
+| 5 Latency benchmark | MARGINAL — not reproducible as stable PASS on this host (§2a.2); backend now recorded in CSV |
 | 6 Freeze experiment contract | DONE — `configs/ph1_experiment_contract.yaml` |
 | 7 Freeze dataset manifests | DONE — canonical + hashes (Sec. 5) |
 | 8 Build model adapters | PARTIAL — TinyEnhancer/CRN/DTLN exist; DFN2 missing |

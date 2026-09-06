@@ -11,7 +11,11 @@ Architecture:
 Reference: Tan & Wang, "A Convolutional Recurrent Neural Network for
 Real-Time Speech Enhancement", Interspeech 2018.
 
-Parameter budget: ~550 K (Micro variant: ~55 K with reduced channels).
+Parameter budget (measured, geometry-dependent):
+  - frame 256 / freq_bins 129 (PH1 contract): 723,801
+  - frame 512 / freq_bins 257 (legacy):       986,457
+Channels (8, 16, 32, 64, 128) with hidden_size 128. The wrapper/benchmark
+default to freq_bins=257; every PH1 instantiation must override to 129.
 """
 
 from typing import Tuple, Optional

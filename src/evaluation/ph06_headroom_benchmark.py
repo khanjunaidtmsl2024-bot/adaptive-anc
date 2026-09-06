@@ -26,6 +26,28 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from src.streaming.causal_engine import CausalStreamingEngine
 
+# Backend provenance: prove which DSP backend actually ran (audit item 1).
+# If numba is unavailable or the fast modules import fails, the engine silently
+# falls back to the pure-Python reference path and timings are NOT numba ones.
+try:
+    from src.dsp.vss_nlms_fast import NUMBA_AVAILABLE as NLMS_NUMBA_AVAIL
+except ImportError:
+    NLMS_NUMBA_AVAIL = False
+try:
+    from src.dsp.impulse_protection_fast import NUMBA_AVAILABLE as IMP_NUMBA_AVAIL
+except ImportError:
+    IMP_NUMBA_AVAIL = False
+try:
+    import numpy as _np
+    NUMPY_VERSION = _np.__version__
+except Exception:
+    NUMPY_VERSION = "unknown"
+try:
+    import numba as _nb
+    NUMBA_VERSION = _nb.__version__
+except Exception:
+    NUMBA_VERSION = "unavailable"
+
 SR = 16000
 FRAME_SIZE = 256
 HOP_SIZE = 128
@@ -80,7 +102,10 @@ def run_headroom_benchmark():
     noisy, reference = generate_benchmark_signal(duration_s=min_duration)
 
     # Numba-compiled engine
-    print("[2/3] Running benchmark (Numba JIT backends)...")
+    print("[2/3] Running benchmark...")
+    print(f"       Backend probe: vss_nlms NUMBA_AVAILABLE={NLMS_NUMBA_AVAIL}, "
+          f"impulse NUMBA_AVAILABLE={IMP_NUMBA_AVAIL}, numba={NUMBA_VERSION}, "
+          f"numpy={NUMPY_VERSION}")
     engine = CausalStreamingEngine(
         frame_size=FRAME_SIZE,
         hop_size=HOP_SIZE,
@@ -90,6 +115,14 @@ def run_headroom_benchmark():
         use_fast_dsp=True,
     )
     engine.reset()
+
+    # Record the backend class actually instantiated by the engine
+    engine_nlms_cls = type(engine.nlms).__name__
+    engine_imp_cls = type(engine.impulse_controller).__name__
+    nlms_backend = "numba" if engine_nlms_cls.endswith("Fast") and NLMS_NUMBA_AVAIL else "python_fallback"
+    imp_backend = "numba" if engine_imp_cls.endswith("Fast") and IMP_NUMBA_AVAIL else "python_fallback"
+    print(f"       Engine backend: nlms={nlms_backend} ({engine_nlms_cls}), "
+          f"impulse={imp_backend} ({engine_imp_cls})")
 
     n = min(len(noisy), len(reference))
     n_hops = (n - FRAME_SIZE) // HOP_SIZE + 1
@@ -140,6 +173,14 @@ def run_headroom_benchmark():
 
     # Compute statistics
     stats = {
+        # Backend provenance (audit item 1): these prove the measured timings
+        # are genuinely Numba-backed, not Python-fallback timings.
+        "numba_version": NUMBA_VERSION,
+        "numpy_version": NUMPY_VERSION,
+        "nlms_backend": nlms_backend,
+        "impulse_backend": imp_backend,
+        "engine_nlms_class": engine_nlms_cls,
+        "engine_impulse_class": engine_imp_cls,
         "total_hops": STEADY_HOPS,
         "warmup_hops": WARMUP_HOPS,
         "budget_ms": BUDGET_MS,

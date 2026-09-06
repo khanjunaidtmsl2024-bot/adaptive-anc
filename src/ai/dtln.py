@@ -9,7 +9,12 @@ Two-stage architecture:
 Reference: Westhausen & Meyer, "Dual-Signal Transformation LSTM Network
 for Real-Time Noise Suppression", Interspeech 2020.
 
-Parameter budget: ~90 K (configurable), RTF < 0.10 on RPi4 at 16 kHz.
+Parameter budget (measured, geometry-dependent):
+  - frame 256 / hop 128 / enc 256 (PH1 contract): 775,939
+  - frame 512 / hop 128 / enc 256 (legacy):       989,315
+The wrapper/benchmark default to frame_size=512; every PH1 instantiation must
+override to 256. Internal torch.stft/istft default center=True -- PH1 training
+must pass center=False to respect the causal contract.
 """
 
 from typing import Tuple, Optional

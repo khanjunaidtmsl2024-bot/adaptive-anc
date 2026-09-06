@@ -49,7 +49,11 @@ def test_causal_streaming_engine_deterministic_reconstruction():
     Verifies:
       1. Boundary & first-hop behavior (warmup buffer is zero to float precision).
       2. Steady-state lag (exactly 1 hop = 128 samples = 8.0 ms).
-      3. Impulse reconstruction (no dispersion, near-unity peak).
+      3. Impulse reconstruction: unity WOLA gain below the fail-safe output
+         limiter (amp 0.5 -> peak 0.5 within 1e-3, no dispersion), and exact
+         1-hop lag. A unit-amplitude impulse is capped at the impulse-protection
+         output limiter ceiling (0.95 by design, hearing/DAC fail-safe) - so the
+         measured 0.95 peak is NOT a reconstruction-gain error.
       4. 440 Hz sine reconstruction (unity gain, float-precision error < 1e-4).
       5. Constant signal reconstruction (unity gain, float-precision error < 1e-4).
     """
@@ -99,10 +103,43 @@ def test_causal_streaming_engine_deterministic_reconstruction():
     lag = peak_idx - impulse_idx
     assert lag == hop_size, f"Expected lag of {hop_size} samples (8.00 ms), got {lag}"
 
-    # Impulse peak amplitude and dispersion
-    assert abs(recon[peak_idx] - 1.0) < 0.06, f"Impulse peak {recon[peak_idx]} deviates from unity"
+    # Impulse dispersion must be at float precision (no smearing across hops)
     surrounding = np.delete(recon[hop_size:], peak_idx - hop_size)
     assert np.max(np.abs(surrounding)) < 1e-6, f"Impulse dispersion {np.max(np.abs(surrounding))} exceeds float precision"
+
+    # The engine path runs impulse protection, whose hard output limiter caps at
+    # 0.95 (hearing/DAC fail-safe). A unit impulse is therefore clipped to 0.95
+    # BEFORE the STFT/AI/WOLA chain - the 0.95 peak is the limiter ceiling, not
+    # a reconstruction-gain error. Unity WOLA gain is verified below with a
+    # sub-limiter impulse (amp 0.5).
+    assert abs(recon[peak_idx] - 0.95) < 1e-3, (
+        f"Unit impulse peak {recon[peak_idx]:.4f} != limiter ceiling 0.95 "
+        f"(impulse protection max_output_limit)"
+    )
+
+    # Unity-gain reconstruction at sub-limiter amplitude, in steady state
+    # (past the startup boundary region): amp 0.5 must come back as 0.5.
+    engine2 = _make_engine()
+    n2 = 4096
+    imp2_idx = 3000  # steady-state region
+    amp2 = 0.5
+    p2 = np.zeros(n2, dtype=np.float32)
+    p2[imp2_idx] = amp2
+    r2 = np.zeros(n2, dtype=np.float32)
+    hops2 = []
+    for i in range(n2 // hop_size):
+        out_hop, _ = engine2.process_hop(
+            p2[i * hop_size : (i + 1) * hop_size],
+            r2[i * hop_size : (i + 1) * hop_size],
+        )
+        hops2.append(out_hop)
+    recon2 = np.concatenate(hops2)
+    peak2_idx = imp2_idx + hop_size + int(np.argmax(
+        recon2[imp2_idx + hop_size : imp2_idx + hop_size + 2 * hop_size]))
+    assert abs(recon2[peak2_idx] - amp2) < 1e-3, (
+        f"Sub-limiter impulse peak {recon2[peak2_idx]:.4f} deviates from input "
+        f"amplitude {amp2}: WOLA reconstruction gain is not unity"
+    )
 
     # 2. 440 Hz Sine wave reconstruction (float precision and unity gain)
     engine = _make_engine()
