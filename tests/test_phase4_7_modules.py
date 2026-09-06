@@ -39,6 +39,8 @@ class TestDTLN(unittest.TestCase):
     @unittest.skipUnless(TORCH_AVAILABLE, "PyTorch not available")
     def test_dtln_parameter_count(self):
         from src.ai.dtln import DTLNNet
+        # Contract-geometry default (frame 256); legacy frame-512 variants are
+        # covered by test_dtln_forward_shape.
         model = DTLNNet(hidden_size=64, encoder_size=128)
         params = model.count_parameters()
         self.assertGreater(params, 10000, "DTLN should have >10K params")
@@ -47,7 +49,8 @@ class TestDTLN(unittest.TestCase):
     @unittest.skipUnless(TORCH_AVAILABLE, "PyTorch not available")
     def test_dtln_wrapper_spectrogram(self):
         from src.ai.dtln import DTLNWrapper
-        wrapper = DTLNWrapper(hidden_size=64, encoder_size=128)
+        # Legacy geometry: 512-frame wrapper consumes 257-bin spectrograms.
+        wrapper = DTLNWrapper(frame_size=512, hop_size=128, hidden_size=64, encoder_size=128)
         mag = np.random.rand(257, 10).astype(np.float32)
         phase = np.random.rand(257, 10).astype(np.float32)
         enh_mag, enh_phase = wrapper.enhance_spectrogram(mag, phase)
@@ -88,7 +91,8 @@ class TestCRN(unittest.TestCase):
     @unittest.skipUnless(TORCH_AVAILABLE, "PyTorch not available")
     def test_crn_wrapper_spectrogram(self):
         from src.ai.crn import CRNWrapper
-        wrapper = CRNWrapper(hidden_size=64, channels=(8, 16, 32, 64, 128))
+        # Legacy geometry: 257-bin wrapper consumes 257-bin spectrograms.
+        wrapper = CRNWrapper(freq_bins=257, hidden_size=64, channels=(8, 16, 32, 64, 128))
         mag = np.random.rand(257, 20).astype(np.float32)
         phase = np.random.rand(257, 20).astype(np.float32)
         enh_mag, enh_phase = wrapper.enhance_spectrogram(mag, phase)

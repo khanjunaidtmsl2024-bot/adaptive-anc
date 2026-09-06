@@ -52,12 +52,14 @@ def main():
         print(f"  -> Final Train Loss: {result['final_train_loss']:.4f}", flush=True)
         print(f"  -> Final Val Loss:   {result['final_val_loss']:.4f}", flush=True)
 
-    # 2. CRN-Micro
+    # 2. CRN-Micro -- instantiate at the frozen PH1 contract geometry
+    # (freq_bins=129, frame 256): train.py emits 129-bin STFT frames, so a
+    # 257-bin CRN would crash in the GRU bottleneck.
     print("\n" + "-" * 70, flush=True)
-    print("  [2/2] Training CRN-Micro (986K params, 20 epochs)", flush=True)
+    print("  [2/2] Training CRN-Micro (724K params @ contract 129 bins, 20 epochs)", flush=True)
     print("-" * 70, flush=True)
     result = train_spectral_mask_model(
-        model=CRNNet(freq_bins=257, hidden_size=128, channels=(8, 16, 32, 64, 128)),
+        model=CRNNet(freq_bins=129, hidden_size=128, channels=(8, 16, 32, 64, 128)),
         epochs=20,
         lr=5e-4,
         save_path="checkpoints/crn_micro.pt",

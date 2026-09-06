@@ -14,8 +14,9 @@ Real-Time Speech Enhancement", Interspeech 2018.
 Parameter budget (measured, geometry-dependent):
   - frame 256 / freq_bins 129 (PH1 contract): 723,801
   - frame 512 / freq_bins 257 (legacy):       986,457
-Channels (8, 16, 32, 64, 128) with hidden_size 128. The wrapper/benchmark
-default to freq_bins=257; every PH1 instantiation must override to 129.
+Channels (8, 16, 32, 64, 128) with hidden_size 128. Defaults to the frozen
+PH1 contract geometry (freq_bins=129, frame 256). Legacy callers (offline
+phase4 benchmark / its checkpoints) must pass freq_bins=257 explicitly.
 """
 
 from typing import Tuple, Optional
@@ -61,14 +62,16 @@ if TORCH_AVAILABLE:
         for real-time embedded deployment.
 
         Args:
-            freq_bins:    Number of frequency bins (default 257 for frame_size=512).
+            freq_bins:    Number of frequency bins. Default 129 = the frozen PH1
+                          contract geometry (frame 256). Legacy frame-512 models
+                          pass 257.
             hidden_size:  GRU hidden units (default 128).
             channels:     Encoder/decoder channel progression.
         """
 
         def __init__(
             self,
-            freq_bins: int = 257,
+            freq_bins: int = 129,
             hidden_size: int = 128,
             channels: Tuple[int, ...] = (8, 16, 32, 64, 128),
         ):
@@ -188,10 +191,15 @@ class CRNWrapper:
         self,
         checkpoint_path: Optional[str] = None,
         device: str = "cpu",
-        freq_bins: int = 257,
+        freq_bins: int = 129,
         hidden_size: int = 128,
         channels: Tuple[int, ...] = (8, 16, 32, 64, 128),
     ):
+        """
+        freq_bins defaults to 129 (frozen PH1 contract, frame 256). Legacy
+        offline models trained at freq_bins=257 must pass 257 explicitly so the
+        checkpoint state dict loads (and the reported param count matches).
+        """
         self.device = device
         self.net = None
 
@@ -223,9 +231,11 @@ class CRNWrapper:
         with torch.no_grad():
             # (F, T) → (1, 1, F, T)
             tensor_in = torch.from_numpy(mag_spec).unsqueeze(0).unsqueeze(0).float().to(self.device)
-            mask = self.net(tensor_in).squeeze().cpu().numpy()
+            # Drop only batch/channel dims; keep (F, T) so a single-frame
+            # (F, 1) hop does not collapse to 1-D.
+            mask = self.net(tensor_in)[0, 0].cpu().numpy()  # (F, T)
 
-            # Handle shape mismatch gracefully
+            # Handle shape mismatch gracefully (e.g. zoom between bin counts)
             if mask.shape != mag_spec.shape:
                 from scipy.ndimage import zoom
                 zoom_factors = (mag_spec.shape[0] / mask.shape[0], mag_spec.shape[1] / mask.shape[1])

@@ -139,10 +139,15 @@ def run_phase4_benchmark(
     if crn_ckpt:
         print(f"[*] Loaded trained CRN-Micro checkpoint: {crn_ckpt}", flush=True)
 
+    # Legacy offline path: models/checkpoints from the phase-4 campaign were
+    # trained/evaluated at frame 512 (freq_bins 257). Pass the legacy geometry
+    # explicitly; the adapter defaults are the frozen PH1 contract geometry
+    # (frame 256 / freq_bins 129). See src/ai/crn.py and src/ai/dtln.py.
     ai_backends = {
         "TinyEnhancer_V3": TinyEnhancerWrapper(checkpoint_path=tiny_ckpt),
-        "DTLN": DTLNWrapper(hidden_size=128, encoder_size=256),
-        "CRN_Micro": CRNWrapper(checkpoint_path=crn_ckpt, hidden_size=128, channels=(8, 16, 32, 64, 128)),
+        "DTLN": DTLNWrapper(frame_size=512, hop_size=128, hidden_size=128, encoder_size=256),
+        "CRN_Micro": CRNWrapper(checkpoint_path=crn_ckpt, freq_bins=257,
+                                hidden_size=128, channels=(8, 16, 32, 64, 128)),
     }
 
     backend_params = {name: count_params(wrapper) for name, wrapper in ai_backends.items()}

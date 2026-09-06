@@ -12,9 +12,10 @@ for Real-Time Noise Suppression", Interspeech 2020.
 Parameter budget (measured, geometry-dependent):
   - frame 256 / hop 128 / enc 256 (PH1 contract): 775,939
   - frame 512 / hop 128 / enc 256 (legacy):       989,315
-The wrapper/benchmark default to frame_size=512; every PH1 instantiation must
-override to 256. Internal torch.stft/istft default center=True -- PH1 training
-must pass center=False to respect the causal contract.
+Defaults to the frozen PH1 contract geometry (frame 256, hop 128). Legacy
+callers (offline phase4 benchmark) must pass frame_size=512 explicitly.
+Internal torch.stft/istft use center=False (causal framing, no future
+padding) matching the deployment STFT contract.
 """
 
 from typing import Tuple, Optional
@@ -29,6 +30,44 @@ except ImportError:
 
 
 if TORCH_AVAILABLE:
+
+    def _causal_stft(x: torch.Tensor, n_fft: int, hop: int, window: torch.Tensor) -> torch.Tensor:
+        """Causal STFT (center=False semantics): frame t covers [t*hop, t*hop+n_fft).
+
+        Returns complex spectrum of shape (B, n_fft//2+1, T_frames).
+        """
+        # unfold on (B, T) gives (B, T_f, n_fft); keep only complete frames
+        n_frames = (x.shape[-1] - n_fft) // hop + 1
+        frames = x.unfold(-1, n_fft, hop)[..., : n_frames, :]  # (B, T_f, n_fft)
+        frames = frames * window          # (B, T_f, n_fft)
+        return torch.fft.rfft(frames, dim=-1).transpose(1, 2)  # (B, F, T_f)
+
+    def _causal_istft(spec: torch.Tensor, n_fft: int, hop: int, window: torch.Tensor,
+                      length: int) -> torch.Tensor:
+        """Causal WOLA iSTFT (center=False): window^2-normalized overlap-add.
+
+        torch.istft(..., center=False) is broken on the pinned torch 2.14.0+cpu
+        build (raises "window overlap add min"), so DTLN stage-1 synthesis uses
+        this explicit overlap-add instead of silently keeping center=True
+        (which would pad future samples and violate the causal contract).
+        Interior reconstruction is exact to ~1e-6; the leading half-frame is
+        under-determined by design (causal framing has no future context).
+        """
+        n_frames = spec.shape[-1]
+        frames = torch.fft.irfft(spec, n_fft, dim=-2)          # (B, n_fft, T_f)
+        frames = frames * window.view(1, -1, 1)                # synthesis window
+        out_len = (n_frames - 1) * hop + n_fft
+        y = torch.zeros(frames.shape[0], out_len, dtype=frames.dtype, device=frames.device)
+        env = torch.zeros(out_len, dtype=frames.dtype, device=frames.device)
+        for t in range(n_frames):
+            s = t * hop
+            y[:, s:s + n_fft] += frames[:, :, t]
+            env[s:s + n_fft] += window ** 2
+        y = y / (env + 1e-8)
+        if y.shape[-1] >= length:
+            return y[:, :length]
+        return torch.nn.functional.pad(y, (0, length - y.shape[-1]))
+
 
     class _SeparationStage(nn.Module):
         """Single LSTM separation stage with layer-norm and FC projection."""
@@ -58,7 +97,8 @@ if TORCH_AVAILABLE:
         Dual-signal Transformation LSTM Network.
 
         Args:
-            frame_size:  STFT window length (default 512).
+            frame_size:  STFT window length. Default 256 = frozen PH1 contract
+                         geometry; legacy frame-512 models pass 512.
             hop_size:    STFT hop length (default 128).
             hidden_size: LSTM hidden units per direction (default 128).
             encoder_size: Conv1D channels in Stage 2 (default 256).
@@ -66,7 +106,7 @@ if TORCH_AVAILABLE:
 
         def __init__(
             self,
-            frame_size: int = 512,
+            frame_size: int = 256,
             hop_size: int = 128,
             hidden_size: int = 128,
             encoder_size: int = 256,
@@ -105,13 +145,10 @@ if TORCH_AVAILABLE:
             B, _, T = noisy_wav.shape
 
             # --- Stage 1: Magnitude-domain LSTM mask ---
-            # STFT
+            # Causal STFT (center=False semantics, matches deployment contract)
             wav_squeezed = noisy_wav.squeeze(1)  # (B, T)
             window = torch.hann_window(self.frame_size, device=noisy_wav.device)
-            stft = torch.stft(
-                wav_squeezed, self.frame_size, self.hop_size,
-                window=window, return_complex=True,
-            )  # (B, F, T_frames)
+            stft = _causal_stft(wav_squeezed, self.frame_size, self.hop_size, window)
             mag = stft.abs()         # (B, F, T_frames)
             phase = stft.angle()
 
@@ -120,15 +157,12 @@ if TORCH_AVAILABLE:
             mask1 = self.stage1(mag_t)     # (B, T_frames, F)
             mask1 = mask1.permute(0, 2, 1) # (B, F, T_frames)
 
-            # Apply mask and reconstruct time-domain
+            # Apply mask and reconstruct time-domain (causal WOLA, center=False)
             stft_masked = (mag * mask1) * torch.exp(1j * phase)
-            stage1_wav = torch.istft(
-                stft_masked, self.frame_size, self.hop_size,
-                window=window, length=T,
-            )  # (B, T)
+            stage1_wav = _causal_istft(stft_masked, self.frame_size, self.hop_size,
+                                       window, length=T).unsqueeze(1)  # (B, 1, T)
 
             # --- Stage 2: Learned-feature domain LSTM ---
-            stage1_wav = stage1_wav.unsqueeze(1)  # (B, 1, T)
             encoded = self.encoder(stage1_wav)     # (B, encoder_size, T_enc)
             encoded_t = encoded.permute(0, 2, 1)   # (B, T_enc, encoder_size)
             mask2 = self.stage2(encoded_t)          # (B, T_enc, encoder_size)
@@ -160,11 +194,16 @@ class DTLNWrapper:
         self,
         checkpoint_path: Optional[str] = None,
         device: str = "cpu",
-        frame_size: int = 512,
+        frame_size: int = 256,
         hop_size: int = 128,
         hidden_size: int = 128,
         encoder_size: int = 256,
     ):
+        """
+        frame_size defaults to 256 (frozen PH1 contract). Legacy offline models
+        trained at frame_size=512 must pass 512 explicitly. The wrapper's own
+        OLA iSTFT below uses the same frame/hop/window convention as the net.
+        """
         self.device = device
         self.frame_size = frame_size
         self.hop_size = hop_size
