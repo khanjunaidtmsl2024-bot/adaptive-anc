@@ -25,6 +25,18 @@ from src.dsp.impulse_protection import ImpulseProtectionController
 from src.dsp.noise_regime_detector import NoiseRegimeDetector, NoiseRegime, REGIME_PRESETS
 from src.ai.tiny_enhancer import TinyEnhancerWrapper
 
+try:
+    from src.dsp.vss_nlms_fast import VSSNLMSFilterFast, NUMBA_AVAILABLE as NLMS_FAST_AVAIL
+except ImportError:
+    VSSNLMSFilterFast = None
+    NLMS_FAST_AVAIL = False
+
+try:
+    from src.dsp.impulse_protection_fast import ImpulseProtectionControllerFast, NUMBA_AVAILABLE as IMP_FAST_AVAIL
+except ImportError:
+    ImpulseProtectionControllerFast = None
+    IMP_FAST_AVAIL = False
+
 
 class CausalStreamingEngine:
     """
@@ -43,16 +55,27 @@ class CausalStreamingEngine:
         step_size: float = 0.05,
         ai_backend: Optional[Any] = None,
         enable_regime_adaptation: bool = True,
+        use_fast_dsp: bool = True,
     ):
         self.frame_size = frame_size
         self.hop_size = hop_size
         self.sr = sample_rate
         self.enable_adaptation = enable_regime_adaptation
+        self.use_fast_dsp = use_fast_dsp
 
-        # DSP components
-        self.nlms = VSSNLMSFilter(filter_length=filter_length, mu_init=step_size)
+        # DSP components (use fast Numba backend if requested and available)
+        if use_fast_dsp and NLMS_FAST_AVAIL and VSSNLMSFilterFast is not None:
+            self.nlms = VSSNLMSFilterFast(filter_length=filter_length, mu_init=step_size)
+        else:
+            self.nlms = VSSNLMSFilter(filter_length=filter_length, mu_init=step_size)
+
         self.leakage_detector = SpeechLeakageDetector(sample_rate=sample_rate)
-        self.impulse_controller = ImpulseProtectionController(sample_rate=sample_rate)
+
+        if use_fast_dsp and IMP_FAST_AVAIL and ImpulseProtectionControllerFast is not None:
+            self.impulse_controller = ImpulseProtectionControllerFast(sample_rate=sample_rate)
+        else:
+            self.impulse_controller = ImpulseProtectionController(sample_rate=sample_rate)
+
         self.regime_detector = NoiseRegimeDetector(sample_rate=sample_rate, frame_size=frame_size)
 
         # AI backend

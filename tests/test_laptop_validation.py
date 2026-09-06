@@ -63,8 +63,9 @@ class TestLaptopValidationSuite:
 
     def test_08_streaming_simulation(self):
         res = run_test_8_streaming_simulation(sr=16000)
-        assert res["passed"] is True, f"Streaming simulation failed: {res}"
-        assert res["p50_ms"] < 60.0
+        assert res["test_8a_passed"] is True, f"Streaming mechanism (8a) failed: {res['verdict_8a']}"
+        assert res["test_8b_passed"] is True, f"Computational budget (8b) failed: {res['verdict_8b']}"
+        assert res["p95_ms"] <= 8.000, f"Expected P95 <= 8.000 ms, got {res['p95_ms']}"
 
     def test_09_experiment_bundle_export(self):
         tmp_dir = tempfile.mkdtemp(prefix="test_xray_")

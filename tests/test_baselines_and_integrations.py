@@ -1,6 +1,6 @@
 """
 Unit tests for classical baselines, integrations, edge export, and live stream.
-DRDO SIH 2026 — Problem Statement 26052.
+DRDO SIH 2026 -- Problem Statement 26052.
 """
 
 import pytest

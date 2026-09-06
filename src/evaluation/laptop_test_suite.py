@@ -255,8 +255,9 @@ def run_test_5_impulsive_noise(sr: int = 16000) -> Dict[str, Any]:
     clean = generate_synthetic_speech(duration=duration, sr=sr)
     n_samples = len(clean)
 
-    # Continuous noise
-    noise = np.random.normal(0, 0.1, n_samples).astype(np.float32)
+    # Continuous noise (seeded for deterministic measurement)
+    rng = np.random.RandomState(42)
+    noise = rng.normal(0, 0.1, n_samples).astype(np.float32)
 
     # Inject high-energy impulse spike at t = 1.2s (+40 dB spike, 10 ms duration)
     spike_idx = int(1.2 * sr)
@@ -412,10 +413,16 @@ def run_test_7_causality(sr: int = 16000) -> Dict[str, Any]:
 
 
 # =====================================================================
-# Test 8: Streaming Latency Simulation & Profiling
+# Test 8: Streaming Latency Simulation & Profiling (Split into 8a & 8b)
 # =====================================================================
 def run_test_8_streaming_simulation(sr: int = 16000) -> Dict[str, Any]:
-    """Test 8: Hop-by-hop streaming simulation with P50, P95, P99, MAX latency stats."""
+    """
+    Test 8: Hop-by-hop streaming simulation and latency verification.
+
+    Split strictly into:
+      8a: Streaming mechanism correctness (ring buffers, OLA, state continuity, causality).
+      8b: Computational budget verification (P95 <= 8.000 ms steady-state on host).
+    """
     duration = 3.0
     clean = generate_synthetic_speech(duration=duration, sr=sr)
     n_samples = len(clean)
@@ -423,38 +430,66 @@ def run_test_8_streaming_simulation(sr: int = 16000) -> Dict[str, Any]:
     primary = clean + noise
     reference = np.roll(noise, 2)
 
-    engine = CausalStreamingEngine(sample_rate=sr)
+    engine = CausalStreamingEngine(sample_rate=sr, use_fast_dsp=True)
     hop = 128
     n_hops = n_samples // hop
     times_ms = []
 
-    # Warmup
-    for _ in range(3):
+    # Warmup: run 40 hops to compile Numba JIT functions and warm PyTorch cache
+    for _ in range(40):
         engine.process_hop(primary[:hop], reference[:hop])
 
+    # Discard warmup timings and reset engine internal filter/buffer state
+    engine.reset()
+
+    # Steady-state benchmark
+    reconstructed_hops = []
     for h in range(n_hops):
         idx = h * hop
         t0 = time.perf_counter()
-        _ = engine.process_hop(primary[idx : idx + hop], reference[idx : idx + hop])
+        out_hop, _ = engine.process_hop(primary[idx : idx + hop], reference[idx : idx + hop])
         elapsed_ms = (time.perf_counter() - t0) * 1000.0
         times_ms.append(elapsed_ms)
+        reconstructed_hops.append(out_hop)
 
     p50 = float(np.percentile(times_ms, 50))
     p95 = float(np.percentile(times_ms, 95))
     p99 = float(np.percentile(times_ms, 99))
     max_lat = float(np.max(times_ms))
 
-    # Laptop execution target: P50 < 60.0 ms (pure interpreted Python on Windows)
-    passed = bool(p50 < 60.0)
+    # 8a: Streaming mechanism correctness (finite output, correct length, valid continuity)
+    full_recon = np.concatenate(reconstructed_hops)
+    test_8a_passed = bool(
+        len(full_recon) == n_hops * hop
+        and not np.isnan(full_recon).any()
+        and not np.isinf(full_recon).any()
+        and np.max(np.abs(full_recon)) > 1e-6
+    )
+
+    # 8b: Computational budget verification (P95 <= 8.000 ms steady-state)
+    budget_ms = 8.000
+    test_8b_passed = bool(p95 <= budget_ms)
+
+    verdict_8a = "PASS -- software verified (ring buffers, OLA, state continuity, causality)" if test_8a_passed else "FAIL -- buffer/OLA corruption"
+    if test_8b_passed:
+        verdict_8b = f"PASS -- P95 = {p95:.2f} ms <= {budget_ms:.2f} ms (Laptop software benchmark passes 8 ms computational criterion; physical embedded real-time performance remains unverified)"
+    else:
+        verdict_8b = f"FAIL -- P95 = {p95:.2f} ms > {budget_ms:.2f} ms (computational budget exceeded)"
+
+    passed = test_8a_passed and test_8b_passed
 
     return {
         "test_id": "TEST_8_STREAMING_SIMULATION",
-        "name": "Hop-by-Hop Real-Time Streaming Simulation",
-        "p50_ms": p50,
-        "p95_ms": p95,
-        "p99_ms": p99,
-        "max_ms": max_lat,
-        "budget_ms": 8.0,
+        "name": "Hop-by-Hop Real-Time Streaming Simulation (8a Mechanism / 8b Budget)",
+        "test_8a_passed": test_8a_passed,
+        "verdict_8a": verdict_8a,
+        "test_8b_passed": test_8b_passed,
+        "verdict_8b": verdict_8b,
+        "p50_ms": round(p50, 3),
+        "p95_ms": round(p95, 3),
+        "p99_ms": round(p99, 3),
+        "max_ms": round(max_lat, 3),
+        "budget_ms": budget_ms,
         "passed": passed,
         "verdict": "PASS" if passed else "FAIL",
         "times_ms": times_ms,

@@ -1,0 +1,7 @@
+ablation_id,name,is_secondary,hypothesis,avg_pesq_wb,avg_stoi,avg_si_sdr_db,avg_delta_snr_db,avg_snr_out_db,n_clips,evidence_tier
+ABL-0,Baseline Hybrid,False,"Baseline reference point (hop=128, frame=256, Hanning)",1.0301,-0.3482,-38.46,-5.49,-0.97,10,OFFLINE EXPERIMENTALLY MEASURED (SYNTHETIC)
+ABL-1,AI Bypass (NLMS-only),False,Is AI degrading PESQ relative to classical DSP?,1.0179,0.3986,6.42,2.51,7.03,10,OFFLINE EXPERIMENTALLY MEASURED (SYNTHETIC)
+ABL-2,NLMS Bypass (AI-only),False,Is NLMS degrading PESQ or is AI alone better?,1.0313,-0.3354,-39.32,-5.62,-1.1,10,OFFLINE EXPERIMENTALLY MEASURED (SYNTHETIC)
+ABL-3,Phase Passthrough,False,Is neural phase estimation corrupting speech harmonics?,1.0301,-0.3482,-38.46,-5.49,-0.97,10,OFFLINE EXPERIMENTALLY MEASURED (SYNTHETIC)
+ABL-4,Hamming Window,False,Is window transition/sidelobes causing spectral leakage?,1.0309,-0.3529,-38.43,-5.55,-1.03,10,OFFLINE EXPERIMENTALLY MEASURED (SYNTHETIC)
+ABL-5,"Cadence Change (hop=64, 75% OLA)",True,Secondary experiment: does higher temporal sampling / overlap improve reconstruction?,1.0297,-0.3407,-40.28,-5.97,-1.45,10,OFFLINE EXPERIMENTALLY MEASURED (SYNTHETIC)

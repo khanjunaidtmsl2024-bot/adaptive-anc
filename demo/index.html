@@ -53,6 +53,7 @@
             justify-content: space-between;
             align-items: center;
             background: rgba(17, 22, 34, 0.85);
+            -webkit-backdrop-filter: blur(12px);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
@@ -605,14 +606,14 @@
                             <span>INPUT SIGNAL-TO-NOISE RATIO (SNR)</span>
                             <strong id="snr-val" style="color: var(--accent-cyan);">0 dB</strong>
                         </div>
-                        <input type="range" id="snr-slider" min="-10" max="20" value="0" step="1">
+                        <input type="range" id="snr-slider" min="-10" max="20" value="0" step="1" title="Input Signal-to-Noise Ratio (SNR)" aria-label="Input Signal-to-Noise Ratio (SNR)">
                     </div>
                     <div class="slider-group">
                         <div class="slider-header">
                             <span>HEADPHONE MONITOR GAIN</span>
                             <strong id="vol-val" style="color: var(--accent-green);">80%</strong>
                         </div>
-                        <input type="range" id="vol-slider" min="0" max="100" value="80" step="1">
+                        <input type="range" id="vol-slider" min="0" max="100" value="80" step="1" title="Headphone Monitor Gain" aria-label="Headphone Monitor Gain">
                     </div>
                 </div>
 
@@ -725,7 +726,7 @@
     <footer>
         <div>SMART INDIA HACKATHON 2026 • DEFENCE RESEARCH AND DEVELOPMENT ORGANISATION (DRDO PS 26052)</div>
         <div>
-            Repository: <a href="https://github.com/khanjunaidtmsl2024-bot/adaptive-anc" target="_blank">khanjunaidtmsl2024-bot/adaptive-anc</a>
+            Repository: <a href="https://github.com/khanjunaidtmsl2024-bot/adaptive-anc" target="_blank" rel="noopener noreferrer">khanjunaidtmsl2024-bot/adaptive-anc</a>
         </div>
     </footer>
 

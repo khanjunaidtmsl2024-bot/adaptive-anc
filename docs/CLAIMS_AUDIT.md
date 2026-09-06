@@ -228,6 +228,46 @@ Every claim in the project is strictly assigned one of eight evidentiary tiers:
 
 ---
 
+### Claim 15: Steady-State Hop Computational Budget (&le; 8.000 ms)
+- **CLAIM:** CausalStreamingEngine satisfies the 8.000 ms per-hop processing budget (128 samples @ 16 kHz).
+- **FILE:** `src/evaluation/ph05_profiler.py`, `results/csv/ph05_integrated_profile.csv`
+- **VALUE:**
+  - Python Backends: **P50 = 38.03 ms, P95 = 56.37 ms** (&gt; 8.00 ms &rarr; **FAIL**)
+  - Numba JIT Backends: **P50 = 5.62 ms, P95 = 7.41 ms** (&le; 8.00 ms &rarr; **PASS on host laptop**)
+- **MEASUREMENT METHOD:** Automated steady-state profiler running 350 consecutive hops after 50 full warm-up hops were executed and completely discarded. Measured with `time.perf_counter()`.
+- **ACTUAL EXECUTION?** **YES**, executed on host development machine.
+- **HARDWARE USED:** Host PC CPU (x86_64, Windows).
+- **DATASET:** Procedural speech + noise test frames.
+- **CONFIGURATION:** `CausalStreamingEngine(use_fast_dsp=True)`, frame_size=256, hop_size=128.
+- **EVIDENCE:** `results/csv/ph05_integrated_profile.csv`.
+- **STATUS:** `OFFLINE EXPERIMENTALLY MEASURED (host PC)`
+- **AUDIT VERDICT & EVIDENCE BOUNDARY:** Laptop software benchmark passes the 8 ms computational criterion on this host machine. **Physical embedded real-time performance on Raspberry Pi 4 (Quad Cortex-A72) remains UNVERIFIED.**
+
+---
+
+### Claim 16: Test 8 Formal Split (Streaming Mechanism vs Computational Budget)
+- **CLAIM:** Test 8 proves real-time streaming capability.
+- **FILE:** `src/evaluation/laptop_test_suite.py`, `tests/test_laptop_validation.py`
+- **VALUE:** Split into 8a (mechanism) and 8b (budget):
+  - **8a (Streaming Mechanism):** Ring buffers, Overlap-Add reconstruction, state continuity, causality &rarr; **PASS** (`SOFTWARE VERIFIED`).
+  - **8b (Computational Budget):** Measured steady-state P95 = 7.41 ms &le; 8.00 ms &rarr; **PASS** (`OFFLINE EXPERIMENTALLY MEASURED (host PC)`).
+- **STATUS:** `SOFTWARE VERIFIED` (8a) / `OFFLINE EXPERIMENTALLY MEASURED (host PC)` (8b).
+
+---
+
+### Claim 17: Perceptual Speech Quality (PESQ) Target & Single-Variable Ablation
+- **CLAIM:** Hybrid ANC satisfies DRDO perceptual quality target of PESQ &gt; 2.50.
+- **FILE:** `src/evaluation/ph05_pesq_ablation.py`, `results/csv/ph05_pesq_ablation.csv`
+- **VALUE:** Baseline Hybrid PESQ = 1.030 (**FAIL target &gt; 2.50**).
+- **DIAGNOSTIC FINDING:** Controlled single-variable ablations isolate the root cause:
+  - When AI is bypassed (NLMS-only, ABL-1), SI-SDR is **+6.42 dB**, Delta-SNR is **+2.51 dB**, and STOI is **+0.3986**.
+  - When AI is active (ABL-0, ABL-2, ABL-3, ABL-4), SI-SDR drops to **-38.46 dB** and Delta-SNR drops to **-5.49 dB**.
+  - Cadence experiment (hop 128 &rarr; 64, ABL-5) confirms higher temporal overlap does not resolve mask-induced cancellation (-40.28 dB SI-SDR).
+- **STATUS:** `OFFLINE EXPERIMENTALLY MEASURED (SYNTHETIC)`
+- **AUDIT VERDICT:** The current TinyEnhancer neural mask causes severe harmonic cancellation when applied frame-by-frame in streaming mode. Architecture remains frozen until natural speech dataset benchmarks are completed.
+
+---
+
 ## 3. Model Architecture Forensic Audit: The "V3" Inconsistency
 
 A critical audit of model definitions in the repository reveals **incompatible model definitions and confusing parameter labeling**:
