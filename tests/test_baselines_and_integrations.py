@@ -97,3 +97,26 @@ def test_edge_export():
     res = export_edge_models(output_dir="models")
     assert res["status"] == "success"
     assert "torchscript_jit" in res["artifacts"]
+
+
+def test_canonical_fixtures_provenance_sha256():
+    """Asserts cryptographic SHA-256 provenance of whitelisted fixtures and baselines."""
+    import hashlib
+    from pathlib import Path
+
+    # 1. Canonical speech fixture
+    wav_path = Path("data/v4/clean/SPK_001_clean.wav")
+    assert wav_path.exists(), "Canonical test speech clip missing: data/v4/clean/SPK_001_clean.wav"
+    wav_hash = hashlib.sha256(wav_path.read_bytes()).hexdigest()
+    assert wav_hash == "558da0ce034cd554344709545dcef581ce7c8dcc6834771abac55e7a6a2c681a", (
+        f"Canonical speech fixture modified: got {wav_hash}, expected 558da0ce034cd554344709545dcef581ce7c8dcc6834771abac55e7a6a2c681a"
+    )
+
+    # 2. Baseline checkpoint fixture
+    ckpt_path = Path("checkpoints/tiny_enhancer_v3.pt")
+    assert ckpt_path.exists(), "Baseline checkpoint missing: checkpoints/tiny_enhancer_v3.pt"
+    ckpt_hash = hashlib.sha256(ckpt_path.read_bytes()).hexdigest()
+    assert ckpt_hash == "c2d2b3e59483e580d948abab1b31a091953d80346fa2d23d1c5f02f6b7fb552b", (
+        f"Baseline checkpoint modified: got {ckpt_hash}, expected c2d2b3e59483e580d948abab1b31a091953d80346fa2d23d1c5f02f6b7fb552b"
+    )
+

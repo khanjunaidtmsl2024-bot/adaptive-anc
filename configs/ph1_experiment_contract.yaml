@@ -45,6 +45,16 @@ dataset:
                                   # mechanical/armoured, siren, gunshot, artillery
   snr_matrix_db: [-5, 0, 5, 10]
 
+# --- Canonical Fixtures & Checkpoint Provenance ---
+canonical_fixtures:
+  canonical_test_speech:
+    path: data/v4/clean/SPK_001_clean.wav
+    sha256: 558da0ce034cd554344709545dcef581ce7c8dcc6834771abac55e7a6a2c681a
+  baseline_checkpoint:
+    path: checkpoints/tiny_enhancer_v3.pt
+    sha256: c2d2b3e59483e580d948abab1b31a091953d80346fa2d23d1c5f02f6b7fb552b
+
+
 # --- Training defaults (Phase 9; common hyperparameters, stage 1) ---
 training:
   optimizer: adamw

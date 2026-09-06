@@ -69,6 +69,10 @@ Adaptive ANC.zip
 *.h5
 *.pb
 
+# Whitelist canonical baseline checkpoint for evaluation gates (42 KB)
+!checkpoints/tiny_enhancer_v3.pt
+
+
 # --- Scratch & Temporary Analysis ---
 scratch/
 transfer_sections.txt

@@ -33,6 +33,10 @@ jobs:
         pip install -r requirements.txt pytest
         pip install torch --index-url https://download.pytorch.org/whl/cpu
 
+    - name: Verify Canonical Environment & Dependencies
+      run: |
+        python -c "import matplotlib, numpy, scipy, soundfile, pystoi, pesq, numba, yaml, torch; print('Canonical CI environment verified: all core modules present.')"
+
     - name: Run Unit Test Suite
       run: |
         pytest -v tests/

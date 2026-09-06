@@ -55,6 +55,7 @@ class TinyEnhancerWrapper:
         self.checkpoint_loaded = False
 
         if TORCH_AVAILABLE:
+            torch.manual_seed(42)
             self.net = TinyEnhancerNet().to(self.device)
             if checkpoint_path is None:
                 from pathlib import Path
