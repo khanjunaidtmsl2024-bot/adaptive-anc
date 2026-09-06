@@ -100,7 +100,14 @@ def run_leakage_breakdown_sweep(
 
     in_snr = calculate_snr(clean_speech, primary_mic)
     in_sisdr = calculate_si_sdr(clean_speech, primary_mic)
-    in_stoi = float(pystoi.stoi(clean_speech, primary_mic, sr, extended=False))
+    try:
+        in_stoi = float(pystoi.stoi(clean_speech, primary_mic, sr, extended=False))
+        in_stoi_failed = False
+    except Exception as ex:
+        print(f"[!] STOI failed on input (clean vs primary): {ex}; recording NaN, not 0.0.",
+              file=sys.stderr, flush=True)
+        in_stoi = float("nan")
+        in_stoi_failed = True
 
     alpha_values = [0.00, 0.01, 0.03, 0.05, 0.08, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50]
     modes = ["Unprotected_NLMS", "Protected_VSS_NLMS", "Hybrid_Chain"]
@@ -174,10 +181,10 @@ def run_leakage_breakdown_sweep(
             speech_distortion_db = float(10.0 * np.log10(p_err / p_clean))
 
             # Speech Self-Cancellation Flag: STOI degradation > 0.10 from nominal alpha=0.
-            # A NaN out_stoi (failed measurement) must NOT silently read as
+            # A NaN out_stoi or in_stoi (failed measurement) must NOT silently read as
             # "not degraded" -- Python NaN comparisons are False, which would
             # corrupt the alpha_crit "robust" conclusion downstream.
-            stoi_failed = bool(np.isnan(out_stoi))
+            stoi_failed = bool(np.isnan(out_stoi)) or in_stoi_failed
             stoi_drop = (in_stoi - out_stoi) if not stoi_failed else 1.0
             record = {
                 "run_id": run_id,

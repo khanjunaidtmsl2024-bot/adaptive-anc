@@ -59,7 +59,12 @@ def measure_convergence_time(error: np.ndarray, sr: int = 16000, window_ms: int 
     """
     win_len = int(sr * window_ms / 1000.0)
     if len(error) < 2 * win_len:
-        return 0.0
+        print(
+            f"[!] Convergence time not measurable on {len(error)} samples "
+            f"(needs >= {2 * win_len}); recording NaN, not 0.0 ms.",
+            file=sys.stderr, flush=True,
+        )
+        return float("nan")
     
     # Compute moving RMS power
     n_windows = len(error) // win_len

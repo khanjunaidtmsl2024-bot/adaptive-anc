@@ -7,6 +7,7 @@ to enable local evaluation, streaming benchmarking, and supervisory auditing.
 """
 
 from typing import Optional, Tuple
+import sys
 import numpy as np
 
 try:
@@ -51,6 +52,7 @@ class TinyEnhancerWrapper:
     def __init__(self, checkpoint_path: Optional[str] = None, device: str = "cpu"):
         self.device = device
         self.net = None
+        self.checkpoint_loaded = False
 
         if TORCH_AVAILABLE:
             self.net = TinyEnhancerNet().to(self.device)
@@ -64,8 +66,14 @@ class TinyEnhancerWrapper:
                 try:
                     state_dict = torch.load(checkpoint_path, map_location=self.device)
                     self.net.load_state_dict(state_dict)
+                    self.checkpoint_loaded = True
                 except Exception as e:
-                    pass
+                    self.checkpoint_loaded = False
+                    print(
+                        f"[!] Warning: could not load checkpoint {checkpoint_path} ({e}); "
+                        f"running with random weights. Check self.checkpoint_loaded before scoring.",
+                        file=sys.stderr, flush=True,
+                    )
             self.net.eval()
 
     def enhance_spectrogram(

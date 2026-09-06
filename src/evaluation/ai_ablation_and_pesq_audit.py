@@ -196,7 +196,12 @@ def run_ablation_benchmarks(
             # Compute metrics
             snr = calculate_snr(clean_speech, out)
             sisdr = calculate_si_sdr(clean_speech, out)
-            stoi_val = float(pystoi.stoi(clean_speech, out, sr, extended=False))
+            try:
+                stoi_val = float(pystoi.stoi(clean_speech, out, sr, extended=False))
+            except Exception as ex:
+                print(f"[!] STOI failed (SNR {snr_val} dB, {topo}): {ex}; recording NaN, not 0.0.",
+                      file=sys.stderr, flush=True)
+                stoi_val = float("nan")
             pesq_val = calculate_pesq_wb(clean_speech, out, sr=sr)
 
             # Failure Mode Analysis: Speech Attenuation
