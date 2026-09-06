@@ -1,0 +1,75 @@
+# ============================================================
+# PH1 EXPERIMENT CONTRACT — SINGLE SOURCE OF TRUTH
+# SIH26052 Adaptive AI/ML ANC — frozen 2026-09-06
+# ============================================================
+# RULE: Every PH1 experiment MUST load this file. NO experiment
+# may silently override any value below. Any change requires an
+# explicit contract_version bump AND a full re-run of baselines.
+# ============================================================
+
+contract_version: 1
+
+# --- Canonical production DSP geometry (CausalStreamingEngine) ---
+sample_rate: 16000        # Hz
+frame_size: 256           # samples (16 ms @ 16 kHz)
+hop_size: 128             # samples (8 ms @ 16 kHz)
+window: hann
+overlap: 0.5              # 50%
+center: false             # STRICTLY CAUSAL — no future padding
+ola_normalization: wola   # window^2 denominator; proven by tests/test_streaming.py
+
+# --- Authoritative production path (read-only reference) ---
+production_path: >
+  CausalStreamingEngine
+    -> reference-mic adaptive cancellation (VSS-NLMS / NLMS)
+    -> impulse protection
+    -> STFT(frame=256, hop=128, hann, center=False)
+    -> AI speech enhancement
+    -> WOLA overlap-add streaming output
+
+# --- Reproducibility ---
+seed: 42                  # stage-1 runs; finalists additionally use 123, 456
+deterministic: true
+
+# --- Dataset contract (Phase 3; extended per PH1 first-action) ---
+dataset:
+  base_manifest: data/v4/metadata/metadata_v4.csv          # original 110 rows (untouched)
+  canonical_manifest: data/v4/metadata/metadata_v4_extended.csv  # base + TEST_B extension
+  provenance: PROCEDURAL / SYNTHETIC DEFENCE-NOISE          # NOT real battlefield data
+  split_definitions:
+    TRAIN:                    "SPK_001..SPK_008 (never SPK_009/010)"
+    TEST_A_UNSEEN_SPEAKER:    "SPK_009..SPK_010 only — speakers never seen in training"
+    TEST_B_UNSEEN_NOISE_REC:  "held-out noise recordings; speakers SPK_001..008"
+    TEST_C_UNSEEN_NOISE_CATEGORY: "impulsive defence category (held-out class)"
+  noise_classes_required_min: 8   # tank, helicopter rotor, drone/UAV, wind,
+                                  # mechanical/armoured, siren, gunshot, artillery
+  snr_matrix_db: [-5, 0, 5, 10]
+
+# --- Training defaults (Phase 9; common hyperparameters, stage 1) ---
+training:
+  optimizer: adamw
+  lr: 1.0e-4
+  max_epochs: 30
+  early_stopping: val_si_sdr
+  gradient_clipping: 5.0
+  batch_size: auto            # set at job launch from available memory
+  input_paths:                # Phase 8 — RAW_AI and RESIDUAL_AI are separate experiments
+    RAW_AI: primary
+    RESIDUAL_AI: nlms_residual
+
+# --- Evaluation gates (Phase 23) ---
+gates:
+  metric_implementation: real_only   # surrogate PESQ/STOI => evaluation FAILS
+  latency_gate_p95_ms: 8.0           # engineering gate — do NOT relax
+  targets:                           # engineering targets, NOT measured evidence
+    snr_db: 15.0
+    stoi: 0.85
+    pesq: 2.5
+
+# --- Evidence discipline (Phase 29) ---
+evidence_tiers: [VERIFIED_MEASUREMENT, ENGINEERING_TARGET, HYPOTHESIS]
+forbidden_conversions:
+  - paper_result -> our_measured_result
+  - host_pc_latency -> raspberry_pi_latency
+  - synthetic_defence_noise -> real_defence_recording
+  - model_capability -> system_capability
