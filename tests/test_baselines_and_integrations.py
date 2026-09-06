@@ -31,11 +31,16 @@ def test_wiener_filter_execution():
 
 
 def test_ichigo_bridge_inspection():
-    bridge = IchigoAncBridge()
+    # Point at a guaranteed-absent checkpoint: random-init must be detectable
+    # via the flag, independent of stdout parsing or machine-local files.
+    bridge = IchigoAncBridge(checkpoint_path="__definitely_missing__.pt")
     info = bridge.inspect_model()
     assert info["source_repo"] == "https://github.com/ichigo137/anc"
     assert info["total_parameters"] > 0
     assert len(info["layers"]) == 8
+    assert isinstance(bridge.checkpoint_loaded, bool)
+    assert bridge.checkpoint_loaded is False
+    assert info["checkpoint_loaded"] is bridge.checkpoint_loaded
 
 
 def test_ichigo_bridge_benchmark():
@@ -51,6 +56,10 @@ def test_live_stream_simulation():
     res = engine.run_simulation(duration_sec=1.0)
     assert res["frames_processed"] > 0
     assert "p50_latency_ms" in res
+    # Simulated runs must be distinguishable from real hardware runs by the
+    # return dict alone (no stdout parsing needed).
+    assert res["mode"] == "simulation"
+    assert res["is_simulated"] is True
 
 
 try:

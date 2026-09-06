@@ -53,14 +53,19 @@ def calculate_si_sdr(reference: np.ndarray, estimated: np.ndarray) -> float:
 
 
 def calculate_pesq_wb(clean: np.ndarray, degraded: np.ndarray, sr: int = 16000) -> float:
-    """Computes PESQ Wideband (ITU-T P.862.2). Range 1.0 to 4.5."""
+    """Computes PESQ Wideband (ITU-T P.862.2). Range 1.0 to 4.5.
+
+    On computation failure returns NaN (never a fabricated score): a bare 1.0
+    would read as a real catastrophic measurement instead of a failed one.
+    """
     try:
         # PESQ requires float in [-1, 1] or int16
         c = np.clip(clean, -1.0, 1.0)
         d = np.clip(degraded, -1.0, 1.0)
         return float(pesq.pesq(sr, c, d, "wb"))
     except Exception as e:
-        return 1.0
+        print(f"[!] PESQ-WB computation failed ({e}); recording NaN, not 1.0.", file=sys.stderr, flush=True)
+        return float("nan")
 
 
 def apply_ai_stft_enhancement(

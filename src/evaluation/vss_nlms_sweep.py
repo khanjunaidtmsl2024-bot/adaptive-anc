@@ -177,8 +177,9 @@ def run_vss_nlms_sweep(
 
                 try:
                     stoi_score = float(pystoi.stoi(clean_speech, e_out, sr, extended=False))
-                except Exception:
-                    stoi_score = 0.0
+                except Exception as ex:
+                    print(f"[!] STOI failed (run {run_idx}): {ex}; recording NaN, not 0.0.", file=sys.stderr, flush=True)
+                    stoi_score = float("nan")
 
                 # Speech distortion: residual vs clean speech during speech intervals
                 p_dist = np.mean((clean_speech - e_out) ** 2) + 1e-12

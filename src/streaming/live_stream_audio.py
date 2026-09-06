@@ -112,6 +112,8 @@ class LiveAudioStreamEngine:
                 self.is_running = False
 
             summary = self.profiler.compute_summary()
+            summary["mode"] = "hardware"
+            summary["is_simulated"] = False
             print("[+] Live streaming finished. Profiling summary:")
             for k, v in summary.items():
                 print(f"    - {k}: {v}")
@@ -122,7 +124,12 @@ class LiveAudioStreamEngine:
             return self.run_simulation(duration_sec=duration_sec)
 
     def run_simulation(self, duration_sec: float = 3.0) -> Dict[str, Any]:
-        """Emulates dual-channel hardware streaming with synthetic noise."""
+        """Emulates dual-channel hardware streaming with synthetic noise.
+
+        Return dict is tagged mode="simulation"/is_simulated=True so consumers
+        can distinguish a simulated run from a real hardware run without
+        parsing stdout (which may be piped/absent in batch runs).
+        """
         n_blocks = int((duration_sec * self.sample_rate) / self.block_size)
         t = np.linspace(0, duration_sec, n_blocks * self.block_size, endpoint=False)
 
@@ -144,6 +151,8 @@ class LiveAudioStreamEngine:
             self.profiler.record_frame_time(elapsed)
 
         summary = self.profiler.compute_summary()
+        summary["mode"] = "simulation"
+        summary["is_simulated"] = True
         return summary
 
 

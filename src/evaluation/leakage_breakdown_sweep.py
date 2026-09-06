@@ -163,15 +163,22 @@ def run_leakage_breakdown_sweep(
 
             try:
                 out_stoi = float(pystoi.stoi(clean_speech, e_out, sr, extended=False))
-            except Exception:
-                out_stoi = 0.0
+            except Exception as ex:
+                print(f"[!] STOI failed (alpha={alpha}, mode={mode}): {ex}; recording NaN, not 0.0.",
+                      file=sys.stderr, flush=True)
+                out_stoi = float("nan")
 
             # Speech Distortion: degradation relative to clean speech
             p_clean = np.mean(clean_speech ** 2) + 1e-12
             p_err = np.mean((clean_speech - e_out) ** 2) + 1e-12
             speech_distortion_db = float(10.0 * np.log10(p_err / p_clean))
 
-            # Speech Self-Cancellation Flag: STOI degradation > 0.10 from nominal alpha=0
+            # Speech Self-Cancellation Flag: STOI degradation > 0.10 from nominal alpha=0.
+            # A NaN out_stoi (failed measurement) must NOT silently read as
+            # "not degraded" -- Python NaN comparisons are False, which would
+            # corrupt the alpha_crit "robust" conclusion downstream.
+            stoi_failed = bool(np.isnan(out_stoi))
+            stoi_drop = (in_stoi - out_stoi) if not stoi_failed else 1.0
             record = {
                 "run_id": run_id,
                 "alpha_leakage": alpha,
@@ -180,8 +187,9 @@ def run_leakage_breakdown_sweep(
                 "delta_snr_db": round(delta_snr, 3),
                 "delta_sisdr_db": round(delta_sisdr, 3),
                 "stoi": round(out_stoi, 4),
+                "stoi_error": stoi_failed,
                 "speech_distortion_db": round(speech_distortion_db, 2),
-                "is_degraded": bool(speech_distortion_db > 3.0 or (in_stoi - out_stoi) > 0.10),
+                "is_degraded": bool(stoi_failed or speech_distortion_db > 3.0 or stoi_drop > 0.10),
             }
             results.append(record)
 

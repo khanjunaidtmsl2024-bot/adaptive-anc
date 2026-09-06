@@ -43,6 +43,9 @@ class IchigoAncBridge:
         self.sample_rate = sample_rate
         self.checkpoint_path = checkpoint_path or "models/tiny_enhancer.pt"
         self.model = None
+        # True only if weights were actually loaded from disk; downstream can
+        # check this flag instead of parsing stdout to detect random weights.
+        self.checkpoint_loaded = False
         self._load_model()
 
     def _load_model(self) -> None:
@@ -56,10 +59,13 @@ class IchigoAncBridge:
             try:
                 state_dict = torch.load(str(ck_path), map_location="cpu")
                 self.model.load_state_dict(state_dict)
+                self.checkpoint_loaded = True
                 print(f"[+] Successfully loaded checkpoint from {ck_path} ({ck_path.stat().st_size} bytes)")
             except Exception as e:
+                self.checkpoint_loaded = False
                 print(f"[!] Warning: could not load weights ({e}), using initialized architecture.")
         else:
+            self.checkpoint_loaded = False
             print(f"[*] Checkpoint {ck_path} not found on local disk. Initialized architecture ready for weights.")
         self.model.eval()
 
@@ -85,6 +91,7 @@ class IchigoAncBridge:
         return {
             "source_repo": "https://github.com/ichigo137/anc",
             "model_name": "TinyEnhancerNet",
+            "checkpoint_loaded": self.checkpoint_loaded,
             "total_parameters": total_params,
             "trainable_parameters": trainable_params,
             "memory_footprint_kb": (total_params * 4) / 1024,
