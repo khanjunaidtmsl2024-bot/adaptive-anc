@@ -23,6 +23,34 @@ try:
 except ImportError:
     SOUNDDEVICE_AVAILABLE = False
 
+# Target hardware contract (frozen at PH0/PH1 design review): any execution
+# artifact must be self-describing so simulated latency can never be presented
+# as hardware latency downstream.
+HARDWARE_TARGET = "Raspberry Pi 4"
+HARDWARE_MODEL = "Raspberry Pi 4 + WM8960 CODEC"
+AUDIO_INTERFACE = "WM8960"
+
+
+def _execution_provenance(simulated: bool) -> Dict[str, Any]:
+    """Machine-readable execution provenance for run_live/run_simulation."""
+    if simulated:
+        return {
+            "execution_mode": "SIMULATION",
+            "is_simulated": True,
+            "hardware_available": False,
+            "hardware_target": HARDWARE_TARGET,
+            "hardware_model": None,
+            "audio_interface": None,
+        }
+    return {
+        "execution_mode": "HARDWARE",
+        "is_simulated": False,
+        "hardware_available": True,
+        "hardware_target": HARDWARE_TARGET,
+        "hardware_model": HARDWARE_MODEL,
+        "audio_interface": AUDIO_INTERFACE,
+    }
+
 
 class LiveAudioStreamEngine:
     """
@@ -113,7 +141,7 @@ class LiveAudioStreamEngine:
 
             summary = self.profiler.compute_summary()
             summary["mode"] = "hardware"
-            summary["is_simulated"] = False
+            summary.update(_execution_provenance(simulated=False))
             print("[+] Live streaming finished. Profiling summary:")
             for k, v in summary.items():
                 print(f"    - {k}: {v}")
@@ -126,9 +154,10 @@ class LiveAudioStreamEngine:
     def run_simulation(self, duration_sec: float = 3.0) -> Dict[str, Any]:
         """Emulates dual-channel hardware streaming with synthetic noise.
 
-        Return dict is tagged mode="simulation"/is_simulated=True so consumers
-        can distinguish a simulated run from a real hardware run without
-        parsing stdout (which may be piped/absent in batch runs).
+        Return dict is tagged with full execution provenance
+        (execution_mode/is_simulated/hardware_*) so consumers can distinguish
+        a simulated run from a real hardware run without parsing stdout
+        (which may be piped/absent in batch runs).
         """
         n_blocks = int((duration_sec * self.sample_rate) / self.block_size)
         t = np.linspace(0, duration_sec, n_blocks * self.block_size, endpoint=False)
@@ -152,7 +181,7 @@ class LiveAudioStreamEngine:
 
         summary = self.profiler.compute_summary()
         summary["mode"] = "simulation"
-        summary["is_simulated"] = True
+        summary.update(_execution_provenance(simulated=True))
         return summary
 
 

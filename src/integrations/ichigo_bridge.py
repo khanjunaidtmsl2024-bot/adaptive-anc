@@ -11,10 +11,19 @@ Key Capabilities:
 2. Benchmarks raw ichigo137/anc model against DRDO defence noise (T-90 tank, helicopter, gunfire)
 3. Wraps ichigo model into our streaming hybrid pipeline (Phase-aware STFT + Causal NLMS + Fail-safe)
 4. Quantifies hybrid performance gain over raw ichigo baseline
+
+Checkpoint provenance contract:
+- checkpoint_path:      path actually loaded from disk, or None
+- checkpoint_sha256:    SHA-256 of the loaded checkpoint file bytes, or None
+- weights_status:       "TRAINED_CHECKPOINT" iff weights were loaded,
+                        "RANDOM_INITIALIZATION" otherwise
+A consumer must never treat a run as trained unless weights_status is
+"TRAINED_CHECKPOINT" (equivalently checkpoint_loaded is True).
 """
 
 import os
 import sys
+import hashlib
 from pathlib import Path
 from typing import Dict, Any, Optional
 import numpy as np
@@ -41,11 +50,15 @@ class IchigoAncBridge:
 
     def __init__(self, checkpoint_path: Optional[str] = None, sample_rate: int = 16000) -> None:
         self.sample_rate = sample_rate
-        self.checkpoint_path = checkpoint_path or "models/tiny_enhancer.pt"
-        self.model = None
-        # True only if weights were actually loaded from disk; downstream can
-        # check this flag instead of parsing stdout to detect random weights.
+        # Path actually loaded from disk (None until a load succeeds), so
+        # consumers can distinguish trained weights from random init without
+        # parsing stdout.
+        self.checkpoint_path: Optional[str] = None
+        self.checkpoint_sha256: Optional[str] = None
         self.checkpoint_loaded = False
+        self.weights_status = "RANDOM_INITIALIZATION"
+        self._requested_checkpoint = checkpoint_path or "models/tiny_enhancer.pt"
+        self.model = None
         self._load_model()
 
     def _load_model(self) -> None:
@@ -54,12 +67,15 @@ class IchigoAncBridge:
             return
 
         self.model = TinyEnhancerNet()
-        ck_path = Path(self.checkpoint_path)
+        ck_path = Path(self._requested_checkpoint)
         if ck_path.exists():
             try:
                 state_dict = torch.load(str(ck_path), map_location="cpu")
                 self.model.load_state_dict(state_dict)
                 self.checkpoint_loaded = True
+                self.checkpoint_path = str(ck_path)
+                self.checkpoint_sha256 = hashlib.sha256(ck_path.read_bytes()).hexdigest()
+                self.weights_status = "TRAINED_CHECKPOINT"
                 print(f"[+] Successfully loaded checkpoint from {ck_path} ({ck_path.stat().st_size} bytes)")
             except Exception as e:
                 self.checkpoint_loaded = False
@@ -92,6 +108,9 @@ class IchigoAncBridge:
             "source_repo": "https://github.com/ichigo137/anc",
             "model_name": "TinyEnhancerNet",
             "checkpoint_loaded": self.checkpoint_loaded,
+            "checkpoint_path": self.checkpoint_path,
+            "checkpoint_sha256": self.checkpoint_sha256,
+            "weights_status": self.weights_status,
             "total_parameters": total_params,
             "trainable_parameters": trainable_params,
             "memory_footprint_kb": (total_params * 4) / 1024,

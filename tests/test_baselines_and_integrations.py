@@ -41,6 +41,13 @@ def test_ichigo_bridge_inspection():
     assert isinstance(bridge.checkpoint_loaded, bool)
     assert bridge.checkpoint_loaded is False
     assert info["checkpoint_loaded"] is bridge.checkpoint_loaded
+    # Full provenance contract: random-init must be machine-detectable.
+    assert bridge.weights_status == "RANDOM_INITIALIZATION"
+    assert info["weights_status"] == "RANDOM_INITIALIZATION"
+    assert bridge.checkpoint_path is None
+    assert bridge.checkpoint_sha256 is None
+    assert info["checkpoint_path"] is None
+    assert info["checkpoint_sha256"] is None
 
 
 def test_ichigo_bridge_benchmark():
@@ -60,6 +67,21 @@ def test_live_stream_simulation():
     # return dict alone (no stdout parsing needed).
     assert res["mode"] == "simulation"
     assert res["is_simulated"] is True
+    # Full execution-provenance contract: simulated runs must be self-tagging.
+    assert res["execution_mode"] == "SIMULATION"
+    assert res["hardware_available"] is False
+    assert res["hardware_target"] == "Raspberry Pi 4"
+    assert res["hardware_model"] is None
+    assert res["audio_interface"] is None
+
+    # Hardware provenance schema must be distinct (unit-checked without a device).
+    from src.streaming.live_stream_audio import _execution_provenance
+    hw = _execution_provenance(simulated=False)
+    assert hw["execution_mode"] == "HARDWARE"
+    assert hw["is_simulated"] is False
+    assert hw["hardware_available"] is True
+    assert hw["hardware_model"] == "Raspberry Pi 4 + WM8960 CODEC"
+    assert hw["audio_interface"] == "WM8960"
 
 
 try:
