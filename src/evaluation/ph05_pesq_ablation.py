@@ -188,8 +188,14 @@ def _process_hybrid_baseline(
 
             output[start:start + hop_size] = out_hop
 
+    # Trim to the region actually produced by overlap-add. The final frame's
+    # second half is never flushed, so samples beyond (n_hops - 1) * hop_size
+    # + hop_size would remain zeros and bias every ablation's metrics.
+    processed = (n_hops - 1) * hop_size + hop_size if n_hops > 0 else 0
+    output = output[:processed]
+
     # Normalize
-    peak = np.max(np.abs(output)) + 1e-12
+    peak = np.max(np.abs(output)) + 1e-12 if output.size else 0.0
     if peak > 0.98:
         output = output * 0.98 / peak
 

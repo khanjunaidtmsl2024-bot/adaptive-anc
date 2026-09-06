@@ -89,6 +89,14 @@ class CausalStreamingEngine:
         # Analysis/synthesis window
         self.window = np.hanning(frame_size).astype(np.float32)
 
+        # Overlap-add synthesis normalization denominator (WOLA)
+        # Precomputed periodic sum of squared overlapping windows across hops
+        ola_denom = np.zeros(hop_size, dtype=np.float32)
+        n_overlaps = max(1, frame_size // hop_size)
+        for k in range(n_overlaps):
+            ola_denom += self.window[k * hop_size : (k + 1) * hop_size] ** 2
+        self.ola_denom = np.maximum(ola_denom, 1e-8)
+
         # Performance tracking
         self.frame_count = 0
         self.total_dsp_time_ms = 0.0
@@ -178,9 +186,9 @@ class CausalStreamingEngine:
         t_ai = (time.perf_counter() - t0) * 1000.0
         self.total_ai_time_ms += t_ai
 
-        # Overlap-add
+        # Overlap-add with WOLA normalization
         self.overlap_buf += recon
-        output_hop = self.overlap_buf[:self.hop_size].copy()
+        output_hop = (self.overlap_buf[:self.hop_size] / self.ola_denom).copy()
         self.overlap_buf[:-self.hop_size] = self.overlap_buf[self.hop_size:]
         self.overlap_buf[-self.hop_size:] = 0.0
 

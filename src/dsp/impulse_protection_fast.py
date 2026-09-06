@@ -158,7 +158,17 @@ class ImpulseProtectionControllerFast:
         Returns: (protected_error, step_size_multipliers, stats)
         """
         if self._fallback is not None:
-            return self._fallback.filter_block_protection(error_signal)
+            result = self._fallback.filter_block_protection(error_signal)
+            # Sync detector state; the fallback owns the authoritative state
+            # while Numba is unavailable, and leaving these at their initial
+            # values would desync wrapper attributes from real filter state.
+            fb = self._fallback
+            self.running_var = fb.running_var
+            self.hold_counter = fb.hold_counter
+            self.current_scale = fb.current_scale
+            self.impulse_active = fb.impulse_active
+            self.total_impulses_detected = fb.total_impulses_detected
+            return result
 
         sig = np.ascontiguousarray(error_signal, dtype=np.float32)
 

@@ -41,3 +41,107 @@ def test_streaming_stft_reconstruction():
     rec_signal = np.concatenate(reconstructed)
     assert len(rec_signal) == hop_size * n_hops
     assert np.all(np.isfinite(rec_signal))
+
+
+def test_causal_streaming_engine_deterministic_reconstruction():
+    """
+    Deterministic mathematical verification of CausalStreamingEngine WOLA reconstruction.
+    Verifies:
+      1. Boundary & first-hop behavior (warmup buffer is zero to float precision).
+      2. Steady-state lag (exactly 1 hop = 128 samples = 8.0 ms).
+      3. Impulse reconstruction (no dispersion, near-unity peak).
+      4. 440 Hz sine reconstruction (unity gain, float-precision error < 1e-4).
+      5. Constant signal reconstruction (unity gain, float-precision error < 1e-4).
+    """
+    from src.streaming.causal_engine import CausalStreamingEngine
+
+    class PassThroughAI:
+        def enhance_spectrogram(self, mag, phase):
+            return mag, phase
+
+    sr = 16000
+    frame_size = 256
+    hop_size = 128
+
+    def _make_engine():
+        return CausalStreamingEngine(
+            frame_size=frame_size,
+            hop_size=hop_size,
+            sample_rate=sr,
+            ai_backend=PassThroughAI(),
+            enable_regime_adaptation=False,
+            use_fast_dsp=False,
+        )
+
+    # 1. Boundary behavior & impulse response / steady-state lag
+    engine = _make_engine()
+    n_samples = 1000
+    impulse_idx = 100
+    primary = np.zeros(n_samples, dtype=np.float32)
+    primary[impulse_idx] = 1.0
+    ref = np.zeros(n_samples, dtype=np.float32)
+
+    hops = []
+    for i in range(n_samples // hop_size):
+        out_hop, _ = engine.process_hop(
+            primary[i * hop_size : (i + 1) * hop_size],
+            ref[i * hop_size : (i + 1) * hop_size]
+        )
+        hops.append(out_hop)
+
+    recon = np.concatenate(hops)
+
+    # Boundary: first hop must be strictly zero (< 1e-6) due to causal lookahead buffering
+    assert np.max(np.abs(recon[:hop_size])) < 1e-6, "First hop must be zero (< 1e-6) due to causal buffering"
+
+    # Steady-state lag: peak must appear at exactly impulse_idx + hop_size
+    peak_idx = int(np.argmax(recon))
+    lag = peak_idx - impulse_idx
+    assert lag == hop_size, f"Expected lag of {hop_size} samples (8.00 ms), got {lag}"
+
+    # Impulse peak amplitude and dispersion
+    assert abs(recon[peak_idx] - 1.0) < 0.06, f"Impulse peak {recon[peak_idx]} deviates from unity"
+    surrounding = np.delete(recon[hop_size:], peak_idx - hop_size)
+    assert np.max(np.abs(surrounding)) < 1e-6, f"Impulse dispersion {np.max(np.abs(surrounding))} exceeds float precision"
+
+    # 2. 440 Hz Sine wave reconstruction (float precision and unity gain)
+    engine = _make_engine()
+    t = np.arange(8000) / sr
+    sine = (0.5 * np.sin(2 * np.pi * 440 * t)).astype(np.float32)
+
+    hops = []
+    for i in range(len(sine) // hop_size):
+        out_hop, _ = engine.process_hop(
+            sine[i * hop_size : (i + 1) * hop_size],
+            np.zeros(hop_size, dtype=np.float32)
+        )
+        hops.append(out_hop)
+
+    recon_sine = np.concatenate(hops)
+    aligned_recon = recon_sine[hop_size + frame_size :]
+    aligned_target = sine[frame_size : len(recon_sine) - hop_size]
+
+    sine_max_err = float(np.max(np.abs(aligned_recon - aligned_target)))
+    sine_rms_ratio = float(np.sqrt(np.mean(aligned_recon ** 2)) / np.sqrt(np.mean(aligned_target ** 2)))
+    assert sine_max_err < 1e-4, f"Sine max error {sine_max_err:.2e} exceeds float precision"
+    assert abs(sine_rms_ratio - 1.0) < 1e-4, f"Sine RMS ratio {sine_rms_ratio:.6f} deviates from unity"
+
+    # 3. Constant signal reconstruction
+    engine = _make_engine()
+    const_val = 0.5
+    const = np.full(8000, const_val, dtype=np.float32)
+
+    hops = []
+    for i in range(len(const) // hop_size):
+        out_hop, _ = engine.process_hop(
+            const[i * hop_size : (i + 1) * hop_size],
+            np.zeros(hop_size, dtype=np.float32)
+        )
+        hops.append(out_hop)
+
+    recon_const = np.concatenate(hops)
+    aligned_const = recon_const[hop_size + frame_size :]
+    const_max_err = float(np.max(np.abs(aligned_const - const_val)))
+    const_mean = float(np.mean(aligned_const))
+    assert const_max_err < 1e-4, f"Constant max error {const_max_err:.2e} exceeds float precision"
+    assert abs(const_mean - const_val) < 1e-4, f"Constant mean {const_mean:.6f} deviates from {const_val}"

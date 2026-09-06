@@ -163,8 +163,23 @@ class VSSNLMSFilterFast:
         self.weights.fill(0.0)
         self.buffer.fill(0.0)
         self.p_cor = 0.0
+        # Note: reference reset() intentionally leaves self.mu untouched.
         if self._fallback is not None:
             self._fallback.reset()
+            self._sync_from_fallback()
+
+    def _sync_from_fallback(self) -> None:
+        """Mirror the Python fallback's state into this wrapper.
+
+        While Numba is unavailable the fallback object owns the authoritative
+        filter state; without this sync, self.weights / self.mu / self.p_cor
+        remain at their initial values even though filtering is correct.
+        """
+        if self._fallback is not None:
+            self.weights = self._fallback.weights.copy()
+            self.buffer = self._fallback.buffer.copy()
+            self.p_cor = self._fallback.p_cor
+            self.mu = self._fallback.mu
 
     def filter_block(
         self,
@@ -177,7 +192,9 @@ class VSSNLMSFilterFast:
         Returns: (error_signal, estimated_noise_signal, mu_trajectory)
         """
         if self._fallback is not None:
-            return self._fallback.filter_block(primary, reference, adapt)
+            result = self._fallback.filter_block(primary, reference, adapt)
+            self._sync_from_fallback()
+            return result
 
         p = np.ascontiguousarray(primary, dtype=np.float32)
         r = np.ascontiguousarray(reference, dtype=np.float32)
@@ -193,9 +210,9 @@ class VSSNLMSFilterFast:
                 adapt,
             )
 
-        # Update state
-        self.weights = w_out
-        self.buffer = buf_out
+        # Update state in place so external references to .weights remain valid
+        np.copyto(self.weights, w_out)
+        np.copyto(self.buffer, buf_out)
         self.p_cor = pc_out
         self.mu = mu_out
 

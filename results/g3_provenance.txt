@@ -1,0 +1,11 @@
+PESQ_AVAILABLE: True
+PYSTOI_AVAILABLE: True
+{
+  "python_version": "3.13.5",
+  "numpy_version": "2.3.4",
+  "torch_version": "2.9.0",
+  "pesq_available": true,
+  "pesq_version": "0.0.4",
+  "pystoi_available": true,
+  "pystoi_version": "0.4.1"
+}
