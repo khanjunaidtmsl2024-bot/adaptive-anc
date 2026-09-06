@@ -16,6 +16,8 @@ Generates publication-grade diagnostic plots for the 8-stage hybrid ANC signal c
 Master multi-panel figure: anc_xray_full_panel.png
 """
 
+from __future__ import annotations
+
 import json
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
@@ -23,10 +25,17 @@ import numpy as np
 import soundfile as sf
 from scipy import signal
 
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import matplotlib.gridspec as gridspec
+try:
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import matplotlib.gridspec as gridspec
+    MATPLOTLIB_AVAILABLE = True
+except ImportError:
+    MATPLOTLIB_AVAILABLE = False
+    matplotlib = None
+    plt = None
+    gridspec = None
 
 # Scientific palette
 PALETTE = {
@@ -565,6 +574,10 @@ def export_experiment_bundle(
         for idx, lat in enumerate(frame_times_ms):
             f.write(f"{idx},{lat:.4f},{int(lat > budget_ms)}\n")
     manifest["latency"] = str(latency_path)
+
+    if not MATPLOTLIB_AVAILABLE:
+        manifest["plots_status"] = "SKIPPED_MATPLOTLIB_UNAVAILABLE"
+        return manifest
 
     # 5. Generate and Save Individual PNG Plots
     p_wave = out_dir / "waveform.png"

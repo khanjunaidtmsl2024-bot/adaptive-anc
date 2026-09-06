@@ -4,6 +4,7 @@ Provides publication-grade signal processing plots and the ANC X-Ray diagnostic 
 """
 
 from src.visualization.anc_xray import (
+    MATPLOTLIB_AVAILABLE,
     plot_waveform_stack,
     plot_spectrogram_comparison,
     plot_nlms_convergence,
@@ -17,6 +18,7 @@ from src.visualization.anc_xray import (
 )
 
 __all__ = [
+    "MATPLOTLIB_AVAILABLE",
     "plot_waveform_stack",
     "plot_spectrogram_comparison",
     "plot_nlms_convergence",

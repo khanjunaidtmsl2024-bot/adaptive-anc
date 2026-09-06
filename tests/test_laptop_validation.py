@@ -19,7 +19,7 @@ from src.evaluation.laptop_test_suite import (
     run_test_7_causality,
     run_test_8_streaming_simulation,
 )
-from src.visualization.anc_xray import export_experiment_bundle
+from src.visualization.anc_xray import export_experiment_bundle, MATPLOTLIB_AVAILABLE
 
 
 class TestLaptopValidationSuite:
@@ -68,6 +68,8 @@ class TestLaptopValidationSuite:
         assert res["p95_ms"] <= 8.000, f"Expected P95 <= 8.000 ms, got {res['p95_ms']}"
 
     def test_09_experiment_bundle_export(self):
+        if not MATPLOTLIB_AVAILABLE:
+            pytest.skip("matplotlib not available for ANC X-Ray bundle export")
         tmp_dir = tempfile.mkdtemp(prefix="test_xray_")
         try:
             sr = 16000

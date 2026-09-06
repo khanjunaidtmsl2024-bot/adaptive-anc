@@ -20,7 +20,11 @@ pytest>=7.4.0
 # pure-Python reference implementations.
 numba>=0.67.0
 
+# --- Visualization & Diagnostics Export ---
+matplotlib>=3.7.0
+
 # --- Optional Neural / Live Audio ---
 # torch>=2.0.0
 # sounddevice>=0.4.6
 # librosa>=0.10.0
+
