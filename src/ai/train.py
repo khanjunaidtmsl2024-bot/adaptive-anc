@@ -38,9 +38,12 @@ PH0.7 CHANGES FROM ORIGINAL
    The actual loss is alpha * L1(enhanced_mag, clean_mag) + (1-alpha) * (-SI-SDR).
    IRM exists only as a diagnostic reference -- it is NOT an active
    training target. Do not add IRM loss without explicit design approval.
-8. WARNING: Training currently uses RAW PRIMARY MIC as input to TinyEnhancer.
-   Deployment feeds NLMS RESIDUAL to TinyEnhancer. This is a known
-   train/deploy mismatch documented in PH07_AI_INPUT_CONTRACT.md.
+8. INPUT CONTRACT (PH1): train_spectral_mask_model now accepts
+   input_mode='RAW_PRIMARY' (legacy: noisy primary mic) or
+   input_mode='NLMS_RESIDUAL' (deployment-matched: VSS-NLMS residual of
+   primary vs reference). The PH1 experiment trains BOTH variants with
+   identical data/SNR/seeds/geometry so the train/deploy question is
+   answered experimentally rather than assumed.
 """
 
 import csv
@@ -64,6 +67,8 @@ except ImportError:
 import soundfile as sf
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+
+from src.dsp.vss_nlms import VSSNLMSFilter
 
 
 def si_sdr_loss(estimated: "torch.Tensor", reference: "torch.Tensor") -> "torch.Tensor":
@@ -125,6 +130,58 @@ def _sha256_of_file(path: Path) -> str:
     return h.hexdigest()
 
 
+def _causal_istft(
+    spec: "torch.Tensor",
+    n_fft: int,
+    hop: int,
+    window: "torch.Tensor",
+    length: int,
+) -> "torch.Tensor":
+    """Causal WOLA iSTFT (center=False semantics).
+
+    torch.istft(..., center=False) raises "window overlap add min" on the
+    pinned torch 2.14.0+cpu build (upstream regression, verified), so
+    synthesis uses window^2-normalized overlap-add, mirroring the proven
+    helper in src/ai/dtln.py. Interior reconstruction is exact to ~1e-6; the
+    leading half-frame is under-determined by design (causal framing has no
+    future context).
+    """
+    n_frames = spec.shape[-1]
+    frames = torch.fft.irfft(spec, n_fft, dim=-2)          # (n_fft, T_f)
+    frames = frames * window.view(-1, 1)                   # synthesis window
+    out_len = (n_frames - 1) * hop + n_fft
+    y = torch.zeros(out_len, dtype=frames.dtype, device=frames.device)
+    env = torch.zeros(out_len, dtype=frames.dtype, device=frames.device)
+    for t in range(n_frames):
+        s = t * hop
+        y[s:s + n_fft] += frames[:, t]
+        env[s:s + n_fft] += window ** 2
+    y = y / (env + 1e-8)
+    if y.shape[-1] >= length:
+        return y[:length]
+    return torch.nn.functional.pad(y, (0, length - y.shape[-1]))
+
+
+def _prepare_residual_inputs(loader: DatasetLoader, filter_length: int = 64) -> list:
+    """VSS-NLMS residual of each clip (primary vs reference), same length as
+    primary. A fresh filter is used per clip so residuals are independent of
+    clip order (deterministic and reproducible across runs).
+    """
+    inputs = []
+    for i in range(len(loader)):
+        clean, primary, reference, _ = loader[i]
+        nlms = VSSNLMSFilter(filter_length=filter_length, mu_init=0.05, mu_max=0.05)
+        residual, _, _ = nlms.filter_block(primary, reference)
+        residual = np.asarray(residual, dtype=np.float32)
+        n = len(primary)
+        if len(residual) > n:
+            residual = residual[:n]
+        elif len(residual) < n:
+            residual = np.pad(residual, (0, n - len(residual)))
+        inputs.append(residual)
+    return inputs
+
+
 def train_spectral_mask_model(
     model: "nn.Module",
     metadata_csv: str = "data/v4/metadata/metadata_v4.csv",
@@ -138,6 +195,7 @@ def train_spectral_mask_model(
     train_split: str = "TRAIN",
     val_split: str = "TEST_A_UNSEEN_SPEAKER",
     seed: int = 42,
+    input_mode: str = "RAW_PRIMARY",
 ) -> Dict[str, Any]:
     """
     Train a spectral mask model on DATASET_V004.
@@ -158,6 +216,11 @@ def train_spectral_mask_model(
             Defaults to the genuinely disjoint-speaker held-out split.
         seed: Random seed for torch/numpy, set before model init and
             training so runs are reproducible (PH0.7 Gate 4).
+        input_mode: 'RAW_PRIMARY' (noisy primary mic, legacy) or
+            'NLMS_RESIDUAL' (VSS-NLMS residual of primary vs reference,
+            matches deployment). A fresh VSS-NLMS filter state is used per
+            clip so residual computation is order-independent and
+            deterministic across runs.
 
     Returns:
         Training history dict, including checkpoint_sha256 if a checkpoint
@@ -165,6 +228,10 @@ def train_spectral_mask_model(
     """
     if not TORCH_AVAILABLE:
         return {"status": "SKIPPED", "reason": "PyTorch not available"}
+    if input_mode not in ("RAW_PRIMARY", "NLMS_RESIDUAL"):
+        raise ValueError(
+            f"input_mode must be 'RAW_PRIMARY' or 'NLMS_RESIDUAL', got {input_mode!r}"
+        )
 
     torch.manual_seed(seed)
     np.random.seed(seed)
@@ -190,6 +257,17 @@ def train_spectral_mask_model(
             f"before training."
         )
 
+    # PH1 input contract: precompute VSS-NLMS residuals ONCE per run when
+    # training on the deployment-matched input. Fresh filter state per clip
+    # keeps residuals order-independent and byte-reproducible across runs.
+    train_inputs = None
+    val_inputs = None
+    if input_mode == "NLMS_RESIDUAL":
+        print("[TRAIN] Precomputing VSS-NLMS residuals (train set)...", flush=True)
+        train_inputs = _prepare_residual_inputs(train_loader)
+        print("[TRAIN] Precomputing VSS-NLMS residuals (val set)...", flush=True)
+        val_inputs = _prepare_residual_inputs(val_loader)
+
     model = model.to(device)
     optimizer = optim.Adam(model.parameters(), lr=lr)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
@@ -202,7 +280,10 @@ def train_spectral_mask_model(
           f"Params: {param_count:,d}", flush=True)
     print(f"[TRAIN] Epochs: {epochs}, LR: {lr}, Device: {device}, Seed: {seed}", flush=True)
     print(f"[TRAIN] STFT: frame={frame_size}, hop={hop_size}, window=hann", flush=True)
-    print(f"[TRAIN] WARNING: Training input = RAW PRIMARY MIC (deployment uses NLMS residual)", flush=True)
+    if input_mode == "NLMS_RESIDUAL":
+        print(f"[TRAIN] Training input = NLMS RESIDUAL (matches deployment input)", flush=True)
+    else:
+        print(f"[TRAIN] Training input = RAW PRIMARY MIC (legacy; deployment uses NLMS residual)", flush=True)
     print(f"[TRAIN] Loss: alpha={alpha} * L1_mag + {1-alpha} * (-SI-SDR). IRM is NOT in the loss.", flush=True)
     print(f"[TRAIN] Train samples: {len(train_loader)} (split='{train_split}', "
           f"speakers={sorted(train_loader.speaker_ids())})", flush=True)
@@ -218,7 +299,8 @@ def train_spectral_mask_model(
             clean, primary, reference, _ = train_loader[i]
 
             clean_t = torch.from_numpy(clean).float().to(device)
-            primary_t = torch.from_numpy(primary).float().to(device)
+            noisy_wav = train_inputs[i] if train_inputs is not None else primary
+            primary_t = torch.from_numpy(noisy_wav).float().to(device)
 
             # center=False is mandatory for causal consistency (Gate 2).
             clean_stft = torch.stft(clean_t, frame_size, hop_size, window=window, return_complex=True, center=False)
@@ -255,7 +337,7 @@ def train_spectral_mask_model(
             enhanced_stft = enhanced_mag * torch.exp(1j * noisy_phase_t)
             full_enh_stft = torch.zeros_like(noisy_stft)
             full_enh_stft[:f_min, :t_min] = enhanced_stft
-            enhanced_wav = torch.istft(full_enh_stft, frame_size, hop_size, window=window, length=len(clean), center=False)
+            enhanced_wav = _causal_istft(full_enh_stft, frame_size, hop_size, window, length=len(clean))
             si_loss = si_sdr_loss(enhanced_wav, clean_t)
 
             loss = alpha * l1_loss + (1 - alpha) * si_loss
@@ -277,7 +359,8 @@ def train_spectral_mask_model(
             for i in range(len(val_loader)):
                 clean, primary, _, _ = val_loader[i]
                 clean_t = torch.from_numpy(clean).float().to(device)
-                primary_t = torch.from_numpy(primary).float().to(device)
+                noisy_wav = val_inputs[i] if val_inputs is not None else primary
+                primary_t = torch.from_numpy(noisy_wav).float().to(device)
 
                 clean_stft = torch.stft(clean_t, frame_size, hop_size, window=window, return_complex=True, center=False)
                 noisy_stft = torch.stft(primary_t, frame_size, hop_size, window=window, return_complex=True, center=False)
@@ -353,9 +436,12 @@ def train_spectral_mask_model(
             "final_train_loss": history["train_loss"][-1],
             "final_val_loss": history["val_loss"][-1],
             "torch_version": torch.__version__,
-            "training_input": "RAW_PRIMARY",
+            "training_input": input_mode,
             "deployment_input": "NLMS_RESIDUAL",
-            "input_contract_status": "MISMATCH_PENDING_DESIGN",
+            "input_contract_status": (
+                "MATCHED_DEPLOYMENT" if input_mode == "NLMS_RESIDUAL"
+                else "EXPERIMENT_A_RAW_PRIMARY"
+            ),
         }
         sidecar_path = save_p.with_suffix(".json")
         with open(sidecar_path, "w", encoding="utf-8") as f:
