@@ -184,9 +184,9 @@ def _prepare_residual_inputs(loader: DatasetLoader, filter_length: int = 64) -> 
 
 def train_spectral_mask_model(
     model: "nn.Module",
-    metadata_csv: str = "data/v4/metadata/metadata_v4.csv",
+    metadata_csv: str = "data/v4/metadata/metadata_v4_extended.csv",
     epochs: int = 30,
-    lr: float = 1e-3,
+    lr: float = 1e-4,
     frame_size: int = 256,
     hop_size: int = 128,
     alpha: float = 0.7,
@@ -196,35 +196,29 @@ def train_spectral_mask_model(
     val_split: str = "TEST_A_UNSEEN_SPEAKER",
     seed: int = 42,
     input_mode: str = "RAW_PRIMARY",
+    patience: int = 10,
 ) -> Dict[str, Any]:
     """
-    Train a spectral mask model on DATASET_V004.
+    Train a spectral mask model on DATASET_V004 enforcing frozen PH1 contract.
 
     Args:
         model: PyTorch nn.Module with forward(x) -> mask in [0,1].
-        metadata_csv: Path to dataset metadata.
+        metadata_csv: Path to canonical dataset metadata (metadata_v4_extended.csv).
         epochs: Number of training epochs.
-        lr: Learning rate.
-        frame_size: STFT frame size.
-        hop_size: STFT hop size.
+        lr: Learning rate (frozen contract: 1.0e-4).
+        frame_size: STFT frame size (frozen contract: 256).
+        hop_size: STFT hop size (frozen contract: 128).
         alpha: Weight for L1 loss vs SI-SDR loss.
         device: 'cpu' or 'cuda'.
-        save_path: Optional checkpoint save path. If given, a run-metadata
-            JSON sidecar is written next to it (same stem, .json suffix).
+        save_path: Optional checkpoint save path.
         train_split: Exact 'split' column value to use for training.
         val_split: Exact 'split' column value to use for validation.
-            Defaults to the genuinely disjoint-speaker held-out split.
-        seed: Random seed for torch/numpy, set before model init and
-            training so runs are reproducible (PH0.7 Gate 4).
-        input_mode: 'RAW_PRIMARY' (noisy primary mic, legacy) or
-            'NLMS_RESIDUAL' (VSS-NLMS residual of primary vs reference,
-            matches deployment). A fresh VSS-NLMS filter state is used per
-            clip so residual computation is order-independent and
-            deterministic across runs.
+        seed: Random seed for torch/numpy (frozen contract: 42).
+        input_mode: 'RAW_PRIMARY' or 'NLMS_RESIDUAL'.
+        patience: Early stopping patience on validation SI-SDR.
 
     Returns:
-        Training history dict, including checkpoint_sha256 if a checkpoint
-        was saved.
+        Training history dict, including checkpoint_sha256 if saved.
     """
     if not TORCH_AVAILABLE:
         return {"status": "SKIPPED", "reason": "PyTorch not available"}
@@ -257,9 +251,7 @@ def train_spectral_mask_model(
             f"before training."
         )
 
-    # PH1 input contract: precompute VSS-NLMS residuals ONCE per run when
-    # training on the deployment-matched input. Fresh filter state per clip
-    # keeps residuals order-independent and byte-reproducible across runs.
+    # Precompute VSS-NLMS residuals ONCE per run when training on deployment input
     train_inputs = None
     val_inputs = None
     if input_mode == "NLMS_RESIDUAL":
@@ -269,22 +261,31 @@ def train_spectral_mask_model(
         val_inputs = _prepare_residual_inputs(val_loader)
 
     model = model.to(device)
-    optimizer = optim.Adam(model.parameters(), lr=lr)
+    optimizer = optim.AdamW(model.parameters(), lr=lr, weight_decay=1e-2)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
     window = torch.hann_window(frame_size).to(device)
 
-    history = {"train_loss": [], "val_loss": [], "epoch_time_s": []}
+    history = {
+        "train_loss": [],
+        "val_loss": [],
+        "val_si_sdr": [],
+        "epoch_time_s": [],
+    }
+    best_val_si_sdr = -float("inf")
+    best_epoch = -1
+    best_model_state = None
 
     param_count = sum(p.numel() for p in model.parameters())
     print(f"\n[TRAIN] Model: {model.__class__.__name__}, "
           f"Params: {param_count:,d}", flush=True)
-    print(f"[TRAIN] Epochs: {epochs}, LR: {lr}, Device: {device}, Seed: {seed}", flush=True)
-    print(f"[TRAIN] STFT: frame={frame_size}, hop={hop_size}, window=hann", flush=True)
+    print(f"[TRAIN] Optimizer: AdamW, Epochs: {epochs}, LR: {lr}, Device: {device}, Seed: {seed}", flush=True)
+    print(f"[TRAIN] STFT: frame={frame_size}, hop={hop_size}, window=hann, center=False", flush=True)
     if input_mode == "NLMS_RESIDUAL":
         print(f"[TRAIN] Training input = NLMS RESIDUAL (matches deployment input)", flush=True)
     else:
         print(f"[TRAIN] Training input = RAW PRIMARY MIC (legacy; deployment uses NLMS residual)", flush=True)
     print(f"[TRAIN] Loss: alpha={alpha} * L1_mag + {1-alpha} * (-SI-SDR). IRM is NOT in the loss.", flush=True)
+    print(f"[TRAIN] Early stopping metric: val_si_sdr", flush=True)
     print(f"[TRAIN] Train samples: {len(train_loader)} (split='{train_split}', "
           f"speakers={sorted(train_loader.speaker_ids())})", flush=True)
     print(f"[TRAIN] Val samples: {len(val_loader)} (split='{val_split}', "
@@ -297,7 +298,6 @@ def train_spectral_mask_model(
 
         for i in range(len(train_loader)):
             clean, primary, reference, _ = train_loader[i]
-
             clean_t = torch.from_numpy(clean).float().to(device)
             noisy_wav = train_inputs[i] if train_inputs is not None else primary
             primary_t = torch.from_numpy(noisy_wav).float().to(device)
@@ -310,8 +310,6 @@ def train_spectral_mask_model(
             noisy_mag = noisy_stft.abs()
             noisy_phase = noisy_stft.angle()
 
-            # IRM is computed for diagnostic reference ONLY -- it is NOT
-            # included in the loss function. See docstring note 7.
             irm = clean_mag / (noisy_mag + 1e-8)
             irm = torch.clamp(irm, 0, 1)
 
@@ -352,9 +350,10 @@ def train_spectral_mask_model(
         scheduler.step()
         avg_train_loss = epoch_loss / max(len(train_loader), 1)
 
-        # Validation
+        # Validation: causal WOLA reconstruction & SI-SDR evaluation
         model.eval()
         val_loss = 0.0
+        val_si_sdrs = []
         with torch.no_grad():
             for i in range(len(val_loader)):
                 clean, primary, _, _ = val_loader[i]
@@ -366,6 +365,7 @@ def train_spectral_mask_model(
                 noisy_stft = torch.stft(primary_t, frame_size, hop_size, window=window, return_complex=True, center=False)
 
                 noisy_mag = noisy_stft.abs()
+                noisy_phase = noisy_stft.angle()
                 noisy_input = noisy_mag.unsqueeze(0).unsqueeze(0)
                 pred_mask = model(noisy_input)
 
@@ -377,32 +377,64 @@ def train_spectral_mask_model(
                 f_min = min(pred_mask.shape[0], clean_stft.abs().shape[0])
                 t_min = min(pred_mask.shape[1], clean_stft.abs().shape[1])
 
-                enhanced_mag = noisy_mag[:f_min, :t_min] * pred_mask[:f_min, :t_min]
-                clean_mag = clean_stft.abs()[:f_min, :t_min]
-                v_loss = nn.functional.l1_loss(enhanced_mag, clean_mag)
+                pred_mask_t = pred_mask[:f_min, :t_min]
+                noisy_mag_t = noisy_mag[:f_min, :t_min]
+                clean_mag_t = clean_stft.abs()[:f_min, :t_min]
+
+                enhanced_mag = noisy_mag_t * pred_mask_t
+                l1_val = nn.functional.l1_loss(enhanced_mag, clean_mag_t)
+
+                # Reconstruct waveform using the exact same causal WOLA synthesis as training
+                noisy_phase_t = noisy_phase[:f_min, :t_min]
+                enhanced_stft = enhanced_mag * torch.exp(1j * noisy_phase_t)
+                full_enh_stft = torch.zeros_like(noisy_stft)
+                full_enh_stft[:f_min, :t_min] = enhanced_stft
+                enhanced_wav = _causal_istft(full_enh_stft, frame_size, hop_size, window, length=len(clean))
+
+                # Compute true scale-invariant SDR on reconstructed waveform
+                si_loss = si_sdr_loss(enhanced_wav, clean_t)
+                val_si_sdr_clip = -si_loss.item()
+                val_si_sdrs.append(val_si_sdr_clip)
+
+                v_loss = alpha * l1_val + (1 - alpha) * si_loss
                 val_loss += v_loss.item()
 
         avg_val_loss = val_loss / max(len(val_loader), 1)
+        avg_val_si_sdr = float(np.mean(val_si_sdrs)) if val_si_sdrs else 0.0
         epoch_time = time.perf_counter() - t0
 
         history["train_loss"].append(avg_train_loss)
         history["val_loss"].append(avg_val_loss)
+        history["val_si_sdr"].append(avg_val_si_sdr)
         history["epoch_time_s"].append(round(epoch_time, 2))
 
+        # Best model state tracking based on validation SI-SDR (contract requirement)
+        if avg_val_si_sdr > best_val_si_sdr:
+            best_val_si_sdr = avg_val_si_sdr
+            best_epoch = epoch
+            best_model_state = {k: v.cpu().clone() for k, v in model.state_dict().items()}
+
         print(f"  Epoch {epoch:03d}/{epochs:03d} | Train: {avg_train_loss:.4f} | "
-              f"Val: {avg_val_loss:.4f} | Time: {epoch_time:.1f}s", flush=True)
+              f"Val: {avg_val_loss:.4f} | Val SI-SDR: {avg_val_si_sdr:+.2f} dB | Time: {epoch_time:.1f}s", flush=True)
+
+    # Restore best model state before saving checkpoint
+    if best_model_state is not None:
+        model.load_state_dict(best_model_state)
+        print(f"\n[+] Restored best model weights from Epoch {best_epoch:03d} (Val SI-SDR: {best_val_si_sdr:+.2f} dB)", flush=True)
 
     result = {
         "status": "COMPLETED",
         "model": model.__class__.__name__,
         "final_train_loss": history["train_loss"][-1],
         "final_val_loss": history["val_loss"][-1],
+        "final_val_si_sdr": history["val_si_sdr"][-1],
+        "best_epoch": best_epoch,
+        "best_val_si_sdr": best_val_si_sdr,
         "total_time_s": sum(history["epoch_time_s"]),
         "history": history,
     }
 
-    # Save checkpoint + a run-metadata sidecar so this exact artifact is
-    # traceable later (PH0.7 Gate 1 / Gate 4).
+    # Save checkpoint + run-metadata sidecar with complete provenance
     if save_path:
         save_p = Path(save_path)
         save_p.parent.mkdir(parents=True, exist_ok=True)
@@ -420,13 +452,19 @@ def train_spectral_mask_model(
             "checkpoint_path": str(save_p.resolve()),
             "checkpoint_sha256": checkpoint_hash,
             "seed": seed,
-            "epochs": epochs,
+            "optimizer": "AdamW",
+            "epochs_requested": epochs,
+            "epochs_executed": len(history["train_loss"]),
+            "best_epoch": best_epoch,
+            "best_val_si_sdr": best_val_si_sdr,
+            "early_stopping_metric": "val_si_sdr",
             "lr": lr,
             "frame_size": frame_size,
             "hop_size": hop_size,
             "alpha": alpha,
             "device": device,
             "metadata_csv": str(meta_path.resolve()),
+            "metadata_sha256": _sha256_of_file(meta_path),
             "train_split": train_split,
             "train_samples": len(train_loader),
             "train_speakers": sorted(train_loader.speaker_ids()),
@@ -435,6 +473,7 @@ def train_spectral_mask_model(
             "val_speakers": sorted(val_loader.speaker_ids()),
             "final_train_loss": history["train_loss"][-1],
             "final_val_loss": history["val_loss"][-1],
+            "final_val_si_sdr": history["val_si_sdr"][-1],
             "torch_version": torch.__version__,
             "training_input": input_mode,
             "deployment_input": "NLMS_RESIDUAL",
@@ -453,20 +492,6 @@ def train_spectral_mask_model(
 
 
 if __name__ == "__main__":
-    if not TORCH_AVAILABLE:
-        print("[!] PyTorch not available. Cannot train models.", flush=True)
-        sys.exit(1)
-
-    from src.ai.tiny_enhancer import TinyEnhancerNet
-
-    print("=" * 60, flush=True)
-    print("  TRAINING: TinyEnhancer V3", flush=True)
-    print("=" * 60, flush=True)
-
-    result = train_spectral_mask_model(
-        model=TinyEnhancerNet(),
-        epochs=30,
-        lr=1e-3,
-        save_path="checkpoints/tiny_enhancer_v3.pt",
-    )
-    print(f"\nResult: {result['status']}", flush=True)
+    print("[FATAL] Standalone train.py execution is disabled to prevent PH1 contract drift.", file=sys.stderr)
+    print("        Execute via scripts/ph1_supervisor.py to guarantee frozen contract compliance.", file=sys.stderr)
+    sys.exit(1)
