@@ -46,7 +46,7 @@ from src.dsp.vss_nlms import VSSNLMSFilter
 from src.dsp.vss_nlms_fast import VSSNLMSFilterFast
 from src.evaluation.metrics import (
     compute_snr, compute_si_snr, compute_stoi, compute_pesq,
-    PESQ_AVAILABLE, PYSTOI_AVAILABLE,
+    PESQ_AVAILABLE,
 )
 
 METADATA_CSV = Path("data/v4/metadata/metadata_v4_extended.csv")
@@ -86,24 +86,12 @@ def sha256_file(path: Path) -> str:
 
 
 def get_git_commit() -> str:
-    """Get current git commit hash."""
+    """Get current git commit hash (git is present in CI and local dev)."""
     try:
         out = subprocess.check_output(["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL)
         return out.decode("utf-8").strip()
     except Exception:
-        # Fallback reading .git/HEAD
-        try:
-            head_path = Path(".git/HEAD")
-            if head_path.exists():
-                ref = head_path.read_text().strip()
-                if ref.startswith("ref: "):
-                    ref_path = Path(".git") / ref[5:].strip()
-                    if ref_path.exists():
-                        return ref_path.read_text().strip()
-                return ref
-        except Exception:
-            pass
-    return "UNKNOWN"
+        return "UNKNOWN"
 
 
 def load_model(cfg: Dict[str, Any]) -> Optional[torch.nn.Module]:
@@ -286,9 +274,10 @@ def benchmark_latency(models: Dict[str, torch.nn.Module], num_iterations: int = 
 
     # 2. AI Models
     window = torch.hann_window(FRAME_SIZE)
-    frame_t = torch.randn(FRAME_SIZE)
-    spec = torch.stft(frame_t, FRAME_SIZE, HOP_SIZE, window=window, return_complex=True, center=False)
-    mag_input = spec.abs().unsqueeze(0).unsqueeze(0)
+    mag_input = torch.stft(
+        torch.randn(FRAME_SIZE), FRAME_SIZE, HOP_SIZE,
+        window=window, return_complex=True, center=False,
+    ).abs().unsqueeze(0).unsqueeze(0)
 
     # Warmup
     for model in models.values():
@@ -370,7 +359,7 @@ def evaluate_speech_preservation(models: Dict[str, torch.nn.Module]) -> Dict[str
             "input_mode": cfg["input_mode"],
             "clean_speech_si_sdr_db": m_clean["si_sdr_db"],
             "clean_speech_stoi": m_clean["stoi"],
-            "clean_speech_attenuation_db": round(attenuation_db, 2),
+            "clean_speech_attenuation_db": round(float(attenuation_db), 2),  # float32 audio => np.float32 mean; normalize for JSON
             "ref_leakage_si_sdr_db": m_leak["si_sdr_db"],
             "ref_leakage_stoi": m_leak["stoi"],
         }
@@ -380,6 +369,50 @@ def evaluate_speech_preservation(models: Dict[str, torch.nn.Module]) -> Dict[str
 
     print("=" * 78, flush=True)
     return results
+
+
+def build_matrix_row(
+    subset: List[Dict[str, Any]],
+    cfg: Dict[str, Any],
+    split: str,
+    regime: str,
+    cfg_latency: Dict[str, Dict[str, float]],
+    checkpoint_hashes: Dict[str, str],
+    dataset_hash: str,
+    git_commit: str,
+) -> Dict[str, Any]:
+    """Build one 26-field evaluation matrix row from a per-clip subset."""
+    cid = cfg["id"]
+    pesqs = [r["pesq"] for r in subset if r["pesq"] is not None and not math.isnan(r["pesq"])]
+    lat = cfg_latency[cid]
+    return {
+        "experiment_id": cid,
+        "model": cfg["model"],
+        "input_mode": cfg["input_mode"],
+        "baseline": cfg["is_baseline"],
+        "dataset_split": split,
+        "noise_regime": regime,
+        "parameter_count": cfg["params"],
+        "input_snr_db": round(float(np.mean([r["input_snr_db"] for r in subset])), 2),
+        "output_snr_db": round(float(np.mean([r["output_snr_db"] for r in subset])), 2),
+        "delta_snr_db": round(float(np.mean([r["delta_snr_db"] for r in subset])), 2),
+        "si_sdr_db": round(float(np.mean([r["si_sdr_db"] for r in subset])), 2),
+        "stoi": round(float(np.mean([r["stoi"] for r in subset])), 4),
+        "pesq": round(float(np.mean(pesqs)), 4) if pesqs else None,
+        "output_rms": round(float(np.mean([r["output_rms"] for r in subset])), 4),
+        "clipping_count": int(np.sum([r["clipping_count"] for r in subset])),
+        "nonfinite_count": int(np.sum([r["nonfinite_count"] for r in subset])),
+        "latency_p50_ms": lat["p50"],
+        "latency_p95_ms": lat["p95"],
+        "latency_p99_ms": lat["p99"],
+        "latency_p99_9_ms": lat["p99_9"],
+        "latency_max_ms": lat["max"],
+        "rtf": lat["rtf"],
+        "checkpoint": cfg["checkpoint"],
+        "checkpoint_sha256": checkpoint_hashes[cid],
+        "dataset_hash": dataset_hash,
+        "git_commit": git_commit,
+    }
 
 
 def main() -> None:
@@ -536,40 +569,7 @@ def main() -> None:
             subset = [r for r in all_clip_evals if r["split"] == split and r["experiment_id"] == cid]
             if not subset:
                 continue
-
-            pesqs = [r["pesq"] for r in subset if r["pesq"] is not None and not math.isnan(r["pesq"])]
-            avg_pesq = round(float(np.mean(pesqs)), 4) if pesqs else None
-            lat = cfg_latency[cid]
-
-            row_dict = {
-                "experiment_id": cid,
-                "model": cfg["model"],
-                "input_mode": cfg["input_mode"],
-                "baseline": cfg["is_baseline"],
-                "dataset_split": split,
-                "noise_regime": "ALL",
-                "parameter_count": cfg["params"],
-                "input_snr_db": round(float(np.mean([r["input_snr_db"] for r in subset])), 2),
-                "output_snr_db": round(float(np.mean([r["output_snr_db"] for r in subset])), 2),
-                "delta_snr_db": round(float(np.mean([r["delta_snr_db"] for r in subset])), 2),
-                "si_sdr_db": round(float(np.mean([r["si_sdr_db"] for r in subset])), 2),
-                "stoi": round(float(np.mean([r["stoi"] for r in subset])), 4),
-                "pesq": avg_pesq,
-                "output_rms": round(float(np.mean([r["output_rms"] for r in subset])), 4),
-                "clipping_count": int(np.sum([r["clipping_count"] for r in subset])),
-                "nonfinite_count": int(np.sum([r["nonfinite_count"] for r in subset])),
-                "latency_p50_ms": lat["p50"],
-                "latency_p95_ms": lat["p95"],
-                "latency_p99_ms": lat["p99"],
-                "latency_p99_9_ms": lat["p99_9"],
-                "latency_max_ms": lat["max"],
-                "rtf": lat["rtf"],
-                "checkpoint": cfg["checkpoint"],
-                "checkpoint_sha256": checkpoint_hashes[cid],
-                "dataset_hash": dataset_hash,
-                "git_commit": git_commit,
-            }
-            eval_matrix_rows.append(row_dict)
+            eval_matrix_rows.append(build_matrix_row(subset, cfg, split, "ALL", cfg_latency, checkpoint_hashes, dataset_hash, git_commit))
 
         # B. Split × Regime rows
         regimes_in_split = sorted(set(r["noise_category"] for r in all_clip_evals if r["split"] == split))
@@ -579,40 +579,7 @@ def main() -> None:
                 subset = [r for r in all_clip_evals if r["split"] == split and r["noise_category"] == reg and r["experiment_id"] == cid]
                 if not subset:
                     continue
-
-                pesqs = [r["pesq"] for r in subset if r["pesq"] is not None and not math.isnan(r["pesq"])]
-                avg_pesq = round(float(np.mean(pesqs)), 4) if pesqs else None
-                lat = cfg_latency[cid]
-
-                row_dict = {
-                    "experiment_id": cid,
-                    "model": cfg["model"],
-                    "input_mode": cfg["input_mode"],
-                    "baseline": cfg["is_baseline"],
-                    "dataset_split": split,
-                    "noise_regime": reg,
-                    "parameter_count": cfg["params"],
-                    "input_snr_db": round(float(np.mean([r["input_snr_db"] for r in subset])), 2),
-                    "output_snr_db": round(float(np.mean([r["output_snr_db"] for r in subset])), 2),
-                    "delta_snr_db": round(float(np.mean([r["delta_snr_db"] for r in subset])), 2),
-                    "si_sdr_db": round(float(np.mean([r["si_sdr_db"] for r in subset])), 2),
-                    "stoi": round(float(np.mean([r["stoi"] for r in subset])), 4),
-                    "pesq": avg_pesq,
-                    "output_rms": round(float(np.mean([r["output_rms"] for r in subset])), 4),
-                    "clipping_count": int(np.sum([r["clipping_count"] for r in subset])),
-                    "nonfinite_count": int(np.sum([r["nonfinite_count"] for r in subset])),
-                    "latency_p50_ms": lat["p50"],
-                    "latency_p95_ms": lat["p95"],
-                    "latency_p99_ms": lat["p99"],
-                    "latency_p99_9_ms": lat["p99_9"],
-                    "latency_max_ms": lat["max"],
-                    "rtf": lat["rtf"],
-                    "checkpoint": cfg["checkpoint"],
-                    "checkpoint_sha256": checkpoint_hashes[cid],
-                    "dataset_hash": dataset_hash,
-                    "git_commit": git_commit,
-                }
-                eval_matrix_rows.append(row_dict)
+                eval_matrix_rows.append(build_matrix_row(subset, cfg, split, reg, cfg_latency, checkpoint_hashes, dataset_hash, git_commit))
 
     # Save evaluation_matrix.csv
     eval_matrix_csv = RESULTS_DIR / "evaluation_matrix.csv"
@@ -644,17 +611,7 @@ def main() -> None:
             }
 
     # 9. Save evaluation_matrix.json
-    def default_json(obj):
-        if hasattr(obj, 'item'):
-            return obj.item()
-        if isinstance(obj, (np.floating, float)):
-            return float(obj)
-        if isinstance(obj, (np.integer, int)):
-            return int(obj)
-        if isinstance(obj, np.ndarray):
-            return obj.tolist()
-        return str(obj)
-
+    # All values are python natives (metrics layer returns float/int), so plain dump suffices.
     eval_matrix_json = RESULTS_DIR / "evaluation_matrix.json"
     with open(eval_matrix_json, "w", encoding="utf-8") as f:
         json.dump(
@@ -674,7 +631,7 @@ def main() -> None:
                 "latency": latency_results,
                 "path_verifications": path_verifications,
             },
-            f, indent=2, default=default_json,
+            f, indent=2,
         )
     print(f"[EVAL] Authoritative evaluation JSON saved to {eval_matrix_json.resolve()}", flush=True)
 
@@ -696,11 +653,8 @@ def main() -> None:
     # 11. Generate PH1_FINAL_REPORT.md (All 27 sections)
     generate_final_report(
         eval_matrix_rows=eval_matrix_rows,
-        all_clip_evals=all_clip_evals,
         speech_pres_results=speech_pres_results,
-        impulsive_summary=impulsive_summary,
         latency_results=latency_results,
-        path_verifications=path_verifications,
         dataset_hash=dataset_hash,
         git_commit=git_commit,
     )
@@ -708,11 +662,8 @@ def main() -> None:
 
 def generate_final_report(
     eval_matrix_rows: List[Dict[str, Any]],
-    all_clip_evals: List[Dict[str, Any]],
     speech_pres_results: Dict[str, Any],
-    impulsive_summary: Dict[str, Any],
     latency_results: Dict[str, Any],
-    path_verifications: List[Dict[str, Any]],
     dataset_hash: str,
     git_commit: str,
 ) -> None:
@@ -899,7 +850,7 @@ def generate_final_report(
     lines.append(f"- TinyEnhancer V3: `RTF = {tiny_rtf:.4f}` ({tiny_rtf * 100:.1f}% of the 8 ms hop budget)")
     lines.append(f"- CRN_Micro: `RTF = {crn_rtf:.4f}` ({crn_rtf * 100:.1f}% of the 8 ms hop budget on host CPU)")
     if crn_rtf < 1.0:
-        lines.append("All configurations achieve host CPU RTF < 1.0. However, CRN_Micro consumes over 10x more cycle budget than TinyEnhancer.")
+        lines.append(f"All configurations achieve host CPU RTF < 1.0. However, CRN_Micro consumes {crn_rtf / tiny_rtf:.1f}× more cycle budget than TinyEnhancer.")
     else:
         lines.append(f"CRN_Micro's AI forward pass **exceeds the 8 ms hop budget on this host** (RTF = {crn_rtf:.4f} > 1.0), so CRN configurations are NOT real-time here without optimization; TinyEnhancer and the DSP filter are.\n")
 
