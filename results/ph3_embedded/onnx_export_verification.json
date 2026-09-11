@@ -1,0 +1,98 @@
+{
+  "status": "success",
+  "checkpoint_path": "F:\\SIH 2026\\checkpoints\\E2_causal.pt",
+  "checkpoint_sha256": "0c8f08a1bdd41ff9543b45f122f48cc3c5208b7e8395ec656c557f4bd6482acd",
+  "parameter_count": 9569,
+  "onnx_path": "F:\\SIH 2026\\models\\E2_causal.onnx",
+  "onnx_size_bytes": 11901,
+  "onnx_sha256": "06476e7531233b0083f9de697042f0ad3a8deac7edca44980c293c37d309f60a",
+  "opset_version": 17,
+  "peak_max_abs_error": 2.086162567138672e-07,
+  "overall_mean_abs_error": 3.044365001362134e-08,
+  "test_cases": [
+    {
+      "case": "T=1 (Single streaming frame)",
+      "shape": [
+        1,
+        1,
+        129,
+        1
+      ],
+      "max_abs_err": 5.960464477539063e-08,
+      "mean_abs_err": 1.38615456890534e-08,
+      "passed": true
+    },
+    {
+      "case": "T=9 (Receptive field window)",
+      "shape": [
+        1,
+        1,
+        129,
+        9
+      ],
+      "max_abs_err": 1.7881393432617188e-07,
+      "mean_abs_err": 2.7318796114172983e-08,
+      "passed": true
+    },
+    {
+      "case": "T=32 (Short phrase)",
+      "shape": [
+        1,
+        1,
+        129,
+        32
+      ],
+      "max_abs_err": 1.7881393432617188e-07,
+      "mean_abs_err": 3.295365758049229e-08,
+      "passed": true
+    },
+    {
+      "case": "T=64 (Standard block)",
+      "shape": [
+        1,
+        1,
+        129,
+        64
+      ],
+      "max_abs_err": 1.7881393432617188e-07,
+      "mean_abs_err": 3.45554980185625e-08,
+      "passed": true
+    },
+    {
+      "case": "T=128 (Long block)",
+      "shape": [
+        1,
+        1,
+        129,
+        128
+      ],
+      "max_abs_err": 2.086162567138672e-07,
+      "mean_abs_err": 3.470146836548338e-08,
+      "passed": true
+    },
+    {
+      "case": "T=500 (Full 4-second clip)",
+      "shape": [
+        1,
+        1,
+        129,
+        500
+      ],
+      "max_abs_err": 2.086162567138672e-07,
+      "mean_abs_err": 3.543692628227291e-08,
+      "passed": true
+    },
+    {
+      "case": "Batch=4, T=64 (Multi-stream)",
+      "shape": [
+        4,
+        1,
+        129,
+        64
+      ],
+      "max_abs_err": 1.9371509552001953e-07,
+      "mean_abs_err": 3.427765804531191e-08,
+      "passed": true
+    }
+  ]
+}

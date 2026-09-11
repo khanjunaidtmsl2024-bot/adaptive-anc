@@ -1,0 +1,21 @@
+{
+  "timestamp_utc": "2026-09-07T02:20:53.703092+00:00",
+  "model_class": "DTLNNet",
+  "model_parameter_count": 775939,
+  "checkpoint_path": "F:\\SIH 2026\\checkpoints\\ph1\\smoke_dtln_raw.pt",
+  "checkpoint_sha256": "581d1139672ac2eab7d49661a98d61479ae436e6b1d363027dd820eab1ec6fe5",
+  "seed": 42,
+  "epochs": 2,
+  "lr": 0.0001,
+  "device": "cpu",
+  "metadata_csv": "F:\\SIH 2026\\data\\v4\\metadata\\metadata_v4.csv",
+  "train_split": "TRAIN",
+  "train_samples": 56,
+  "val_split": "TEST_A_UNSEEN_SPEAKER",
+  "val_samples": 18,
+  "final_train_loss": 2.1750339719333818,
+  "final_val_loss": 3.294982466432783,
+  "torch_version": "2.9.0+cpu",
+  "training_input": "RAW_PRIMARY",
+  "loss_function": "SI-SDR"
+}

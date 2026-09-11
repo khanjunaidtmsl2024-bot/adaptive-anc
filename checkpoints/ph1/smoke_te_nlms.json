@@ -1,0 +1,39 @@
+{
+  "timestamp_utc": "2026-09-07T02:12:36.443113+00:00",
+  "model_class": "TinyEnhancerNet",
+  "model_parameter_count": 9569,
+  "checkpoint_path": "F:\\SIH 2026\\checkpoints\\ph1\\smoke_te_nlms.pt",
+  "checkpoint_sha256": "92b5f3720b286ad189835d7b78b9698fadb6e70cc8c8c8074846a182e3af938e",
+  "seed": 42,
+  "epochs": 2,
+  "lr": 0.001,
+  "frame_size": 256,
+  "hop_size": 128,
+  "alpha": 0.7,
+  "device": "cpu",
+  "metadata_csv": "F:\\SIH 2026\\data\\v4\\metadata\\metadata_v4.csv",
+  "train_split": "TRAIN",
+  "train_samples": 56,
+  "train_speakers": [
+    "SPK_001",
+    "SPK_002",
+    "SPK_003",
+    "SPK_004",
+    "SPK_005",
+    "SPK_006",
+    "SPK_007",
+    "SPK_008"
+  ],
+  "val_split": "TEST_A_UNSEEN_SPEAKER",
+  "val_samples": 18,
+  "val_speakers": [
+    "SPK_009",
+    "SPK_010"
+  ],
+  "final_train_loss": -3.308380610176495,
+  "final_val_loss": 0.29435957844058674,
+  "torch_version": "2.9.0+cpu",
+  "training_input": "NLMS_RESIDUAL",
+  "deployment_input": "NLMS_RESIDUAL",
+  "input_contract_status": "MATCHED_DEPLOYMENT"
+}

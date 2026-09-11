@@ -1,0 +1,7382 @@
+[
+  {
+    "sample_id": "SPK_001__tank_engine_heldout_rec__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "tank_engine_heldout_rec",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.13,
+      "delta_snr_db": 7.13,
+      "si_sdr_db": 9.17,
+      "stoi": 0.8699,
+      "pesq": 1.0393,
+      "output_rms": 0.0583,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.78,
+      "delta_snr_db": 7.78,
+      "si_sdr_db": 8.99,
+      "stoi": 0.8832,
+      "pesq": 1.0393,
+      "output_rms": 0.0633,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__helicopter_rotor_heldout_rec__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "helicopter_rotor_heldout_rec",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.35,
+      "delta_snr_db": -3.66,
+      "si_sdr_db": 15.1,
+      "stoi": 0.9627,
+      "pesq": 1.8856,
+      "output_rms": 0.0479,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 8.21,
+      "delta_snr_db": -1.79,
+      "si_sdr_db": 14.52,
+      "stoi": 0.9499,
+      "pesq": 1.5453,
+      "output_rms": 0.0573,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__gunfire_transient_insas__+5dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_001",
+    "noise_id": "gunfire_transient_insas",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.55,
+      "delta_snr_db": 3.55,
+      "si_sdr_db": 14.78,
+      "stoi": 0.9261,
+      "pesq": 1.7957,
+      "output_rms": 0.0587,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 11.64,
+      "delta_snr_db": 6.64,
+      "si_sdr_db": 15.18,
+      "stoi": 0.9276,
+      "pesq": 1.87,
+      "output_rms": 0.0704,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__artillery_blast_dhanush__+10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_001",
+    "noise_id": "artillery_blast_dhanush",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 8.76,
+      "delta_snr_db": -1.24,
+      "si_sdr_db": 16.95,
+      "stoi": 0.9271,
+      "pesq": 3.465,
+      "output_rms": 0.0585,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 12.35,
+      "delta_snr_db": 2.35,
+      "si_sdr_db": 17.31,
+      "stoi": 0.93,
+      "pesq": 3.535,
+      "output_rms": 0.0707,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__tank_engine_heldout_rec__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "tank_engine_heldout_rec",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 5.72,
+      "delta_snr_db": 10.72,
+      "si_sdr_db": 4.95,
+      "stoi": 0.7803,
+      "pesq": 1.0299,
+      "output_rms": 0.0706,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 5.84,
+      "delta_snr_db": 10.84,
+      "si_sdr_db": 4.95,
+      "stoi": 0.7946,
+      "pesq": 1.03,
+      "output_rms": 0.0732,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__helicopter_rotor_heldout_rec__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "helicopter_rotor_heldout_rec",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.77,
+      "delta_snr_db": 7.77,
+      "si_sdr_db": 14.08,
+      "stoi": 0.8499,
+      "pesq": 1.196,
+      "output_rms": 0.0617,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 9.2,
+      "delta_snr_db": 9.2,
+      "si_sdr_db": 12.92,
+      "stoi": 0.8628,
+      "pesq": 1.1187,
+      "output_rms": 0.0704,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__gunfire_transient_insas__-10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_002",
+    "noise_id": "gunfire_transient_insas",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": -10.0,
+    "baseline": {
+      "input_snr_db": -5.23,
+      "output_snr_db": 7.71,
+      "delta_snr_db": 12.94,
+      "si_sdr_db": 10.25,
+      "stoi": 0.8835,
+      "pesq": 1.6253,
+      "output_rms": 0.0663,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.23,
+      "output_snr_db": 9.75,
+      "delta_snr_db": 14.98,
+      "si_sdr_db": 10.79,
+      "stoi": 0.8887,
+      "pesq": 1.73,
+      "output_rms": 0.0786,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__artillery_blast_dhanush__-5dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_002",
+    "noise_id": "artillery_blast_dhanush",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -1.49,
+      "output_snr_db": 8.86,
+      "delta_snr_db": 10.35,
+      "si_sdr_db": 14.34,
+      "stoi": 0.9111,
+      "pesq": 2.6364,
+      "output_rms": 0.067,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -1.49,
+      "output_snr_db": 12.07,
+      "delta_snr_db": 13.56,
+      "si_sdr_db": 15.04,
+      "stoi": 0.9133,
+      "pesq": 2.8857,
+      "output_rms": 0.0802,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__tank_engine_heldout_rec__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "tank_engine_heldout_rec",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.9,
+      "delta_snr_db": -3.11,
+      "si_sdr_db": 13.83,
+      "stoi": 0.8728,
+      "pesq": 1.2336,
+      "output_rms": 0.0603,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 8.02,
+      "delta_snr_db": -1.98,
+      "si_sdr_db": 13.17,
+      "stoi": 0.8968,
+      "pesq": 1.1499,
+      "output_rms": 0.0674,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__helicopter_rotor_heldout_rec__+15dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "helicopter_rotor_heldout_rec",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 15.0,
+    "baseline": {
+      "input_snr_db": 15.0,
+      "output_snr_db": 5.55,
+      "delta_snr_db": -9.45,
+      "si_sdr_db": 13.01,
+      "stoi": 0.9491,
+      "pesq": 2.1139,
+      "output_rms": 0.052,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 15.0,
+      "output_snr_db": 6.83,
+      "delta_snr_db": -8.17,
+      "si_sdr_db": 12.42,
+      "stoi": 0.9539,
+      "pesq": 1.7606,
+      "output_rms": 0.061,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__gunfire_transient_insas__+5dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_003",
+    "noise_id": "gunfire_transient_insas",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.01,
+      "output_snr_db": 9.0,
+      "delta_snr_db": 3.99,
+      "si_sdr_db": 15.15,
+      "stoi": 0.9029,
+      "pesq": 2.0613,
+      "output_rms": 0.0708,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.01,
+      "output_snr_db": 12.01,
+      "delta_snr_db": 7.01,
+      "si_sdr_db": 15.39,
+      "stoi": 0.9154,
+      "pesq": 2.1024,
+      "output_rms": 0.0839,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__artillery_blast_dhanush__-10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_003",
+    "noise_id": "artillery_blast_dhanush",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": -10.0,
+    "baseline": {
+      "input_snr_db": -2.84,
+      "output_snr_db": 8.96,
+      "delta_snr_db": 11.8,
+      "si_sdr_db": 14.2,
+      "stoi": 0.8903,
+      "pesq": 2.6114,
+      "output_rms": 0.0715,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.84,
+      "output_snr_db": 12.01,
+      "delta_snr_db": 14.85,
+      "si_sdr_db": 14.78,
+      "stoi": 0.8989,
+      "pesq": 2.7634,
+      "output_rms": 0.0848,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__tank_engine_heldout_rec__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "tank_engine_heldout_rec",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.4,
+      "delta_snr_db": 7.4,
+      "si_sdr_db": 9.39,
+      "stoi": 0.7434,
+      "pesq": 1.0365,
+      "output_rms": 0.0718,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.79,
+      "delta_snr_db": 7.79,
+      "si_sdr_db": 9.21,
+      "stoi": 0.7746,
+      "pesq": 1.0363,
+      "output_rms": 0.0756,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__helicopter_rotor_heldout_rec__+15dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "helicopter_rotor_heldout_rec",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 15.0,
+    "baseline": {
+      "input_snr_db": 15.0,
+      "output_snr_db": 5.72,
+      "delta_snr_db": -9.28,
+      "si_sdr_db": 12.92,
+      "stoi": 0.9317,
+      "pesq": 2.2634,
+      "output_rms": 0.0546,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 15.0,
+      "output_snr_db": 7.01,
+      "delta_snr_db": -7.99,
+      "si_sdr_db": 12.32,
+      "stoi": 0.9358,
+      "pesq": 1.9926,
+      "output_rms": 0.0639,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__gunfire_transient_insas__+0dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_004",
+    "noise_id": "gunfire_transient_insas",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.41,
+      "output_snr_db": 8.9,
+      "delta_snr_db": 8.49,
+      "si_sdr_db": 13.25,
+      "stoi": 0.8969,
+      "pesq": 1.8026,
+      "output_rms": 0.0741,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.41,
+      "output_snr_db": 11.44,
+      "delta_snr_db": 11.04,
+      "si_sdr_db": 13.66,
+      "stoi": 0.9121,
+      "pesq": 1.9338,
+      "output_rms": 0.0867,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__artillery_blast_dhanush__-5dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_004",
+    "noise_id": "artillery_blast_dhanush",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -1.07,
+      "output_snr_db": 9.28,
+      "delta_snr_db": 10.35,
+      "si_sdr_db": 14.89,
+      "stoi": 0.9205,
+      "pesq": 2.8584,
+      "output_rms": 0.0743,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -1.07,
+      "output_snr_db": 12.3,
+      "delta_snr_db": 13.37,
+      "si_sdr_db": 15.29,
+      "stoi": 0.9229,
+      "pesq": 2.9415,
+      "output_rms": 0.0875,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__tank_engine_heldout_rec__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "tank_engine_heldout_rec",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.43,
+      "delta_snr_db": 2.42,
+      "si_sdr_db": 13.07,
+      "stoi": 0.7575,
+      "pesq": 1.1229,
+      "output_rms": 0.0667,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.15,
+      "delta_snr_db": 3.15,
+      "si_sdr_db": 12.65,
+      "stoi": 0.8035,
+      "pesq": 1.0933,
+      "output_rms": 0.0716,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__helicopter_rotor_heldout_rec__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "helicopter_rotor_heldout_rec",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.4,
+      "delta_snr_db": -3.6,
+      "si_sdr_db": 14.76,
+      "stoi": 0.8837,
+      "pesq": 1.8567,
+      "output_rms": 0.0591,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.6,
+      "delta_snr_db": -2.4,
+      "si_sdr_db": 13.97,
+      "stoi": 0.898,
+      "pesq": 1.6398,
+      "output_rms": 0.067,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__gunfire_transient_insas__+10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_005",
+    "noise_id": "gunfire_transient_insas",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 9.33,
+      "delta_snr_db": -0.67,
+      "si_sdr_db": 17.32,
+      "stoi": 0.9306,
+      "pesq": 2.1905,
+      "output_rms": 0.074,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 12.31,
+      "delta_snr_db": 2.31,
+      "si_sdr_db": 16.89,
+      "stoi": 0.9414,
+      "pesq": 2.2044,
+      "output_rms": 0.0867,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__artillery_blast_dhanush__-10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_005",
+    "noise_id": "artillery_blast_dhanush",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": -10.0,
+    "baseline": {
+      "input_snr_db": -2.59,
+      "output_snr_db": 9.03,
+      "delta_snr_db": 11.62,
+      "si_sdr_db": 14.71,
+      "stoi": 0.9075,
+      "pesq": 2.773,
+      "output_rms": 0.0743,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.59,
+      "output_snr_db": 11.9,
+      "delta_snr_db": 14.48,
+      "si_sdr_db": 14.99,
+      "stoi": 0.9145,
+      "pesq": 2.8484,
+      "output_rms": 0.0875,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__tank_engine_heldout_rec__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "tank_engine_heldout_rec",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.05,
+      "delta_snr_db": 2.05,
+      "si_sdr_db": 13.02,
+      "stoi": 0.7877,
+      "pesq": 1.122,
+      "output_rms": 0.066,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.74,
+      "delta_snr_db": 2.74,
+      "si_sdr_db": 12.69,
+      "stoi": 0.8148,
+      "pesq": 1.0978,
+      "output_rms": 0.0708,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__helicopter_rotor_heldout_rec__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "helicopter_rotor_heldout_rec",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.92,
+      "delta_snr_db": 1.92,
+      "si_sdr_db": 15.7,
+      "stoi": 0.8226,
+      "pesq": 1.4366,
+      "output_rms": 0.0634,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.97,
+      "delta_snr_db": 2.97,
+      "si_sdr_db": 14.98,
+      "stoi": 0.8382,
+      "pesq": 1.3281,
+      "output_rms": 0.07,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__gunfire_transient_insas__-10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_006",
+    "noise_id": "gunfire_transient_insas",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": -10.0,
+    "baseline": {
+      "input_snr_db": -4.54,
+      "output_snr_db": 7.57,
+      "delta_snr_db": 12.11,
+      "si_sdr_db": 11.22,
+      "stoi": 0.8471,
+      "pesq": 1.738,
+      "output_rms": 0.0717,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.54,
+      "output_snr_db": 9.47,
+      "delta_snr_db": 14.01,
+      "si_sdr_db": 11.61,
+      "stoi": 0.8686,
+      "pesq": 1.7917,
+      "output_rms": 0.0837,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__artillery_blast_dhanush__+10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_006",
+    "noise_id": "artillery_blast_dhanush",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 8.56,
+      "delta_snr_db": -1.44,
+      "si_sdr_db": 17.79,
+      "stoi": 0.9246,
+      "pesq": 3.2735,
+      "output_rms": 0.0718,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 11.45,
+      "delta_snr_db": 1.45,
+      "si_sdr_db": 17.4,
+      "stoi": 0.928,
+      "pesq": 3.4399,
+      "output_rms": 0.085,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__tank_engine_heldout_rec__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "tank_engine_heldout_rec",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 5.74,
+      "delta_snr_db": 10.74,
+      "si_sdr_db": 4.97,
+      "stoi": 0.7456,
+      "pesq": 1.0279,
+      "output_rms": 0.0679,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 5.86,
+      "delta_snr_db": 10.86,
+      "si_sdr_db": 4.95,
+      "stoi": 0.7566,
+      "pesq": 1.028,
+      "output_rms": 0.0705,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__helicopter_rotor_heldout_rec__+15dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "helicopter_rotor_heldout_rec",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 15.0,
+    "baseline": {
+      "input_snr_db": 15.0,
+      "output_snr_db": 5.64,
+      "delta_snr_db": -9.36,
+      "si_sdr_db": 13.57,
+      "stoi": 0.9586,
+      "pesq": 2.3458,
+      "output_rms": 0.0475,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 15.0,
+      "output_snr_db": 7.17,
+      "delta_snr_db": -7.83,
+      "si_sdr_db": 12.9,
+      "stoi": 0.9491,
+      "pesq": 1.9401,
+      "output_rms": 0.0569,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__gunfire_transient_insas__+10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_007",
+    "noise_id": "gunfire_transient_insas",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 3.88,
+      "delta_snr_db": -6.12,
+      "si_sdr_db": 8.71,
+      "stoi": 0.9207,
+      "pesq": 2.5417,
+      "output_rms": 0.0381,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 4.86,
+      "delta_snr_db": -5.14,
+      "si_sdr_db": 8.46,
+      "stoi": 0.9177,
+      "pesq": 2.5025,
+      "output_rms": 0.0463,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__artillery_blast_dhanush__+10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_007",
+    "noise_id": "artillery_blast_dhanush",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 3.75,
+      "delta_snr_db": -6.25,
+      "si_sdr_db": 8.62,
+      "stoi": 0.9219,
+      "pesq": 3.2089,
+      "output_rms": 0.0371,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 4.72,
+      "delta_snr_db": -5.28,
+      "si_sdr_db": 8.35,
+      "stoi": 0.9107,
+      "pesq": 3.233,
+      "output_rms": 0.0453,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__tank_engine_heldout_rec__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "tank_engine_heldout_rec",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.26,
+      "delta_snr_db": 7.26,
+      "si_sdr_db": 9.27,
+      "stoi": 0.7569,
+      "pesq": 1.0347,
+      "output_rms": 0.0721,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.63,
+      "delta_snr_db": 7.63,
+      "si_sdr_db": 9.1,
+      "stoi": 0.7905,
+      "pesq": 1.0345,
+      "output_rms": 0.0758,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__helicopter_rotor_heldout_rec__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "helicopter_rotor_heldout_rec",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.9,
+      "delta_snr_db": 7.9,
+      "si_sdr_db": 14.26,
+      "stoi": 0.8234,
+      "pesq": 1.1963,
+      "output_rms": 0.0686,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 8.88,
+      "delta_snr_db": 8.88,
+      "si_sdr_db": 13.29,
+      "stoi": 0.849,
+      "pesq": 1.1374,
+      "output_rms": 0.0751,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__gunfire_transient_insas__+5dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_008",
+    "noise_id": "gunfire_transient_insas",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.01,
+      "output_snr_db": 9.38,
+      "delta_snr_db": 4.36,
+      "si_sdr_db": 16.07,
+      "stoi": 0.9093,
+      "pesq": 2.5929,
+      "output_rms": 0.075,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.01,
+      "output_snr_db": 12.48,
+      "delta_snr_db": 7.46,
+      "si_sdr_db": 16.13,
+      "stoi": 0.9227,
+      "pesq": 2.6262,
+      "output_rms": 0.0883,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__artillery_blast_dhanush__+5dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_008",
+    "noise_id": "artillery_blast_dhanush",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.11,
+      "output_snr_db": 9.41,
+      "delta_snr_db": 4.3,
+      "si_sdr_db": 16.34,
+      "stoi": 0.9265,
+      "pesq": 3.029,
+      "output_rms": 0.075,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.11,
+      "output_snr_db": 12.58,
+      "delta_snr_db": 7.47,
+      "si_sdr_db": 16.38,
+      "stoi": 0.9318,
+      "pesq": 3.0722,
+      "output_rms": 0.0884,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__tank_engine_t90__+5dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_009",
+    "noise_id": "tank_engine_t90",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.61,
+      "delta_snr_db": 1.61,
+      "si_sdr_db": 11.24,
+      "stoi": 0.8722,
+      "pesq": 1.0787,
+      "output_rms": 0.0525,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.14,
+      "delta_snr_db": 3.14,
+      "si_sdr_db": 11.77,
+      "stoi": 0.889,
+      "pesq": 1.0472,
+      "output_rms": 0.0604,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__diesel_idle_apc__+10dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_009",
+    "noise_id": "diesel_idle_apc",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.11,
+      "delta_snr_db": -3.89,
+      "si_sdr_db": 12.53,
+      "stoi": 0.9157,
+      "pesq": 1.2948,
+      "output_rms": 0.0485,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.97,
+      "delta_snr_db": -2.03,
+      "si_sdr_db": 13.44,
+      "stoi": 0.9256,
+      "pesq": 1.1567,
+      "output_rms": 0.0577,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__generator_hum_50hz__+15dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_009",
+    "noise_id": "generator_hum_50hz",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 15.0,
+    "baseline": {
+      "input_snr_db": 15.0,
+      "output_snr_db": 5.4,
+      "delta_snr_db": -9.6,
+      "si_sdr_db": 12.06,
+      "stoi": 0.9463,
+      "pesq": 1.6681,
+      "output_rms": 0.0445,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 15.0,
+      "output_snr_db": 7.15,
+      "delta_snr_db": -7.85,
+      "si_sdr_db": 12.91,
+      "stoi": 0.9493,
+      "pesq": 1.3745,
+      "output_rms": 0.054,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__helicopter_rotor_dhruv__+5dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_009",
+    "noise_id": "helicopter_rotor_dhruv",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.36,
+      "delta_snr_db": 1.36,
+      "si_sdr_db": 12.69,
+      "stoi": 0.9138,
+      "pesq": 1.4171,
+      "output_rms": 0.0498,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.4,
+      "delta_snr_db": 3.4,
+      "si_sdr_db": 13.44,
+      "stoi": 0.9226,
+      "pesq": 1.1758,
+      "output_rms": 0.0598,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__propeller_rotor_an32__-5dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_009",
+    "noise_id": "propeller_rotor_an32",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 6.71,
+      "delta_snr_db": 11.71,
+      "si_sdr_db": 9.08,
+      "stoi": 0.8303,
+      "pesq": 1.0412,
+      "output_rms": 0.0564,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 7.76,
+      "delta_snr_db": 12.76,
+      "si_sdr_db": 9.22,
+      "stoi": 0.8501,
+      "pesq": 1.0376,
+      "output_rms": 0.0633,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__vehicle_acceleration_track__+5dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_009",
+    "noise_id": "vehicle_acceleration_track",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.61,
+      "delta_snr_db": 1.61,
+      "si_sdr_db": 11.24,
+      "stoi": 0.8722,
+      "pesq": 1.0787,
+      "output_rms": 0.0525,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.14,
+      "delta_snr_db": 3.14,
+      "si_sdr_db": 11.77,
+      "stoi": 0.889,
+      "pesq": 1.0472,
+      "output_rms": 0.0604,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__tactical_siren_sweep__-5dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_009",
+    "noise_id": "tactical_siren_sweep",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 6.71,
+      "delta_snr_db": 11.71,
+      "si_sdr_db": 9.08,
+      "stoi": 0.8303,
+      "pesq": 1.0412,
+      "output_rms": 0.0564,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 7.76,
+      "delta_snr_db": 12.76,
+      "si_sdr_db": 9.22,
+      "stoi": 0.8501,
+      "pesq": 1.0376,
+      "output_rms": 0.0633,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__tank_engine_heldout_rec__-5dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_009",
+    "noise_id": "tank_engine_heldout_rec",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 5.17,
+      "delta_snr_db": 10.17,
+      "si_sdr_db": 4.14,
+      "stoi": 0.7738,
+      "pesq": 1.0289,
+      "output_rms": 0.0624,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 5.41,
+      "delta_snr_db": 10.41,
+      "si_sdr_db": 4.32,
+      "stoi": 0.7885,
+      "pesq": 1.0291,
+      "output_rms": 0.0653,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__helicopter_rotor_heldout_rec__-5dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_009",
+    "noise_id": "helicopter_rotor_heldout_rec",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 6.71,
+      "delta_snr_db": 11.71,
+      "si_sdr_db": 9.08,
+      "stoi": 0.8303,
+      "pesq": 1.0412,
+      "output_rms": 0.0564,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 7.76,
+      "delta_snr_db": 12.76,
+      "si_sdr_db": 9.22,
+      "stoi": 0.8501,
+      "pesq": 1.0376,
+      "output_rms": 0.0633,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__gunfire_transient_insas__+0dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_009",
+    "noise_id": "gunfire_transient_insas",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.15,
+      "output_snr_db": 3.79,
+      "delta_snr_db": 3.64,
+      "si_sdr_db": 7.91,
+      "stoi": 0.8311,
+      "pesq": 1.5686,
+      "output_rms": 0.0362,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.15,
+      "output_snr_db": 4.98,
+      "delta_snr_db": 4.83,
+      "si_sdr_db": 8.55,
+      "stoi": 0.8381,
+      "pesq": 1.6358,
+      "output_rms": 0.0448,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_009__artillery_blast_dhanush__+5dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_009",
+    "noise_id": "artillery_blast_dhanush",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.04,
+      "output_snr_db": 3.57,
+      "delta_snr_db": -1.47,
+      "si_sdr_db": 8.25,
+      "stoi": 0.894,
+      "pesq": 2.7364,
+      "output_rms": 0.0341,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.04,
+      "output_snr_db": 4.7,
+      "delta_snr_db": -0.33,
+      "si_sdr_db": 8.73,
+      "stoi": 0.8958,
+      "pesq": 2.8605,
+      "output_rms": 0.0426,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__tank_engine_t90__-10dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_010",
+    "noise_id": "tank_engine_t90",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -10.0,
+    "baseline": {
+      "input_snr_db": -9.95,
+      "output_snr_db": 0.65,
+      "delta_snr_db": 10.59,
+      "si_sdr_db": -2.98,
+      "stoi": 0.4817,
+      "pesq": 1.0191,
+      "output_rms": 0.1155,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -9.95,
+      "output_snr_db": 0.63,
+      "delta_snr_db": 10.57,
+      "si_sdr_db": -2.93,
+      "stoi": 0.494,
+      "pesq": 1.0191,
+      "output_rms": 0.1165,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__diesel_idle_apc__-5dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_010",
+    "noise_id": "diesel_idle_apc",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 4.38,
+      "delta_snr_db": 9.38,
+      "si_sdr_db": 2.44,
+      "stoi": 0.6065,
+      "pesq": 1.0247,
+      "output_rms": 0.0862,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 4.44,
+      "delta_snr_db": 9.44,
+      "si_sdr_db": 2.52,
+      "stoi": 0.6271,
+      "pesq": 1.0248,
+      "output_rms": 0.0885,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__generator_hum_50hz__-5dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_010",
+    "noise_id": "generator_hum_50hz",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 4.38,
+      "delta_snr_db": 9.38,
+      "si_sdr_db": 2.44,
+      "stoi": 0.6065,
+      "pesq": 1.0247,
+      "output_rms": 0.0862,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 4.44,
+      "delta_snr_db": 9.44,
+      "si_sdr_db": 2.52,
+      "stoi": 0.6271,
+      "pesq": 1.0248,
+      "output_rms": 0.0885,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__helicopter_rotor_dhruv__+10dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_010",
+    "noise_id": "helicopter_rotor_dhruv",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.98,
+      "delta_snr_db": -2.02,
+      "si_sdr_db": 17.07,
+      "stoi": 0.8299,
+      "pesq": 1.6773,
+      "output_rms": 0.0696,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 9.63,
+      "delta_snr_db": -0.37,
+      "si_sdr_db": 17.07,
+      "stoi": 0.8448,
+      "pesq": 1.5589,
+      "output_rms": 0.0781,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__propeller_rotor_an32__+10dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_010",
+    "noise_id": "propeller_rotor_an32",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.98,
+      "delta_snr_db": -2.02,
+      "si_sdr_db": 17.07,
+      "stoi": 0.8299,
+      "pesq": 1.6773,
+      "output_rms": 0.0696,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 9.63,
+      "delta_snr_db": -0.37,
+      "si_sdr_db": 17.07,
+      "stoi": 0.8448,
+      "pesq": 1.5589,
+      "output_rms": 0.0781,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__vehicle_acceleration_track__-5dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_010",
+    "noise_id": "vehicle_acceleration_track",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 4.38,
+      "delta_snr_db": 9.38,
+      "si_sdr_db": 2.44,
+      "stoi": 0.6065,
+      "pesq": 1.0247,
+      "output_rms": 0.0862,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 4.44,
+      "delta_snr_db": 9.44,
+      "si_sdr_db": 2.52,
+      "stoi": 0.6271,
+      "pesq": 1.0248,
+      "output_rms": 0.0885,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__tactical_siren_sweep__+0dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_010",
+    "noise_id": "tactical_siren_sweep",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.73,
+      "delta_snr_db": 7.73,
+      "si_sdr_db": 13.21,
+      "stoi": 0.7485,
+      "pesq": 1.1731,
+      "output_rms": 0.0707,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 8.69,
+      "delta_snr_db": 8.69,
+      "si_sdr_db": 12.93,
+      "stoi": 0.7746,
+      "pesq": 1.1338,
+      "output_rms": 0.077,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__tank_engine_heldout_rec__+10dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_010",
+    "noise_id": "tank_engine_heldout_rec",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.06,
+      "delta_snr_db": -3.94,
+      "si_sdr_db": 13.1,
+      "stoi": 0.7931,
+      "pesq": 1.2766,
+      "output_rms": 0.0597,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.74,
+      "delta_snr_db": -3.26,
+      "si_sdr_db": 12.99,
+      "stoi": 0.8226,
+      "pesq": 1.2243,
+      "output_rms": 0.0646,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__helicopter_rotor_heldout_rec__-10dB",
+    "split": "TEST_A_UNSEEN_SPEAKER",
+    "speaker_id": "SPK_010",
+    "noise_id": "helicopter_rotor_heldout_rec",
+    "noise_category": "PERIODIC_ROTOR",
+    "target_snr_db": -10.0,
+    "baseline": {
+      "input_snr_db": -9.98,
+      "output_snr_db": 5.19,
+      "delta_snr_db": 15.17,
+      "si_sdr_db": 4.41,
+      "stoi": 0.6387,
+      "pesq": 1.0274,
+      "output_rms": 0.0751,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -9.98,
+      "output_snr_db": 5.34,
+      "delta_snr_db": 15.32,
+      "si_sdr_db": 4.47,
+      "stoi": 0.66,
+      "pesq": 1.0275,
+      "output_rms": 0.0777,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__gunfire_transient_insas__+10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_010",
+    "noise_id": "gunfire_transient_insas",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.96,
+      "delta_snr_db": -2.04,
+      "si_sdr_db": 16.61,
+      "stoi": 0.91,
+      "pesq": 2.13,
+      "output_rms": 0.0697,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 10.01,
+      "delta_snr_db": 0.01,
+      "si_sdr_db": 16.82,
+      "stoi": 0.9182,
+      "pesq": 2.1427,
+      "output_rms": 0.08,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_010__artillery_blast_dhanush__-10dB",
+    "split": "TEST_C_UNSEEN_NOISE_CATEGORY",
+    "speaker_id": "SPK_010",
+    "noise_id": "artillery_blast_dhanush",
+    "noise_category": "IMPULSIVE_DEFENCE",
+    "target_snr_db": -10.0,
+    "baseline": {
+      "input_snr_db": -2.37,
+      "output_snr_db": 7.7,
+      "delta_snr_db": 10.07,
+      "si_sdr_db": 13.6,
+      "stoi": 0.8565,
+      "pesq": 2.6836,
+      "output_rms": 0.0702,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.37,
+      "output_snr_db": 9.71,
+      "delta_snr_db": 12.08,
+      "si_sdr_db": 14.22,
+      "stoi": 0.8654,
+      "pesq": 2.7553,
+      "output_rms": 0.0809,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__drone_uav_multicopter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -2.97,
+      "output_snr_db": 0.81,
+      "delta_snr_db": 3.78,
+      "si_sdr_db": -4.09,
+      "stoi": 0.7928,
+      "pesq": 1.0713,
+      "output_rms": 0.077,
+      "clipping_count": 6,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.97,
+      "output_snr_db": 1.03,
+      "delta_snr_db": 4.0,
+      "si_sdr_db": -3.26,
+      "stoi": 0.8202,
+      "pesq": 1.0505,
+      "output_rms": 0.0802,
+      "clipping_count": 6,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__drone_uav_multicopter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 5.72,
+      "delta_snr_db": 5.72,
+      "si_sdr_db": 5.48,
+      "stoi": 0.8686,
+      "pesq": 1.1682,
+      "output_rms": 0.0596,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 6.65,
+      "delta_snr_db": 6.65,
+      "si_sdr_db": 6.07,
+      "stoi": 0.8871,
+      "pesq": 1.1033,
+      "output_rms": 0.068,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__drone_uav_multicopter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.81,
+      "output_snr_db": 5.67,
+      "delta_snr_db": -0.14,
+      "si_sdr_db": 12.0,
+      "stoi": 0.9109,
+      "pesq": 1.4053,
+      "output_rms": 0.0456,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.81,
+      "output_snr_db": 7.17,
+      "delta_snr_db": 1.36,
+      "si_sdr_db": 11.82,
+      "stoi": 0.9107,
+      "pesq": 1.2346,
+      "output_rms": 0.0543,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__drone_uav_multicopter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.04,
+      "delta_snr_db": -3.96,
+      "si_sdr_db": 13.68,
+      "stoi": 0.9527,
+      "pesq": 1.7831,
+      "output_rms": 0.0468,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.78,
+      "delta_snr_db": -2.22,
+      "si_sdr_db": 13.24,
+      "stoi": 0.9484,
+      "pesq": 1.4824,
+      "output_rms": 0.0562,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__drone_uav_multicopter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -4.54,
+      "output_snr_db": 4.28,
+      "delta_snr_db": 8.82,
+      "si_sdr_db": 2.34,
+      "stoi": 0.7804,
+      "pesq": 1.0572,
+      "output_rms": 0.0722,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.54,
+      "output_snr_db": 4.67,
+      "delta_snr_db": 9.21,
+      "si_sdr_db": 2.87,
+      "stoi": 0.8234,
+      "pesq": 1.0408,
+      "output_rms": 0.0783,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__drone_uav_multicopter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 6.4,
+      "delta_snr_db": 6.4,
+      "si_sdr_db": 7.53,
+      "stoi": 0.8244,
+      "pesq": 1.127,
+      "output_rms": 0.0637,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 7.23,
+      "delta_snr_db": 7.23,
+      "si_sdr_db": 7.54,
+      "stoi": 0.8619,
+      "pesq": 1.079,
+      "output_rms": 0.072,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__drone_uav_multicopter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.7,
+      "delta_snr_db": 1.7,
+      "si_sdr_db": 12.1,
+      "stoi": 0.8799,
+      "pesq": 1.3706,
+      "output_rms": 0.0572,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.27,
+      "delta_snr_db": 3.27,
+      "si_sdr_db": 11.67,
+      "stoi": 0.8986,
+      "pesq": 1.2343,
+      "output_rms": 0.0672,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__drone_uav_multicopter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.39,
+      "output_snr_db": 5.44,
+      "delta_snr_db": -4.96,
+      "si_sdr_db": 13.56,
+      "stoi": 0.9119,
+      "pesq": 1.5839,
+      "output_rms": 0.0482,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.39,
+      "output_snr_db": 6.82,
+      "delta_snr_db": -3.57,
+      "si_sdr_db": 13.02,
+      "stoi": 0.9233,
+      "pesq": 1.3762,
+      "output_rms": 0.0572,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__drone_uav_multicopter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -4.75,
+      "output_snr_db": 3.58,
+      "delta_snr_db": 8.33,
+      "si_sdr_db": 1.12,
+      "stoi": 0.7921,
+      "pesq": 1.064,
+      "output_rms": 0.0842,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.75,
+      "output_snr_db": 3.85,
+      "delta_snr_db": 8.6,
+      "si_sdr_db": 1.68,
+      "stoi": 0.8414,
+      "pesq": 1.0452,
+      "output_rms": 0.0899,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__drone_uav_multicopter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.04,
+      "output_snr_db": 6.25,
+      "delta_snr_db": 6.21,
+      "si_sdr_db": 6.56,
+      "stoi": 0.8037,
+      "pesq": 1.1162,
+      "output_rms": 0.0701,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.04,
+      "output_snr_db": 6.94,
+      "delta_snr_db": 6.9,
+      "si_sdr_db": 6.74,
+      "stoi": 0.8494,
+      "pesq": 1.0768,
+      "output_rms": 0.0779,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__drone_uav_multicopter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.72,
+      "delta_snr_db": 1.72,
+      "si_sdr_db": 11.68,
+      "stoi": 0.8444,
+      "pesq": 1.2733,
+      "output_rms": 0.0611,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.01,
+      "delta_snr_db": 3.01,
+      "si_sdr_db": 11.21,
+      "stoi": 0.8859,
+      "pesq": 1.1853,
+      "output_rms": 0.0701,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__drone_uav_multicopter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.2,
+      "delta_snr_db": -3.8,
+      "si_sdr_db": 12.76,
+      "stoi": 0.8984,
+      "pesq": 1.5257,
+      "output_rms": 0.0566,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.63,
+      "delta_snr_db": -2.37,
+      "si_sdr_db": 12.25,
+      "stoi": 0.9177,
+      "pesq": 1.3617,
+      "output_rms": 0.0662,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__drone_uav_multicopter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.69,
+      "output_snr_db": 4.35,
+      "delta_snr_db": 8.04,
+      "si_sdr_db": 2.89,
+      "stoi": 0.7439,
+      "pesq": 1.0411,
+      "output_rms": 0.0696,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.69,
+      "output_snr_db": 4.59,
+      "delta_snr_db": 8.29,
+      "si_sdr_db": 3.1,
+      "stoi": 0.7924,
+      "pesq": 1.036,
+      "output_rms": 0.0737,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__drone_uav_multicopter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.29,
+      "output_snr_db": 6.05,
+      "delta_snr_db": 5.76,
+      "si_sdr_db": 6.6,
+      "stoi": 0.7877,
+      "pesq": 1.1606,
+      "output_rms": 0.0693,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.29,
+      "output_snr_db": 6.75,
+      "delta_snr_db": 6.46,
+      "si_sdr_db": 6.86,
+      "stoi": 0.8349,
+      "pesq": 1.1073,
+      "output_rms": 0.0764,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__drone_uav_multicopter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.06,
+      "delta_snr_db": 2.06,
+      "si_sdr_db": 12.75,
+      "stoi": 0.8369,
+      "pesq": 1.2874,
+      "output_rms": 0.0638,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.27,
+      "delta_snr_db": 3.27,
+      "si_sdr_db": 12.1,
+      "stoi": 0.8806,
+      "pesq": 1.1908,
+      "output_rms": 0.0721,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__drone_uav_multicopter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.89,
+      "delta_snr_db": -4.11,
+      "si_sdr_db": 12.68,
+      "stoi": 0.8768,
+      "pesq": 1.6349,
+      "output_rms": 0.056,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.12,
+      "delta_snr_db": -2.88,
+      "si_sdr_db": 12.07,
+      "stoi": 0.9012,
+      "pesq": 1.4633,
+      "output_rms": 0.0649,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__drone_uav_multicopter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.01,
+      "output_snr_db": 4.61,
+      "delta_snr_db": 7.61,
+      "si_sdr_db": 4.61,
+      "stoi": 0.7628,
+      "pesq": 1.0387,
+      "output_rms": 0.0616,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.01,
+      "output_snr_db": 4.87,
+      "delta_snr_db": 7.88,
+      "si_sdr_db": 4.62,
+      "stoi": 0.805,
+      "pesq": 1.0339,
+      "output_rms": 0.0654,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__drone_uav_multicopter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.02,
+      "output_snr_db": 5.15,
+      "delta_snr_db": 4.13,
+      "si_sdr_db": 4.99,
+      "stoi": 0.791,
+      "pesq": 1.1259,
+      "output_rms": 0.0674,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.02,
+      "output_snr_db": 5.71,
+      "delta_snr_db": 4.69,
+      "si_sdr_db": 5.48,
+      "stoi": 0.8439,
+      "pesq": 1.0896,
+      "output_rms": 0.0725,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__drone_uav_multicopter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.27,
+      "delta_snr_db": 2.27,
+      "si_sdr_db": 11.92,
+      "stoi": 0.8116,
+      "pesq": 1.2799,
+      "output_rms": 0.067,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.35,
+      "delta_snr_db": 3.35,
+      "si_sdr_db": 11.68,
+      "stoi": 0.861,
+      "pesq": 1.2045,
+      "output_rms": 0.0743,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__drone_uav_multicopter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.05,
+      "delta_snr_db": -3.95,
+      "si_sdr_db": 13.0,
+      "stoi": 0.8484,
+      "pesq": 1.6031,
+      "output_rms": 0.0577,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.17,
+      "delta_snr_db": -2.83,
+      "si_sdr_db": 12.46,
+      "stoi": 0.8787,
+      "pesq": 1.4625,
+      "output_rms": 0.0657,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__drone_uav_multicopter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -2.76,
+      "output_snr_db": 3.51,
+      "delta_snr_db": 6.27,
+      "si_sdr_db": 1.53,
+      "stoi": 0.7295,
+      "pesq": 1.0315,
+      "output_rms": 0.0655,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.76,
+      "output_snr_db": 3.73,
+      "delta_snr_db": 6.49,
+      "si_sdr_db": 1.8,
+      "stoi": 0.7576,
+      "pesq": 1.0289,
+      "output_rms": 0.0689,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__drone_uav_multicopter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 5.24,
+      "delta_snr_db": 4.3,
+      "si_sdr_db": 6.76,
+      "stoi": 0.7743,
+      "pesq": 1.0969,
+      "output_rms": 0.0621,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 5.75,
+      "delta_snr_db": 4.82,
+      "si_sdr_db": 6.95,
+      "stoi": 0.8229,
+      "pesq": 1.0736,
+      "output_rms": 0.0671,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__drone_uav_multicopter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 4.84,
+      "delta_snr_db": -0.96,
+      "si_sdr_db": 6.55,
+      "stoi": 0.7874,
+      "pesq": 1.2214,
+      "output_rms": 0.0584,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 5.45,
+      "delta_snr_db": -0.35,
+      "si_sdr_db": 7.01,
+      "stoi": 0.8266,
+      "pesq": 1.1772,
+      "output_rms": 0.0636,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__drone_uav_multicopter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 5.14,
+      "delta_snr_db": -5.25,
+      "si_sdr_db": 13.54,
+      "stoi": 0.8295,
+      "pesq": 1.4636,
+      "output_rms": 0.0521,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 5.95,
+      "delta_snr_db": -4.44,
+      "si_sdr_db": 13.13,
+      "stoi": 0.8585,
+      "pesq": 1.3836,
+      "output_rms": 0.0583,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__drone_uav_multicopter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.59,
+      "output_snr_db": 4.23,
+      "delta_snr_db": 7.82,
+      "si_sdr_db": 2.92,
+      "stoi": 0.7834,
+      "pesq": 1.0405,
+      "output_rms": 0.0585,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.59,
+      "output_snr_db": 4.61,
+      "delta_snr_db": 8.2,
+      "si_sdr_db": 3.21,
+      "stoi": 0.8101,
+      "pesq": 1.0329,
+      "output_rms": 0.0638,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__drone_uav_multicopter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 6.83,
+      "delta_snr_db": 6.83,
+      "si_sdr_db": 8.76,
+      "stoi": 0.814,
+      "pesq": 1.125,
+      "output_rms": 0.0609,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.75,
+      "delta_snr_db": 7.75,
+      "si_sdr_db": 8.45,
+      "stoi": 0.8358,
+      "pesq": 1.0755,
+      "output_rms": 0.0693,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__drone_uav_multicopter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.93,
+      "delta_snr_db": 1.93,
+      "si_sdr_db": 11.7,
+      "stoi": 0.877,
+      "pesq": 1.382,
+      "output_rms": 0.0566,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.59,
+      "delta_snr_db": 3.59,
+      "si_sdr_db": 11.6,
+      "stoi": 0.8784,
+      "pesq": 1.2382,
+      "output_rms": 0.0663,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__drone_uav_multicopter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.39,
+      "output_snr_db": 5.23,
+      "delta_snr_db": -5.16,
+      "si_sdr_db": 13.16,
+      "stoi": 0.9184,
+      "pesq": 1.6314,
+      "output_rms": 0.045,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.39,
+      "output_snr_db": 6.57,
+      "delta_snr_db": -3.82,
+      "si_sdr_db": 12.62,
+      "stoi": 0.9116,
+      "pesq": 1.3771,
+      "output_rms": 0.0536,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__drone_uav_multicopter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -4.73,
+      "output_snr_db": 3.62,
+      "delta_snr_db": 8.35,
+      "si_sdr_db": 1.2,
+      "stoi": 0.7668,
+      "pesq": 1.0387,
+      "output_rms": 0.0888,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.73,
+      "output_snr_db": 3.77,
+      "delta_snr_db": 8.5,
+      "si_sdr_db": 1.53,
+      "stoi": 0.805,
+      "pesq": 1.0339,
+      "output_rms": 0.093,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__drone_uav_multicopter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.93,
+      "output_snr_db": 5.8,
+      "delta_snr_db": 4.86,
+      "si_sdr_db": 8.12,
+      "stoi": 0.8066,
+      "pesq": 1.1492,
+      "output_rms": 0.0625,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.93,
+      "output_snr_db": 6.52,
+      "delta_snr_db": 5.58,
+      "si_sdr_db": 8.18,
+      "stoi": 0.86,
+      "pesq": 1.1038,
+      "output_rms": 0.0689,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__drone_uav_multicopter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.81,
+      "output_snr_db": 5.56,
+      "delta_snr_db": -0.25,
+      "si_sdr_db": 10.02,
+      "stoi": 0.8433,
+      "pesq": 1.3347,
+      "output_rms": 0.057,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.81,
+      "output_snr_db": 6.55,
+      "delta_snr_db": 0.74,
+      "si_sdr_db": 10.3,
+      "stoi": 0.8882,
+      "pesq": 1.2403,
+      "output_rms": 0.0643,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__drone_uav_multicopter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "drone_uav_multicopter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 5.11,
+      "delta_snr_db": -5.29,
+      "si_sdr_db": 12.37,
+      "stoi": 0.8615,
+      "pesq": 1.4925,
+      "output_rms": 0.0513,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 6.04,
+      "delta_snr_db": -4.36,
+      "si_sdr_db": 11.77,
+      "stoi": 0.8939,
+      "pesq": 1.3662,
+      "output_rms": 0.0587,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__wind_turbulent_field__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -4.12,
+      "output_snr_db": 5.71,
+      "delta_snr_db": 9.83,
+      "si_sdr_db": 7.58,
+      "stoi": 0.9805,
+      "pesq": 3.0474,
+      "output_rms": 0.0515,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.12,
+      "output_snr_db": 7.27,
+      "delta_snr_db": 11.39,
+      "si_sdr_db": 8.42,
+      "stoi": 0.9761,
+      "pesq": 2.6777,
+      "output_rms": 0.0614,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__wind_turbulent_field__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.04,
+      "delta_snr_db": 7.04,
+      "si_sdr_db": 14.81,
+      "stoi": 0.9825,
+      "pesq": 3.4167,
+      "output_rms": 0.0516,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 9.31,
+      "delta_snr_db": 9.31,
+      "si_sdr_db": 14.2,
+      "stoi": 0.9781,
+      "pesq": 3.5264,
+      "output_rms": 0.0624,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__wind_turbulent_field__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.21,
+      "delta_snr_db": 1.21,
+      "si_sdr_db": 13.66,
+      "stoi": 0.987,
+      "pesq": 3.888,
+      "output_rms": 0.0478,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.14,
+      "delta_snr_db": 3.14,
+      "si_sdr_db": 13.4,
+      "stoi": 0.9823,
+      "pesq": 3.9851,
+      "output_rms": 0.0578,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__wind_turbulent_field__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.45,
+      "delta_snr_db": -4.55,
+      "si_sdr_db": 13.0,
+      "stoi": 0.9885,
+      "pesq": 4.1623,
+      "output_rms": 0.0437,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.08,
+      "delta_snr_db": -2.92,
+      "si_sdr_db": 12.63,
+      "stoi": 0.9838,
+      "pesq": 4.1855,
+      "output_rms": 0.0532,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__wind_turbulent_field__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -2.61,
+      "output_snr_db": 4.99,
+      "delta_snr_db": 7.6,
+      "si_sdr_db": 14.48,
+      "stoi": 0.9642,
+      "pesq": 2.7751,
+      "output_rms": 0.0448,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.61,
+      "output_snr_db": 6.44,
+      "delta_snr_db": 9.05,
+      "si_sdr_db": 13.3,
+      "stoi": 0.9683,
+      "pesq": 2.9248,
+      "output_rms": 0.0547,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__wind_turbulent_field__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 6.06,
+      "delta_snr_db": 5.13,
+      "si_sdr_db": 13.5,
+      "stoi": 0.9707,
+      "pesq": 3.3412,
+      "output_rms": 0.0523,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 7.88,
+      "delta_snr_db": 6.94,
+      "si_sdr_db": 13.14,
+      "stoi": 0.9731,
+      "pesq": 3.5427,
+      "output_rms": 0.0631,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__wind_turbulent_field__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 5.55,
+      "delta_snr_db": -0.25,
+      "si_sdr_db": 15.11,
+      "stoi": 0.9837,
+      "pesq": 3.973,
+      "output_rms": 0.0483,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 7.22,
+      "delta_snr_db": 1.42,
+      "si_sdr_db": 14.2,
+      "stoi": 0.9836,
+      "pesq": 4.0369,
+      "output_rms": 0.0587,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__wind_turbulent_field__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 4.97,
+      "delta_snr_db": -5.43,
+      "si_sdr_db": 13.44,
+      "stoi": 0.988,
+      "pesq": 4.1645,
+      "output_rms": 0.0451,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 6.41,
+      "delta_snr_db": -3.99,
+      "si_sdr_db": 12.88,
+      "stoi": 0.987,
+      "pesq": 4.182,
+      "output_rms": 0.0548,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__wind_turbulent_field__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -4.5,
+      "output_snr_db": 7.14,
+      "delta_snr_db": 11.64,
+      "si_sdr_db": 15.0,
+      "stoi": 0.954,
+      "pesq": 2.943,
+      "output_rms": 0.0611,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.5,
+      "output_snr_db": 9.15,
+      "delta_snr_db": 13.65,
+      "si_sdr_db": 13.53,
+      "stoi": 0.9617,
+      "pesq": 2.899,
+      "output_rms": 0.0732,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__wind_turbulent_field__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 5.41,
+      "delta_snr_db": 4.47,
+      "si_sdr_db": 7.27,
+      "stoi": 0.97,
+      "pesq": 3.5072,
+      "output_rms": 0.0585,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 6.87,
+      "delta_snr_db": 5.94,
+      "si_sdr_db": 8.32,
+      "stoi": 0.9745,
+      "pesq": 3.5409,
+      "output_rms": 0.0689,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__wind_turbulent_field__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.1,
+      "delta_snr_db": 1.1,
+      "si_sdr_db": 10.15,
+      "stoi": 0.9811,
+      "pesq": 4.0054,
+      "output_rms": 0.0586,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.75,
+      "delta_snr_db": 2.75,
+      "si_sdr_db": 10.59,
+      "stoi": 0.9817,
+      "pesq": 3.9106,
+      "output_rms": 0.0696,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__wind_turbulent_field__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 4.81,
+      "delta_snr_db": -5.58,
+      "si_sdr_db": 12.65,
+      "stoi": 0.9895,
+      "pesq": 4.2666,
+      "output_rms": 0.0468,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 6.11,
+      "delta_snr_db": -4.28,
+      "si_sdr_db": 12.06,
+      "stoi": 0.9872,
+      "pesq": 4.1447,
+      "output_rms": 0.0566,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__wind_turbulent_field__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -2.61,
+      "output_snr_db": 4.88,
+      "delta_snr_db": 7.5,
+      "si_sdr_db": 11.87,
+      "stoi": 0.9479,
+      "pesq": 2.7059,
+      "output_rms": 0.0491,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.61,
+      "output_snr_db": 6.16,
+      "delta_snr_db": 8.78,
+      "si_sdr_db": 11.44,
+      "stoi": 0.9542,
+      "pesq": 2.5164,
+      "output_rms": 0.059,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__wind_turbulent_field__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 6.16,
+      "delta_snr_db": 5.23,
+      "si_sdr_db": 15.81,
+      "stoi": 0.9638,
+      "pesq": 3.2487,
+      "output_rms": 0.0562,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 7.87,
+      "delta_snr_db": 6.93,
+      "si_sdr_db": 14.28,
+      "stoi": 0.9665,
+      "pesq": 3.141,
+      "output_rms": 0.0673,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__wind_turbulent_field__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 5.52,
+      "delta_snr_db": -0.28,
+      "si_sdr_db": 14.42,
+      "stoi": 0.9825,
+      "pesq": 3.8608,
+      "output_rms": 0.0525,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 7.02,
+      "delta_snr_db": 1.22,
+      "si_sdr_db": 13.42,
+      "stoi": 0.9801,
+      "pesq": 3.7657,
+      "output_rms": 0.063,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__wind_turbulent_field__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 5.03,
+      "delta_snr_db": -5.37,
+      "si_sdr_db": 13.36,
+      "stoi": 0.9877,
+      "pesq": 4.2292,
+      "output_rms": 0.0494,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 6.37,
+      "delta_snr_db": -4.02,
+      "si_sdr_db": 12.62,
+      "stoi": 0.9841,
+      "pesq": 4.1176,
+      "output_rms": 0.0594,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__wind_turbulent_field__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.39,
+      "output_snr_db": 5.4,
+      "delta_snr_db": 8.79,
+      "si_sdr_db": 8.94,
+      "stoi": 0.943,
+      "pesq": 2.6472,
+      "output_rms": 0.0571,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.39,
+      "output_snr_db": 6.81,
+      "delta_snr_db": 10.2,
+      "si_sdr_db": 9.65,
+      "stoi": 0.9479,
+      "pesq": 2.5342,
+      "output_rms": 0.0674,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__wind_turbulent_field__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.22,
+      "output_snr_db": 5.44,
+      "delta_snr_db": 4.21,
+      "si_sdr_db": 11.0,
+      "stoi": 0.9671,
+      "pesq": 3.2207,
+      "output_rms": 0.0548,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.22,
+      "output_snr_db": 7.03,
+      "delta_snr_db": 5.8,
+      "si_sdr_db": 12.48,
+      "stoi": 0.9674,
+      "pesq": 3.2741,
+      "output_rms": 0.0647,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__wind_turbulent_field__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.76,
+      "delta_snr_db": 1.76,
+      "si_sdr_db": 14.85,
+      "stoi": 0.9807,
+      "pesq": 3.8945,
+      "output_rms": 0.0613,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.62,
+      "delta_snr_db": 3.62,
+      "si_sdr_db": 13.91,
+      "stoi": 0.9786,
+      "pesq": 3.7895,
+      "output_rms": 0.0728,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__wind_turbulent_field__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 4.71,
+      "delta_snr_db": -5.68,
+      "si_sdr_db": 12.35,
+      "stoi": 0.9826,
+      "pesq": 3.999,
+      "output_rms": 0.0481,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 5.93,
+      "delta_snr_db": -4.47,
+      "si_sdr_db": 11.71,
+      "stoi": 0.9801,
+      "pesq": 3.8275,
+      "output_rms": 0.0579,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__wind_turbulent_field__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.98,
+      "output_snr_db": 5.61,
+      "delta_snr_db": 9.58,
+      "si_sdr_db": 7.7,
+      "stoi": 0.9198,
+      "pesq": 2.2091,
+      "output_rms": 0.0632,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.98,
+      "output_snr_db": 7.0,
+      "delta_snr_db": 10.98,
+      "si_sdr_db": 8.5,
+      "stoi": 0.924,
+      "pesq": 2.0764,
+      "output_rms": 0.074,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__wind_turbulent_field__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 6.58,
+      "delta_snr_db": 6.58,
+      "si_sdr_db": 13.43,
+      "stoi": 0.9523,
+      "pesq": 2.8464,
+      "output_rms": 0.0625,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 8.31,
+      "delta_snr_db": 8.31,
+      "si_sdr_db": 12.93,
+      "stoi": 0.95,
+      "pesq": 2.6948,
+      "output_rms": 0.074,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__wind_turbulent_field__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 5.25,
+      "delta_snr_db": -0.55,
+      "si_sdr_db": 15.21,
+      "stoi": 0.9644,
+      "pesq": 3.5163,
+      "output_rms": 0.0522,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 6.61,
+      "delta_snr_db": 0.81,
+      "si_sdr_db": 14.13,
+      "stoi": 0.9577,
+      "pesq": 3.2607,
+      "output_rms": 0.0622,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__wind_turbulent_field__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.61,
+      "delta_snr_db": -4.39,
+      "si_sdr_db": 13.8,
+      "stoi": 0.9699,
+      "pesq": 3.9137,
+      "output_rms": 0.0554,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.01,
+      "delta_snr_db": -2.99,
+      "si_sdr_db": 12.99,
+      "stoi": 0.9672,
+      "pesq": 3.7419,
+      "output_rms": 0.0657,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__wind_turbulent_field__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.64,
+      "output_snr_db": 5.98,
+      "delta_snr_db": 9.62,
+      "si_sdr_db": 13.73,
+      "stoi": 0.9605,
+      "pesq": 2.8884,
+      "output_rms": 0.0494,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.64,
+      "output_snr_db": 7.68,
+      "delta_snr_db": 11.32,
+      "si_sdr_db": 12.78,
+      "stoi": 0.9625,
+      "pesq": 3.055,
+      "output_rms": 0.0598,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__wind_turbulent_field__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 5.91,
+      "delta_snr_db": 4.97,
+      "si_sdr_db": 15.25,
+      "stoi": 0.9756,
+      "pesq": 3.6054,
+      "output_rms": 0.0484,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 7.68,
+      "delta_snr_db": 6.74,
+      "si_sdr_db": 14.17,
+      "stoi": 0.9718,
+      "pesq": 3.7386,
+      "output_rms": 0.0586,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__wind_turbulent_field__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 5.39,
+      "delta_snr_db": -0.41,
+      "si_sdr_db": 15.0,
+      "stoi": 0.9842,
+      "pesq": 4.0608,
+      "output_rms": 0.0453,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 6.98,
+      "delta_snr_db": 1.18,
+      "si_sdr_db": 14.02,
+      "stoi": 0.9785,
+      "pesq": 4.0859,
+      "output_rms": 0.055,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__wind_turbulent_field__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.71,
+      "delta_snr_db": -4.29,
+      "si_sdr_db": 13.07,
+      "stoi": 0.9869,
+      "pesq": 4.1275,
+      "output_rms": 0.0482,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.35,
+      "delta_snr_db": -2.65,
+      "si_sdr_db": 12.54,
+      "stoi": 0.9817,
+      "pesq": 4.1665,
+      "output_rms": 0.0582,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__wind_turbulent_field__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -2.63,
+      "output_snr_db": 4.85,
+      "delta_snr_db": 7.48,
+      "si_sdr_db": 9.11,
+      "stoi": 0.94,
+      "pesq": 2.6438,
+      "output_rms": 0.0522,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.63,
+      "output_snr_db": 6.16,
+      "delta_snr_db": 8.79,
+      "si_sdr_db": 9.84,
+      "stoi": 0.9485,
+      "pesq": 2.6022,
+      "output_rms": 0.062,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__wind_turbulent_field__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.1,
+      "output_snr_db": 7.31,
+      "delta_snr_db": 7.21,
+      "si_sdr_db": 14.22,
+      "stoi": 0.9718,
+      "pesq": 3.5388,
+      "output_rms": 0.0651,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.1,
+      "output_snr_db": 9.3,
+      "delta_snr_db": 9.2,
+      "si_sdr_db": 13.44,
+      "stoi": 0.972,
+      "pesq": 3.3802,
+      "output_rms": 0.0773,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__wind_turbulent_field__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.3,
+      "delta_snr_db": 1.3,
+      "si_sdr_db": 12.72,
+      "stoi": 0.9784,
+      "pesq": 3.6167,
+      "output_rms": 0.0597,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.01,
+      "delta_snr_db": 3.01,
+      "si_sdr_db": 12.67,
+      "stoi": 0.9764,
+      "pesq": 3.6373,
+      "output_rms": 0.0708,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__wind_turbulent_field__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "wind_turbulent_field",
+    "noise_category": "STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.6,
+      "delta_snr_db": -4.4,
+      "si_sdr_db": 10.45,
+      "stoi": 0.988,
+      "pesq": 3.8712,
+      "output_rms": 0.0568,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.13,
+      "delta_snr_db": -2.87,
+      "si_sdr_db": 11.29,
+      "stoi": 0.9848,
+      "pesq": 3.8843,
+      "output_rms": 0.067,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__mechanical_armoured_clatter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -4.77,
+      "output_snr_db": 2.66,
+      "delta_snr_db": 7.43,
+      "si_sdr_db": -0.21,
+      "stoi": 0.8123,
+      "pesq": 1.0335,
+      "output_rms": 0.0779,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.77,
+      "output_snr_db": 2.69,
+      "delta_snr_db": 7.46,
+      "si_sdr_db": 0.04,
+      "stoi": 0.8164,
+      "pesq": 1.0337,
+      "output_rms": 0.0813,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__mechanical_armoured_clatter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 5.62,
+      "delta_snr_db": 5.62,
+      "si_sdr_db": 5.04,
+      "stoi": 0.8709,
+      "pesq": 1.0408,
+      "output_rms": 0.0612,
+      "clipping_count": 5,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 6.27,
+      "delta_snr_db": 6.27,
+      "si_sdr_db": 5.6,
+      "stoi": 0.8726,
+      "pesq": 1.0406,
+      "output_rms": 0.0664,
+      "clipping_count": 5,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__mechanical_armoured_clatter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.79,
+      "output_snr_db": 5.63,
+      "delta_snr_db": -0.17,
+      "si_sdr_db": 10.42,
+      "stoi": 0.9046,
+      "pesq": 1.1201,
+      "output_rms": 0.0466,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.79,
+      "output_snr_db": 6.71,
+      "delta_snr_db": 0.91,
+      "si_sdr_db": 10.23,
+      "stoi": 0.9039,
+      "pesq": 1.0655,
+      "output_rms": 0.0536,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__mechanical_armoured_clatter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.33,
+      "delta_snr_db": -3.67,
+      "si_sdr_db": 12.73,
+      "stoi": 0.9369,
+      "pesq": 1.336,
+      "output_rms": 0.049,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.81,
+      "delta_snr_db": -2.19,
+      "si_sdr_db": 12.17,
+      "stoi": 0.9303,
+      "pesq": 1.1757,
+      "output_rms": 0.0574,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__mechanical_armoured_clatter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.94,
+      "output_snr_db": 3.98,
+      "delta_snr_db": 7.92,
+      "si_sdr_db": 1.89,
+      "stoi": 0.7859,
+      "pesq": 1.0329,
+      "output_rms": 0.0691,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.94,
+      "output_snr_db": 4.2,
+      "delta_snr_db": 8.13,
+      "si_sdr_db": 2.19,
+      "stoi": 0.8,
+      "pesq": 1.0329,
+      "output_rms": 0.0723,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__mechanical_armoured_clatter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 6.09,
+      "delta_snr_db": 6.09,
+      "si_sdr_db": 5.87,
+      "stoi": 0.8497,
+      "pesq": 1.0467,
+      "output_rms": 0.0686,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 6.74,
+      "delta_snr_db": 6.74,
+      "si_sdr_db": 6.36,
+      "stoi": 0.8592,
+      "pesq": 1.0404,
+      "output_rms": 0.0742,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__mechanical_armoured_clatter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.79,
+      "output_snr_db": 5.83,
+      "delta_snr_db": 0.04,
+      "si_sdr_db": 11.66,
+      "stoi": 0.8933,
+      "pesq": 1.1926,
+      "output_rms": 0.052,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.79,
+      "output_snr_db": 6.94,
+      "delta_snr_db": 1.14,
+      "si_sdr_db": 11.46,
+      "stoi": 0.8918,
+      "pesq": 1.1078,
+      "output_rms": 0.0594,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__mechanical_armoured_clatter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.38,
+      "delta_snr_db": -3.62,
+      "si_sdr_db": 12.22,
+      "stoi": 0.93,
+      "pesq": 1.3306,
+      "output_rms": 0.0551,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.65,
+      "delta_snr_db": -2.35,
+      "si_sdr_db": 11.75,
+      "stoi": 0.9267,
+      "pesq": 1.1898,
+      "output_rms": 0.0634,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__mechanical_armoured_clatter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.74,
+      "output_snr_db": 3.74,
+      "delta_snr_db": 7.48,
+      "si_sdr_db": 1.41,
+      "stoi": 0.7705,
+      "pesq": 1.0335,
+      "output_rms": 0.0736,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.74,
+      "output_snr_db": 3.97,
+      "delta_snr_db": 7.71,
+      "si_sdr_db": 1.8,
+      "stoi": 0.7851,
+      "pesq": 1.0333,
+      "output_rms": 0.0761,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__mechanical_armoured_clatter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 3.93,
+      "delta_snr_db": 3.93,
+      "si_sdr_db": 1.69,
+      "stoi": 0.8198,
+      "pesq": 1.0404,
+      "output_rms": 0.0841,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 4.73,
+      "delta_snr_db": 4.73,
+      "si_sdr_db": 2.95,
+      "stoi": 0.8343,
+      "pesq": 1.0387,
+      "output_rms": 0.0857,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__mechanical_armoured_clatter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.97,
+      "delta_snr_db": 1.97,
+      "si_sdr_db": 9.84,
+      "stoi": 0.8791,
+      "pesq": 1.1246,
+      "output_rms": 0.0656,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.83,
+      "delta_snr_db": 2.83,
+      "si_sdr_db": 9.68,
+      "stoi": 0.8857,
+      "pesq": 1.0837,
+      "output_rms": 0.0724,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__mechanical_armoured_clatter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 5.6,
+      "delta_snr_db": -4.8,
+      "si_sdr_db": 13.7,
+      "stoi": 0.9468,
+      "pesq": 1.5122,
+      "output_rms": 0.052,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 6.78,
+      "delta_snr_db": -3.62,
+      "si_sdr_db": 13.09,
+      "stoi": 0.9475,
+      "pesq": 1.3046,
+      "output_rms": 0.0601,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__mechanical_armoured_clatter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -1.75,
+      "output_snr_db": 3.29,
+      "delta_snr_db": 5.03,
+      "si_sdr_db": 1.38,
+      "stoi": 0.6947,
+      "pesq": 1.0327,
+      "output_rms": 0.0584,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -1.75,
+      "output_snr_db": 3.4,
+      "delta_snr_db": 5.14,
+      "si_sdr_db": 1.45,
+      "stoi": 0.7091,
+      "pesq": 1.0326,
+      "output_rms": 0.0606,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__mechanical_armoured_clatter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.15,
+      "output_snr_db": 6.06,
+      "delta_snr_db": 5.91,
+      "si_sdr_db": 5.69,
+      "stoi": 0.788,
+      "pesq": 1.0414,
+      "output_rms": 0.0754,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.15,
+      "output_snr_db": 6.29,
+      "delta_snr_db": 6.14,
+      "si_sdr_db": 5.66,
+      "stoi": 0.8009,
+      "pesq": 1.0384,
+      "output_rms": 0.0797,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__mechanical_armoured_clatter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.27,
+      "delta_snr_db": 2.27,
+      "si_sdr_db": 10.58,
+      "stoi": 0.873,
+      "pesq": 1.1234,
+      "output_rms": 0.0681,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.04,
+      "delta_snr_db": 3.04,
+      "si_sdr_db": 10.42,
+      "stoi": 0.8814,
+      "pesq": 1.0879,
+      "output_rms": 0.0739,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__mechanical_armoured_clatter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 5.46,
+      "delta_snr_db": -4.94,
+      "si_sdr_db": 13.49,
+      "stoi": 0.9445,
+      "pesq": 1.5032,
+      "output_rms": 0.0524,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 6.39,
+      "delta_snr_db": -4.01,
+      "si_sdr_db": 12.89,
+      "stoi": 0.9438,
+      "pesq": 1.3291,
+      "output_rms": 0.0593,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__mechanical_armoured_clatter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -2.26,
+      "output_snr_db": 2.31,
+      "delta_snr_db": 4.58,
+      "si_sdr_db": -1.49,
+      "stoi": 0.6775,
+      "pesq": 1.0333,
+      "output_rms": 0.0757,
+      "clipping_count": 5,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.26,
+      "output_snr_db": 2.49,
+      "delta_snr_db": 4.75,
+      "si_sdr_db": -1.09,
+      "stoi": 0.6938,
+      "pesq": 1.0329,
+      "output_rms": 0.0767,
+      "clipping_count": 5,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__mechanical_armoured_clatter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.77,
+      "output_snr_db": 4.77,
+      "delta_snr_db": 3.01,
+      "si_sdr_db": 4.98,
+      "stoi": 0.7662,
+      "pesq": 1.0521,
+      "output_rms": 0.0621,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.77,
+      "output_snr_db": 5.1,
+      "delta_snr_db": 3.33,
+      "si_sdr_db": 5.25,
+      "stoi": 0.7832,
+      "pesq": 1.0446,
+      "output_rms": 0.0652,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__mechanical_armoured_clatter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.79,
+      "output_snr_db": 5.78,
+      "delta_snr_db": -0.01,
+      "si_sdr_db": 10.99,
+      "stoi": 0.8711,
+      "pesq": 1.2047,
+      "output_rms": 0.0575,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.79,
+      "output_snr_db": 6.4,
+      "delta_snr_db": 0.62,
+      "si_sdr_db": 10.91,
+      "stoi": 0.878,
+      "pesq": 1.1468,
+      "output_rms": 0.0622,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__mechanical_armoured_clatter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.39,
+      "output_snr_db": 5.38,
+      "delta_snr_db": -5.01,
+      "si_sdr_db": 13.38,
+      "stoi": 0.933,
+      "pesq": 1.5006,
+      "output_rms": 0.0527,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.39,
+      "output_snr_db": 6.14,
+      "delta_snr_db": -4.24,
+      "si_sdr_db": 12.91,
+      "stoi": 0.9348,
+      "pesq": 1.3502,
+      "output_rms": 0.0584,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__mechanical_armoured_clatter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -2.68,
+      "output_snr_db": 3.33,
+      "delta_snr_db": 6.01,
+      "si_sdr_db": 1.2,
+      "stoi": 0.6417,
+      "pesq": 1.034,
+      "output_rms": 0.0641,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.68,
+      "output_snr_db": 3.58,
+      "delta_snr_db": 6.26,
+      "si_sdr_db": 1.71,
+      "stoi": 0.6635,
+      "pesq": 1.0337,
+      "output_rms": 0.0654,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__mechanical_armoured_clatter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.31,
+      "output_snr_db": 5.9,
+      "delta_snr_db": 5.59,
+      "si_sdr_db": 6.99,
+      "stoi": 0.7232,
+      "pesq": 1.0426,
+      "output_rms": 0.0686,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.31,
+      "output_snr_db": 6.25,
+      "delta_snr_db": 5.94,
+      "si_sdr_db": 6.94,
+      "stoi": 0.7415,
+      "pesq": 1.0388,
+      "output_rms": 0.0727,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__mechanical_armoured_clatter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.42,
+      "delta_snr_db": 1.42,
+      "si_sdr_db": 9.72,
+      "stoi": 0.8213,
+      "pesq": 1.1511,
+      "output_rms": 0.0658,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.04,
+      "delta_snr_db": 2.04,
+      "si_sdr_db": 9.64,
+      "stoi": 0.8357,
+      "pesq": 1.1161,
+      "output_rms": 0.071,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__mechanical_armoured_clatter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.01,
+      "delta_snr_db": -3.99,
+      "si_sdr_db": 12.12,
+      "stoi": 0.8944,
+      "pesq": 1.3696,
+      "output_rms": 0.0595,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.76,
+      "delta_snr_db": -3.24,
+      "si_sdr_db": 11.86,
+      "stoi": 0.8976,
+      "pesq": 1.2667,
+      "output_rms": 0.0652,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__mechanical_armoured_clatter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.61,
+      "output_snr_db": 2.83,
+      "delta_snr_db": 6.43,
+      "si_sdr_db": -0.26,
+      "stoi": 0.7794,
+      "pesq": 1.0313,
+      "output_rms": 0.0741,
+      "clipping_count": 5,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.61,
+      "output_snr_db": 2.95,
+      "delta_snr_db": 6.55,
+      "si_sdr_db": 0.04,
+      "stoi": 0.7895,
+      "pesq": 1.0313,
+      "output_rms": 0.0768,
+      "clipping_count": 5,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__mechanical_armoured_clatter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 6.51,
+      "delta_snr_db": 6.51,
+      "si_sdr_db": 7.29,
+      "stoi": 0.8511,
+      "pesq": 1.043,
+      "output_rms": 0.063,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 7.17,
+      "delta_snr_db": 7.17,
+      "si_sdr_db": 7.38,
+      "stoi": 0.8536,
+      "pesq": 1.0385,
+      "output_rms": 0.0692,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__mechanical_armoured_clatter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.05,
+      "delta_snr_db": 2.05,
+      "si_sdr_db": 10.75,
+      "stoi": 0.8835,
+      "pesq": 1.1145,
+      "output_rms": 0.0585,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.2,
+      "delta_snr_db": 3.2,
+      "si_sdr_db": 10.49,
+      "stoi": 0.8772,
+      "pesq": 1.0676,
+      "output_rms": 0.0662,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__mechanical_armoured_clatter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 5.33,
+      "delta_snr_db": -5.07,
+      "si_sdr_db": 13.58,
+      "stoi": 0.9298,
+      "pesq": 1.477,
+      "output_rms": 0.0455,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 6.57,
+      "delta_snr_db": -3.82,
+      "si_sdr_db": 12.99,
+      "stoi": 0.9118,
+      "pesq": 1.2563,
+      "output_rms": 0.0534,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__mechanical_armoured_clatter__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -2.89,
+      "output_snr_db": -0.46,
+      "delta_snr_db": 2.43,
+      "si_sdr_db": -5.4,
+      "stoi": 0.6873,
+      "pesq": 1.0343,
+      "output_rms": 0.1151,
+      "clipping_count": 8,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -2.89,
+      "output_snr_db": 0.39,
+      "delta_snr_db": 3.28,
+      "si_sdr_db": -4.07,
+      "stoi": 0.7025,
+      "pesq": 1.0329,
+      "output_rms": 0.1065,
+      "clipping_count": 8,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__mechanical_armoured_clatter__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 6.24,
+      "delta_snr_db": 6.24,
+      "si_sdr_db": 5.87,
+      "stoi": 0.7938,
+      "pesq": 1.0404,
+      "output_rms": 0.0779,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 6.54,
+      "delta_snr_db": 6.54,
+      "si_sdr_db": 6.0,
+      "stoi": 0.8105,
+      "pesq": 1.0375,
+      "output_rms": 0.0819,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__mechanical_armoured_clatter__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 6.34,
+      "delta_snr_db": 0.55,
+      "si_sdr_db": 10.38,
+      "stoi": 0.8579,
+      "pesq": 1.1378,
+      "output_rms": 0.0626,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 7.02,
+      "delta_snr_db": 1.22,
+      "si_sdr_db": 10.03,
+      "stoi": 0.8698,
+      "pesq": 1.0985,
+      "output_rms": 0.0684,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__mechanical_armoured_clatter__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "mechanical_armoured_clatter",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 5.4,
+      "delta_snr_db": -5.0,
+      "si_sdr_db": 13.41,
+      "stoi": 0.9414,
+      "pesq": 1.4526,
+      "output_rms": 0.0529,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 6.25,
+      "delta_snr_db": -4.15,
+      "si_sdr_db": 12.88,
+      "stoi": 0.9429,
+      "pesq": 1.3134,
+      "output_rms": 0.0593,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__tactical_siren_glide__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -4.87,
+      "output_snr_db": 3.49,
+      "delta_snr_db": 8.36,
+      "si_sdr_db": 0.95,
+      "stoi": 0.8313,
+      "pesq": 1.0997,
+      "output_rms": 0.0711,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.87,
+      "output_snr_db": 4.19,
+      "delta_snr_db": 9.06,
+      "si_sdr_db": 2.27,
+      "stoi": 0.8322,
+      "pesq": 1.0635,
+      "output_rms": 0.0793,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__tactical_siren_glide__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 5.43,
+      "delta_snr_db": 4.49,
+      "si_sdr_db": 6.23,
+      "stoi": 0.8658,
+      "pesq": 1.1993,
+      "output_rms": 0.053,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 6.56,
+      "delta_snr_db": 5.62,
+      "si_sdr_db": 6.52,
+      "stoi": 0.87,
+      "pesq": 1.1338,
+      "output_rms": 0.0633,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__tactical_siren_glide__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.81,
+      "output_snr_db": 5.89,
+      "delta_snr_db": 0.08,
+      "si_sdr_db": 9.99,
+      "stoi": 0.8973,
+      "pesq": 1.4042,
+      "output_rms": 0.0487,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.81,
+      "output_snr_db": 7.48,
+      "delta_snr_db": 1.68,
+      "si_sdr_db": 10.0,
+      "stoi": 0.899,
+      "pesq": 1.282,
+      "output_rms": 0.0588,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__tactical_siren_glide__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.41,
+      "output_snr_db": 5.36,
+      "delta_snr_db": -5.05,
+      "si_sdr_db": 14.07,
+      "stoi": 0.9393,
+      "pesq": 1.9928,
+      "output_rms": 0.0427,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.41,
+      "output_snr_db": 6.98,
+      "delta_snr_db": -3.43,
+      "si_sdr_db": 13.68,
+      "stoi": 0.9356,
+      "pesq": 1.7102,
+      "output_rms": 0.0519,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__tactical_siren_glide__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 3.38,
+      "delta_snr_db": 8.38,
+      "si_sdr_db": 0.82,
+      "stoi": 0.8587,
+      "pesq": 1.1131,
+      "output_rms": 0.0809,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -5.0,
+      "output_snr_db": 4.27,
+      "delta_snr_db": 9.27,
+      "si_sdr_db": 2.37,
+      "stoi": 0.8538,
+      "pesq": 1.0748,
+      "output_rms": 0.0873,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__tactical_siren_glide__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 5.29,
+      "delta_snr_db": 5.29,
+      "si_sdr_db": 4.04,
+      "stoi": 0.8914,
+      "pesq": 1.2137,
+      "output_rms": 0.0728,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 6.27,
+      "delta_snr_db": 6.27,
+      "si_sdr_db": 5.14,
+      "stoi": 0.8889,
+      "pesq": 1.1476,
+      "output_rms": 0.0827,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__tactical_siren_glide__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.79,
+      "output_snr_db": 5.79,
+      "delta_snr_db": -0.0,
+      "si_sdr_db": 9.97,
+      "stoi": 0.9318,
+      "pesq": 1.4698,
+      "output_rms": 0.0535,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.79,
+      "output_snr_db": 7.29,
+      "delta_snr_db": 1.5,
+      "si_sdr_db": 10.33,
+      "stoi": 0.9324,
+      "pesq": 1.3264,
+      "output_rms": 0.0634,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__tactical_siren_glide__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.38,
+      "output_snr_db": 5.68,
+      "delta_snr_db": -4.7,
+      "si_sdr_db": 13.09,
+      "stoi": 0.9566,
+      "pesq": 1.859,
+      "output_rms": 0.05,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.38,
+      "output_snr_db": 7.29,
+      "delta_snr_db": -3.09,
+      "si_sdr_db": 13.07,
+      "stoi": 0.9536,
+      "pesq": 1.6285,
+      "output_rms": 0.0599,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__tactical_siren_glide__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -4.88,
+      "output_snr_db": 2.77,
+      "delta_snr_db": 7.65,
+      "si_sdr_db": -0.05,
+      "stoi": 0.8395,
+      "pesq": 1.1401,
+      "output_rms": 0.0907,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.88,
+      "output_snr_db": 3.65,
+      "delta_snr_db": 8.53,
+      "si_sdr_db": 1.56,
+      "stoi": 0.8352,
+      "pesq": 1.0888,
+      "output_rms": 0.0954,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__tactical_siren_glide__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.93,
+      "output_snr_db": 4.61,
+      "delta_snr_db": 3.68,
+      "si_sdr_db": 3.31,
+      "stoi": 0.8817,
+      "pesq": 1.282,
+      "output_rms": 0.0693,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.93,
+      "output_snr_db": 5.79,
+      "delta_snr_db": 4.85,
+      "si_sdr_db": 4.9,
+      "stoi": 0.8799,
+      "pesq": 1.1923,
+      "output_rms": 0.0767,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__tactical_siren_glide__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 5.89,
+      "delta_snr_db": 0.09,
+      "si_sdr_db": 9.63,
+      "stoi": 0.9314,
+      "pesq": 1.5769,
+      "output_rms": 0.0577,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 7.35,
+      "delta_snr_db": 1.55,
+      "si_sdr_db": 10.28,
+      "stoi": 0.9343,
+      "pesq": 1.4023,
+      "output_rms": 0.0675,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__tactical_siren_glide__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.45,
+      "delta_snr_db": -3.55,
+      "si_sdr_db": 13.78,
+      "stoi": 0.9646,
+      "pesq": 2.1038,
+      "output_rms": 0.0575,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 8.15,
+      "delta_snr_db": -1.85,
+      "si_sdr_db": 13.36,
+      "stoi": 0.9626,
+      "pesq": 1.849,
+      "output_rms": 0.068,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__tactical_siren_glide__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -4.55,
+      "output_snr_db": 2.31,
+      "delta_snr_db": 6.86,
+      "si_sdr_db": -0.8,
+      "stoi": 0.8463,
+      "pesq": 1.1806,
+      "output_rms": 0.0946,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.55,
+      "output_snr_db": 3.37,
+      "delta_snr_db": 7.92,
+      "si_sdr_db": 1.02,
+      "stoi": 0.8362,
+      "pesq": 1.1148,
+      "output_rms": 0.0955,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__tactical_siren_glide__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 5.85,
+      "delta_snr_db": 5.85,
+      "si_sdr_db": 5.36,
+      "stoi": 0.9082,
+      "pesq": 1.4134,
+      "output_rms": 0.0747,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 6.99,
+      "delta_snr_db": 6.99,
+      "si_sdr_db": 6.55,
+      "stoi": 0.907,
+      "pesq": 1.2937,
+      "output_rms": 0.0827,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__tactical_siren_glide__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.67,
+      "delta_snr_db": 1.67,
+      "si_sdr_db": 7.95,
+      "stoi": 0.9361,
+      "pesq": 1.6303,
+      "output_rms": 0.0701,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.04,
+      "delta_snr_db": 3.04,
+      "si_sdr_db": 8.87,
+      "stoi": 0.9364,
+      "pesq": 1.4751,
+      "output_rms": 0.0792,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__tactical_siren_glide__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.36,
+      "output_snr_db": 5.84,
+      "delta_snr_db": -4.52,
+      "si_sdr_db": 13.0,
+      "stoi": 0.9643,
+      "pesq": 2.0162,
+      "output_rms": 0.0554,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.36,
+      "output_snr_db": 7.22,
+      "delta_snr_db": -3.14,
+      "si_sdr_db": 12.84,
+      "stoi": 0.9628,
+      "pesq": 1.795,
+      "output_rms": 0.0647,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__tactical_siren_glide__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -4.41,
+      "output_snr_db": 2.78,
+      "delta_snr_db": 7.19,
+      "si_sdr_db": -0.26,
+      "stoi": 0.8325,
+      "pesq": 1.2448,
+      "output_rms": 0.0884,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -4.41,
+      "output_snr_db": 3.62,
+      "delta_snr_db": 8.03,
+      "si_sdr_db": 1.24,
+      "stoi": 0.8189,
+      "pesq": 1.1689,
+      "output_rms": 0.0906,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__tactical_siren_glide__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 5.7,
+      "delta_snr_db": 5.7,
+      "si_sdr_db": 5.36,
+      "stoi": 0.9019,
+      "pesq": 1.515,
+      "output_rms": 0.0733,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 6.68,
+      "delta_snr_db": 6.68,
+      "si_sdr_db": 6.33,
+      "stoi": 0.9005,
+      "pesq": 1.393,
+      "output_rms": 0.0808,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__tactical_siren_glide__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.77,
+      "output_snr_db": 5.83,
+      "delta_snr_db": 0.06,
+      "si_sdr_db": 10.64,
+      "stoi": 0.9468,
+      "pesq": 1.8757,
+      "output_rms": 0.0582,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.77,
+      "output_snr_db": 7.01,
+      "delta_snr_db": 1.24,
+      "si_sdr_db": 10.96,
+      "stoi": 0.9493,
+      "pesq": 1.7143,
+      "output_rms": 0.0665,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__tactical_siren_glide__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.35,
+      "delta_snr_db": -3.65,
+      "si_sdr_db": 12.08,
+      "stoi": 0.9674,
+      "pesq": 2.1513,
+      "output_rms": 0.0605,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.67,
+      "delta_snr_db": -2.33,
+      "si_sdr_db": 12.04,
+      "stoi": 0.9675,
+      "pesq": 1.965,
+      "output_rms": 0.0694,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__tactical_siren_glide__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.46,
+      "output_snr_db": 2.91,
+      "delta_snr_db": 6.37,
+      "si_sdr_db": -0.2,
+      "stoi": 0.8135,
+      "pesq": 1.1941,
+      "output_rms": 0.0796,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.46,
+      "output_snr_db": 3.39,
+      "delta_snr_db": 6.86,
+      "si_sdr_db": 0.74,
+      "stoi": 0.7927,
+      "pesq": 1.1398,
+      "output_rms": 0.0844,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__tactical_siren_glide__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 5.03,
+      "delta_snr_db": 4.09,
+      "si_sdr_db": 4.84,
+      "stoi": 0.8841,
+      "pesq": 1.343,
+      "output_rms": 0.0681,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.94,
+      "output_snr_db": 5.77,
+      "delta_snr_db": 4.83,
+      "si_sdr_db": 5.46,
+      "stoi": 0.8772,
+      "pesq": 1.3059,
+      "output_rms": 0.0754,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__tactical_siren_glide__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.63,
+      "delta_snr_db": 1.63,
+      "si_sdr_db": 11.74,
+      "stoi": 0.9453,
+      "pesq": 1.661,
+      "output_rms": 0.0644,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.84,
+      "delta_snr_db": 2.84,
+      "si_sdr_db": 11.72,
+      "stoi": 0.9451,
+      "pesq": 1.5777,
+      "output_rms": 0.0727,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__tactical_siren_glide__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.99,
+      "delta_snr_db": -4.01,
+      "si_sdr_db": 13.8,
+      "stoi": 0.9704,
+      "pesq": 2.0231,
+      "output_rms": 0.0582,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 7.19,
+      "delta_snr_db": -2.81,
+      "si_sdr_db": 13.41,
+      "stoi": 0.9687,
+      "pesq": 1.9264,
+      "output_rms": 0.0665,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__tactical_siren_glide__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.75,
+      "output_snr_db": 3.44,
+      "delta_snr_db": 7.19,
+      "si_sdr_db": 0.87,
+      "stoi": 0.8351,
+      "pesq": 1.0984,
+      "output_rms": 0.0662,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.75,
+      "output_snr_db": 4.14,
+      "delta_snr_db": 7.89,
+      "si_sdr_db": 2.03,
+      "stoi": 0.831,
+      "pesq": 1.0651,
+      "output_rms": 0.0736,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__tactical_siren_glide__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 5.8,
+      "delta_snr_db": 5.8,
+      "si_sdr_db": 4.96,
+      "stoi": 0.8701,
+      "pesq": 1.1962,
+      "output_rms": 0.069,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 6.65,
+      "delta_snr_db": 6.65,
+      "si_sdr_db": 5.65,
+      "stoi": 0.8671,
+      "pesq": 1.132,
+      "output_rms": 0.0798,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__tactical_siren_glide__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 7.05,
+      "delta_snr_db": 2.05,
+      "si_sdr_db": 10.5,
+      "stoi": 0.9144,
+      "pesq": 1.4496,
+      "output_rms": 0.0589,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.82,
+      "delta_snr_db": 3.82,
+      "si_sdr_db": 10.64,
+      "stoi": 0.9106,
+      "pesq": 1.3055,
+      "output_rms": 0.0697,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__tactical_siren_glide__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.38,
+      "output_snr_db": 5.48,
+      "delta_snr_db": -4.91,
+      "si_sdr_db": 13.18,
+      "stoi": 0.9356,
+      "pesq": 1.8159,
+      "output_rms": 0.0466,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.38,
+      "output_snr_db": 7.0,
+      "delta_snr_db": -3.39,
+      "si_sdr_db": 12.78,
+      "stoi": 0.9289,
+      "pesq": 1.5685,
+      "output_rms": 0.056,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__tactical_siren_glide__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -3.44,
+      "output_snr_db": 3.07,
+      "delta_snr_db": 6.51,
+      "si_sdr_db": 0.14,
+      "stoi": 0.8467,
+      "pesq": 1.1851,
+      "output_rms": 0.0754,
+      "clipping_count": 4,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -3.44,
+      "output_snr_db": 3.95,
+      "delta_snr_db": 7.38,
+      "si_sdr_db": 1.77,
+      "stoi": 0.837,
+      "pesq": 1.13,
+      "output_rms": 0.0782,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__tactical_siren_glide__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 5.27,
+      "delta_snr_db": 5.27,
+      "si_sdr_db": 4.04,
+      "stoi": 0.902,
+      "pesq": 1.3274,
+      "output_rms": 0.0798,
+      "clipping_count": 3,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.0,
+      "output_snr_db": 6.3,
+      "delta_snr_db": 6.3,
+      "si_sdr_db": 5.32,
+      "stoi": 0.8995,
+      "pesq": 1.2486,
+      "output_rms": 0.0868,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__tactical_siren_glide__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.71,
+      "delta_snr_db": 1.71,
+      "si_sdr_db": 8.1,
+      "stoi": 0.9346,
+      "pesq": 1.5454,
+      "output_rms": 0.071,
+      "clipping_count": 2,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 8.05,
+      "delta_snr_db": 3.05,
+      "si_sdr_db": 8.99,
+      "stoi": 0.9369,
+      "pesq": 1.448,
+      "output_rms": 0.08,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__tactical_siren_glide__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "tactical_siren_glide",
+    "noise_category": "NON_STATIONARY",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.82,
+      "delta_snr_db": -3.18,
+      "si_sdr_db": 11.66,
+      "stoi": 0.9588,
+      "pesq": 1.8219,
+      "output_rms": 0.0644,
+      "clipping_count": 1,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 8.34,
+      "delta_snr_db": -1.66,
+      "si_sdr_db": 11.83,
+      "stoi": 0.9603,
+      "pesq": 1.7003,
+      "output_rms": 0.0741,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__gunshot_transient_insas__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": 0.93,
+      "output_snr_db": 0.46,
+      "delta_snr_db": -0.47,
+      "si_sdr_db": 3.35,
+      "stoi": 0.7893,
+      "pesq": 1.0413,
+      "output_rms": 0.0057,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.93,
+      "output_snr_db": 0.56,
+      "delta_snr_db": -0.37,
+      "si_sdr_db": 4.48,
+      "stoi": 0.798,
+      "pesq": 1.0394,
+      "output_rms": 0.0066,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__gunshot_transient_insas__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 2.38,
+      "output_snr_db": 1.27,
+      "delta_snr_db": -1.12,
+      "si_sdr_db": 8.36,
+      "stoi": 0.8434,
+      "pesq": 1.075,
+      "output_rms": 0.0131,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 2.38,
+      "output_snr_db": 1.5,
+      "delta_snr_db": -0.89,
+      "si_sdr_db": 8.7,
+      "stoi": 0.8458,
+      "pesq": 1.0475,
+      "output_rms": 0.0153,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__gunshot_transient_insas__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.68,
+      "output_snr_db": 2.71,
+      "delta_snr_db": -2.97,
+      "si_sdr_db": 10.58,
+      "stoi": 0.9096,
+      "pesq": 1.2075,
+      "output_rms": 0.0254,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.68,
+      "output_snr_db": 3.25,
+      "delta_snr_db": -2.43,
+      "si_sdr_db": 10.42,
+      "stoi": 0.9059,
+      "pesq": 1.1095,
+      "output_rms": 0.0298,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__gunshot_transient_insas__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 4.68,
+      "delta_snr_db": -5.32,
+      "si_sdr_db": 10.52,
+      "stoi": 0.9107,
+      "pesq": 1.424,
+      "output_rms": 0.0402,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.68,
+      "delta_snr_db": -4.32,
+      "si_sdr_db": 10.26,
+      "stoi": 0.9077,
+      "pesq": 1.2228,
+      "output_rms": 0.0471,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__gunshot_transient_insas__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": 0.98,
+      "output_snr_db": 0.56,
+      "delta_snr_db": -0.41,
+      "si_sdr_db": 3.31,
+      "stoi": 0.7682,
+      "pesq": 1.0354,
+      "output_rms": 0.0077,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.98,
+      "output_snr_db": 0.63,
+      "delta_snr_db": -0.35,
+      "si_sdr_db": 3.91,
+      "stoi": 0.7816,
+      "pesq": 1.0339,
+      "output_rms": 0.0084,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__gunshot_transient_insas__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 2.12,
+      "output_snr_db": 1.07,
+      "delta_snr_db": -1.05,
+      "si_sdr_db": 10.62,
+      "stoi": 0.8554,
+      "pesq": 1.1534,
+      "output_rms": 0.012,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 2.12,
+      "output_snr_db": 1.27,
+      "delta_snr_db": -0.85,
+      "si_sdr_db": 10.58,
+      "stoi": 0.8562,
+      "pesq": 1.0849,
+      "output_rms": 0.0142,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__gunshot_transient_insas__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 4.93,
+      "output_snr_db": 2.17,
+      "delta_snr_db": -2.76,
+      "si_sdr_db": 10.84,
+      "stoi": 0.8999,
+      "pesq": 1.3617,
+      "output_rms": 0.0232,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 4.93,
+      "output_snr_db": 2.63,
+      "delta_snr_db": -2.31,
+      "si_sdr_db": 10.6,
+      "stoi": 0.8974,
+      "pesq": 1.1906,
+      "output_rms": 0.0275,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__gunshot_transient_insas__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 9.65,
+      "output_snr_db": 3.36,
+      "delta_snr_db": -6.29,
+      "si_sdr_db": 10.34,
+      "stoi": 0.9405,
+      "pesq": 1.7236,
+      "output_rms": 0.0341,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 9.65,
+      "output_snr_db": 4.14,
+      "delta_snr_db": -5.51,
+      "si_sdr_db": 10.06,
+      "stoi": 0.938,
+      "pesq": 1.4859,
+      "output_rms": 0.0408,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__gunshot_transient_insas__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": 1.06,
+      "output_snr_db": 0.67,
+      "delta_snr_db": -0.39,
+      "si_sdr_db": 5.37,
+      "stoi": 0.7493,
+      "pesq": 1.0378,
+      "output_rms": 0.0089,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.06,
+      "output_snr_db": 0.74,
+      "delta_snr_db": -0.32,
+      "si_sdr_db": 5.72,
+      "stoi": 0.7689,
+      "pesq": 1.0357,
+      "output_rms": 0.0098,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__gunshot_transient_insas__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 2.0,
+      "output_snr_db": 1.01,
+      "delta_snr_db": -0.99,
+      "si_sdr_db": 8.93,
+      "stoi": 0.8248,
+      "pesq": 1.101,
+      "output_rms": 0.0123,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 2.0,
+      "output_snr_db": 1.14,
+      "delta_snr_db": -0.85,
+      "si_sdr_db": 8.98,
+      "stoi": 0.8384,
+      "pesq": 1.0637,
+      "output_rms": 0.0139,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__gunshot_transient_insas__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.68,
+      "output_snr_db": 2.73,
+      "delta_snr_db": -2.96,
+      "si_sdr_db": 9.8,
+      "stoi": 0.8846,
+      "pesq": 1.2373,
+      "output_rms": 0.0303,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.68,
+      "output_snr_db": 3.16,
+      "delta_snr_db": -2.53,
+      "si_sdr_db": 9.67,
+      "stoi": 0.8919,
+      "pesq": 1.1373,
+      "output_rms": 0.0345,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__gunshot_transient_insas__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.41,
+      "output_snr_db": 3.84,
+      "delta_snr_db": -6.57,
+      "si_sdr_db": 9.66,
+      "stoi": 0.9462,
+      "pesq": 1.8991,
+      "output_rms": 0.0408,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.41,
+      "output_snr_db": 4.63,
+      "delta_snr_db": -5.77,
+      "si_sdr_db": 9.37,
+      "stoi": 0.9474,
+      "pesq": 1.5649,
+      "output_rms": 0.0479,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__gunshot_transient_insas__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": 1.02,
+      "output_snr_db": 0.6,
+      "delta_snr_db": -0.42,
+      "si_sdr_db": 6.64,
+      "stoi": 0.7425,
+      "pesq": 1.0449,
+      "output_rms": 0.008,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.02,
+      "output_snr_db": 0.65,
+      "delta_snr_db": -0.36,
+      "si_sdr_db": 6.85,
+      "stoi": 0.7706,
+      "pesq": 1.0368,
+      "output_rms": 0.0087,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__gunshot_transient_insas__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 2.44,
+      "output_snr_db": 1.36,
+      "delta_snr_db": -1.07,
+      "si_sdr_db": 9.77,
+      "stoi": 0.8338,
+      "pesq": 1.1184,
+      "output_rms": 0.0166,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 2.44,
+      "output_snr_db": 1.51,
+      "delta_snr_db": -0.92,
+      "si_sdr_db": 9.66,
+      "stoi": 0.8459,
+      "pesq": 1.079,
+      "output_rms": 0.0183,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__gunshot_transient_insas__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 4.84,
+      "output_snr_db": 2.11,
+      "delta_snr_db": -2.73,
+      "si_sdr_db": 10.57,
+      "stoi": 0.871,
+      "pesq": 1.4861,
+      "output_rms": 0.0246,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 4.84,
+      "output_snr_db": 2.48,
+      "delta_snr_db": -2.36,
+      "si_sdr_db": 10.37,
+      "stoi": 0.8783,
+      "pesq": 1.3309,
+      "output_rms": 0.0284,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__gunshot_transient_insas__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 8.53,
+      "output_snr_db": 2.86,
+      "delta_snr_db": -5.67,
+      "si_sdr_db": 9.66,
+      "stoi": 0.9313,
+      "pesq": 1.6662,
+      "output_rms": 0.0325,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 8.53,
+      "output_snr_db": 3.39,
+      "delta_snr_db": -5.13,
+      "si_sdr_db": 9.33,
+      "stoi": 0.9351,
+      "pesq": 1.5009,
+      "output_rms": 0.0379,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__gunshot_transient_insas__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": 1.07,
+      "output_snr_db": 0.66,
+      "delta_snr_db": -0.41,
+      "si_sdr_db": 3.82,
+      "stoi": 0.702,
+      "pesq": 1.0362,
+      "output_rms": 0.0097,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.07,
+      "output_snr_db": 0.72,
+      "delta_snr_db": -0.35,
+      "si_sdr_db": 4.24,
+      "stoi": 0.7302,
+      "pesq": 1.0335,
+      "output_rms": 0.0104,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__gunshot_transient_insas__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.97,
+      "output_snr_db": 0.92,
+      "delta_snr_db": -1.05,
+      "si_sdr_db": 9.64,
+      "stoi": 0.8167,
+      "pesq": 1.1903,
+      "output_rms": 0.0116,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.97,
+      "output_snr_db": 1.04,
+      "delta_snr_db": -0.93,
+      "si_sdr_db": 9.79,
+      "stoi": 0.8358,
+      "pesq": 1.1352,
+      "output_rms": 0.0131,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__gunshot_transient_insas__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 4.82,
+      "output_snr_db": 2.15,
+      "delta_snr_db": -2.67,
+      "si_sdr_db": 11.25,
+      "stoi": 0.8982,
+      "pesq": 1.4568,
+      "output_rms": 0.0251,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 4.82,
+      "output_snr_db": 2.46,
+      "delta_snr_db": -2.36,
+      "si_sdr_db": 10.98,
+      "stoi": 0.908,
+      "pesq": 1.3424,
+      "output_rms": 0.0284,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__gunshot_transient_insas__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.38,
+      "output_snr_db": 4.33,
+      "delta_snr_db": -6.06,
+      "si_sdr_db": 9.82,
+      "stoi": 0.9253,
+      "pesq": 1.4902,
+      "output_rms": 0.0467,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.38,
+      "output_snr_db": 4.88,
+      "delta_snr_db": -5.51,
+      "si_sdr_db": 9.57,
+      "stoi": 0.929,
+      "pesq": 1.3465,
+      "output_rms": 0.0518,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__gunshot_transient_insas__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": 0.98,
+      "output_snr_db": 0.49,
+      "delta_snr_db": -0.49,
+      "si_sdr_db": 3.77,
+      "stoi": 0.657,
+      "pesq": 1.058,
+      "output_rms": 0.0073,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.98,
+      "output_snr_db": 0.54,
+      "delta_snr_db": -0.43,
+      "si_sdr_db": 4.47,
+      "stoi": 0.689,
+      "pesq": 1.0467,
+      "output_rms": 0.008,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__gunshot_transient_insas__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 2.38,
+      "output_snr_db": 1.18,
+      "delta_snr_db": -1.2,
+      "si_sdr_db": 6.47,
+      "stoi": 0.7323,
+      "pesq": 1.1112,
+      "output_rms": 0.016,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 2.38,
+      "output_snr_db": 1.29,
+      "delta_snr_db": -1.09,
+      "si_sdr_db": 6.84,
+      "stoi": 0.7478,
+      "pesq": 1.0895,
+      "output_rms": 0.0173,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__gunshot_transient_insas__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.5,
+      "output_snr_db": 2.47,
+      "delta_snr_db": -3.03,
+      "si_sdr_db": 9.83,
+      "stoi": 0.8369,
+      "pesq": 1.2593,
+      "output_rms": 0.0297,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.5,
+      "output_snr_db": 2.73,
+      "delta_snr_db": -2.77,
+      "si_sdr_db": 9.77,
+      "stoi": 0.8461,
+      "pesq": 1.2083,
+      "output_rms": 0.0324,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__gunshot_transient_insas__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.01,
+      "output_snr_db": 3.55,
+      "delta_snr_db": -6.46,
+      "si_sdr_db": 10.19,
+      "stoi": 0.9019,
+      "pesq": 1.5187,
+      "output_rms": 0.0403,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.01,
+      "output_snr_db": 3.95,
+      "delta_snr_db": -6.06,
+      "si_sdr_db": 9.99,
+      "stoi": 0.9072,
+      "pesq": 1.4281,
+      "output_rms": 0.0442,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__gunshot_transient_insas__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": 1.17,
+      "output_snr_db": 0.94,
+      "delta_snr_db": -0.23,
+      "si_sdr_db": 7.41,
+      "stoi": 0.7778,
+      "pesq": 1.0372,
+      "output_rms": 0.0107,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.17,
+      "output_snr_db": 1.04,
+      "delta_snr_db": -0.13,
+      "si_sdr_db": 7.42,
+      "stoi": 0.7806,
+      "pesq": 1.0347,
+      "output_rms": 0.0118,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__gunshot_transient_insas__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 2.55,
+      "output_snr_db": 1.46,
+      "delta_snr_db": -1.1,
+      "si_sdr_db": 8.38,
+      "stoi": 0.8212,
+      "pesq": 1.0893,
+      "output_rms": 0.0159,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 2.55,
+      "output_snr_db": 1.66,
+      "delta_snr_db": -0.89,
+      "si_sdr_db": 8.56,
+      "stoi": 0.818,
+      "pesq": 1.0509,
+      "output_rms": 0.018,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__gunshot_transient_insas__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 4.86,
+      "output_snr_db": 2.1,
+      "delta_snr_db": -2.76,
+      "si_sdr_db": 11.24,
+      "stoi": 0.8926,
+      "pesq": 1.4697,
+      "output_rms": 0.0214,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 4.86,
+      "output_snr_db": 2.58,
+      "delta_snr_db": -2.28,
+      "si_sdr_db": 10.87,
+      "stoi": 0.8802,
+      "pesq": 1.251,
+      "output_rms": 0.0258,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__gunshot_transient_insas__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.04,
+      "output_snr_db": 3.55,
+      "delta_snr_db": -6.49,
+      "si_sdr_db": 9.71,
+      "stoi": 0.8918,
+      "pesq": 1.4978,
+      "output_rms": 0.0346,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.04,
+      "output_snr_db": 4.28,
+      "delta_snr_db": -5.76,
+      "si_sdr_db": 9.47,
+      "stoi": 0.8833,
+      "pesq": 1.2829,
+      "output_rms": 0.0406,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__gunshot_transient_insas__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": 1.06,
+      "output_snr_db": 0.63,
+      "delta_snr_db": -0.44,
+      "si_sdr_db": 5.12,
+      "stoi": 0.7217,
+      "pesq": 1.04,
+      "output_rms": 0.0088,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.06,
+      "output_snr_db": 0.68,
+      "delta_snr_db": -0.38,
+      "si_sdr_db": 5.43,
+      "stoi": 0.7486,
+      "pesq": 1.0351,
+      "output_rms": 0.0095,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__gunshot_transient_insas__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.95,
+      "output_snr_db": 0.98,
+      "delta_snr_db": -0.97,
+      "si_sdr_db": 8.67,
+      "stoi": 0.8135,
+      "pesq": 1.1149,
+      "output_rms": 0.0126,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.95,
+      "output_snr_db": 1.1,
+      "delta_snr_db": -0.85,
+      "si_sdr_db": 8.84,
+      "stoi": 0.8278,
+      "pesq": 1.0806,
+      "output_rms": 0.014,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__gunshot_transient_insas__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 4.68,
+      "output_snr_db": 2.12,
+      "delta_snr_db": -2.56,
+      "si_sdr_db": 9.35,
+      "stoi": 0.8548,
+      "pesq": 1.2219,
+      "output_rms": 0.0254,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 4.68,
+      "output_snr_db": 2.38,
+      "delta_snr_db": -2.3,
+      "si_sdr_db": 9.32,
+      "stoi": 0.8638,
+      "pesq": 1.1575,
+      "output_rms": 0.0283,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__gunshot_transient_insas__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "gunshot_transient_insas",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.34,
+      "output_snr_db": 4.01,
+      "delta_snr_db": -6.33,
+      "si_sdr_db": 9.7,
+      "stoi": 0.9238,
+      "pesq": 1.4609,
+      "output_rms": 0.044,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.34,
+      "output_snr_db": 4.52,
+      "delta_snr_db": -5.82,
+      "si_sdr_db": 9.44,
+      "stoi": 0.9284,
+      "pesq": 1.3424,
+      "output_rms": 0.0489,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__artillery_broadband_blast__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -0.98,
+      "output_snr_db": 3.24,
+      "delta_snr_db": 4.22,
+      "si_sdr_db": 7.05,
+      "stoi": 0.8701,
+      "pesq": 1.0362,
+      "output_rms": 0.032,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.98,
+      "output_snr_db": 3.49,
+      "delta_snr_db": 4.47,
+      "si_sdr_db": 7.01,
+      "stoi": 0.8722,
+      "pesq": 1.0363,
+      "output_rms": 0.0342,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__artillery_broadband_blast__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 6.39,
+      "delta_snr_db": 6.39,
+      "si_sdr_db": 12.16,
+      "stoi": 0.9258,
+      "pesq": 1.085,
+      "output_rms": 0.0497,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.0,
+      "output_snr_db": 7.44,
+      "delta_snr_db": 7.44,
+      "si_sdr_db": 11.69,
+      "stoi": 0.9218,
+      "pesq": 1.0514,
+      "output_rms": 0.056,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__artillery_broadband_blast__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.81,
+      "output_snr_db": 4.8,
+      "delta_snr_db": -1.01,
+      "si_sdr_db": 12.61,
+      "stoi": 0.9428,
+      "pesq": 1.1866,
+      "output_rms": 0.0398,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.81,
+      "output_snr_db": 5.72,
+      "delta_snr_db": -0.08,
+      "si_sdr_db": 11.93,
+      "stoi": 0.9397,
+      "pesq": 1.09,
+      "output_rms": 0.046,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_001__artillery_broadband_blast__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_001",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.06,
+      "delta_snr_db": -4.94,
+      "si_sdr_db": 11.39,
+      "stoi": 0.9569,
+      "pesq": 1.4036,
+      "output_rms": 0.0422,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.11,
+      "delta_snr_db": -3.89,
+      "si_sdr_db": 10.81,
+      "stoi": 0.9515,
+      "pesq": 1.2167,
+      "output_rms": 0.0493,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__artillery_broadband_blast__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -1.22,
+      "output_snr_db": 3.53,
+      "delta_snr_db": 4.75,
+      "si_sdr_db": 7.83,
+      "stoi": 0.8482,
+      "pesq": 1.0357,
+      "output_rms": 0.0375,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -1.22,
+      "output_snr_db": 3.78,
+      "delta_snr_db": 5.0,
+      "si_sdr_db": 7.8,
+      "stoi": 0.8561,
+      "pesq": 1.0358,
+      "output_rms": 0.0398,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__artillery_broadband_blast__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.2,
+      "output_snr_db": 5.0,
+      "delta_snr_db": 3.8,
+      "si_sdr_db": 11.25,
+      "stoi": 0.9083,
+      "pesq": 1.0673,
+      "output_rms": 0.0465,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.2,
+      "output_snr_db": 5.63,
+      "delta_snr_db": 4.43,
+      "si_sdr_db": 10.89,
+      "stoi": 0.9109,
+      "pesq": 1.0479,
+      "output_rms": 0.0513,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__artillery_broadband_blast__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 5.83,
+      "delta_snr_db": 0.83,
+      "si_sdr_db": 12.89,
+      "stoi": 0.9476,
+      "pesq": 1.2965,
+      "output_rms": 0.0511,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.93,
+      "delta_snr_db": 1.93,
+      "si_sdr_db": 12.38,
+      "stoi": 0.9448,
+      "pesq": 1.1664,
+      "output_rms": 0.0584,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_002__artillery_broadband_blast__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_002",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.39,
+      "output_snr_db": 4.4,
+      "delta_snr_db": -6.0,
+      "si_sdr_db": 11.18,
+      "stoi": 0.9594,
+      "pesq": 1.4577,
+      "output_rms": 0.042,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.39,
+      "output_snr_db": 5.22,
+      "delta_snr_db": -5.17,
+      "si_sdr_db": 10.71,
+      "stoi": 0.9543,
+      "pesq": 1.2406,
+      "output_rms": 0.0486,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__artillery_broadband_blast__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -0.73,
+      "output_snr_db": 3.2,
+      "delta_snr_db": 3.93,
+      "si_sdr_db": 7.39,
+      "stoi": 0.8268,
+      "pesq": 1.0353,
+      "output_rms": 0.0367,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.73,
+      "output_snr_db": 3.38,
+      "delta_snr_db": 4.11,
+      "si_sdr_db": 7.35,
+      "stoi": 0.836,
+      "pesq": 1.0352,
+      "output_rms": 0.0386,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__artillery_broadband_blast__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.53,
+      "output_snr_db": 5.11,
+      "delta_snr_db": 3.57,
+      "si_sdr_db": 10.76,
+      "stoi": 0.882,
+      "pesq": 1.0478,
+      "output_rms": 0.0504,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.53,
+      "output_snr_db": 5.59,
+      "delta_snr_db": 4.06,
+      "si_sdr_db": 10.53,
+      "stoi": 0.8894,
+      "pesq": 1.0426,
+      "output_rms": 0.0543,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__artillery_broadband_blast__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 5.39,
+      "delta_snr_db": 0.39,
+      "si_sdr_db": 11.79,
+      "stoi": 0.9463,
+      "pesq": 1.3537,
+      "output_rms": 0.0516,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.29,
+      "delta_snr_db": 1.29,
+      "si_sdr_db": 11.31,
+      "stoi": 0.9473,
+      "pesq": 1.2101,
+      "output_rms": 0.0585,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_003__artillery_broadband_blast__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_003",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 4.11,
+      "delta_snr_db": -6.29,
+      "si_sdr_db": 10.14,
+      "stoi": 0.9687,
+      "pesq": 1.4633,
+      "output_rms": 0.0428,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 4.82,
+      "delta_snr_db": -5.57,
+      "si_sdr_db": 9.71,
+      "stoi": 0.9672,
+      "pesq": 1.2652,
+      "output_rms": 0.0491,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__artillery_broadband_blast__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": 0.06,
+      "output_snr_db": 2.55,
+      "delta_snr_db": 2.48,
+      "si_sdr_db": 10.32,
+      "stoi": 0.8189,
+      "pesq": 1.0441,
+      "output_rms": 0.0291,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.06,
+      "output_snr_db": 2.73,
+      "delta_snr_db": 2.67,
+      "si_sdr_db": 10.11,
+      "stoi": 0.8343,
+      "pesq": 1.0392,
+      "output_rms": 0.0311,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__artillery_broadband_blast__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.44,
+      "output_snr_db": 4.98,
+      "delta_snr_db": 3.54,
+      "si_sdr_db": 10.95,
+      "stoi": 0.878,
+      "pesq": 1.0563,
+      "output_rms": 0.0505,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.44,
+      "output_snr_db": 5.37,
+      "delta_snr_db": 3.93,
+      "si_sdr_db": 10.7,
+      "stoi": 0.8867,
+      "pesq": 1.0459,
+      "output_rms": 0.0538,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__artillery_broadband_blast__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 5.6,
+      "delta_snr_db": 0.6,
+      "si_sdr_db": 11.07,
+      "stoi": 0.9238,
+      "pesq": 1.1914,
+      "output_rms": 0.0552,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.23,
+      "delta_snr_db": 1.22,
+      "si_sdr_db": 10.68,
+      "stoi": 0.9268,
+      "pesq": 1.1329,
+      "output_rms": 0.0604,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_004__artillery_broadband_blast__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_004",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 4.24,
+      "delta_snr_db": -6.15,
+      "si_sdr_db": 10.15,
+      "stoi": 0.9508,
+      "pesq": 1.4637,
+      "output_rms": 0.045,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 4.85,
+      "delta_snr_db": -5.55,
+      "si_sdr_db": 9.75,
+      "stoi": 0.952,
+      "pesq": 1.298,
+      "output_rms": 0.0506,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__artillery_broadband_blast__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -0.04,
+      "output_snr_db": 2.59,
+      "delta_snr_db": 2.63,
+      "si_sdr_db": 9.03,
+      "stoi": 0.7869,
+      "pesq": 1.0373,
+      "output_rms": 0.0306,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.04,
+      "output_snr_db": 2.75,
+      "delta_snr_db": 2.79,
+      "si_sdr_db": 8.94,
+      "stoi": 0.8055,
+      "pesq": 1.0368,
+      "output_rms": 0.0323,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__artillery_broadband_blast__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.47,
+      "output_snr_db": 5.07,
+      "delta_snr_db": 3.6,
+      "si_sdr_db": 11.33,
+      "stoi": 0.8651,
+      "pesq": 1.0738,
+      "output_rms": 0.0516,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.47,
+      "output_snr_db": 5.46,
+      "delta_snr_db": 3.99,
+      "si_sdr_db": 11.1,
+      "stoi": 0.8701,
+      "pesq": 1.059,
+      "output_rms": 0.0549,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__artillery_broadband_blast__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 5.43,
+      "delta_snr_db": 0.42,
+      "si_sdr_db": 11.78,
+      "stoi": 0.9276,
+      "pesq": 1.4675,
+      "output_rms": 0.054,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.0,
+      "output_snr_db": 6.05,
+      "delta_snr_db": 1.05,
+      "si_sdr_db": 11.4,
+      "stoi": 0.9316,
+      "pesq": 1.3109,
+      "output_rms": 0.0591,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_005__artillery_broadband_blast__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_005",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.26,
+      "delta_snr_db": -4.75,
+      "si_sdr_db": 11.04,
+      "stoi": 0.9479,
+      "pesq": 1.4948,
+      "output_rms": 0.0534,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.82,
+      "delta_snr_db": -4.18,
+      "si_sdr_db": 10.69,
+      "stoi": 0.9502,
+      "pesq": 1.3654,
+      "output_rms": 0.0581,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__artillery_broadband_blast__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -0.39,
+      "output_snr_db": 2.76,
+      "delta_snr_db": 3.14,
+      "si_sdr_db": 7.71,
+      "stoi": 0.7394,
+      "pesq": 1.0357,
+      "output_rms": 0.0341,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.39,
+      "output_snr_db": 2.91,
+      "delta_snr_db": 3.29,
+      "si_sdr_db": 7.7,
+      "stoi": 0.7548,
+      "pesq": 1.0355,
+      "output_rms": 0.0357,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__artillery_broadband_blast__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.85,
+      "output_snr_db": 4.24,
+      "delta_snr_db": 2.38,
+      "si_sdr_db": 10.14,
+      "stoi": 0.8255,
+      "pesq": 1.0558,
+      "output_rms": 0.0467,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.85,
+      "output_snr_db": 4.54,
+      "delta_snr_db": 2.69,
+      "si_sdr_db": 10.05,
+      "stoi": 0.8341,
+      "pesq": 1.047,
+      "output_rms": 0.0495,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__artillery_broadband_blast__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 4.65,
+      "delta_snr_db": -1.14,
+      "si_sdr_db": 12.95,
+      "stoi": 0.8909,
+      "pesq": 1.3967,
+      "output_rms": 0.0485,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 5.16,
+      "delta_snr_db": -0.64,
+      "si_sdr_db": 12.59,
+      "stoi": 0.8969,
+      "pesq": 1.2869,
+      "output_rms": 0.0527,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_006__artillery_broadband_blast__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_006",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 4.95,
+      "delta_snr_db": -5.05,
+      "si_sdr_db": 11.3,
+      "stoi": 0.94,
+      "pesq": 1.5069,
+      "output_rms": 0.0519,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.5,
+      "delta_snr_db": -4.5,
+      "si_sdr_db": 11.0,
+      "stoi": 0.9419,
+      "pesq": 1.3849,
+      "output_rms": 0.0567,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__artillery_broadband_blast__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -1.35,
+      "output_snr_db": 3.66,
+      "delta_snr_db": 5.01,
+      "si_sdr_db": 7.14,
+      "stoi": 0.847,
+      "pesq": 1.0337,
+      "output_rms": 0.0378,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -1.35,
+      "output_snr_db": 3.89,
+      "delta_snr_db": 5.24,
+      "si_sdr_db": 7.1,
+      "stoi": 0.8508,
+      "pesq": 1.0338,
+      "output_rms": 0.04,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__artillery_broadband_blast__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 0.74,
+      "output_snr_db": 5.76,
+      "delta_snr_db": 5.02,
+      "si_sdr_db": 10.58,
+      "stoi": 0.889,
+      "pesq": 1.0423,
+      "output_rms": 0.0504,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 0.74,
+      "output_snr_db": 6.39,
+      "delta_snr_db": 5.64,
+      "si_sdr_db": 10.26,
+      "stoi": 0.8869,
+      "pesq": 1.0411,
+      "output_rms": 0.0549,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__artillery_broadband_blast__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 4.71,
+      "delta_snr_db": -1.09,
+      "si_sdr_db": 11.85,
+      "stoi": 0.9297,
+      "pesq": 1.1941,
+      "output_rms": 0.0421,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 5.52,
+      "delta_snr_db": -0.28,
+      "si_sdr_db": 11.24,
+      "stoi": 0.9189,
+      "pesq": 1.1044,
+      "output_rms": 0.0481,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_007__artillery_broadband_blast__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_007",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 5.15,
+      "delta_snr_db": -4.85,
+      "si_sdr_db": 11.5,
+      "stoi": 0.9544,
+      "pesq": 1.4229,
+      "output_rms": 0.0455,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.0,
+      "output_snr_db": 6.19,
+      "delta_snr_db": -3.82,
+      "si_sdr_db": 10.89,
+      "stoi": 0.9382,
+      "pesq": 1.2187,
+      "output_rms": 0.0529,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__artillery_broadband_blast__-5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": -5.0,
+    "baseline": {
+      "input_snr_db": -0.02,
+      "output_snr_db": 2.64,
+      "delta_snr_db": 2.66,
+      "si_sdr_db": 8.92,
+      "stoi": 0.8118,
+      "pesq": 1.0366,
+      "output_rms": 0.0312,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": -0.02,
+      "output_snr_db": 2.8,
+      "delta_snr_db": 2.81,
+      "si_sdr_db": 8.82,
+      "stoi": 0.8265,
+      "pesq": 1.0366,
+      "output_rms": 0.0329,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__artillery_broadband_blast__+0dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 0.0,
+    "baseline": {
+      "input_snr_db": 1.95,
+      "output_snr_db": 4.63,
+      "delta_snr_db": 2.68,
+      "si_sdr_db": 12.74,
+      "stoi": 0.8826,
+      "pesq": 1.0941,
+      "output_rms": 0.0473,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 1.95,
+      "output_snr_db": 5.06,
+      "delta_snr_db": 3.11,
+      "si_sdr_db": 12.34,
+      "stoi": 0.8936,
+      "pesq": 1.0695,
+      "output_rms": 0.051,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__artillery_broadband_blast__+5dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 5.0,
+    "baseline": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 4.71,
+      "delta_snr_db": -1.09,
+      "si_sdr_db": 12.06,
+      "stoi": 0.9383,
+      "pesq": 1.4519,
+      "output_rms": 0.0483,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 5.8,
+      "output_snr_db": 5.34,
+      "delta_snr_db": -0.46,
+      "si_sdr_db": 11.59,
+      "stoi": 0.9397,
+      "pesq": 1.3033,
+      "output_rms": 0.0537,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  },
+  {
+    "sample_id": "SPK_008__artillery_broadband_blast__+10dB",
+    "split": "TEST_B_UNSEEN_NOISE_REC",
+    "speaker_id": "SPK_008",
+    "noise_id": "artillery_broadband_blast",
+    "noise_category": "IMPULSIVE",
+    "target_snr_db": 10.0,
+    "baseline": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 4.13,
+      "delta_snr_db": -6.27,
+      "si_sdr_db": 10.01,
+      "stoi": 0.9533,
+      "pesq": 1.5028,
+      "output_rms": 0.0449,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    },
+    "protected": {
+      "input_snr_db": 10.4,
+      "output_snr_db": 4.69,
+      "delta_snr_db": -5.71,
+      "si_sdr_db": 9.61,
+      "stoi": 0.9552,
+      "pesq": 1.3369,
+      "output_rms": 0.0501,
+      "clipping_count": 0,
+      "nonfinite_count": 0
+    }
+  }
+]

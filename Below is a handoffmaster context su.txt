@@ -1,0 +1,2376 @@
+Below is a **handoff/master context summary** designed specifically so you can paste it into another AI model and have it understand the project without needing the entire conversation.
+
+---
+
+# SIH 2026 — SIH26052 AI/ML Adaptive Defence ANC System
+
+## Complete Project Handoff / Research Context
+
+### 1. PROJECT IDENTITY
+
+**Problem Statement:** SIH26052
+**Organization:** DRDO
+**Category:** Hardware
+**Theme:** Smart Vehicles / Defence-oriented embedded system
+**Project:** AI/ML-enabled Adaptive Active Noise Cancellation (ANC) system.
+
+The official problem statement asks for a system capable of suppressing:
+
+* stationary noise
+* non-stationary noise
+* impulsive noise
+
+while preserving speech intelligibility and operating in real time on embedded hardware.
+
+The specified evaluation targets are approximately:
+
+* **SNR > 15 dB**
+* **STOI > 0.85**
+* **PESQ > 2.5**
+* real-time embedded operation
+
+The problem statement specifically mentions defence noises such as:
+
+* gunshots
+* artillery
+* helicopter/rotor noise
+* armored vehicle/engine noise
+* drones
+* wind
+* sirens
+
+and suggests AI/ML speech enhancement combined with adaptive filtering, STFT/time-domain processing, complex-domain processing, perceptual losses, and embedded deployment. ([Smart India Hackathon][1])
+
+---
+
+# 2. CORE OBJECTIVE
+
+The project is **not simply "build a noise-cancelling headphone."**
+
+The intended system is a **hybrid AI + DSP + adaptive-filtering communication/noise-control system**.
+
+The basic philosophy is:
+
+> **Use AI/ML to understand and suppress complex speech-corrupting noise, while using classical adaptive signal processing to handle acoustic-path adaptation and residual noise.**
+
+The system must therefore combine:
+
+```text
+             REAL WORLD
+                 │
+        Defence acoustic noise
+                 │
+       ┌─────────┴─────────┐
+       │                   │
+ Reference Mic          Primary Mic
+       │                   │
+       │              Speech + Noise
+       │                   │
+       ▼                   ▼
+ Reference Path       AI Speech Enhancement
+       │                   │
+       │                   ▼
+       │             Enhanced Speech
+       │                   │
+       └──────► Adaptive/Residual Filtering
+                           │
+                           ▼
+                    Communication Audio
+                           │
+                           ▼
+                     Headset/Speaker
+```
+
+For a true **feedforward acoustic ANC loop**, there is additionally an error microphone:
+
+```text
+Reference microphone
+        │
+        ▼
+   Controller
+        │
+        ▼
+ Anti-noise speaker
+        │
+        ▼
+ Acoustic environment
+        │
+        ▼
+ Error microphone
+        │
+        └──────── feedback/update
+```
+
+The important distinction is that **speech enhancement and physical acoustic ANC are related but not identical problems**.
+
+---
+
+# 3. THE MOST IMPORTANT ARCHITECTURAL IDEA
+
+The project should be thought of as **multiple processing layers**, not one magical neural network.
+
+### Layer 1 — Audio acquisition
+
+Microphones capture the acoustic environment.
+
+Potential prototype hardware discussed:
+
+* Raspberry Pi 4
+* USB/I²S audio interface
+* WM8960 codec/audio board
+* separate microphone locations/modules
+* primary microphone
+* reference microphone
+* potentially an error microphone depending on the final ANC topology
+* headphone/speaker output
+
+The two microphones have **different purposes**.
+
+### Reference microphone
+
+Placed where it can capture the incoming noise **before or differently from the speech/error location**.
+
+Purpose:
+
+* predict noise
+* provide reference signal to adaptive ANC
+* improve causality
+* allow the controller to anticipate incoming noise
+
+### Primary microphone
+
+Captures the signal relevant to communication:
+
+```text
+speech + noise
+```
+
+It is the main signal that the AI speech-enhancement system attempts to clean.
+
+### Error microphone
+
+If implementing physical feedforward ANC:
+
+```text
+error microphone
+       ↓
+residual noise
+       ↓
+adaptive filter update
+```
+
+It tells the controller:
+
+> "How much noise is still present after anti-noise has been produced?"
+
+This distinction is fundamental.
+
+---
+
+# 4. WHY MICROPHONE PLACEMENT MATTERS
+
+The reference and primary/error microphones cannot simply be treated as identical sensors at the exact same location.
+
+If they are colocated, their signals become highly correlated and the reference signal may contain excessive desired speech.
+
+That can create:
+
+* speech leakage into the reference
+* poor noise prediction
+* adaptive-filter misadjustment
+* speech cancellation
+* reduced ANC stability
+* poor causality
+
+The reference microphone therefore needs to capture a useful **predictive representation of the noise**, while minimizing desired-speech contamination.
+
+The project has specifically been investigating how to physically separate microphone roles even when using a two-channel audio device.
+
+---
+
+# 5. HARDWARE CONCEPT
+
+### Current prototype direction
+
+The practical prototype direction has been centered around:
+
+**Raspberry Pi 4 + audio codec/interface + multiple microphones + headset/speaker.**
+
+The problem statement itself also mentions much more powerful edge hardware such as:
+
+**NVIDIA Jetson AGX Orin 64GB**
+
+or similar AI SoCs.
+
+Therefore:
+
+### Jetson
+
+Useful for:
+
+* heavier neural networks
+* rapid AI experimentation
+* TensorRT
+* higher computational margin
+
+### Raspberry Pi 4
+
+Useful for:
+
+* lower-cost prototype
+* actual embedded demonstration
+* real-time audio pipeline development
+* proving hardware integration
+
+But Raspberry Pi 4 has much tighter compute constraints, so model size and inference latency must be controlled.
+
+---
+
+# 6. WM8960
+
+WM8960 is being considered as the audio codec/interface for the Raspberry Pi prototype.
+
+The important concept is not simply "connect microphones to WM8960."
+
+The system needs to establish:
+
+```text
+Microphone
+   ↓
+Analog front end
+   ↓
+ADC
+   ↓
+I²S
+   ↓
+Raspberry Pi
+   ↓
+DSP/AI
+   ↓
+I²S / DAC
+   ↓
+Headphones/Speaker
+```
+
+Important hardware issues:
+
+* ADC resolution
+* DAC resolution
+* sampling frequency
+* microphone bias/power
+* microphone sensitivity
+* gain
+* clipping
+* channel synchronization
+* I²S timing
+* buffer size
+* DMA
+* ALSA configuration
+* clock synchronization
+
+---
+
+# 7. SOFTWARE STACK
+
+The eventual software pipeline is approximately:
+
+```text
+Linux
+ │
+ ├── ALSA
+ │
+ ├── I²S audio driver
+ │
+ ├── DMA/buffer management
+ │
+ ├── audio capture
+ │
+ ├── preprocessing
+ │
+ ├── STFT / feature extraction
+ │
+ ├── AI/ML inference
+ │
+ ├── adaptive filter
+ │
+ ├── reconstruction / overlap-add
+ │
+ ├── output buffering
+ │
+ └── DAC/headset
+```
+
+Potential AI deployment technologies:
+
+* PyTorch during training
+* ONNX for model interchange
+* ONNX Runtime for inference
+* TensorRT where supported
+* C/C++ for embedded real-time processing
+* Python primarily for research/training/prototyping
+* Linux/ALSA for audio streaming
+
+---
+
+# 8. REAL-TIME AUDIO PIPELINE
+
+A major project goal is to build a **causal streaming pipeline**.
+
+It should NOT work like:
+
+```text
+record 10 seconds
+       ↓
+process 10 seconds
+       ↓
+play 10 seconds
+```
+
+Instead:
+
+```text
+mic
+ ↓
+small audio frame
+ ↓
+process
+ ↓
+output
+ ↓
+next frame
+ ↓
+process
+ ↓
+output
+```
+
+This is **streaming inference**.
+
+The processing should be approximately:
+
+```text
+Input frame
+   ↓
+windowing
+   ↓
+STFT
+   ↓
+AI model
+   ↓
+mask/filter/complex estimate
+   ↓
+inverse STFT
+   ↓
+overlap-add
+   ↓
+adaptive filtering
+   ↓
+output
+```
+
+---
+
+# 9. STFT
+
+STFT = **Short-Time Fourier Transform**.
+
+It converts a time-domain signal into a time-frequency representation.
+
+Instead of looking only at:
+
+```text
+amplitude vs time
+```
+
+we obtain:
+
+```text
+frequency vs time
+```
+
+This is useful because speech and noise occupy different spectral-temporal patterns.
+
+Example:
+
+```text
+Time
+ ─────────────────────►
+
+Frequency
+│
+│     speech harmonics
+│      ╱╲
+│     ╱  ╲
+│ ───────────── rotor noise
+│
+│          impulse
+│             │
+│             │
+▼
+```
+
+Important STFT parameters:
+
+* sampling rate
+* FFT size
+* window length
+* hop size
+* overlap
+* window function
+* number of frequency bins
+
+---
+
+# 10. OVERLAP-ADD
+
+STFT cannot simply process isolated blocks independently.
+
+Frames overlap:
+
+```text
+Frame 1: ████████
+Frame 2:     ████████
+Frame 3:         ████████
+```
+
+After inverse FFT, they must be reconstructed using **overlap-add (OLA)**.
+
+Incorrect overlap/add implementation can produce:
+
+* clicks
+* discontinuities
+* amplitude modulation
+* reconstruction artifacts
+* latency problems
+
+Therefore STFT → AI → iSTFT → OLA is a core engineering component.
+
+---
+
+# 11. ALIASING / ANTI-ALIASING
+
+This is one of the fundamentals that must be understood before claiming the audio pipeline is complete.
+
+### Aliasing
+
+If sampling frequency is too low, frequencies above Nyquist can fold into lower frequencies.
+
+Nyquist frequency:
+
+```text
+f_N = Fs / 2
+```
+
+Example:
+
+If:
+
+```text
+Fs = 16 kHz
+```
+
+then:
+
+```text
+Nyquist = 8 kHz
+```
+
+Signals above 8 kHz cannot be correctly represented.
+
+Therefore the ADC normally requires an **anti-aliasing low-pass filter before sampling**.
+
+This is hardware + signal-processing knowledge, not merely an AI issue.
+
+---
+
+# 12. NOISE CLASSIFICATION
+
+The system must distinguish conceptually between three major categories.
+
+## A. Stationary noise
+
+Characteristics:
+
+* statistics change slowly
+* relatively predictable
+* approximately constant over time
+
+Examples:
+
+* steady engine
+* ventilation
+* constant machinery
+* electrical hum
+
+Classical adaptive filtering can perform well here.
+
+---
+
+## B. Non-stationary noise
+
+Characteristics:
+
+* changes over time
+* frequency/amplitude changes
+* difficult to model with fixed filters
+
+Examples:
+
+* changing engine RPM
+* helicopter rotor variation
+* moving vehicle
+* changing wind
+* varying machinery
+
+This is where adaptive algorithms and AI become more useful.
+
+---
+
+## C. Impulsive noise
+
+Characteristics:
+
+* extremely short duration
+* very high amplitude
+* broadband/transient
+* can destabilize traditional adaptive filters
+
+Examples:
+
+* gunshots
+* explosive impulses
+* metal impacts
+* sudden mechanical events
+
+This is one of the **hardest parts of SIH26052**.
+
+A recent uploaded research paper specifically demonstrates that conventional FxLMS/FxNLMS can perform poorly under impulsive disturbances and investigates a detection + Kalman hybrid approach. 
+
+That paper reports approximately:
+
+* FxLMS: ~0.06–0.12 dB cancellation
+* FxNLMS: ~1.18–1.28 dB
+* Kalman approach: ~4.27–5.15 dB
+
+for its particular experimental/simulation setup. These numbers **must not be treated as our expected project performance**; they are evidence that impulsive noise needs special treatment. 
+
+---
+
+# 13. CLASSICAL ADAPTIVE FILTERS
+
+## LMS
+
+Least Mean Squares.
+
+Basic idea:
+
+```text
+prediction
+   ↓
+calculate error
+   ↓
+adjust coefficients
+   ↓
+repeat
+```
+
+Advantages:
+
+* simple
+* cheap computationally
+* easy to implement
+
+Disadvantages:
+
+* convergence can be slow
+* sensitive to signal power
+* weaker for rapidly changing/impulsive environments
+
+---
+
+# 14. NLMS
+
+Normalized LMS.
+
+It modifies LMS so the update is normalized according to input signal power.
+
+Conceptually:
+
+```text
+LMS:
+large input → potentially huge update
+
+NLMS:
+large input → normalized update
+```
+
+Advantages:
+
+* more stable under varying input amplitude
+* generally faster/more robust than ordinary LMS
+* inexpensive
+
+NLMS is an important candidate for residual adaptive filtering.
+
+---
+
+# 15. FxLMS
+
+Filtered-x LMS.
+
+This is extremely important for **physical ANC**.
+
+Why?
+
+Because the anti-noise generated by the controller does not instantly reach the listener/error microphone.
+
+There is a physical **secondary acoustic path**:
+
+```text
+controller
+   ↓
+speaker
+   ↓
+DAC
+   ↓
+speaker acoustics
+   ↓
+air
+   ↓
+error microphone
+```
+
+Therefore the reference signal must be filtered using an estimate of that secondary path.
+
+The standard feedforward ANC relationship can be represented as:
+
+```text
+reference x(n)
+      ↓
+ adaptive filter W(z)
+      ↓
+ anti-noise
+      ↓
+ secondary path S(z)
+      ↓
+     error
+```
+
+The uploaded Kalman/ANC paper explicitly defines the reference signal, primary path, secondary path, adaptive filter, anti-noise and error relationship. 
+
+---
+
+# 16. FxNLMS
+
+FxNLMS = Filtered-x Normalized LMS.
+
+It combines:
+
+* filtered-x compensation
+* NLMS normalization
+
+It is generally more robust than basic FxLMS when input power varies.
+
+But it still has difficulty with highly impulsive disturbances.
+
+---
+
+# 17. KALMAN FILTER
+
+Kalman filtering is another adaptive/state-estimation approach.
+
+Conceptually:
+
+```text
+previous state
+      ↓
+predict next state
+      ↓
+new microphone measurement
+      ↓
+calculate innovation
+      ↓
+update state
+```
+
+It is attractive for dynamic environments because it explicitly models evolving system states.
+
+The uploaded 2026 paper maps ANC filter coefficients into the Kalman state and uses the error microphone as the measurement. 
+
+It also proposes:
+
+```text
+impulse detected
+      ↓
+Kalman ANC
+
+normal noise
+      ↓
+NLMS/FxLMS ANC
+```
+
+as a hybrid strategy. 
+
+This is particularly relevant to SIH26052.
+
+---
+
+# 18. IMPORTANT POSSIBLE HYBRID
+
+A strong architecture concept is:
+
+```text
+                 Audio Input
+                     │
+            ┌────────┴────────┐
+            │                 │
+      Reference Mic       Primary Mic
+            │                 │
+            ▼                 ▼
+       Noise analysis     Speech + noise
+            │                 │
+            ▼                 ▼
+     Noise/event detector   AI model
+            │                 │
+      ┌─────┴─────┐           │
+      │           │           │
+ normal       impulsive       │
+      │           │           │
+      ▼           ▼           ▼
+ FxNLMS/NLMS   Kalman      AI enhancement
+      │           │           │
+      └─────┬─────┘           │
+            ▼                 ▼
+       residual cleanup
+            │
+            ▼
+      enhanced speech
+            │
+            ▼
+       communication
+```
+
+**Important:** this architecture is a candidate engineering design, not something that should be falsely presented as already experimentally validated.
+
+---
+
+# 19. AI/ML COMPONENT
+
+The neural network is intended primarily to learn patterns that conventional filters struggle with.
+
+Potential approaches investigated include:
+
+### DeepFilterNet
+
+Frequency-domain speech enhancement.
+
+It is particularly interesting because DeepFilterNet was explicitly designed with efficient real-time/embedded processing in mind. DeepFilterNet2 reports a real-time factor of 0.04 on a Core-i5 CPU in its paper and targets efficient full-band enhancement. ([arXiv][2])
+
+### DCCRN
+
+Deep Complex Convolution Recurrent Network.
+
+Important because:
+
+* operates in complex spectral domain
+* handles magnitude + phase
+* combines CNN and recurrent processing
+* designed for speech enhancement
+
+### DTLN
+
+Dual-Signal Transformation LSTM Network.
+
+Interesting because:
+
+* less than ~1M parameters in the original work
+* designed for real-time processing
+* combines STFT-domain and learned time-domain representations
+
+### RNNoise
+
+Hybrid DSP + neural network architecture.
+
+Important because it demonstrates that a relatively lightweight neural network can be combined with conventional DSP.
+
+### Other possible architectures
+
+* CRN
+* Conv-TasNet
+* causal CNN/RNN
+* lightweight U-Net
+* complex-domain networks
+* hybrid neural + adaptive filters
+
+**The final model has not been permanently frozen.**
+
+The model should be selected based on:
+
+```text
+quality
++
+impulsive-noise robustness
++
+parameter count
++
+MACs
++
+RAM
++
+latency
++
+causality
++
+Raspberry Pi/edge feasibility
+```
+
+—not simply benchmark accuracy.
+
+---
+
+# 20. COMPLEX-DOMAIN PROCESSING
+
+Complex STFT coefficients contain:
+
+```text
+real part
++
+imaginary part
+```
+
+which encode:
+
+* magnitude
+* phase
+
+A system that modifies magnitude while completely ignoring phase can introduce reconstruction errors/artifacts.
+
+Therefore the project has investigated **complex-domain AI processing**, particularly architectures such as DCCRN.
+
+The problem statement itself explicitly mentions complex-domain processing. ([Smart India Hackathon][1])
+
+---
+
+# 21. AI MODEL INPUT/OUTPUT POSSIBILITIES
+
+Possible input:
+
+```text
+Noisy waveform
+```
+
+or:
+
+```text
+STFT(noisy audio)
+```
+
+or:
+
+```text
+Primary microphone STFT
++
+Reference microphone features
+```
+
+Possible outputs:
+
+### Mask
+
+```text
+Noisy spectrum × learned mask
+```
+
+### Clean magnitude
+
+```text
+predict clean magnitude
+```
+
+### Complex spectrum
+
+```text
+predict real + imaginary components
+```
+
+### Complex filter
+
+```text
+predict frequency-domain filter
+```
+
+### Direct waveform
+
+```text
+noisy waveform → neural network → enhanced waveform
+```
+
+The current research direction strongly favors **causal, computationally efficient processing** rather than a huge offline transformer.
+
+---
+
+# 22. DATASET PIPELINE
+
+The dataset is one of the most important parts of the project.
+
+Basic generation:
+
+```text
+Clean speech
+     +
+Defence noise
+     ↓
+controlled mixing
+     ↓
+Noisy speech
+```
+
+At multiple SNR levels.
+
+Noise classes should include:
+
+```text
+stationary:
+  engine
+  machinery
+  hum
+
+non-stationary:
+  helicopter
+  changing engine
+  wind
+  moving vehicle
+
+impulsive:
+  gunshot
+  artillery-like impulse
+  impact
+  transient explosion-like event
+
+other:
+  siren
+  drone
+```
+
+Data augmentation:
+
+* random SNR
+* random noise selection
+* reverberation
+* clipping simulation
+* gain variation
+* potentially microphone/channel characteristics
+* different noise durations
+* different impulse locations
+
+The problem statement itself calls for synthetic noisy-clean pair generation, augmentation, and varying SNR. ([Smart India Hackathon][1])
+
+---
+
+# 23. CRITICAL DATASET WARNING
+
+Synthetic mixing is useful but **not enough**.
+
+For example:
+
+```text
+clean speech
++
+gunshot.wav
+```
+
+does not perfectly reproduce a real gunshot recorded through:
+
+```text
+helmet
++
+microphone
++
+vehicle cabin
++
+reverberation
++
+body/head shadowing
++
+speaker leakage
++
+ADC
++
+codec
+```
+
+Therefore the eventual evaluation should include:
+
+1. synthetic test data
+2. unseen noise recordings
+3. different SNRs
+4. real acoustic recordings where possible
+5. different microphone/channel conditions
+
+Otherwise the model can overfit to the synthetic mixing process.
+
+---
+
+# 24. TRAINING
+
+Possible loss functions:
+
+### SI-SNR loss
+
+Focuses on signal reconstruction quality while being scale invariant.
+
+### L1 loss
+
+Encourages robust reconstruction.
+
+### L2/MSE
+
+Penalizes squared reconstruction error.
+
+### Spectral loss
+
+Useful for frequency-domain fidelity.
+
+### Perceptual loss
+
+Attempts to preserve perceptually important speech characteristics.
+
+A hybrid loss could conceptually be:
+
+```text
+Total Loss =
+ α × SI-SNR loss
+ + β × spectral loss
+ + γ × perceptual loss
+ + δ × phase/complex loss
+```
+
+The exact weighting must be experimentally determined.
+
+---
+
+# 25. MODEL SIZE
+
+The team has previously considered approximately:
+
+**2M–10M parameters**
+
+as a practical AI model scale.
+
+This is an **engineering target**, not an established requirement from DRDO.
+
+A 1-billion-parameter model would be completely inappropriate for the intended embedded real-time system unless the architecture/hardware were radically changed.
+
+The project prioritizes:
+
+> **small model + low latency + sufficient quality**
+
+over:
+
+> enormous model + benchmark score.
+
+---
+
+# 26. TRAINING VS INFERENCE
+
+These are different problems.
+
+### Training
+
+Can happen on:
+
+* GPU
+* cloud GPU
+* Google Colab
+* other training environment
+
+Training can be relatively slow.
+
+### Inference
+
+Must happen on:
+
+* Raspberry Pi
+* Jetson
+* DSP
+* edge AI SoC
+
+and must satisfy the real-time constraint.
+
+Therefore:
+
+```text
+TRAINING COMPUTE ≠ DEPLOYMENT COMPUTE
+```
+
+---
+
+# 27. DEPLOYMENT PIPELINE
+
+Expected deployment flow:
+
+```text
+PyTorch model
+      ↓
+trained checkpoint
+      ↓
+export
+      ↓
+ONNX
+      ↓
+optimization
+      ↓
+quantization
+      ↓
+ONNX Runtime / TensorRT
+      ↓
+C/C++ inference
+      ↓
+embedded audio pipeline
+```
+
+Potential optimizations:
+
+* FP16
+* INT8
+* pruning
+* operator fusion
+* reduced FFT size
+* smaller hidden dimensions
+* causal architecture
+* reduced frame history
+
+---
+
+# 28. CAUSALITY
+
+Causality is one of the most important concepts in this project.
+
+A real-time system cannot depend heavily on future samples.
+
+Bad:
+
+```text
+future audio
+   ↓
+AI
+   ↓
+current output
+```
+
+because future audio does not yet exist.
+
+Good:
+
+```text
+past + current audio
+        ↓
+      model
+        ↓
+     output
+```
+
+A model may technically be fast but still unsuitable if it uses a huge future context.
+
+---
+
+# 29. LATENCY
+
+This is currently one of the project's most important unresolved issues.
+
+Different project documents have historically contained conflicting targets such as:
+
+* sub-30 ms
+* sub-20 ms
+* sub-8 ms
+* ~4 ms
+
+These **must be reconciled before presenting a final specification**.
+
+Do not casually state all of them as if they are simultaneously official.
+
+The engineering requirement should instead be decomposed:
+
+```text
+ADC/input delay
++
+buffering delay
++
+STFT window/lookahead
++
+AI inference
++
+adaptive filtering
++
+iSTFT/OLA
++
+output buffer
++
+DAC
++
+audio/OS scheduling
+=
+end-to-end latency
+```
+
+The system must be measured from:
+
+> **physical microphone input → physical output**
+
+not simply:
+
+> model inference time.
+
+This distinction is critical.
+
+---
+
+# 30. LATENCY COMPONENTS
+
+For example:
+
+```text
+Microphone
+   ↓
+ADC
+   ↓
+DMA buffer       ← latency
+   ↓
+STFT             ← window/lookahead
+   ↓
+Neural network   ← inference latency
+   ↓
+iSTFT
+   ↓
+OLA
+   ↓
+output buffer    ← latency
+   ↓
+DAC
+   ↓
+speaker/headset
+```
+
+Even a 1 ms neural network can become a 20–30 ms system if the buffering architecture is poor.
+
+---
+
+# 31. DMA
+
+DMA = Direct Memory Access.
+
+Instead of the CPU manually copying every audio sample:
+
+```text
+ADC → CPU → memory
+```
+
+DMA can move data:
+
+```text
+ADC/I²S → DMA → memory
+```
+
+while the CPU performs other work.
+
+DMA is important for stable real-time audio.
+
+---
+
+# 32. ALSA
+
+ALSA = Advanced Linux Sound Architecture.
+
+It handles Linux audio interfaces.
+
+The project needs to understand:
+
+* device selection
+* sample rate
+* channels
+* buffer size
+* period size
+* capture
+* playback
+* synchronization
+* underruns
+* overruns
+
+---
+
+# 33. IMPORTANT AUDIO FAILURES
+
+The prototype must watch for:
+
+### Clipping
+
+Signal exceeds ADC range.
+
+### Buffer underrun
+
+Processor cannot supply audio quickly enough.
+
+### Buffer overrun
+
+Input arrives faster than it is processed.
+
+### Channel mismatch
+
+Left/right channels are swapped or incorrectly mapped.
+
+### Clock drift
+
+Different devices run at slightly different rates.
+
+### DC offset
+
+Signal has unwanted constant offset.
+
+### Excessive gain
+
+Can destroy model performance and cause clipping.
+
+---
+
+# 34. SECONDARY PATH
+
+This is one of the **most important ANC concepts**.
+
+The controller generates:
+
+```text
+anti-noise
+```
+
+but that signal passes through:
+
+```text
+DAC
+→ amplifier
+→ speaker
+→ air
+→ microphone
+```
+
+This physical path is called the:
+
+**secondary path S(z)**.
+
+It must be estimated because the adaptive algorithm needs to understand how its output reaches the error microphone.
+
+The uploaded ANC paper explicitly models this secondary path and filtered reference signal. 
+
+---
+
+# 35. PRIMARY PATH
+
+The primary acoustic path describes how the unwanted noise reaches the error location.
+
+```text
+noise source
+   ↓
+environment
+   ↓
+error microphone
+```
+
+represented approximately as:
+
+```text
+P(z)
+```
+
+The ANC system effectively deals with:
+
+```text
+Primary path P(z)
++
+Secondary path S(z)
+```
+
+---
+
+# 36. SYSTEM IDENTIFICATION
+
+Before an adaptive ANC controller can work properly, the acoustic system often needs to be characterized.
+
+This means estimating:
+
+* primary path
+* secondary path
+* delay
+* impulse response
+* frequency response
+
+The project has identified **secondary-path estimation and delay matching** as important engineering work.
+
+---
+
+# 37. DELAY MATCHING
+
+If the adaptive controller's predicted anti-noise arrives too late:
+
+```text
+noise:       ██████████
+anti-noise:       ██████████
+```
+
+they cannot cancel effectively.
+
+For successful feedforward ANC:
+
+```text
+reference noise
+      ↓
+predict
+      ↓
+anti-noise
+      ↓
+arrives at error location
+      ↓
+before/appropriately with primary noise
+```
+
+Therefore:
+
+> **Causality + acoustic propagation delay + DSP processing delay must all be considered together.**
+
+---
+
+# 38. OUTPUT METRICS
+
+The project should never evaluate the system using only one number.
+
+### SNR
+
+Signal-to-noise ratio.
+
+Measures relative signal/noise power.
+
+Higher generally means cleaner audio.
+
+Target:
+
+```text
+>15 dB
+```
+
+according to the problem statement.
+
+---
+
+### STOI
+
+Short-Time Objective Intelligibility.
+
+Measures speech intelligibility.
+
+Target:
+
+```text
+>0.85
+```
+
+approximately.
+
+---
+
+### PESQ
+
+Perceptual Evaluation of Speech Quality.
+
+Measures perceived speech quality.
+
+Target:
+
+```text
+>2.5
+```
+
+approximately.
+
+---
+
+# 39. OTHER METRICS THAT SHOULD BE TRACKED
+
+The engineering evaluation should additionally consider:
+
+* SI-SNR
+* SDR
+* DNSMOS if appropriate
+* segmental SNR
+* noise reduction dB
+* speech distortion
+* residual noise
+* clipping rate
+* inference latency
+* CPU utilization
+* RAM utilization
+* power consumption
+* real-time factor
+* model size
+* MACs/FLOPs
+* false impulse detections
+* missed impulse detections
+
+---
+
+# 40. IMPULSIVE-NOISE EVALUATION MUST BE SEPARATE
+
+A major mistake would be reporting:
+
+```text
+Overall STOI = 0.90
+Overall SNR = 17 dB
+```
+
+and claiming the system handles gunshots.
+
+The evaluation should separately report:
+
+```text
+Stationary noise
+Non-stationary noise
+Impulsive noise
+Mixed noise
+```
+
+For example:
+
+| Noise   | SNR improvement | STOI | PESQ | Latency |
+| ------- | --------------: | ---: | ---: | ------: |
+| Engine  |               ? |    ? |    ? |       ? |
+| Rotor   |               ? |    ? |    ? |       ? |
+| Wind    |               ? |    ? |    ? |       ? |
+| Siren   |               ? |    ? |    ? |       ? |
+| Gunshot |               ? |    ? |    ? |       ? |
+| Mixed   |               ? |    ? |    ? |       ? |
+
+The `?` values should remain empty until experimentally measured.
+
+---
+
+# 41. IMPULSE DETECTION
+
+One possible architecture is:
+
+```text
+input
+ ↓
+short-term energy/power
+ ↓
+impulse detector
+ ↓
+normal / impulse
+```
+
+Possible detection techniques investigated in the uploaded literature include:
+
+* normalized power sequence
+* conditional median filter
+* SD-ROM/rank-order methods
+
+The recent Kalman ANC paper uses impulse detection to determine whether the system should enter its impulsive-noise control mode. 
+
+---
+
+# 42. IMPORTANT WARNING ABOUT GUNSHOTS
+
+A gunshot is not merely "very loud stationary noise."
+
+It can be:
+
+```text
+very high amplitude
++
+very short duration
++
+broadband
++
+rapidly changing
+```
+
+Therefore the adaptive filter can receive a huge error and make an inappropriate coefficient update.
+
+This can cause:
+
+* instability
+* coefficient explosion
+* slow recovery
+* divergence
+* speech corruption
+
+This is exactly why robust impulse handling is important.
+
+---
+
+# 43. POSSIBLE IMPULSIVE-NOISE STRATEGIES
+
+Potential strategies:
+
+### Strategy A
+
+AI model handles everything.
+
+Simplest architecture but difficult to guarantee impulsive robustness.
+
+### Strategy B
+
+AI + NLMS.
+
+```text
+AI enhancement
++
+NLMS residual correction
+```
+
+### Strategy C
+
+AI + impulse detector + Kalman.
+
+```text
+normal:
+AI + NLMS
+
+impulse:
+AI + Kalman/robust controller
+```
+
+### Strategy D
+
+Robust adaptive filtering.
+
+Potential alternatives:
+
+* MCC-based algorithms
+* robust kernels
+* affine projection
+* RLS variants
+* Huber/Welsch-based methods
+* robust FxNLMS
+* Kalman
+
+These should be experimentally compared rather than selected purely because they sound advanced.
+
+---
+
+# 44. WHAT "AI ANC" SHOULD MEAN IN THIS PROJECT
+
+Avoid saying:
+
+> "The neural network generates anti-noise and therefore performs complete physical ANC."
+
+unless that has actually been implemented and validated.
+
+A more technically defensible description is:
+
+> **AI-driven speech enhancement/noise suppression combined with adaptive acoustic noise control.**
+
+The neural network may:
+
+* estimate a clean speech spectrum
+* estimate a noise mask
+* estimate a complex filter
+* reconstruct enhanced speech
+* provide noise features
+
+while the adaptive controller handles:
+
+* acoustic path variation
+* residual noise
+* speaker/microphone dynamics
+* physical ANC adaptation.
+
+---
+
+# 45. PROJECT'S NOVELTY DIRECTION
+
+The project is not simply:
+
+```text
+DeepFilterNet clone
+```
+
+or:
+
+```text
+FxLMS implementation
+```
+
+or:
+
+```text
+noise reduction app
+```
+
+The intended novelty direction is the **combination**:
+
+```text
+AI speech enhancement
++
+adaptive acoustic control
++
+impulsive-noise handling
++
+defence-noise dataset
++
+real-time embedded implementation
++
+dual/multi-microphone architecture
+```
+
+The team has also discussed positioning the system against commercial tactical hearing/communication products such as ComTac, but claims of superiority should only be made after objective experimental comparison.
+
+---
+
+# 46. IMPORTANT DIFFERENCE FROM COMMERCIAL HEADSETS
+
+Commercial tactical headsets can already perform:
+
+* hearing protection
+* communication
+* environmental awareness
+* active/passive noise reduction
+* impulse protection
+
+Therefore simply saying:
+
+> "Our headset cancels noise with AI"
+
+is not a strong novelty argument.
+
+The defensible novelty must come from:
+
+* adaptive response to diverse noise classes
+* impulsive-event handling
+* learned defence-noise representations
+* explainable hybrid AI/DSP architecture
+* measurable low-latency embedded operation
+* customized communication enhancement
+* possibly adaptive personalization/calibration.
+
+---
+
+# 47. CURRENT PROJECT DEVELOPMENT PHILOSOPHY
+
+The team has established an important rule:
+
+> **Documentation ≠ execution.**
+
+The project has accumulated substantial documentation, research papers, architecture documents and learning plans.
+
+The next stage must increasingly prioritize:
+
+```text
+code
+→ experiment
+→ measurement
+→ failure
+→ correction
+→ measurement
+```
+
+rather than endlessly expanding documentation.
+
+---
+
+# 48. CURRENT PRACTICAL DEVELOPMENT ORDER
+
+The sensible development ladder is:
+
+### Phase 1 — Audio fundamentals
+
+Understand and implement:
+
+* sampling
+* Nyquist
+* aliasing
+* anti-aliasing
+* ADC/DAC
+* PCM
+* bit depth
+* gain
+* clipping
+* FFT
+* STFT
+* windowing
+* overlap
+* OLA
+
+### Phase 2 — Basic DSP
+
+Implement:
+
+* low-pass filter
+* high-pass filter
+* band-pass filter
+* spectral analysis
+* noise measurement
+
+### Phase 3 — LMS/NLMS
+
+Implement from scratch.
+
+```text
+x(n)
+ ↓
+adaptive filter
+ ↓
+y(n)
+ ↓
+error
+ ↓
+weight update
+```
+
+### Phase 4 — FxLMS/FxNLMS
+
+Add:
+
+* secondary path
+* filtered reference
+* delay
+* acoustic path
+
+### Phase 5 — Real audio
+
+Connect:
+
+```text
+microphone → Raspberry Pi → headphones
+```
+
+### Phase 6 — STFT streaming
+
+Build:
+
+```text
+ALSA
+→ frames
+→ STFT
+→ iSTFT
+→ OLA
+```
+
+with no neural network yet.
+
+### Phase 7 — AI model offline
+
+Train/evaluate candidate architectures.
+
+### Phase 8 — AI streaming
+
+Integrate the model into the real-time pipeline.
+
+### Phase 9 — Hybrid AI + adaptive filter
+
+Add NLMS/FxNLMS/other residual controller.
+
+### Phase 10 — Impulsive noise
+
+Add detection and robust/Kalman strategy.
+
+### Phase 11 — Hardware optimization
+
+Measure:
+
+* latency
+* CPU
+* RAM
+* power
+* stability
+
+### Phase 12 — Final demonstration
+
+Live:
+
+```text
+real microphones
++
+real defence noise
++
+real speech
++
+embedded board
++
+headset
+```
+
+---
+
+# 49. MOST IMPORTANT EXPERIMENTS STILL NEEDED
+
+The project should eventually have actual experimental evidence for:
+
+### Experiment 1
+
+FFT/STFT correctness.
+
+### Experiment 2
+
+LMS convergence.
+
+### Experiment 3
+
+NLMS convergence.
+
+### Experiment 4
+
+FxLMS with simulated secondary path.
+
+### Experiment 5
+
+FxNLMS with changing noise amplitude.
+
+### Experiment 6
+
+Secondary-path estimation.
+
+### Experiment 7
+
+Real microphone streaming.
+
+### Experiment 8
+
+AI model offline evaluation.
+
+### Experiment 9
+
+AI real-time latency.
+
+### Experiment 10
+
+AI + NLMS.
+
+### Experiment 11
+
+Impulse detection.
+
+### Experiment 12
+
+AI + impulse handling.
+
+### Experiment 13
+
+Full embedded deployment.
+
+---
+
+# 50. WHAT TO LOOK AT WHEN INSPECTING OUTPUT
+
+Never just listen and say:
+
+> "It sounds better."
+
+Inspect:
+
+### Time domain
+
+Look for:
+
+* clipping
+* spikes
+* speech distortion
+* residual impulses
+* waveform discontinuities
+
+### Frequency domain
+
+Look for:
+
+* reduced noise bands
+* preserved speech harmonics
+* unexpected spectral holes
+* artifacts
+
+### Spectrogram
+
+Look for:
+
+```text
+noise ↓
+speech structure preserved
+impulses suppressed
+```
+
+### Metrics
+
+Measure:
+
+* SNR
+* STOI
+* PESQ
+* SI-SNR
+
+### System performance
+
+Measure:
+
+* end-to-end latency
+* inference latency
+* CPU
+* RAM
+* buffer underruns
+* power
+
+---
+
+# 51. THE MOST IMPORTANT FAILURE MODES
+
+The project should actively search for these.
+
+### Failure 1 — AI removes speech
+
+Cause:
+
+* aggressive mask
+* bad training
+* speech/noise overlap
+
+### Failure 2 — reference microphone contains speech
+
+Cause:
+
+* bad placement
+
+### Failure 3 — ANC becomes unstable
+
+Cause:
+
+* wrong secondary path
+* delay mismatch
+* excessive step size
+
+### Failure 4 — gunshot causes divergence
+
+Cause:
+
+* conventional adaptive algorithm cannot handle impulse
+
+### Failure 5 — model works offline but not real-time
+
+Cause:
+
+* buffering
+* CPU
+* memory
+* model complexity
+
+### Failure 6 — excellent synthetic metrics but poor real-world performance
+
+Cause:
+
+* dataset mismatch
+
+### Failure 7 — output has robotic artifacts
+
+Cause:
+
+* phase distortion
+* over-suppression
+* STFT reconstruction problems
+
+### Failure 8 — low model latency but high system latency
+
+Cause:
+
+* audio buffers/OS/DMA/codec delays
+
+---
+
+# 52. IMPORTANT TERMINOLOGY CHEAT SHEET
+
+| Term           | Meaning                                    |
+| -------------- | ------------------------------------------ |
+| ANC            | Active Noise Control                       |
+| AI             | Artificial Intelligence                    |
+| ML             | Machine Learning                           |
+| DSP            | Digital Signal Processing                  |
+| ADC            | Analog-to-Digital Converter                |
+| DAC            | Digital-to-Analog Converter                |
+| PCM            | Pulse-Code Modulation                      |
+| I²S            | Digital audio serial interface             |
+| ALSA           | Linux audio subsystem                      |
+| DMA            | Direct Memory Access                       |
+| FFT            | Fast Fourier Transform                     |
+| STFT           | Short-Time Fourier Transform               |
+| iSTFT          | Inverse STFT                               |
+| OLA            | Overlap-Add                                |
+| LMS            | Least Mean Squares                         |
+| NLMS           | Normalized LMS                             |
+| FxLMS          | Filtered-x LMS                             |
+| FxNLMS         | Filtered-x NLMS                            |
+| RLS            | Recursive Least Squares                    |
+| KF             | Kalman Filter                              |
+| AI inference   | Running trained model                      |
+| SI-SNR         | Scale-Invariant Signal-to-Noise Ratio      |
+| STOI           | Speech intelligibility metric              |
+| PESQ           | Perceptual speech quality metric           |
+| SNR            | Signal-to-Noise Ratio                      |
+| RTF            | Real-Time Factor                           |
+| MAC            | Multiply-Accumulate operation              |
+| ONNX           | Open Neural Network Exchange               |
+| TensorRT       | NVIDIA inference optimization/runtime      |
+| Quantization   | Lower numerical precision                  |
+| Pruning        | Removing unnecessary model weights         |
+| Causal         | Does not depend on future samples          |
+| Primary path   | Noise path to error location               |
+| Secondary path | Anti-noise actuator path                   |
+| Reference mic  | Captures predictive noise                  |
+| Error mic      | Measures residual noise                    |
+| Mask           | Spectral weighting applied to noisy signal |
+| Complex domain | Magnitude + phase representation           |
+
+---
+
+# 53. EQUATIONS YOU SHOULD EVENTUALLY UNDERSTAND
+
+Basic signal:
+
+```text
+y[n] = speech[n] + noise[n]
+```
+
+ANC error:
+
+```text
+e[n] = d[n] - y_anti[n]
+```
+
+More realistically, the anti-noise passes through the secondary path:
+
+```text
+e[n] = d[n] - S(z)y[n]
+```
+
+Adaptive filter:
+
+```text
+y[n] = wᵀ[n]x[n]
+```
+
+LMS:
+
+```text
+w[n+1] = w[n] + μ e[n] x[n]
+```
+
+FxLMS conceptually:
+
+```text
+w[n+1] = w[n] + μ e[n] x'[n]
+```
+
+where:
+
+```text
+x'[n] = Ŝ(z) * x[n]
+```
+
+The exact sign convention can vary by formulation.
+
+---
+
+# 54. WHAT IS STILL NOT FINAL
+
+These should **not** be presented to another AI as already solved:
+
+### Not finalized
+
+* exact neural architecture
+* exact parameter count
+* exact sampling frequency
+* exact STFT size
+* exact hop size
+* exact latency target
+* exact microphone models
+* final microphone geometry
+* final ANC topology
+* final adaptive algorithm
+* exact impulse detector
+* exact loss weighting
+* final dataset
+* final training duration
+* final quantization format
+* final embedded board
+* final measured SNR/STOI/PESQ
+* final power consumption
+
+These are **engineering decisions/experiments still to be completed**.
+
+---
+
+# 55. MOST IMPORTANT CURRENT TECHNICAL QUESTIONS
+
+Any AI continuing this research should help answer these rather than merely repeating background theory:
+
+1. **What is the final acoustic architecture?**
+2. **Are we doing speech enhancement, physical ANC, or both?**
+3. **Where exactly are primary/reference/error microphones located?**
+4. **What is the reference-mic speech leakage?**
+5. **What sampling rate should the prototype use?**
+6. **What STFT frame/hop gives the best latency/quality trade-off?**
+7. **What is the actual end-to-end latency budget?**
+8. **Which model gives the best quality per compute?**
+9. **Can the selected model run causally on Raspberry Pi 4?**
+10. **Should AI operate before or after adaptive filtering?**
+11. **How should impulsive events be detected?**
+12. **Should Kalman replace NLMS only during impulses?**
+13. **How is the secondary path identified?**
+14. **How is delay synchronized?**
+15. **How will real-world noise be collected?**
+16. **How will speech leakage into the reference be handled?**
+17. **What happens when the noise completely masks speech during an impulse?**
+18. **How will SNR/STOI/PESQ be measured consistently?**
+19. **What is the actual hardware power budget?**
+20. **What is the measured, not theoretical, end-to-end latency?**
+
+---
+
+# 56. THE PROJECT IN ONE SENTENCE
+
+> **SIH26052 is being developed as a real-time embedded hybrid AI/DSP adaptive noise-control system that uses multi-microphone acoustic sensing, causal neural speech enhancement, and adaptive filtering to suppress stationary, non-stationary, and impulsive defence noise while preserving speech intelligibility and meeting strict latency/resource constraints.**
+
+---
+
+# 57. THE PROJECT IN ONE DIAGRAM
+
+```text
+                         REAL WORLD
+                             │
+       ┌─────────────────────┼─────────────────────┐
+       │                     │                     │
+   Speech source        Noise source          Acoustic path
+       │                     │                     │
+       └──────────────┬──────┴─────────────────────┘
+                      │
+              ┌───────┴────────┐
+              │                │
+         PRIMARY MIC      REFERENCE MIC
+              │                │
+              │                │
+              ▼                ▼
+       Speech + Noise       Noise reference
+              │                │
+              ▼                ▼
+        Preprocessing    Noise analysis /
+              │           impulse detector
+              │                │
+              ▼          ┌─────┴─────┐
+         STFT/features   │           │
+              │        normal      impulse
+              ▼           │           │
+        AI/ML enhancer     ▼           ▼
+              │          NLMS/FxNLMS  Kalman/
+              │                       robust filter
+              │           └─────┬─────┘
+              │                 │
+              └────────┬────────┘
+                       ▼
+                Residual cleanup
+                       │
+                       ▼
+                Enhanced speech
+                       │
+                       ▼
+                  Output DAC
+                       │
+                       ▼
+                Headset/Speaker
+                       │
+                       ▼
+                Listener/Radio
+
+Physical ANC loop where implemented:
+                       
+Reference → Controller → Anti-noise speaker
+                         ↓
+                  Acoustic environment
+                         ↓
+                    Error mic
+                         ↓
+                  residual error
+                         ↓
+                  adaptive update
+```
+
+---
+
+# 58. THE RULE FOR ANY FUTURE AI HELPING THIS PROJECT
+
+When continuing research, the AI should **not assume that an architecture is correct merely because it sounds sophisticated**.
+
+Every proposed component should be classified as:
+
+### VERIFIED RESEARCH
+
+Supported by literature or an actual experiment.
+
+### ENGINEERING TARGET
+
+A desired specification that the team intends to achieve.
+
+### HYPOTHESIS
+
+A proposed design that still needs experimental validation.
+
+This distinction is particularly important for:
+
+* latency
+* SNR
+* STOI
+* PESQ
+* model accuracy
+* Raspberry Pi feasibility
+* impulsive-noise suppression
+* microphone placement
+* novelty claims.
+
+---
+
+# 59. CURRENT STRATEGIC PRIORITY
+
+The most important transition now is:
+
+```text
+              BEFORE
+Research
+  ↓
+documents
+  ↓
+architecture
+  ↓
+more research
+
+              NOW
+Architecture
+  ↓
+small experiment
+  ↓
+measurement
+  ↓
+failure analysis
+  ↓
+correction
+  ↓
+next experiment
+```
+
+The immediate technical foundation should therefore be:
+
+**STFT → streaming audio → NLMS/FxNLMS → secondary-path modeling → AI model baseline → hybrid integration → impulsive-noise handling → embedded optimization.**
+
+The uploaded ANC literature strongly supports the importance of explicitly handling the secondary path and impulsive noise rather than assuming ordinary FxLMS is sufficient. 
+
+---
+
+## Copy-paste instruction for another AI
+
+You can paste the following **after the context above**:
+
+> **You are now assisting with the SIH26052 project described above. Treat the project state as an engineering project in progress, not a finished system. Do not invent experimental results, hardware specifications, latency figures, model accuracy, or microphone geometry. Clearly distinguish VERIFIED RESEARCH, ENGINEERING TARGET, and HYPOTHESIS. Challenge technically weak assumptions. When proposing an architecture, explain the signal flow, acoustic paths, causality, latency, computational cost, microphone roles, training implications, and measurable validation procedure. Prioritize executable experiments and implementation over additional documentation. If two project documents conflict, explicitly identify the conflict instead of silently choosing one. The ultimate goal is a physically demonstrated, real-time embedded AI/DSP ANC system for stationary, non-stationary, and impulsive defence noise while preserving speech intelligibility.**
+
+This gives another model enough context to continue along **AI/ML, DSP, hardware, acoustics, embedded deployment, dataset, or research-paper analysis paths** without assuming that the unresolved parts have already been solved.
+
+[1]: https://sih.iqubekct.ac.in/problems/SIH26052/?utm_source=chatgpt.com "SIH26052 · To develop an AI/ML-enabled adaptive no…"
+[2]: https://arxiv.org/abs/2205.05474?utm_source=chatgpt.com "DeepFilterNet2: Towards Real-Time Speech Enhancement on Embedded Devices for Full-Band Audio"

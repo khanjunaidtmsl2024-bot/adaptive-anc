@@ -430,7 +430,9 @@ def run_test_8_streaming_simulation(sr: int = 16000) -> Dict[str, Any]:
     primary = clean + noise
     reference = np.roll(noise, 2)
 
-    engine = CausalStreamingEngine(sample_rate=sr, use_fast_dsp=True)
+    # Explicitly tests the authoritative real-time edge deployment configuration:
+    # Numba JIT fast DSP (use_fast_dsp=True) + ONNX Runtime AI engine (ai_backend="onnx").
+    engine = CausalStreamingEngine(sample_rate=sr, use_fast_dsp=True, ai_backend="onnx")
     hop = 128
     n_hops = n_samples // hop
     times_ms = []

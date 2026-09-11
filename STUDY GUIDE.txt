@@ -1,0 +1,1594 @@
+Yes. And this time I’m going to give you the **actual study curriculum**, not a short roadmap.
+
+The goal is not “learn everything about engineering.” The goal is:
+
+> **Build enough theoretical + mathematical + practical competence that you can independently design, implement, debug, modify, and defend the SIH26052 system.**
+
+Your uploaded project material already frames mastery as progressing from recognizing → explaining → calculating → implementing → debugging → defending engineering decisions. 
+
+# SIH26052 — Detailed Master Study Guide
+
+## How we will study every topic
+
+Every major topic follows this sequence:
+
+**1. Intuition**
+What is physically happening?
+
+**2. Terminology**
+What does every variable/term mean?
+
+**3. Mathematics**
+Derive the important equations.
+
+**4. Numerical examples**
+Calculate things by hand.
+
+**5. Visualization**
+Waveforms/spectra/tables when useful.
+
+**6. Coding**
+Implement the concept ourselves.
+
+**7. Real audio**
+Run it on actual signals.
+
+**8. Hardware connection**
+Where does it exist in our prototype?
+
+**9. Failure modes**
+What can go wrong?
+
+**10. Engineering decision**
+What would *you* choose and why?
+
+**11. Experiment**
+Measure it.
+
+**12. Mastery checkpoint**
+You explain/derive/debug it without depending on AI.
+
+That is the standard.
+
+---
+
+# PHASE 0 — Engineering & Mathematics Foundation
+
+### 0.1 Engineering thinking
+
+Learn:
+
+* problem decomposition
+* requirements vs implementation
+* specification vs target
+* hypothesis vs fact
+* measurement
+* uncertainty
+* trade-offs
+* experimental design
+* baseline comparison
+* ablation
+* reproducibility
+* failure analysis
+
+### 0.2 Mathematics
+
+Learn only the mathematics required by the project:
+
+**Algebra**
+
+* equations
+* rearrangement
+* ratios
+* proportionality
+
+**Functions**
+
+* input/output
+* transformations
+* exponential/logarithmic functions
+
+**Trigonometry**
+
+* sine
+* cosine
+* radians
+* phase relationships
+
+**Complex numbers**
+
+* \(j\)
+* real/imaginary parts
+* magnitude
+* phase
+* Euler's formula
+
+**Vectors**
+
+* vector notation
+* dot product
+* norms
+
+**Matrices**
+
+* matrix multiplication
+* transpose
+* basic linear algebra
+
+**Calculus**
+
+* derivative intuition
+* integral intuition
+* gradients
+
+**Probability/statistics**
+
+* mean
+* variance
+* covariance
+* correlation
+* random variables
+* probability distributions
+
+**Why:** adaptive filtering and machine learning both depend heavily on these.
+
+---
+
+# PHASE 1 — Acoustics
+
+## 1.1 Sound
+
+Understand:
+
+* acoustic pressure
+* pressure variation
+* amplitude
+* frequency
+* period
+* wavelength
+* propagation speed
+* phase
+* superposition
+* interference
+
+## 1.2 Sound levels
+
+Learn:
+
+* decibel
+* sound pressure level
+* power ratio
+* amplitude ratio
+* dB addition/subtraction
+* dynamic range
+
+## 1.3 Spectral characteristics
+
+Understand:
+
+* pure tone
+* narrowband noise
+* broadband noise
+* harmonics
+* fundamental frequency
+* transient
+* impulse
+* stochastic noise
+
+## 1.4 Room/acoustic environment
+
+Learn:
+
+* reflection
+* absorption
+* reverberation
+* room impulse response
+* propagation delay
+* direct path
+* reflected path
+* acoustic shadowing
+
+This becomes essential when we reach the **primary and secondary paths**.
+
+---
+
+# PHASE 2 — Microphones & Analog Electronics
+
+This is the part we just started touching.
+
+## 2.1 Microphones
+
+Study:
+
+* dynamic microphone
+* electret microphone
+* analog MEMS microphone
+* digital MEMS microphone
+* microphone sensitivity
+* frequency response
+* self-noise
+* signal level
+* directional response
+* polar pattern
+
+## 2.2 Microphone electronics
+
+Learn:
+
+* bias
+* current
+* coupling
+* impedance
+* preamplifier
+* gain
+* Programmable Gain Amplifier
+* common-mode voltage
+* differential signals
+
+## 2.3 Analog signal conditioning
+
+Study:
+
+* gain
+* attenuation
+* offset
+* DC blocking
+* coupling capacitor
+* clipping
+* saturation
+* headroom
+* dynamic range
+* signal-to-noise ratio
+
+## 2.4 Operational amplifiers
+
+Learn:
+
+* voltage follower
+* non-inverting amplifier
+* inverting amplifier
+* gain
+* input/output limitations
+* bandwidth
+* slew rate
+* rail-to-rail behaviour
+* noise
+
+## 2.5 Analog filters
+
+Study deeply:
+
+* resistor-capacitor filter
+* first-order filter
+* second-order filter
+* active filter
+* Butterworth
+* Chebyshev
+* Bessel
+* filter order
+* cutoff frequency
+* passband
+* stopband
+* transition band
+* attenuation
+* phase response
+
+Then specifically:
+
+### Anti-aliasing filter
+
+$$
+\boxed{\text{Microphone → analog LPF → ADC}}
+$$
+
+Understand why it must occur **before sampling**.
+
+---
+
+# PHASE 3 — ADC / DAC / Digital Audio
+
+## 3.1 ADC
+
+Study:
+
+* sampling
+* quantization
+* bit depth
+* sample rate
+* quantization levels
+* quantization error
+* quantization noise
+* dynamic range
+* clipping
+* reference voltage
+
+## 3.2 Sampling theory
+
+You've started this.
+
+Complete:
+
+* Nyquist theorem
+* aliasing
+* frequency folding
+* spectral replicas
+* negative frequency
+* sampling-equivalent frequencies
+* anti-aliasing
+
+## 3.3 DAC
+
+Study:
+
+* digital-to-analog conversion
+* reconstruction
+* zero-order hold
+* output filtering
+* images
+* reconstruction filter
+
+## 3.4 Digital audio
+
+Learn:
+
+* Pulse-Code Modulation
+* mono/stereo
+* sample format
+* signed/unsigned samples
+* bit depth
+* interleaving
+* channel ordering
+* sample rate conversion
+
+---
+
+# PHASE 4 — Signals & Systems
+
+**We are here now.**
+
+## 4.1 System concept
+
+$$
+x[n]\rightarrow T\{\cdot\}\rightarrow y[n]
+$$
+
+Understand input/output and system representation.
+
+## 4.2 Linearity
+
+Study deeply:
+
+* scaling
+* additivity
+* superposition
+* linear vs nonlinear systems
+* linearity testing
+* physical nonlinearities
+
+Examples:
+
+$$
+y[n]=2x[n]
+$$
+
+$$
+y[n]=x[n]+5
+$$
+
+$$
+y[n]=x^2[n]
+$$
+
+$$
+y[n]=4x[n]-2x[n-1]
+$$
+
+## 4.3 Time invariance
+
+Study:
+
+* time shift
+* input shift
+* output shift
+* time-invariant systems
+* time-varying systems
+
+## 4.4 Memory
+
+Study:
+
+* memoryless system
+* system with memory
+* delayed samples
+* state
+
+## 4.5 Causality
+
+Study:
+
+* past samples
+* current samples
+* future samples
+* causal system
+* non-causal system
+* real-time causality
+* look-ahead
+
+**This directly connects to AI latency.**
+
+## 4.6 Stability
+
+Study:
+
+* bounded-input bounded-output stability
+* unstable systems
+* coefficient growth
+* adaptive-filter instability
+
+## 4.7 Combine the properties
+
+Understand:
+
+$$
+\boxed{\text{Linear + Time-Invariant = LTI}}
+$$
+
+Then classify systems by:
+
+* linear/nonlinear
+* time-invariant/time-varying
+* causal/non-causal
+* memoryless/with-memory
+* stable/unstable
+
+---
+
+# PHASE 5 — Impulse Response & Convolution
+
+This is a **major milestone**.
+
+## 5.1 Unit impulse
+
+Understand:
+
+$$
+\delta[n]
+$$
+
+## 5.2 Impulse response
+
+Understand:
+
+$$
+h[n]
+$$
+
+as the output of a system when the input is an impulse.
+
+## 5.3 Convolution
+
+Learn:
+
+$$
+y[n]=x[n]*h[n]
+$$
+
+and eventually:
+
+$$
+y[n]=\sum_k x[k]h[n-k]
+$$
+
+Don't memorize it.
+
+We will calculate it manually with short sequences.
+
+## 5.4 Why convolution matters
+
+Because a huge amount of your project can eventually be understood as:
+
+$$
+\boxed{\text{signal} * \text{system response}}
+$$
+
+That includes acoustic paths.
+
+Your ANC secondary path is fundamentally related to this concept.
+
+---
+
+# PHASE 6 — Frequency-Domain DSP
+
+Study:
+
+## 6.1 Fourier Series
+
+Understand decomposition into harmonics.
+
+## 6.2 Fourier Transform
+
+Understand:
+
+$$
+x(t)\leftrightarrow X(f)
+$$
+
+## 6.3 Discrete Fourier Transform
+
+$$
+X[k]=\sum_{n=0}^{N-1}x[n]e^{-j2\pi kn/N}
+$$
+
+Understand what every component means.
+
+## 6.4 Fast Fourier Transform
+
+Understand:
+
+* why it is faster
+* FFT size
+* frequency bins
+* resolution
+* computational cost
+
+## 6.5 Spectral leakage
+
+Learn:
+
+* finite-length observation
+* discontinuity
+* leakage
+
+## 6.6 Window functions
+
+Study:
+
+* rectangular
+* Hann
+* Hamming
+* Blackman
+
+and the trade-off between:
+
+* main-lobe width
+* side-lobes
+* frequency resolution
+* leakage.
+
+---
+
+# PHASE 7 — Digital Filters
+
+Now we can finally **design filters intelligently**.
+
+## 7.1 Filter concepts
+
+* cutoff frequency
+* passband
+* stopband
+* transition band
+* attenuation
+* filter order
+* phase response
+* group delay
+
+## 7.2 FIR
+
+Finite Impulse Response.
+
+Study:
+
+* coefficients
+* convolution
+* order
+* linear phase
+* computational cost
+
+## 7.3 IIR
+
+Infinite Impulse Response.
+
+Study:
+
+* feedback
+* poles
+* stability
+* lower-order implementation
+* phase distortion
+
+## 7.4 Practical filters
+
+Build:
+
+* low-pass
+* high-pass
+* band-pass
+* notch
+
+Then test them on real audio.
+
+---
+
+# PHASE 8 — STFT
+
+This is one of the project's central technologies.
+
+## 8.1 Why FFT alone isn't enough
+
+A normal FFT tells you:
+
+> what frequencies exist in the entire analysed segment.
+
+But defence noise changes with time.
+
+Therefore:
+
+$$
+\boxed{\text{time + frequency}}
+$$
+
+is required.
+
+## 8.2 STFT
+
+Study:
+
+* framing
+* windowing
+* hop size
+* overlap
+* FFT
+* magnitude
+* phase
+* complex spectrum
+
+## 8.3 STFT parameters
+
+Experiment with:
+
+* 10 ms
+* 20 ms
+* 32 ms
+* different FFT sizes
+* different hop sizes
+* 25%
+* 50%
+* 75% overlap
+
+Measure:
+
+* resolution
+* latency
+* reconstruction quality
+* compute.
+
+## 8.4 iSTFT
+
+Learn:
+
+* inverse FFT
+* synthesis window
+* overlap-add
+* reconstruction
+* perfect reconstruction conditions
+
+## 8.5 STFT latency
+
+Understand:
+
+$$
+\boxed{\text{window duration + hop/buffering + lookahead}}
+$$
+
+and why model inference time isn't the entire latency.
+
+---
+
+# PHASE 9 — Speech Processing
+
+Before AI speech enhancement, learn speech itself.
+
+Study:
+
+* speech waveform
+* voiced speech
+* unvoiced speech
+* pitch
+* fundamental frequency
+* harmonics
+* formants
+* phonemes
+* speech spectrum
+* speech bandwidth
+* speech intelligibility
+
+Then:
+
+* Voice Activity Detection
+* speech/noise separation
+* masking
+* speech distortion.
+
+---
+
+# PHASE 10 — Classical Speech Enhancement
+
+Learn the traditional methods first:
+
+### Spectral subtraction
+
+Understand:
+
+* noise spectrum estimation
+* subtraction
+* negative spectrum handling
+* musical noise
+
+### Wiener filtering
+
+Understand:
+
+* signal estimate
+* noise estimate
+* gain function
+* minimum mean-square error intuition
+
+These become **baselines** against which AI is compared.
+
+---
+
+# PHASE 11 — Adaptive Filtering
+
+Now we enter the real adaptive-signal-processing section.
+
+## 11.1 Fixed vs adaptive filter
+
+Fixed:
+
+$$
+w[n]=constant
+$$
+
+Adaptive:
+
+$$
+w[n]\rightarrow \text{changes over time}
+$$
+
+## 11.2 Reference / desired / error
+
+Understand:
+
+$$
+x[n]=\text{reference}
+$$
+
+$$
+d[n]=\text{desired}
+$$
+
+$$
+e[n]=d[n]-y[n]
+$$
+
+## 11.3 LMS
+
+Study:
+
+$$
+y[n]=w^Tx[n]
+$$
+
+$$
+e[n]=d[n]-y[n]
+$$
+
+$$
+w[n+1]=w[n]+\mu e[n]x[n]
+$$
+
+Understand:
+
+* step size
+* convergence
+* misadjustment
+* stability
+* filter length.
+
+## 11.4 NLMS
+
+Understand why normalization is useful when signal power changes.
+
+Study:
+
+* normalized update
+* step-size bounds
+* epsilon
+* convergence
+* numerical stability.
+
+---
+
+# PHASE 12 — Actual ANC
+
+Now combine everything.
+
+## 12.1 Passive vs active noise control
+
+Understand the difference.
+
+## 12.2 Feedforward ANC
+
+Understand:
+
+$$
+\text{reference}
+\rightarrow
+\text{controller}
+\rightarrow
+\text{speaker}
+\rightarrow
+\text{error microphone}
+$$
+
+## 12.3 Feedback ANC
+
+Understand:
+
+$$
+\text{error}
+\rightarrow
+\text{controller}
+$$
+
+## 12.4 Hybrid ANC
+
+Combine both.
+
+## 12.5 Primary path
+
+$$
+P(z)
+$$
+
+Noise source → error location.
+
+## 12.6 Secondary path
+
+$$
+S(z)
+$$
+
+Controller → speaker → acoustic environment → error microphone.
+
+This is absolutely fundamental.
+
+---
+
+# PHASE 13 — FxLMS / FxNLMS
+
+Study:
+
+### Filtered-x
+
+Why the reference must be filtered through an estimate:
+
+$$
+\hat S(z)
+$$
+
+of the secondary path.
+
+Understand:
+
+* secondary-path modelling
+* filtered reference
+* controller update
+* delay
+* stability
+* convergence.
+
+Then:
+
+$$
+\boxed{\text{FxNLMS}}
+$$
+
+---
+
+# PHASE 14 — ANC Control Theory
+
+Now explicitly connect ANC to control systems.
+
+Study:
+
+* plant
+* controller
+* disturbance
+* feedback
+* open loop
+* closed loop
+* stability
+* gain
+* delay
+* robustness
+* bandwidth
+* oscillation
+
+Then analyze the ANC loop as a control system.
+
+---
+
+# PHASE 15 — Acoustic Path & System Identification
+
+Learn:
+
+* impulse response measurement
+* transfer function
+* frequency response
+* cross-correlation
+* delay estimation
+* secondary-path identification
+* primary-path identification
+* online/offline identification
+* model mismatch
+
+This is where your system starts becoming physically realistic.
+
+---
+
+# PHASE 16 — Two-Microphone / Multi-Microphone Systems
+
+Study:
+
+* reference microphone
+* primary microphone
+* error microphone
+* microphone geometry
+* spacing
+* acoustic coherence
+* spatial correlation
+* speech leakage
+* channel matching
+* gain matching
+* synchronization
+* delay estimation.
+
+The uploaded multi-channel deep ANC paper is particularly useful here because it explicitly studies multiple reference microphones, canceling loudspeakers, and error microphones, and shows how spatial ANC performance changes as these quantities change. 
+
+---
+
+# PHASE 17 — Defence Noise Science
+
+Create a separate knowledge base for:
+
+### Stationary
+
+* engine
+* machinery
+* hum
+
+### Non-stationary
+
+* helicopter
+* drone
+* changing engine
+* wind
+* siren
+
+### Impulsive
+
+* gunshot
+* artillery
+* explosion-like transient
+* mechanical impact
+
+For each noise learn:
+
+* waveform
+* spectrum
+* duration
+* energy
+* stationarity
+* temporal structure
+* spectral structure
+* speech overlap.
+
+---
+
+# PHASE 18 — Impulsive Noise
+
+This deserves its own branch.
+
+Study:
+
+* impulse detection
+* peak detection
+* energy detection
+* statistical detection
+* robust statistics
+* clipping
+* adaptive-filter divergence
+* coefficient explosion
+* recovery
+
+Then investigate:
+
+* robust LMS
+* robust NLMS
+* Kalman filtering
+* impulse-aware switching
+* hybrid control.
+
+The uploaded research paper specifically investigates impulsive-noise detection combined with Kalman-based ANC and compares it with conventional FxLMS/FxNLMS approaches. That gives us a concrete research path rather than treating “impulsive noise” as merely another dataset category.
+
+---
+
+# PHASE 19 — AI/ML Fundamentals
+
+Now AI becomes much easier because you understand the signal.
+
+Study:
+
+* supervised learning
+* unsupervised learning
+* training
+* validation
+* testing
+* features
+* labels
+* targets
+* loss
+* optimizer
+* learning rate
+* epochs
+* batches
+* overfitting
+* regularization
+* generalization
+* data leakage.
+
+---
+
+# PHASE 20 — Neural Networks
+
+Learn:
+
+* neuron
+* weights
+* bias
+* activation
+* layers
+* forward propagation
+* backpropagation
+* gradients
+
+Then:
+
+* CNN
+* RNN
+* LSTM
+* GRU
+* encoder-decoder
+* U-Net
+* CRN.
+
+---
+
+# PHASE 21 — Speech Enhancement AI
+
+Study:
+
+### Mask-based enhancement
+
+$$
+\hat X=M\odot X
+$$
+
+### Spectral mapping
+
+$$
+X\rightarrow\hat S
+$$
+
+### Complex spectral mapping
+
+$$
+X_r,X_i
+\rightarrow
+\hat S_r,\hat S_i
+$$
+
+### Waveform models
+
+$$
+x[n]\rightarrow\hat s[n]
+$$
+
+Understand advantages and disadvantages of each.
+
+The uploaded deep multi-channel ANC paper is directly relevant because its model uses a convolutional recurrent network to estimate real and imaginary spectrograms of canceling signals from reference signals. 
+
+---
+
+# PHASE 22 — AI Loss Functions
+
+Study:
+
+* Mean Squared Error
+* L1
+* Scale-Invariant Signal-to-Noise Ratio
+* spectral loss
+* complex loss
+* perceptual loss
+* multi-objective loss
+
+Then understand:
+
+$$
+L_{total}
+=
+\alpha L_1+
+\beta L_{SI-SNR}+
+\gamma L_{spectral}
++\cdots
+$$
+
+But don't invent weights before experiments.
+
+---
+
+# PHASE 23 — Dataset Engineering
+
+Learn:
+
+* clean speech
+* noise dataset
+* mixing
+* SNR control
+* train/validation/test separation
+* speaker separation
+* noise separation
+* unseen noise
+* reverberation
+* clipping
+* augmentation
+* distribution shift
+* leakage.
+
+Then build the actual generator.
+
+---
+
+# PHASE 24 — AI Evaluation
+
+Study:
+
+* SNR
+* SI-SNR
+* SDR
+* STOI
+* PESQ
+* speech distortion
+* noise suppression
+* perceptual quality
+
+Then learn why metrics can disagree.
+
+---
+
+# PHASE 25 — Real-Time AI
+
+Study:
+
+* causal model
+* receptive field
+* lookahead
+* temporal context
+* frame-by-frame inference
+* streaming state
+* recurrent state
+* inference latency
+* real-time factor.
+
+A model that performs beautifully offline can still be useless for your project if it requires future samples or takes too long to run.
+
+---
+
+# PHASE 26 — Embedded Audio
+
+Study:
+
+* Raspberry Pi architecture
+* CPU
+* RAM
+* Linux
+* ALSA
+* I²S
+* DMA
+* audio codec
+* buffers
+* ring buffers
+* interrupts
+* scheduling
+* threading
+* synchronization
+* underruns
+* overruns.
+
+---
+
+# PHASE 27 — Real-Time Systems
+
+Study:
+
+* hard vs soft real-time
+* deadlines
+* jitter
+* worst-case latency
+* p99 latency
+* throughput
+* buffering
+* scheduling
+* CPU utilization
+* priority.
+
+Then construct:
+
+$$
+\boxed{
+\text{Mic}
+\rightarrow
+\text{ADC}
+\rightarrow
+\text{DMA}
+\rightarrow
+\text{buffer}
+\rightarrow
+\text{DSP}
+\rightarrow
+\text{AI}
+\rightarrow
+\text{output}
+}
+$$
+
+---
+
+# PHASE 28 — ONNX / Embedded AI Deployment
+
+Learn:
+
+* model export
+* ONNX
+* ONNX Runtime
+* TensorRT
+* operator compatibility
+* graph optimization
+* FP32
+* FP16
+* INT8
+* quantization
+* pruning
+* memory footprint.
+
+Then benchmark the **actual target hardware**.
+
+---
+
+# PHASE 29 — Numerical Computing
+
+Study:
+
+* floating point
+* fixed point
+* quantization
+* overflow
+* underflow
+* saturation
+* numerical error
+* coefficient precision.
+
+This becomes particularly important for adaptive filters.
+
+---
+
+# PHASE 30 — Complete Audio Software Pipeline
+
+Implement:
+
+```text
+ALSA
+ ↓
+capture
+ ↓
+DMA/buffer
+ ↓
+preprocessing
+ ↓
+STFT
+ ↓
+AI
+ ↓
+iSTFT
+ ↓
+OLA
+ ↓
+adaptive filter
+ ↓
+output buffer
+ ↓
+ALSA playback
+```
+
+And measure every stage.
+
+---
+
+# PHASE 31 — Hardware Integration
+
+Build and verify:
+
+* microphone
+* audio codec
+* Raspberry Pi
+* I²S
+* headset
+* amplifier
+* power
+* grounding
+* shielding
+* enclosure.
+
+Then:
+
+**two-channel synchronized acquisition.**
+
+---
+
+# PHASE 32 — Calibration
+
+Study and implement:
+
+* gain calibration
+* microphone sensitivity matching
+* channel delay
+* phase matching
+* secondary-path identification
+* output calibration
+* clipping detection
+* noise-floor measurement.
+
+---
+
+# PHASE 33 — Safety / Fail-Safe
+
+Build mechanisms for:
+
+* adaptation freeze
+* output limiter
+* clipping protection
+* model failure
+* microphone failure
+* buffer failure
+* abnormal coefficients
+* impulse events
+* bypass mode.
+
+A controller that occasionally becomes unstable is not a successful defence prototype.
+
+---
+
+# PHASE 34 — Full Experimental Evaluation
+
+Mandatory baselines:
+
+$$
+\boxed{\text{No enhancement}}
+$$
+
+$$
+\boxed{\text{Classical}}
+$$
+
+$$
+\boxed{\text{NLMS}}
+$$
+
+$$
+\boxed{\text{AI only}}
+$$
+
+$$
+\boxed{\text{AI + NLMS}}
+$$
+
+Potentially:
+
+$$
+\boxed{\text{AI + impulse-aware controller}}
+$$
+
+Test:
+
+* stationary
+* non-stationary
+* impulsive
+* mixed noise
+* unseen noise
+* different SNRs.
+
+Measure:
+
+* SNR
+* STOI
+* PESQ
+* SI-SNR
+* latency
+* CPU
+* RAM
+* power
+* stability.
+
+---
+
+# PHASE 35 — Innovation & Research
+
+**Only after the previous phases produce data.**
+
+Learn how to:
+
+1. identify failure
+2. identify cause
+3. formulate hypothesis
+4. design intervention
+5. implement intervention
+6. benchmark against baseline
+7. perform ablation
+8. quantify improvement
+9. identify limitations
+10. defend novelty.
+
+Potential research directions:
+
+* adaptive AI/NLMS switching
+* impulse-aware controller
+* dynamic NLMS step size
+* speech-protection controller
+* secondary-path-aware AI
+* causal low-latency architecture
+* hardware-aware model compression
+* microphone geometry optimization
+* noise-state-conditioned enhancement
+* hybrid AI + Kalman/NLMS.
+
+But **we don't choose the innovation now**.
+
+We let the experiments tell us where the interesting problem is.
+
+---
+
+# The dependency map
+
+This is the part I want you to keep visible while studying:
+
+```text
+MATHEMATICS
+     ↓
+SIGNALS
+     ↓
+SAMPLING
+     ↓
+SYSTEMS
+     ↓
+LINEARITY ─ TIME INVARIANCE ─ CAUSALITY ─ MEMORY ─ STABILITY
+     ↓
+LTI SYSTEMS
+     ↓
+IMPULSE RESPONSE
+     ↓
+CONVOLUTION
+     ↓
+FOURIER
+     ↓
+FILTERS
+     ↓
+STFT / iSTFT / OLA
+     ↓
+ADAPTIVE FILTERING
+     ↓
+LMS → NLMS
+     ↓
+ANC
+     ↓
+PRIMARY / SECONDARY PATH
+     ↓
+FxLMS / FxNLMS
+     ↓
+CONTROL + SYSTEM IDENTIFICATION
+     ↓
+MULTI-MICROPHONE / ACOUSTICS
+     ↓
+DEFENCE NOISE
+     ↓
+IMPULSE HANDLING
+     ↓
+AI/ML
+     ↓
+SPEECH ENHANCEMENT
+     ↓
+AI + ADAPTIVE FILTER
+     ↓
+CAUSAL REAL-TIME PROCESSING
+     ↓
+ALSA / I²S / DMA / BUFFERING
+     ↓
+EMBEDDED DEPLOYMENT
+     ↓
+CALIBRATION
+     ↓
+MEASUREMENT
+     ↓
+ABLATION
+     ↓
+INNOVATION
+```
+
+And running **parallel to almost the entire tree**:
+
+```text
+ANALOG ELECTRONICS
+     ↓
+MIC → PREAMP → FILTER → ADC
+     ↓
+DIGITAL AUDIO
+     ↓
+DAC → AMPLIFIER → SPEAKER/HEADSET
+```
+
+and:
+
+```text
+REAL-WORLD NON-IDEALITIES
+     ↓
+noise
+clipping
+saturation
+nonlinearity
+clock error
+delay
+quantization
+hardware limitations
+```
+
+Those aren't side topics. They interact with the main chain.
+
+---
+
+# Where we are now
+
+You are currently at:
+
+$$
+\boxed{\text{PHASE 4 — SYSTEMS}}
+$$
+
+and specifically:
+
+$$
+\boxed{\text{LINEARITY}}
+$$
+
+We've established that:
+
+$$
+y[n]=4x[n]-2x[n-1]
+$$
+
+is linear despite having memory.
+
+**Our next lesson should therefore be a deeper treatment of linearity**, including the zero-input test, superposition test, several tricky examples, and—most importantly—**how linearity differs from time invariance**.
+
+Then we'll move to **time invariance**.
+
+We are **not skipping ahead to AI**. That would put you back into the exact dependency problem that is frustrating you now.

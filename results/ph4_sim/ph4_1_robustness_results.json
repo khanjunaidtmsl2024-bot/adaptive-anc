@@ -1,0 +1,434 @@
+{
+  "campaign_id": "PH4_1_ROBUSTNESS_AND_REALISM_VALIDATION",
+  "timestamp_utc": "2026-09-09T03:00:37Z",
+  "verdict": "PASS",
+  "total_wall_time_sec": 11.65,
+  "attribution": "SIMULATED PHYSICAL CONTROL EXPERIMENT (Host CPU)",
+  "experiments": {
+    "exp_1_reference_coherence": {
+      "coherence_sweep": [
+        {
+          "coherence_gamma": 0.1,
+          "simulated_cancellation_db": 0.05,
+          "theoretical_bound_db": 0.46,
+          "diverged": false
+        },
+        {
+          "coherence_gamma": 0.25,
+          "simulated_cancellation_db": 1.16,
+          "theoretical_bound_db": 1.25,
+          "diverged": false
+        },
+        {
+          "coherence_gamma": 0.5,
+          "simulated_cancellation_db": 3.42,
+          "theoretical_bound_db": 3.01,
+          "diverged": false
+        },
+        {
+          "coherence_gamma": 0.75,
+          "simulated_cancellation_db": 6.79,
+          "theoretical_bound_db": 6.02,
+          "diverged": false
+        },
+        {
+          "coherence_gamma": 0.85,
+          "simulated_cancellation_db": 9.04,
+          "theoretical_bound_db": 8.24,
+          "diverged": false
+        },
+        {
+          "coherence_gamma": 0.9,
+          "simulated_cancellation_db": 10.72,
+          "theoretical_bound_db": 10.0,
+          "diverged": false
+        },
+        {
+          "coherence_gamma": 0.95,
+          "simulated_cancellation_db": 13.36,
+          "theoretical_bound_db": 13.01,
+          "diverged": false
+        },
+        {
+          "coherence_gamma": 0.99,
+          "simulated_cancellation_db": 17.96,
+          "theoretical_bound_db": 20.0,
+          "diverged": false
+        },
+        {
+          "coherence_gamma": 1.0,
+          "simulated_cancellation_db": 20.63,
+          "theoretical_bound_db": 99.9,
+          "diverged": false
+        }
+      ],
+      "passed": true
+    },
+    "exp_2_multidimensional_uncertainty": {
+      "uncertainty_suite": [
+        {
+          "perturbation_type": "amplitude",
+          "severity": 0.1,
+          "description": "Gain +10%",
+          "cancellation_db": 20.54,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "amplitude",
+          "severity": 0.3,
+          "description": "Gain +30%",
+          "cancellation_db": 20.37,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "amplitude",
+          "severity": 0.5,
+          "description": "Gain +50%",
+          "cancellation_db": 20.22,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "amplitude",
+          "severity": -0.3,
+          "description": "Gain -30%",
+          "cancellation_db": 20.94,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "phase",
+          "severity": 15.0,
+          "description": "Phase +15 deg",
+          "cancellation_db": 20.57,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "phase",
+          "severity": 30.0,
+          "description": "Phase +30 deg",
+          "cancellation_db": 20.18,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "phase",
+          "severity": 45.0,
+          "description": "Phase +45 deg",
+          "cancellation_db": 19.5,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "phase",
+          "severity": 60.0,
+          "description": "Phase +60 deg",
+          "cancellation_db": 18.72,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "phase",
+          "severity": 90.0,
+          "description": "Phase +90 deg (SPR violation boundary)",
+          "cancellation_db": -37.23,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "delay",
+          "severity": 1.0,
+          "description": "Transport Delay +1 sample (0.062 ms)",
+          "cancellation_db": 20.37,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "delay",
+          "severity": 2.0,
+          "description": "Transport Delay +2 samples (0.125 ms)",
+          "cancellation_db": 19.94,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "delay",
+          "severity": 4.0,
+          "description": "Transport Delay +4 samples (0.250 ms)",
+          "cancellation_db": 18.59,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "resonance",
+          "severity": 0.1,
+          "description": "Resonance f_0 +10% (330 Hz)",
+          "cancellation_db": 20.89,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "resonance",
+          "severity": 0.3,
+          "description": "Resonance f_0 +30% (390 Hz)",
+          "cancellation_db": 21.48,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "resonance",
+          "severity": -0.2,
+          "description": "Resonance f_0 -20% (240 Hz)",
+          "cancellation_db": 20.15,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "q_factor",
+          "severity": 0.3,
+          "description": "Damping Q +30%",
+          "cancellation_db": 20.55,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "q_factor",
+          "severity": -0.5,
+          "description": "Damping Q -50%",
+          "cancellation_db": 20.78,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "random_fir",
+          "severity": 0.05,
+          "description": "Random FIR L2 error 5%",
+          "cancellation_db": 20.62,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "random_fir",
+          "severity": 0.1,
+          "description": "Random FIR L2 error 10%",
+          "cancellation_db": 20.61,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "random_fir",
+          "severity": 0.2,
+          "description": "Random FIR L2 error 20%",
+          "cancellation_db": 20.58,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "random_fir",
+          "severity": 0.3,
+          "description": "Random FIR L2 error 30%",
+          "cancellation_db": 20.55,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "random_fir",
+          "severity": 0.5,
+          "description": "Random FIR L2 error 50%",
+          "cancellation_db": 20.47,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "combined",
+          "severity": 0.5,
+          "description": "Combined Realistic (Mild: 7% gain, 7.5 deg, 5% FIR)",
+          "cancellation_db": 20.56,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "combined",
+          "severity": 1.0,
+          "description": "Combined Realistic (Mod: 15% gain, 15 deg, 10% FIR)",
+          "cancellation_db": 20.39,
+          "diverged": false
+        },
+        {
+          "perturbation_type": "combined",
+          "severity": 2.0,
+          "description": "Combined Realistic (Severe: 30% gain, 30 deg, 20% FIR)",
+          "cancellation_db": 19.77,
+          "diverged": false
+        }
+      ],
+      "passed": true
+    },
+    "exp_3_actuator_saturation": {
+      "saturation_sweep": [
+        {
+          "headroom_ratio": 0.25,
+          "v_max": 0.0206,
+          "hard_clip_cancellation_db": 6.57,
+          "hard_clip_ratio": 0.7355,
+          "hard_clip_diverged": false,
+          "soft_sat_cancellation_db": 6.71,
+          "soft_sat_clip_ratio": 0.7635,
+          "soft_sat_diverged": false
+        },
+        {
+          "headroom_ratio": 0.5,
+          "v_max": 0.0411,
+          "hard_clip_cancellation_db": 16.19,
+          "hard_clip_ratio": 0.0705,
+          "hard_clip_diverged": false,
+          "soft_sat_cancellation_db": 14.14,
+          "soft_sat_clip_ratio": 0.1424,
+          "soft_sat_diverged": false
+        },
+        {
+          "headroom_ratio": 0.75,
+          "v_max": 0.0617,
+          "hard_clip_cancellation_db": 20.46,
+          "hard_clip_ratio": 0.0041,
+          "hard_clip_diverged": false,
+          "soft_sat_cancellation_db": 18.12,
+          "soft_sat_clip_ratio": 0.0107,
+          "soft_sat_diverged": false
+        },
+        {
+          "headroom_ratio": 1.0,
+          "v_max": 0.0822,
+          "hard_clip_cancellation_db": 20.63,
+          "hard_clip_ratio": 0.0001,
+          "hard_clip_diverged": false,
+          "soft_sat_cancellation_db": 19.63,
+          "soft_sat_clip_ratio": 0.0001,
+          "soft_sat_diverged": false
+        },
+        {
+          "headroom_ratio": 1.5,
+          "v_max": 0.1233,
+          "hard_clip_cancellation_db": 20.63,
+          "hard_clip_ratio": 0.0,
+          "hard_clip_diverged": false,
+          "soft_sat_cancellation_db": 20.42,
+          "soft_sat_clip_ratio": 0.0,
+          "soft_sat_diverged": false
+        },
+        {
+          "headroom_ratio": 2.0,
+          "v_max": 0.1644,
+          "hard_clip_cancellation_db": 20.63,
+          "hard_clip_ratio": 0.0,
+          "hard_clip_diverged": false,
+          "soft_sat_cancellation_db": 20.57,
+          "soft_sat_clip_ratio": 0.0,
+          "soft_sat_diverged": false
+        }
+      ],
+      "req_peak": 0.08221795409917831,
+      "req_rms": 0.021100061015294623,
+      "passed": true
+    },
+    "exp_4_joint_realistic_environment": {
+      "profiles": [
+        {
+          "profile": "stat_tonal_hum",
+          "cancellation_db": 10.12,
+          "diverged": false
+        },
+        {
+          "profile": "stat_pink",
+          "cancellation_db": 6.01,
+          "diverged": false
+        },
+        {
+          "profile": "nonstat_engine_mod",
+          "cancellation_db": 9.16,
+          "diverged": false
+        },
+        {
+          "profile": "nonstat_rotor_mod",
+          "cancellation_db": 2.02,
+          "diverged": false
+        }
+      ],
+      "mean_cancellation_db": 6.83,
+      "passed": true
+    },
+    "exp_5_bandwidth_with_criterion": {
+      "spectrum": [
+        {
+          "freq_hz": 30,
+          "cancellation_db": 39.97,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 50,
+          "cancellation_db": 40.05,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 75,
+          "cancellation_db": 39.95,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 100,
+          "cancellation_db": 39.85,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 150,
+          "cancellation_db": 40.0,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 200,
+          "cancellation_db": 40.15,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 250,
+          "cancellation_db": 40.02,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 300,
+          "cancellation_db": 40.03,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 400,
+          "cancellation_db": 39.96,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 500,
+          "cancellation_db": 40.08,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 600,
+          "cancellation_db": 39.93,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 700,
+          "cancellation_db": 39.96,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 800,
+          "cancellation_db": 39.91,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 1000,
+          "cancellation_db": 39.79,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 1200,
+          "cancellation_db": 39.94,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 1500,
+          "cancellation_db": 39.74,
+          "meets_10db_threshold": true
+        },
+        {
+          "freq_hz": 2000,
+          "cancellation_db": 39.74,
+          "meets_10db_threshold": true
+        }
+      ],
+      "bandwidth_criterion": ">= 10.0 dB cancellation under 40 dB sensor SNR and 10% plant mismatch",
+      "f_lower_hz": 30,
+      "f_upper_hz": 2000,
+      "passed": true
+    }
+  }
+}

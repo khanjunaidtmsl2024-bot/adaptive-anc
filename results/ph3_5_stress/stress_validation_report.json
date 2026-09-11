@@ -1,0 +1,351 @@
+{
+  "campaign_id": "PH3_5_PRE_HARDWARE_STRESS_VALIDATION",
+  "timestamp_utc": "2026-09-09T00:44:00Z",
+  "verdict": "PASS",
+  "total_campaign_wall_time_sec": 64.15,
+  "model_info": {
+    "model_path": "F:\\SIH 2026\\models\\E2_causal.onnx",
+    "sha256": "354cd44c6737517783064112cb676addd72bc4454bd3cc625e842855ffe59759",
+    "parameter_count": 9569,
+    "architecture": "TinyEnhancer CausalConv2d (Frozen E2_causal)"
+  },
+  "suites": {
+    "suite_1_stationary_noise": {
+      "passed": true,
+      "test_count": 12,
+      "conditions": [
+        {
+          "noise_id": "stat_white",
+          "target_snr_db": -10,
+          "out_si_sdr_db": -4.99,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.4738,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_white",
+          "target_snr_db": 0,
+          "out_si_sdr_db": 2.67,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.4127,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_white",
+          "target_snr_db": 10,
+          "out_si_sdr_db": 12.03,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.3971,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_pink",
+          "target_snr_db": -10,
+          "out_si_sdr_db": -2.5,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.4171,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_pink",
+          "target_snr_db": 0,
+          "out_si_sdr_db": 5.18,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.389,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_pink",
+          "target_snr_db": 10,
+          "out_si_sdr_db": 13.93,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.3848,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_brown",
+          "target_snr_db": -10,
+          "out_si_sdr_db": 7.45,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.397,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_brown",
+          "target_snr_db": 0,
+          "out_si_sdr_db": 12.1,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.3833,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_brown",
+          "target_snr_db": 10,
+          "out_si_sdr_db": 13.56,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.3806,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_tonal_hum",
+          "target_snr_db": -10,
+          "out_si_sdr_db": 2.72,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.4197,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_tonal_hum",
+          "target_snr_db": 0,
+          "out_si_sdr_db": 9.3,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.4149,
+          "stable": true
+        },
+        {
+          "noise_id": "stat_tonal_hum",
+          "target_snr_db": 10,
+          "out_si_sdr_db": 18.98,
+          "has_nan": false,
+          "has_inf": false,
+          "max_amp": 0.3889,
+          "stable": true
+        }
+      ]
+    },
+    "suite_2_nonstationary_modulation": {
+      "passed": true,
+      "conditions": [
+        {
+          "noise_id": "nonstat_engine_mod",
+          "in_snr_db": 0.01,
+          "out_si_sdr_db": 4.63,
+          "delta_snr_db": 5.01,
+          "stable": true
+        },
+        {
+          "noise_id": "nonstat_rotor_mod",
+          "in_snr_db": -0.0,
+          "out_si_sdr_db": 4.28,
+          "delta_snr_db": 4.91,
+          "stable": true
+        },
+        {
+          "noise_id": "nonstat_siren_sweep",
+          "in_snr_db": 0.01,
+          "out_si_sdr_db": 8.85,
+          "delta_snr_db": 5.86,
+          "stable": true
+        }
+      ]
+    },
+    "suite_3_impulsive_and_rapid_fire": {
+      "passed": true,
+      "tests": [
+        {
+          "name": "single_gunshot_40db",
+          "max_output_amp": 0.5186,
+          "recovered_at_150ms": true,
+          "bounded": true
+        },
+        {
+          "name": "rapid_fire_5_bursts",
+          "max_output_amp": 0.5585,
+          "recovered_at_150ms": true,
+          "bounded": true
+        }
+      ]
+    },
+    "suite_4_mixed_dynamic_regimes": {
+      "passed": true,
+      "regimes_seen": [
+        "DIFFUSE",
+        "STATIONARY",
+        "IMPULSIVE",
+        "SPEECH_ONLY"
+      ],
+      "speech_si_sdr_db": 34.25,
+      "max_amp": 0.5649
+    },
+    "suite_5_reference_speech_leakage": {
+      "passed": true,
+      "leakage_sweep": [
+        {
+          "leakage_level_db": -30,
+          "out_si_sdr_db": -4.46,
+          "out_stoi": 0.3236,
+          "attenuation_db": 0.06,
+          "stable": true
+        },
+        {
+          "leakage_level_db": -20,
+          "out_si_sdr_db": -4.68,
+          "out_stoi": 0.3101,
+          "attenuation_db": -0.04,
+          "stable": true
+        },
+        {
+          "leakage_level_db": -10,
+          "out_si_sdr_db": -5.49,
+          "out_stoi": 0.2662,
+          "attenuation_db": -0.35,
+          "stable": true
+        },
+        {
+          "leakage_level_db": -6,
+          "out_si_sdr_db": -6.32,
+          "out_stoi": 0.2292,
+          "attenuation_db": -0.58,
+          "stable": true
+        },
+        {
+          "leakage_level_db": -3,
+          "out_si_sdr_db": -7.42,
+          "out_stoi": 0.1915,
+          "attenuation_db": -0.78,
+          "stable": true
+        }
+      ]
+    },
+    "suite_6_extreme_silence_stability": {
+      "passed": true,
+      "duration_sec": 10.0,
+      "hops_processed": 1250,
+      "max_drift": 0.0,
+      "mean_dc_offset": 0.0
+    },
+    "suite_7_amplitude_extremes_and_clipping": {
+      "passed": true,
+      "conditions": [
+        {
+          "condition": "nominal_0dbfs",
+          "input_scale": 1.0,
+          "max_output": 0.4032,
+          "has_nan": false,
+          "bounded_under_0_99": true
+        },
+        {
+          "condition": "overdrive_plus_6dbfs",
+          "input_scale": 2.0,
+          "max_output": 0.56,
+          "has_nan": false,
+          "bounded_under_0_99": true
+        },
+        {
+          "condition": "extreme_plus_12dbfs",
+          "input_scale": 4.0,
+          "max_output": 0.5938,
+          "has_nan": false,
+          "bounded_under_0_99": true
+        },
+        {
+          "condition": "quiet_minus_60dbfs",
+          "input_scale": 0.001,
+          "max_output": 0.0004,
+          "has_nan": false,
+          "bounded_under_0_99": true
+        }
+      ]
+    },
+    "suite_8_channel_skew_and_delay_jitter": {
+      "passed": true,
+      "delays": [
+        {
+          "delay_samples": -8,
+          "delay_ms": -0.5,
+          "out_si_sdr_db": -0.72,
+          "max_amp": 0.2374,
+          "stable": true
+        },
+        {
+          "delay_samples": -4,
+          "delay_ms": -0.25,
+          "out_si_sdr_db": 2.16,
+          "max_amp": 0.2082,
+          "stable": true
+        },
+        {
+          "delay_samples": 0,
+          "delay_ms": 0.0,
+          "out_si_sdr_db": 1.82,
+          "max_amp": 0.2132,
+          "stable": true
+        },
+        {
+          "delay_samples": 4,
+          "delay_ms": 0.25,
+          "out_si_sdr_db": -1.51,
+          "max_amp": 0.2353,
+          "stable": true
+        },
+        {
+          "delay_samples": 8,
+          "delay_ms": 0.5,
+          "out_si_sdr_db": -4.6,
+          "max_amp": 0.2721,
+          "stable": true
+        },
+        {
+          "delay_samples": 16,
+          "delay_ms": 1.0,
+          "out_si_sdr_db": -8.81,
+          "max_amp": 0.3398,
+          "stable": true
+        }
+      ]
+    },
+    "suite_9_malformed_edge_inputs": {
+      "passed": true,
+      "has_nan": false,
+      "has_inf": false,
+      "recovered": true
+    },
+    "suite_10_long_duration_sustained_streaming": {
+      "passed": true,
+      "total_hops": 7500,
+      "duration_audio_sec": 60.0,
+      "wall_time_sec": 23.47,
+      "latency_percentiles_ms": {
+        "p50": 3.068,
+        "p95": 3.744,
+        "p99": 3.91,
+        "p99_9": 4.424,
+        "max": 6.63,
+        "mean": 3.117
+      },
+      "rtf": {
+        "rtf_p50": 0.3835,
+        "rtf_p95": 0.4681
+      },
+      "memory_rss_mb": {
+        "hop_0": 345.2890625,
+        "hop_1000": 345.30078125,
+        "hop_2500": 345.2421875,
+        "hop_5000": 341.4921875,
+        "hop_7500": 341.6796875
+      },
+      "rss_growth_mb": -3.61,
+      "no_memory_leak": true
+    },
+    "suite_11_state_reset_determinism": {
+      "passed": true,
+      "max_difference": 0.0
+    },
+    "suite_12_batch_vs_streaming_consistency": {
+      "passed": true,
+      "max_difference": 0.0,
+      "hops_evaluated": 249
+    }
+  }
+}

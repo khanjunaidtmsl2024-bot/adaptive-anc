@@ -1,0 +1,74 @@
+{
+  "timestamp": "2026-09-09 10:19:28",
+  "platform": "win32",
+  "sample_rate": 16000,
+  "chunk_size": 256,
+  "phases": {
+    "PH5.1": {
+      "status": "PASSED",
+      "input_device": "Microphone Array (Realtek(R) Au",
+      "input_device_index": 1,
+      "output_device": "Speaker / Headphone (Realtek(R)",
+      "output_device_index": 5
+    },
+    "PH5.2": {
+      "status": "PASSED",
+      "p50_latency_ms": 174.31621344723933,
+      "p95_latency_ms": 174.50023869520368,
+      "min_latency_ms": 173.8168162125141,
+      "max_latency_ms": 174.50426086275016,
+      "std_latency_ms": 0.275036497696937,
+      "mean_correlation": 0.7864422256519447,
+      "trials_ms": [
+        174.31621344723933,
+        173.8168162125141,
+        174.48415002501773,
+        174.50426086275016,
+        173.98370146918637
+      ]
+    },
+    "PH5.3": {
+      "status": "PASSED",
+      "transport_delay_ms": 173.625,
+      "transport_delay_samples": 2778,
+      "ir_snr_db": 30.148081746098576,
+      "onset_index": 18777,
+      "filter_taps": 128
+    },
+    "PH5.4": {
+      "status": "MARGINAL",
+      "mean_pairwise_correlation": 0.3154431402683258,
+      "min_pairwise_correlation": -0.6849464774131775,
+      "anc_band_mean_std_db": 3.30039381980896,
+      "repeatability_passed": false,
+      "pairwise_correlations": [
+        0.9958186149597168,
+        0.9468762874603271,
+        -0.6849464774131775,
+        0.9450929164886475,
+        0.9454144835472107,
+        -0.6710143685340881,
+        0.9427865743637085,
+        -0.6313855648040771,
+        0.9981584548950195,
+        -0.6323695182800293
+      ]
+    },
+    "PH5.5": {
+      "status": "PASSED",
+      "ambient_rms": 0.00547206262226565,
+      "ambient_peak": 0.02948088012635708,
+      "metric_description": "measured acoustic level at the error microphone (relative to digital FS)"
+    },
+    "PH5.6": {
+      "status": "FAIL",
+      "test_frequency_hz": 200.0,
+      "snr_db": 19.795358248828567,
+      "inversion_correlation": -0.11386421322822571,
+      "polarity_verified": false,
+      "model_match_correlation": 0.2061452716588974,
+      "thd_percent": 196.84326210121182,
+      "hardware_integrity_passed": false
+    }
+  }
+}

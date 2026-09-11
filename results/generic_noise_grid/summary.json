@@ -1,0 +1,243 @@
+{
+  "protocol_source": "https://github.com/ichigo137/anc (generate_dataset.py + evaluate.py)",
+  "engine": "CausalStreamingEngine VSS-NLMS + E2_causal.onnx (256/128, center=False, strict causal)",
+  "clean_clips": [
+    "data/v4/clean/SPK_009_clean.wav",
+    "data/v4/clean/SPK_010_clean.wav"
+  ],
+  "reference_delay_samples": 4,
+  "noise_types": [
+    "hum",
+    "pink",
+    "white",
+    "impulsive"
+  ],
+  "snr_levels": [
+    -5,
+    0,
+    5,
+    10,
+    15,
+    20
+  ],
+  "variants": [
+    "NOISY",
+    "NLMS_ONLY",
+    "FULL"
+  ],
+  "metric_provenance": {
+    "python_version": "3.11.9",
+    "numpy_version": "2.4.6",
+    "torch_version": "2.14.0+cpu",
+    "pesq_available": true,
+    "pesq_version": "0.0.4",
+    "pystoi_available": true,
+    "pystoi_version": "0.4.1"
+  },
+  "noise_type_breakdown": {
+    "hum": {
+      "NOISY": {
+        "mean_delta_snr_db": 0.0,
+        "mean_si_sdr_db": 7.5,
+        "mean_stoi": 0.929,
+        "mean_pesq": 1.58
+      },
+      "NLMS_ONLY": {
+        "mean_delta_snr_db": 7.84,
+        "mean_si_sdr_db": 15.31,
+        "mean_stoi": 0.92,
+        "mean_pesq": 1.9
+      },
+      "FULL": {
+        "mean_delta_snr_db": -9.05,
+        "mean_si_sdr_db": -24.34,
+        "mean_stoi": 0.845,
+        "mean_pesq": 1.84
+      }
+    },
+    "pink": {
+      "NOISY": {
+        "mean_delta_snr_db": 0.0,
+        "mean_si_sdr_db": 7.71,
+        "mean_stoi": 0.777,
+        "mean_pesq": 1.18
+      },
+      "NLMS_ONLY": {
+        "mean_delta_snr_db": 2.86,
+        "mean_si_sdr_db": 10.36,
+        "mean_stoi": 0.774,
+        "mean_pesq": 1.17
+      },
+      "FULL": {
+        "mean_delta_snr_db": -9.4,
+        "mean_si_sdr_db": -23.72,
+        "mean_stoi": 0.729,
+        "mean_pesq": 1.18
+      }
+    },
+    "white": {
+      "NOISY": {
+        "mean_delta_snr_db": 0.0,
+        "mean_si_sdr_db": 7.5,
+        "mean_stoi": 0.776,
+        "mean_pesq": 1.07
+      },
+      "NLMS_ONLY": {
+        "mean_delta_snr_db": -0.02,
+        "mean_si_sdr_db": 7.48,
+        "mean_stoi": 0.776,
+        "mean_pesq": 1.07
+      },
+      "FULL": {
+        "mean_delta_snr_db": -9.71,
+        "mean_si_sdr_db": -24.4,
+        "mean_stoi": 0.736,
+        "mean_pesq": 1.08
+      }
+    },
+    "impulsive": {
+      "NOISY": {
+        "mean_delta_snr_db": 0.0,
+        "mean_si_sdr_db": 7.5,
+        "mean_stoi": 0.734,
+        "mean_pesq": 1.07
+      },
+      "NLMS_ONLY": {
+        "mean_delta_snr_db": 0.12,
+        "mean_si_sdr_db": 7.7,
+        "mean_stoi": 0.734,
+        "mean_pesq": 1.07
+      },
+      "FULL": {
+        "mean_delta_snr_db": -10.29,
+        "mean_si_sdr_db": -24.72,
+        "mean_stoi": 0.684,
+        "mean_pesq": 1.08
+      }
+    }
+  },
+  "snr_breakdown": {
+    "-5": {
+      "NOISY": {
+        "mean_delta_snr_db": 0.0,
+        "mean_si_sdr_db": -5.02,
+        "mean_stoi": 0.638,
+        "mean_pesq": 1.04
+      },
+      "NLMS_ONLY": {
+        "mean_delta_snr_db": 4.39,
+        "mean_si_sdr_db": -0.57,
+        "mean_stoi": 0.632,
+        "mean_pesq": 1.09
+      },
+      "FULL": {
+        "mean_delta_snr_db": 1.02,
+        "mean_si_sdr_db": -27.77,
+        "mean_stoi": 0.598,
+        "mean_pesq": 1.1
+      }
+    },
+    "+0": {
+      "NOISY": {
+        "mean_delta_snr_db": 0.0,
+        "mean_si_sdr_db": 0.02,
+        "mean_stoi": 0.724,
+        "mean_pesq": 1.06
+      },
+      "NLMS_ONLY": {
+        "mean_delta_snr_db": 3.84,
+        "mean_si_sdr_db": 3.87,
+        "mean_stoi": 0.719,
+        "mean_pesq": 1.13
+      },
+      "FULL": {
+        "mean_delta_snr_db": -2.34,
+        "mean_si_sdr_db": -25.55,
+        "mean_stoi": 0.687,
+        "mean_pesq": 1.15
+      }
+    },
+    "+5": {
+      "NOISY": {
+        "mean_delta_snr_db": 0.0,
+        "mean_si_sdr_db": 5.09,
+        "mean_stoi": 0.794,
+        "mean_pesq": 1.1
+      },
+      "NLMS_ONLY": {
+        "mean_delta_snr_db": 3.45,
+        "mean_si_sdr_db": 8.47,
+        "mean_stoi": 0.792,
+        "mean_pesq": 1.2
+      },
+      "FULL": {
+        "mean_delta_snr_db": -6.77,
+        "mean_si_sdr_db": -23.49,
+        "mean_stoi": 0.745,
+        "mean_pesq": 1.21
+      }
+    },
+    "+10": {
+      "NOISY": {
+        "mean_delta_snr_db": 0.0,
+        "mean_si_sdr_db": 10.1,
+        "mean_stoi": 0.849,
+        "mean_pesq": 1.18
+      },
+      "NLMS_ONLY": {
+        "mean_delta_snr_db": 2.57,
+        "mean_si_sdr_db": 12.56,
+        "mean_stoi": 0.847,
+        "mean_pesq": 1.29
+      },
+      "FULL": {
+        "mean_delta_snr_db": -11.55,
+        "mean_si_sdr_db": -23.09,
+        "mean_stoi": 0.795,
+        "mean_pesq": 1.3
+      }
+    },
+    "+15": {
+      "NOISY": {
+        "mean_delta_snr_db": 0.0,
+        "mean_si_sdr_db": 15.06,
+        "mean_stoi": 0.893,
+        "mean_pesq": 1.34
+      },
+      "NLMS_ONLY": {
+        "mean_delta_snr_db": 1.46,
+        "mean_si_sdr_db": 16.45,
+        "mean_stoi": 0.891,
+        "mean_pesq": 1.43
+      },
+      "FULL": {
+        "mean_delta_snr_db": -16.51,
+        "mean_si_sdr_db": -22.79,
+        "mean_stoi": 0.825,
+        "mean_pesq": 1.41
+      }
+    },
+    "+20": {
+      "NOISY": {
+        "mean_delta_snr_db": 0.0,
+        "mean_si_sdr_db": 20.05,
+        "mean_stoi": 0.927,
+        "mean_pesq": 1.62
+      },
+      "NLMS_ONLY": {
+        "mean_delta_snr_db": 0.48,
+        "mean_si_sdr_db": 20.47,
+        "mean_stoi": 0.925,
+        "mean_pesq": 1.69
+      },
+      "FULL": {
+        "mean_delta_snr_db": -21.51,
+        "mean_si_sdr_db": -23.1,
+        "mean_stoi": 0.84,
+        "mean_pesq": 1.58
+      }
+    }
+  },
+  "cells_evaluated": 144,
+  "total_time_s": 288.7
+}

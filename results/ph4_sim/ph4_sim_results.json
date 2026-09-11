@@ -1,0 +1,373 @@
+{
+  "campaign_id": "PH4_SIM_PHYSICAL_ANC_VALIDATION",
+  "timestamp_utc": "2026-09-09T02:15:45Z",
+  "verdict": "PASS",
+  "total_wall_time_sec": 26.58,
+  "attribution": "SIMULATED PHYSICAL CONTROL EXPERIMENT (Host CPU)",
+  "experiments": {
+    "exp_1_tonal_convergence": {
+      "conditions": [
+        {
+          "frequency_hz": 100.0,
+          "cancellation_db": 93.16,
+          "convergence_time_ms": 12.5,
+          "diverged": false
+        },
+        {
+          "frequency_hz": 200.0,
+          "cancellation_db": 93.69,
+          "convergence_time_ms": 12.5,
+          "diverged": false
+        },
+        {
+          "frequency_hz": 300.0,
+          "cancellation_db": 94.08,
+          "convergence_time_ms": 12.5,
+          "diverged": false
+        },
+        {
+          "frequency_hz": 500.0,
+          "cancellation_db": 93.93,
+          "convergence_time_ms": 12.5,
+          "diverged": false
+        },
+        {
+          "frequency_hz": 800.0,
+          "cancellation_db": 28.4,
+          "convergence_time_ms": 12.5,
+          "diverged": false
+        },
+        {
+          "frequency_hz": 1000.0,
+          "cancellation_db": 13.07,
+          "convergence_time_ms": 15.6,
+          "diverged": false
+        }
+      ],
+      "passed": true
+    },
+    "exp_2_phase_sensitivity_nlms_vs_fxnlms": {
+      "phase_sweep": [
+        {
+          "phase_deg": 0,
+          "nlms_cancellation_db": -14.82,
+          "nlms_diverged": false,
+          "fxnlms_cancellation_db": 73.98,
+          "fxnlms_diverged": false
+        },
+        {
+          "phase_deg": 30,
+          "nlms_cancellation_db": -14.7,
+          "nlms_diverged": false,
+          "fxnlms_cancellation_db": 73.97,
+          "fxnlms_diverged": false
+        },
+        {
+          "phase_deg": 60,
+          "nlms_cancellation_db": -13.77,
+          "nlms_diverged": false,
+          "fxnlms_cancellation_db": 73.98,
+          "fxnlms_diverged": false
+        },
+        {
+          "phase_deg": 90,
+          "nlms_cancellation_db": 97.43,
+          "nlms_diverged": false,
+          "fxnlms_cancellation_db": 73.98,
+          "fxnlms_diverged": false
+        },
+        {
+          "phase_deg": 120,
+          "nlms_cancellation_db": -13.05,
+          "nlms_diverged": false,
+          "fxnlms_cancellation_db": 73.98,
+          "fxnlms_diverged": false
+        },
+        {
+          "phase_deg": 150,
+          "nlms_cancellation_db": -15.1,
+          "nlms_diverged": false,
+          "fxnlms_cancellation_db": 73.98,
+          "fxnlms_diverged": false
+        },
+        {
+          "phase_deg": 180,
+          "nlms_cancellation_db": -14.84,
+          "nlms_diverged": false,
+          "fxnlms_cancellation_db": 73.99,
+          "fxnlms_diverged": false
+        }
+      ],
+      "passed": true
+    },
+    "exp_3_uncertainty_matrix": {
+      "uncertainty_matrix": [
+        {
+          "mismatch_percent": 0.0,
+          "cancellation_db": 18.22,
+          "diverged": false,
+          "steady_state_error_power": 0.0005348008718097041
+        },
+        {
+          "mismatch_percent": 5.0,
+          "cancellation_db": 18.24,
+          "diverged": false,
+          "steady_state_error_power": 0.0005320814680994878
+        },
+        {
+          "mismatch_percent": 10.0,
+          "cancellation_db": 18.26,
+          "diverged": false,
+          "steady_state_error_power": 0.0005294358717033098
+        },
+        {
+          "mismatch_percent": 20.0,
+          "cancellation_db": 18.3,
+          "diverged": false,
+          "steady_state_error_power": 0.0005244744253100285
+        },
+        {
+          "mismatch_percent": 30.0,
+          "cancellation_db": 18.34,
+          "diverged": false,
+          "steady_state_error_power": 0.000520095055525882
+        },
+        {
+          "mismatch_percent": 50.0,
+          "cancellation_db": 18.39,
+          "diverged": false,
+          "steady_state_error_power": 0.0005141586308123002
+        }
+      ],
+      "passed": true
+    },
+    "exp_4_dynamic_seal_break": {
+      "pre_leak_cancellation_db": 19.88,
+      "post_leak_cancellation_db": -5.66,
+      "diverged": false,
+      "passed": true
+    },
+    "exp_5_stability_boundary_step_size": {
+      "step_size_sweep": [
+        {
+          "step_size_mu": 0.001,
+          "cancellation_db": 7.65,
+          "diverged": false,
+          "stable": true
+        },
+        {
+          "step_size_mu": 0.005,
+          "cancellation_db": 15.25,
+          "diverged": false,
+          "stable": true
+        },
+        {
+          "step_size_mu": 0.01,
+          "cancellation_db": 18.2,
+          "diverged": false,
+          "stable": true
+        },
+        {
+          "step_size_mu": 0.02,
+          "cancellation_db": 19.41,
+          "diverged": false,
+          "stable": true
+        },
+        {
+          "step_size_mu": 0.05,
+          "cancellation_db": 19.62,
+          "diverged": false,
+          "stable": true
+        },
+        {
+          "step_size_mu": 0.1,
+          "cancellation_db": 14.92,
+          "diverged": false,
+          "stable": true
+        },
+        {
+          "step_size_mu": 0.2,
+          "cancellation_db": -42.99,
+          "diverged": false,
+          "stable": false
+        },
+        {
+          "step_size_mu": 0.5,
+          "cancellation_db": 0.0,
+          "diverged": true,
+          "stable": false
+        },
+        {
+          "step_size_mu": 1.0,
+          "cancellation_db": 0.0,
+          "diverged": true,
+          "stable": false
+        }
+      ],
+      "mu_max_stable": 0.1,
+      "passed": true
+    },
+    "exp_6_multi_noise_profiles": {
+      "profiles": [
+        {
+          "noise_profile": "stat_tonal_hum",
+          "cancellation_db": 30.04,
+          "diverged": false
+        },
+        {
+          "noise_profile": "stat_pink",
+          "cancellation_db": 14.82,
+          "diverged": false
+        },
+        {
+          "noise_profile": "nonstat_engine_mod",
+          "cancellation_db": 14.71,
+          "diverged": false
+        },
+        {
+          "noise_profile": "nonstat_rotor_mod",
+          "cancellation_db": 19.54,
+          "diverged": false
+        },
+        {
+          "noise_profile": "impulse_gunfire_burst",
+          "cancellation_db": 15.47,
+          "diverged": false
+        }
+      ],
+      "passed": true
+    },
+    "exp_7_control_bandwidth_spectrum": {
+      "spectrum": [
+        {
+          "freq_hz": 50,
+          "cancellation_db": 72.68
+        },
+        {
+          "freq_hz": 100,
+          "cancellation_db": 73.08
+        },
+        {
+          "freq_hz": 150,
+          "cancellation_db": 74.53
+        },
+        {
+          "freq_hz": 200,
+          "cancellation_db": 73.65
+        },
+        {
+          "freq_hz": 250,
+          "cancellation_db": 73.98
+        },
+        {
+          "freq_hz": 300,
+          "cancellation_db": 74.04
+        },
+        {
+          "freq_hz": 400,
+          "cancellation_db": 74.14
+        },
+        {
+          "freq_hz": 500,
+          "cancellation_db": 73.98
+        },
+        {
+          "freq_hz": 700,
+          "cancellation_db": 74.12
+        },
+        {
+          "freq_hz": 1000,
+          "cancellation_db": 13.07
+        },
+        {
+          "freq_hz": 1500,
+          "cancellation_db": 73.98
+        },
+        {
+          "freq_hz": 2000,
+          "cancellation_db": 73.97
+        }
+      ],
+      "core_band_avg_db": 73.91,
+      "passed": true
+    },
+    "exp_8_sensor_noise_sensitivity": {
+      "sensor_sweep": [
+        {
+          "sensor_snr_db": "inf",
+          "cancellation_db": 73.97
+        },
+        {
+          "sensor_snr_db": 40.0,
+          "cancellation_db": 39.99
+        },
+        {
+          "sensor_snr_db": 30.0,
+          "cancellation_db": 29.95
+        },
+        {
+          "sensor_snr_db": 20.0,
+          "cancellation_db": 20.06
+        },
+        {
+          "sensor_snr_db": 10.0,
+          "cancellation_db": 10.39
+        }
+      ],
+      "passed": true
+    },
+    "exp_9_supervisory_ai_speech_protection": {
+      "unsupervised_speech_attenuation_db": -2.17,
+      "supervised_speech_attenuation_db": -1.95,
+      "frozen_hops": 50,
+      "passed": true
+    },
+    "exp_10_transport_delay_limits": {
+      "delay_sweep": [
+        {
+          "delay_samples": 1,
+          "latency_ms": 0.062,
+          "cancellation_db": 20.76,
+          "diverged": false
+        },
+        {
+          "delay_samples": 2,
+          "latency_ms": 0.125,
+          "cancellation_db": 20.1,
+          "diverged": false
+        },
+        {
+          "delay_samples": 4,
+          "latency_ms": 0.25,
+          "cancellation_db": 14.98,
+          "diverged": false
+        },
+        {
+          "delay_samples": 8,
+          "latency_ms": 0.5,
+          "cancellation_db": 7.18,
+          "diverged": false
+        },
+        {
+          "delay_samples": 12,
+          "latency_ms": 0.75,
+          "cancellation_db": 3.59,
+          "diverged": false
+        },
+        {
+          "delay_samples": 16,
+          "latency_ms": 1.0,
+          "cancellation_db": 1.33,
+          "diverged": false
+        },
+        {
+          "delay_samples": 24,
+          "latency_ms": 1.5,
+          "cancellation_db": -0.96,
+          "diverged": false
+        }
+      ],
+      "passed": true
+    }
+  }
+}

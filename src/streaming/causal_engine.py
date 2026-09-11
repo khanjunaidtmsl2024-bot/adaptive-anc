@@ -78,8 +78,30 @@ class CausalStreamingEngine:
 
         self.regime_detector = NoiseRegimeDetector(sample_rate=sample_rate, frame_size=frame_size)
 
-        # AI backend
-        self.ai_backend = ai_backend if ai_backend is not None else TinyEnhancerWrapper()
+        # AI backend resolution:
+        # Explicitly accepts:
+        #   - "onnx"    : High-speed ONNX Runtime backend (E2_causal.onnx) for embedded deployment.
+        #   - "pytorch" : Standard PyTorch eager execution backend (TinyEnhancerWrapper).
+        #   - "none"    : Pure DSP mode (no neural spectral masking).
+        #   - instance  : Custom duck-typed backend with enhance_spectrogram(mag, phase) method.
+        # Defaults to "pytorch" for backward compatibility and arbitrary frame sizes.
+        if isinstance(ai_backend, str):
+            backend_key = ai_backend.lower().strip()
+            if backend_key == "onnx":
+                from src.ai.tiny_enhancer import TinyEnhancerONNXWrapper
+                self.ai_backend = TinyEnhancerONNXWrapper()
+            elif backend_key == "pytorch":
+                self.ai_backend = TinyEnhancerWrapper()
+            elif backend_key == "none":
+                self.ai_backend = None
+            else:
+                raise ValueError(
+                    f"Unknown ai_backend '{ai_backend}'. Valid options are 'onnx', 'pytorch', 'none', or a backend instance."
+                )
+        elif ai_backend is not None:
+            self.ai_backend = ai_backend
+        else:
+            self.ai_backend = TinyEnhancerWrapper()
 
         # Streaming buffers
         self.input_buf_primary = np.zeros(frame_size, dtype=np.float32)
@@ -238,10 +260,8 @@ class CausalStreamingEngine:
             output[start:start + self.hop_size] = out_hop
             regime_log.append(diag["regime"])
 
-        # Peak-limit
-        peak = np.max(np.abs(output)) + 1e-12
-        if peak > 0.98:
-            output = output * 0.98 / peak
+        # Peak-limit causally (sample-wise clipping, no future normalization)
+        output = np.clip(output, -0.98, 0.98)
 
         # Aggregate stats
         latencies = np.array(self.latency_samples) if self.latency_samples else np.array([0.0])

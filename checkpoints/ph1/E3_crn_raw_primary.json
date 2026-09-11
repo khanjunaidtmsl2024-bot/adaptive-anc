@@ -1,0 +1,39 @@
+{
+  "timestamp_utc": "2026-09-07T03:58:43.765616+00:00",
+  "model_class": "CRNNet",
+  "model_parameter_count": 723801,
+  "checkpoint_path": "F:\\SIH 2026\\checkpoints\\ph1\\E3_crn_raw_primary.pt",
+  "checkpoint_sha256": "55d4f527b74cf7790dc1ffbdfb444872d5936597c8c791b7977a72e194b9f17e",
+  "seed": 42,
+  "epochs": 20,
+  "lr": 0.0005,
+  "frame_size": 256,
+  "hop_size": 128,
+  "alpha": 0.7,
+  "device": "cpu",
+  "metadata_csv": "F:\\SIH 2026\\data\\v4\\metadata\\metadata_v4.csv",
+  "train_split": "TRAIN",
+  "train_samples": 56,
+  "train_speakers": [
+    "SPK_001",
+    "SPK_002",
+    "SPK_003",
+    "SPK_004",
+    "SPK_005",
+    "SPK_006",
+    "SPK_007",
+    "SPK_008"
+  ],
+  "val_split": "TEST_A_UNSEEN_SPEAKER",
+  "val_samples": 18,
+  "val_speakers": [
+    "SPK_009",
+    "SPK_010"
+  ],
+  "final_train_loss": -4.208315022821937,
+  "final_val_loss": 0.25306197504202527,
+  "torch_version": "2.9.0+cpu",
+  "training_input": "RAW_PRIMARY",
+  "deployment_input": "NLMS_RESIDUAL",
+  "input_contract_status": "EXPERIMENT_A_RAW_PRIMARY"
+}

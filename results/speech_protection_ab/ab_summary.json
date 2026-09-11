@@ -1,0 +1,576 @@
+{
+  "clean_speech": {
+    "baseline_att_db": -3.71,
+    "protected_att_db": -2.05,
+    "baseline_si_sdr": 18.09,
+    "protected_si_sdr": 18.15,
+    "baseline_stoi": 0.9884,
+    "protected_stoi": 0.9819,
+    "baseline_pesq": 4.4398,
+    "protected_pesq": 4.4426,
+    "delta_att_db": 1.66
+  },
+  "splits": {
+    "TEST_A_UNSEEN_SPEAKER": {
+      "count": 18,
+      "input_snr_db": 0.8372222222222222,
+      "baseline": {
+        "out_snr": 5.84,
+        "delta_snr": 5.0,
+        "si_sdr": 8.91,
+        "stoi": 0.7737,
+        "pesq": 1.2008,
+        "clipping": 8,
+        "nonfinite": 0
+      },
+      "protected": {
+        "out_snr": 6.8,
+        "delta_snr": 5.97,
+        "si_sdr": 9.14,
+        "stoi": 0.7909,
+        "pesq": 1.1411,
+        "clipping": 8,
+        "nonfinite": 0
+      },
+      "delta": {
+        "out_snr": 0.96,
+        "delta_snr": 0.96,
+        "si_sdr": 0.23,
+        "stoi": 0.0172,
+        "pesq": -0.0597
+      }
+    },
+    "TEST_B_UNSEEN_NOISE_REC": {
+      "count": 208,
+      "input_snr_db": 3.6115384615384616,
+      "baseline": {
+        "out_snr": 4.8,
+        "delta_snr": 1.19,
+        "si_sdr": 9.25,
+        "stoi": 0.8764,
+        "pesq": 1.6391,
+        "clipping": 205,
+        "nonfinite": 0
+      },
+      "protected": {
+        "out_snr": 5.67,
+        "delta_snr": 2.06,
+        "si_sdr": 9.21,
+        "stoi": 0.8848,
+        "pesq": 1.5585,
+        "clipping": 186,
+        "nonfinite": 0
+      },
+      "delta": {
+        "out_snr": 0.87,
+        "delta_snr": 0.87,
+        "si_sdr": -0.04,
+        "stoi": 0.0084,
+        "pesq": -0.0806
+      }
+    },
+    "TEST_C_UNSEEN_NOISE_CATEGORY": {
+      "count": 20,
+      "input_snr_db": 3.28,
+      "baseline": {
+        "out_snr": 7.7,
+        "delta_snr": 4.42,
+        "si_sdr": 13.55,
+        "stoi": 0.9019,
+        "pesq": 2.4661,
+        "clipping": 0,
+        "nonfinite": 0
+      },
+      "protected": {
+        "out_snr": 10.14,
+        "delta_snr": 6.86,
+        "si_sdr": 13.8,
+        "stoi": 0.9081,
+        "pesq": 2.5437,
+        "clipping": 0,
+        "nonfinite": 0
+      },
+      "delta": {
+        "out_snr": 2.44,
+        "delta_snr": 2.44,
+        "si_sdr": 0.25,
+        "stoi": 0.0062,
+        "pesq": 0.0776
+      }
+    }
+  },
+  "regimes": {
+    "STATIONARY": {
+      "count": 48,
+      "baseline": {
+        "out_snr": 5.77,
+        "delta_snr": 3.11,
+        "si_sdr": 11.24,
+        "stoi": 0.9041,
+        "pesq": 2.7124,
+        "clipping": 28
+      },
+      "protected": {
+        "out_snr": 7.05,
+        "delta_snr": 4.39,
+        "si_sdr": 11.02,
+        "stoi": 0.9106,
+        "pesq": 2.672,
+        "clipping": 26
+      },
+      "delta": {
+        "out_snr": 1.28,
+        "delta_snr": 1.28,
+        "si_sdr": -0.23,
+        "stoi": 0.0065,
+        "pesq": -0.0404
+      }
+    },
+    "PERIODIC_ROTOR": {
+      "count": 14,
+      "baseline": {
+        "out_snr": 6.66,
+        "delta_snr": 1.3,
+        "si_sdr": 13.06,
+        "stoi": 0.861,
+        "pesq": 1.584,
+        "clipping": 1
+      },
+      "protected": {
+        "out_snr": 7.96,
+        "delta_snr": 2.6,
+        "si_sdr": 12.7,
+        "stoi": 0.8721,
+        "pesq": 1.4185,
+        "clipping": 1
+      },
+      "delta": {
+        "out_snr": 1.3,
+        "delta_snr": 1.3,
+        "si_sdr": -0.36,
+        "stoi": 0.011,
+        "pesq": -0.1655
+      }
+    },
+    "NON_STATIONARY": {
+      "count": 100,
+      "baseline": {
+        "out_snr": 5.27,
+        "delta_snr": 2.4,
+        "si_sdr": 7.5,
+        "stoi": 0.8522,
+        "pesq": 1.3045,
+        "clipping": 184
+      },
+      "protected": {
+        "out_snr": 6.18,
+        "delta_snr": 3.31,
+        "si_sdr": 7.71,
+        "stoi": 0.8644,
+        "pesq": 1.2214,
+        "clipping": 167
+      },
+      "delta": {
+        "out_snr": 0.91,
+        "delta_snr": 0.91,
+        "si_sdr": 0.21,
+        "stoi": 0.0122,
+        "pesq": -0.0831
+      }
+    },
+    "IMPULSIVE_DEFENCE": {
+      "count": 20,
+      "baseline": {
+        "out_snr": 7.7,
+        "delta_snr": 4.42,
+        "si_sdr": 13.55,
+        "stoi": 0.9019,
+        "pesq": 2.4661,
+        "clipping": 0
+      },
+      "protected": {
+        "out_snr": 10.14,
+        "delta_snr": 6.86,
+        "si_sdr": 13.8,
+        "stoi": 0.9081,
+        "pesq": 2.5437,
+        "clipping": 0
+      },
+      "delta": {
+        "out_snr": 2.44,
+        "delta_snr": 2.44,
+        "si_sdr": 0.25,
+        "stoi": 0.0062,
+        "pesq": 0.0776
+      }
+    },
+    "IMPULSIVE": {
+      "count": 64,
+      "baseline": {
+        "out_snr": 3.23,
+        "delta_snr": -1.09,
+        "si_sdr": 9.56,
+        "stoi": 0.868,
+        "pesq": 1.2459,
+        "clipping": 0
+      },
+      "protected": {
+        "out_snr": 3.67,
+        "delta_snr": -0.65,
+        "si_sdr": 9.42,
+        "stoi": 0.8737,
+        "pesq": 1.1633,
+        "clipping": 0
+      },
+      "delta": {
+        "out_snr": 0.44,
+        "delta_snr": 0.44,
+        "si_sdr": -0.14,
+        "stoi": 0.0057,
+        "pesq": -0.0825
+      }
+    }
+  },
+  "noise_classes": {
+    "artillery_blast_dhanush": {
+      "count": 10,
+      "baseline": {
+        "si_sdr": 13.97,
+        "stoi": 0.908,
+        "delta_snr": 4.81,
+        "pesq": 2.9276
+      },
+      "protected": {
+        "si_sdr": 14.25,
+        "stoi": 0.9111,
+        "delta_snr": 7.4,
+        "pesq": 3.0335
+      },
+      "delta": {
+        "si_sdr": 0.28,
+        "stoi": 0.0031,
+        "delta_snr": 2.59
+      }
+    },
+    "artillery_broadband_blast": {
+      "count": 32,
+      "baseline": {
+        "si_sdr": 10.59,
+        "stoi": 0.8964,
+        "delta_snr": 0.42,
+        "pesq": 1.221
+      },
+      "protected": {
+        "si_sdr": 10.27,
+        "stoi": 0.8996,
+        "delta_snr": 0.98,
+        "pesq": 1.1445
+      },
+      "delta": {
+        "si_sdr": -0.32,
+        "stoi": 0.0032,
+        "delta_snr": 0.56
+      }
+    },
+    "diesel_idle_apc": {
+      "count": 2,
+      "baseline": {
+        "si_sdr": 7.48,
+        "stoi": 0.7611,
+        "delta_snr": 2.75,
+        "pesq": 1.1597
+      },
+      "protected": {
+        "si_sdr": 7.98,
+        "stoi": 0.7763,
+        "delta_snr": 3.71,
+        "pesq": 1.0907
+      },
+      "delta": {
+        "si_sdr": 0.5,
+        "stoi": 0.0152,
+        "delta_snr": 0.96
+      }
+    },
+    "drone_uav_multicopter": {
+      "count": 32,
+      "baseline": {
+        "si_sdr": 8.15,
+        "stoi": 0.8285,
+        "delta_snr": 2.35,
+        "pesq": 1.2727
+      },
+      "protected": {
+        "si_sdr": 8.12,
+        "stoi": 0.8598,
+        "delta_snr": 3.22,
+        "pesq": 1.1872
+      },
+      "delta": {
+        "si_sdr": -0.03,
+        "stoi": 0.0314,
+        "delta_snr": 0.87
+      }
+    },
+    "generator_hum_50hz": {
+      "count": 2,
+      "baseline": {
+        "si_sdr": 7.25,
+        "stoi": 0.7764,
+        "delta_snr": -0.11,
+        "pesq": 1.3464
+      },
+      "protected": {
+        "si_sdr": 7.71,
+        "stoi": 0.7882,
+        "delta_snr": 0.79,
+        "pesq": 1.1997
+      },
+      "delta": {
+        "si_sdr": 0.46,
+        "stoi": 0.0118,
+        "delta_snr": 0.9
+      }
+    },
+    "gunfire_transient_insas": {
+      "count": 10,
+      "baseline": {
+        "si_sdr": 13.13,
+        "stoi": 0.8958,
+        "delta_snr": 4.03,
+        "pesq": 2.0047
+      },
+      "protected": {
+        "si_sdr": 13.35,
+        "stoi": 0.9051,
+        "delta_snr": 6.31,
+        "pesq": 2.054
+      },
+      "delta": {
+        "si_sdr": 0.22,
+        "stoi": 0.0092,
+        "delta_snr": 2.29
+      }
+    },
+    "gunshot_transient_insas": {
+      "count": 32,
+      "baseline": {
+        "si_sdr": 8.52,
+        "stoi": 0.8396,
+        "delta_snr": -2.61,
+        "pesq": 1.2708
+      },
+      "protected": {
+        "si_sdr": 8.56,
+        "stoi": 0.8478,
+        "delta_snr": -2.29,
+        "pesq": 1.1822
+      },
+      "delta": {
+        "si_sdr": 0.04,
+        "stoi": 0.0082,
+        "delta_snr": 0.32
+      }
+    },
+    "helicopter_rotor_dhruv": {
+      "count": 2,
+      "baseline": {
+        "si_sdr": 14.88,
+        "stoi": 0.8719,
+        "delta_snr": -0.33,
+        "pesq": 1.5472
+      },
+      "protected": {
+        "si_sdr": 15.25,
+        "stoi": 0.8837,
+        "delta_snr": 1.51,
+        "pesq": 1.3674
+      },
+      "delta": {
+        "si_sdr": 0.38,
+        "stoi": 0.0118,
+        "delta_snr": 1.84
+      }
+    },
+    "helicopter_rotor_heldout_rec": {
+      "count": 10,
+      "baseline": {
+        "si_sdr": 12.69,
+        "stoi": 0.8651,
+        "delta_snr": 0.91,
+        "pesq": 1.6363
+      },
+      "protected": {
+        "si_sdr": 12.1,
+        "stoi": 0.8747,
+        "delta_snr": 2.1,
+        "pesq": 1.4528
+      },
+      "delta": {
+        "si_sdr": -0.59,
+        "stoi": 0.0096,
+        "delta_snr": 1.18
+      }
+    },
+    "mechanical_armoured_clatter": {
+      "count": 32,
+      "baseline": {
+        "si_sdr": 7.22,
+        "stoi": 0.836,
+        "delta_snr": 1.94,
+        "pesq": 1.1645
+      },
+      "protected": {
+        "si_sdr": 7.24,
+        "stoi": 0.843,
+        "delta_snr": 2.61,
+        "pesq": 1.1106
+      },
+      "delta": {
+        "si_sdr": 0.02,
+        "stoi": 0.0069,
+        "delta_snr": 0.67
+      }
+    },
+    "propeller_rotor_an32": {
+      "count": 2,
+      "baseline": {
+        "si_sdr": 13.07,
+        "stoi": 0.8301,
+        "delta_snr": 4.85,
+        "pesq": 1.3592
+      },
+      "protected": {
+        "si_sdr": 13.14,
+        "stoi": 0.8475,
+        "delta_snr": 6.2,
+        "pesq": 1.2982
+      },
+      "delta": {
+        "si_sdr": 0.07,
+        "stoi": 0.0173,
+        "delta_snr": 1.35
+      }
+    },
+    "tactical_siren_glide": {
+      "count": 32,
+      "baseline": {
+        "si_sdr": 6.96,
+        "stoi": 0.9032,
+        "delta_snr": 2.26,
+        "pesq": 1.5045
+      },
+      "protected": {
+        "si_sdr": 7.61,
+        "stoi": 0.9003,
+        "delta_snr": 3.44,
+        "pesq": 1.3865
+      },
+      "delta": {
+        "si_sdr": 0.65,
+        "stoi": -0.0029,
+        "delta_snr": 1.18
+      }
+    },
+    "tactical_siren_sweep": {
+      "count": 2,
+      "baseline": {
+        "si_sdr": 11.14,
+        "stoi": 0.7894,
+        "delta_snr": 9.72,
+        "pesq": 1.1071
+      },
+      "protected": {
+        "si_sdr": 11.07,
+        "stoi": 0.8123,
+        "delta_snr": 10.72,
+        "pesq": 1.0857
+      },
+      "delta": {
+        "si_sdr": -0.07,
+        "stoi": 0.0229,
+        "delta_snr": 1.0
+      }
+    },
+    "tank_engine_heldout_rec": {
+      "count": 10,
+      "baseline": {
+        "si_sdr": 9.49,
+        "stoi": 0.7881,
+        "delta_snr": 5.08,
+        "pesq": 1.0952
+      },
+      "protected": {
+        "si_sdr": 9.3,
+        "stoi": 0.8126,
+        "delta_snr": 5.6,
+        "pesq": 1.0762
+      },
+      "delta": {
+        "si_sdr": -0.19,
+        "stoi": 0.0245,
+        "delta_snr": 0.51
+      }
+    },
+    "tank_engine_t90": {
+      "count": 2,
+      "baseline": {
+        "si_sdr": 4.13,
+        "stoi": 0.6769,
+        "delta_snr": 6.1,
+        "pesq": 1.0489
+      },
+      "protected": {
+        "si_sdr": 4.42,
+        "stoi": 0.6915,
+        "delta_snr": 6.86,
+        "pesq": 1.0332
+      },
+      "delta": {
+        "si_sdr": 0.29,
+        "stoi": 0.0146,
+        "delta_snr": 0.76
+      }
+    },
+    "vehicle_acceleration_track": {
+      "count": 2,
+      "baseline": {
+        "si_sdr": 6.84,
+        "stoi": 0.7393,
+        "delta_snr": 5.5,
+        "pesq": 1.0517
+      },
+      "protected": {
+        "si_sdr": 7.14,
+        "stoi": 0.7581,
+        "delta_snr": 6.29,
+        "pesq": 1.036
+      },
+      "delta": {
+        "si_sdr": 0.3,
+        "stoi": 0.0187,
+        "delta_snr": 0.79
+      }
+    },
+    "wind_turbulent_field": {
+      "count": 32,
+      "baseline": {
+        "si_sdr": 12.72,
+        "stoi": 0.9715,
+        "delta_snr": 2.53,
+        "pesq": 3.5042
+      },
+      "protected": {
+        "si_sdr": 12.36,
+        "stoi": 0.971,
+        "delta_snr": 4.13,
+        "pesq": 3.4639
+      },
+      "delta": {
+        "si_sdr": -0.36,
+        "stoi": -0.0005,
+        "delta_snr": 1.6
+      }
+    }
+  }
+}
